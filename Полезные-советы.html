@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ru">                    
+  <head>
+    <meta charset="utf-8">
+    <title>Полезные советы linux</title>
+     <meta name="description" content="Собраны полезные советы для Linux, которые могут понадобиться в процессе работы.">
+     <meta name="keywords" content="virtualbox,skype,pulseaudio,keepass,keepass русский,swap,Утилита e2fsck,Сохранение слоя в GIMP,Сжимаем .pdf,Сжимаем .jpeg,Сжимаем .png,логи,logrotate,конвертер HEIK,split,Memtest86+,OpenSSL,SONY CMU-BR200,AdBlock,AdGuard">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Rain/rain.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Здоровый сон не только продлевает жизнь, но и сокращает рабочее время!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="операционная система"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul> 
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="логи"></div>
+     </noscript>
+          <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul> 
+		<div id="content" class="content">
+     <p class="proverbs">"Существует только один босс, и это покупатель. Он может уволить любого сотрудника компании вплоть до директора, просто потратив деньги в другой компании." Сэм Уолтон</p>
+   </div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+          <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <li class="p1"><a class="white aS" href="#p1">Подключение видеокамеры SONY CMU-BR200 к компьютеру</a></li>
+            <li class="p1"><a class="white aS" href="#p2">Код разворота видеокамеры Skype</a></li>
+            <li class="p1"><a class="white aS" href="#p3">Проблеммы со звуком Skype при установке PulseAudio</a></li>
+            <li class="p1"><a class="white aS" href="#p4">Создание иконки для запуска программ</a></li>
+            <li class="p1"><a class="white aS" href="#p5">Руссификация KeePass</a></li>
+            <li class="p1"><a class="white aS" href="#p6">Установка пакетов программ из исходных кодов</a></li>
+            <li class="p1"><a class="white aS" href="#p7">Файл подкачки swap</a></li>
+            <li class="p1"><a class="white aS" href="#p8">Утилита e2fsck</a></li>
+            <li class="p1"><a class="white aS" href="#p9">Сохранение слоя в GIMP</a></li>
+            <li class="p1"><a class="white aS" href="#p10">Логи</a></li>
+            <li class="p1"><a class="white aS" href="#p11">Сжимаем файлы .pdf, .jpeg и .png</a></li>
+            <li class="p1"><a class="white aS" href="#p12">Разрезание файла на части командой split</a></li>
+            <li class="p1"><a class="white aS" href="#p13">OpenSSL - распаковка файла .tar.gz.enc</a></li>
+            <li class="p1"><a class="white aS" href="#p14">Проверка оперативной памяти с помощью Memtest86+</a></li>
+            <li class="p1"><a class="white aS" href="#p15">"У вас нет прав на подключение этого устройства"</a></li>
+            <li class="p1"><a class="white aS" href="#p16">"Определяем присутствие включений AdBlock или AdGuard"</a></li>
+            <li class="p1"><a class="white aS" href="#p17">Избавление от рекламы в правом нижнем углу браузера</a></li>
+            <li class="p1"><a class="white aS" href="#p18">Уничтожение данных на жёстком диске</a></li>
+            <li class="p1"><a class="blue aS" href="https://www.dropbox.com/s/p7s3uh3ds5y9o7d/%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8BLinux.odt?dl=0">Часто используемые команды Linux</a></li>
+            <li class="p1"><a class="blue aS" href="https://heictojpg.com/">Онлайн конвертер .HEIK в .jpeg</a></li>
+            <li class="p1"><a class="blue aS" href="https://www.audacityteam.org/">Audacity - аудиоредактор</a></li>
+            <li class="p1"><a class="blue aS" href="https://cgit.freedesktop.org/pulseaudio/pavucontrol">pavucontrol - регулятор громкости PulseAudio</a></li>
+          </ul>
+          <img src="razz.png" alt="split">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div> 
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div> 
+             <blockquote></blockquote>
+         </div>
+        <div class="kartinka2-3">
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+           <div class="kartinka3 wrapper">
+               <div class="kartinka3-1" id="promotion"></div>
+             <div class="overlay">
+               <div class="arrow-left"></div>
+               <div class="rectangle"></div>
+             </div>
+             <div class="description email">
+               <h2 class="h2Adv">Обратите внимание!!!</h2>
+               <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+             </div>
+           </div></a>
+         </div>
+      </div>
+        <div class="kartinka5">
+            <nav class="rain-wrapper rain-nav">
+              <a href="#slide-5"><img src="Rain/iconRain.png" alt="skype"><span>THE RAIN</span></a>
+            </nav>
+            <nav class="rain-wrapper sun-nav">
+              <a href="#slide-3"><img src="Rain/iconSun.png" alt="skype"><span>THE SUN</span></a>
+            </nav>
+        </div>
+        <div class="room kartinka5">
+        <div> 
+          <div class="wrap">        
+            <img src="Rain/window-open.png" alt="swap" class="window open">
+            <img src="Rain/window.png" alt="swap" class="window closed">
+           <div class="kartinka5">
+             <div class="slideshow slide5 slide3">
+                <canvas width="1" height="1" id="raindog" style="position:absolute;opacity:0.5;"></canvas>
+               <div class="slide" id="slide-5"  data-weather="storm"></div>
+               <div class="slide" id="slide-3" data-weather="sunny"></div>
+               <iframe src="Rain/sobaka.html" width="550" height="400"></iframe>
+             </div>
+           </div>
+          </div>
+        </div>
+        </div>
+         <h1 class="h1">Полезные советы</h1>
+         <h2 id="p1">Подключение видеокамеры <strong class="strong">SONY CMU-BR200</strong> к компьютеру</h2>
+         <p>Основное назначение видеокамеры <strong class="strong">SONY CMU-BR200</strong> - исползование со <strong class="strong">Skype</strong> на телевизорах <strong class="strong">SONY</strong>.<br>
+         Для подключания <strong class="strong">SONY CMU-BR200</strong> к компьютеру, в ядре необходимо установить следующие параметры:<br><br>
+         <strong class="p11 blue">Device Drivers ---><br>
+         <strong class="p11">&lt;*> Multimedia support ---><br>
+         <strong class="p11">[*] Cameras/Video grabbers support</strong></strong></strong> # настройка видеокамеры<br>
+         <strong class="p11 blue">[*] Media USB Adapters ---><br>
+         <strong class="p11">&lt;M> USB Video Class (UVC)<br>
+         <strong class="p11">[*] UVC input events device support<br>
+         <strong class="p11">&lt;*>Sound card support ---></strong></strong></strong></strong> # настройка микрофона<br>
+         <strong class="p11 blue">&lt;*>Advanced Linux Sound Architecture ---><br>
+         <strong class="p11">[*] USB sound devices ---><br>
+         <strong class="p11">&lt;M>USB Audio/MIDI driver</strong></strong></strong>
+         </p>
+         <h2 id="p2">Код разворота видеокамеры <strong class="strong">Skype</strong></h2>
+         <p>Для компьютера <strong class="strong">ASUS K50IJ</strong>. Архитектура <strong class="strong">x86</strong><br><br> 
+            <strong class="p11 blue">#!/bin/sh</strong><br><br>
+            <strong class="p11 blue">LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype</strong><br><br> 
+            Щёлкаем правой кнопкой по значку “<strong class="strong">Skype</strong>”, выбираем настройка виджет “<strong class="strong">Значок</strong>”, приложения, в "<strong class="strong">Команда</strong>". Прописываем:<br><br>                                                                                                                                                      
+            <strong class="p11 blue">LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype</strong><br><br>  
+            и жмём "<b class="p3">OK</b>"
+         </p> 
+         <h2 id="p3">Проблеммы со звуком <strong class="strong">Skype</strong> при установке <strong class="strong">pulseaudio</strong></h2>
+         <p>Раскомментируйте строчки в <strong class="strong">/etc/pulse/daemon.conf</strong>:<br><br>
+            <strong class="p11 blue">default-fragments = 4</strong><br>
+            <strong class="p11 blue">default-fragment-size-msec = 25</strong>
+         </p>
+         <h2 id="p4">Создание иконки для запуска программ</h2>
+         <p>1) Создаём скрипт запуска программы (в примере <strong class="strong">Samba</strong>):<br><br>
+            <strong class="p11 blue">sudo vim ~/QEMU/Samba/Запуск_Samba.sh</strong><br><br>
+            <strong class="p11 blue">!/bin/sh</strong><br><br>
+            <strong class="p11 blue">sudo /etc/init.d/samba start</strong><br><br>
+            2) Делаем его исполняемым<br><br>
+            <strong class="p11 blue">sudo chmod +x ~/QEMU/Samba/Запуск_Samba.sh</strong><br><br>
+            3) Создаём ярлык нашего приложения <strong class="strong">Samba.desktop</strong> (Расширение <strong class="strong">desktop</strong> обязательно) в любом редакторе:<br><br>
+            <strong class="p11 blue">[Desktop Entry]</strong><br>
+            <strong class="p11 blue">Name=Samba</strong><br>
+            <strong class="p11 blue">Comment=Запускаем Samba</strong><br>
+            <strong class="p11 blue">GenericName=Samba-start</strong><br>
+            <strong class="p11 blue">Keywords=Gentoo-Windows</strong><br>
+            <strong class="p11 blue">Exec=sh ~/QEMU/Samba/Запуск_Samba.sh<br>
+            #Terminal=false</strong><br>
+            <strong class="p11 blue">Terminal=true</strong><br>
+            <strong class="p11 blue">Type=Application</strong><br>
+            <strong class="p11 blue">Icon=~/Анимашки/Колобок.png</strong><br>
+            <strong class="p11 blue">Categories=Graphics;Photography;GTK</strong><br>
+            <strong class="p11 blue">Path=</strong><br>
+            <strong class="p11 blue">NoDisplay=false</strong><br><br>
+            Cвойства подробнее:<br>
+            <strong class="strong">Name</strong> - имя приложения, которое будет отображаться под иконкой в "Главном меню";<br>
+            <strong class="strong">Keywords</strong> - слова, по которым будет искаться данный ярлык в "Главном меню";<br>
+            <strong class="strong">Exec</strong> - строка запуска приложения;<br>
+            <strong class="strong">Terminal=true</strong> - запускать или <strong class="strong">false</strong> - не запускать приложение в окне терминала;<br>
+            <strong class="strong">Type</strong> - определяет «раздел» в "Главном меню", где будет находится ярлык приложения;<br>
+            <strong class="strong">Icon</strong> - путь или общесистемное название иконки;<br>
+            <strong class="strong">Categories</strong> - категории, к которым будет относится ярлык приложения при выборе в "Главном меню" фильтров. Проще всего подсмотреть в ярлыке другого приложения, категория которого подходит;<br>
+            <strong class="strong">Path</strong> - путь к рабочему каталогу приложения;<br>
+            <strong class="strong">NoDisplay=false</strong> - отображать иконку в "Главном меню" или <strong class="strong">true</strong> не отображать.<br>
+            Сохраняем его для рабочего стола <strong class="strong">KDE</strong> в директории <strong class="strong">~/.local/share/applications</strong>.<br>
+            Для рабочего стола <strong class="strong">Gnome</strong> в <strong class="strong">/usr/share/applications/</strong>.<br>
+            Не забываем про права. Должны быть: <strong class="strong">-rv-r--r-- root root</strong>.<br>
+            Ярлык появится в "Меню запуска приложений".
+         </p>
+         <h2 id="p5">Руссификация <strong class="strong">KeePass</strong></h2>
+         <p class="music1">Скачиваем и распаковываем файл <a class="special-link a link1" href="http://keepass.info/translations.html">KeePass-2.XX-Russian.zip</a>.<br>
+            Создаём директорию<br>
+            для <strong class="strong">KeePass</strong> версии до <strong class="strong">2.38</strong>:<br><br>
+            <strong class="p11 blue">mkdir ~/.local/share/KeePass</strong> (<strong class="strong">K</strong> и <strong class="strong">P</strong> заглавные!)<br><br>
+            для <strong class="strong">KeePass</strong> версии <strong class="strong">2.38</strong> и выше:<br><br>
+            <strong class="p11 blue">mkdir /usr/lib64/keepass/Languages</strong> (<strong class="strong">L</strong> заглавная!)<br><br>
+            копируем туда распакованный файл <strong class="strong">Russian.lngx</strong>.<br>	
+            Далее запускаем <strong class="strong">KeePass</strong>, меняем язык и перезапускаем программу.<br>
+            Для возможности автонабора логина и пароля при авторизации устанавливаем:<br><br>
+            <strong class="p11 blue">emerge --ask x11-misc/xdotool</strong><br><br>
+            Для возможности копирования в буфер обмена устанавливаем:<br><br> 
+            <strong class="p11 blue">emerge --ask x11-misc/xsel</strong>
+         </p>
+         <h2 id="p6">Установка пакетов программ из исходных кодов</h2>
+         <p>После распаковки пакета, найти файл “<strong class="strong">Install</strong>” или “<strong class="strong">Readme</strong>” где будет указан способ установки.<br>
+            Перейти (с помощью команды <strong class="strong">cd</strong>) в каталог, содержащий исходные коды устанавливаемого пакета.<br>
+            1. Выполнить команду <strong class="strong">./configure</strong>, которая осуществляет конфигурирование пакета в соответствии с вашей системой.<br> 
+            2. В некоторых программах используются возможности компилятора генерировать зависимости с помощью команды вида <strong class="strong">make depend</strong><br>
+            3. Выполнить команду <strong class="strong">make</strong>, для того, чтобы скомпилировать пакет.<br>
+            Процесс выполнения этой команды занимает довольно длительное время, причем команда выдает на экран сообщения о том, какие именно особенности системы исполняются.<br>
+            4. После этого можно выполнить (это шаг не является обязательным) команду <strong class="strong">make check</strong>, которая вызывает запуск процедур самотестирования, поставляемых с пакетом.<br>
+            5. Выполнить команду <strong class="strong">make install</strong> для установки программ, а также файлов данных и документации.<br>
+            Для выполнения этой команды могут потребоваться права супер пользователя:<br><br>
+            <strong class="p11 blue">sudo make install</strong><br><br>
+            6. Заключительный этап состоит в выполнении команды <strong class="strong">make clean</strong>, которая удаляет промежуточные объектные и двоичные файлы из каталога с исходными кодами.<br>
+            Для удаления временных файлов, которые создала команда <strong class="strong">configure</strong> (после чего пакет можно компилировать для другого типа компьютеров), надо выполнить команду<br>
+            <strong class="strong">make distclean</strong><br>
+            7. Если сборка не может произойти по какой любо причине, прежде чем пытаться компилировать исходники снова, необходимо запустить <strong class="strong">make clean</strong>, чтобы удалить все файлы, 
+            оставленные прошлой попыткой компиляции.<br>
+            8. В некоторых пакетах есть  функция "<strong class="strong">uninstall</strong>" ("удалить"), которая удаляет программу из системы. Просто вернитесь обратно в основную директорий с исходными кодами и 
+            выполните команду:<br><br> 
+            <strong class="p11 blue">make uninstall</strong><br><br>
+            <strong class="strong">PATH</strong> Эта переменная содержит разделенный двоеточиями список каталогов, в которых система ищет исполняемые файлы. Введенное имя это исполняемый файл, но если исполняемый файл не находится в каталоге из списка, то система не будет выполнять его (можно указать полный путь в качестве команды).<br>
+            Для определения переменной окружения локально, используйте <strong class="strong">~/.bashrc</strong> или <strong class="strong">~/.bash_profile</strong>:<br><br>
+            <strong class="p11 blue">vim  ~/.bashrc<br>
+            <strong class="p11">PATH="${PATH}:/home/my_user/bin:"</strong></strong><br><br>
+            После <strong class="strong">reboot</strong>, переменная <strong class="strong">PATH</strong> будет обновлена.<br>
+            Определение переменной <strong class="strong">PATH</strong> для текущей сессии, с использованием команды <strong class="strong">export</strong>:<br><br>
+            <strong class="p11 blue">export PATH="${PATH}:/home/my_user/tmp/usr/bin"</strong><br><br>
+            До тех пор пока пользователь не выйдет, переменная <strong class="strong">PATH</strong> будет использовать временные настройки.
+         </p>
+         <h2 id="p7">Файл подкачки <strong class="strong">swap</strong></h2>
+         <p>Создаём <strong class="strong">swap</strong> файл:<br><br>
+            <strong class="p11 blue">dd if=/dev/zero of=/swapfile bs=1M count=512</strong><br><br>
+            где:<br>
+            <strong class="strong">if</strong> указывает на источник, т.е. на то, откуда копируем,<br>
+            <strong class="strong">of</strong> указывает на файл назначения,<br>
+            <strong class="strong">bs</strong> количество байт, которые будут записаны за раз,<br>
+            <strong class="strong">count</strong> сколько раз будет записано количество байт указанные в <strong class="strong">bs</strong>.<br>
+            В команде <strong class="strong">dd</strong> для задания размеров можно использовать суффиксы <strong class="strong">K</strong>, <strong class="strong">M</strong>, <strong class="strong">G</strong> для килобайт, мегабайт и гигабайт соответственно.<br>
+            Таким образом, команда создаст файл <strong class="strong">1*512</strong> мегабайт.<br>
+            Сообщаем системе, что это файл подкачки:<br><br>
+            <strong class="p11 blue">mkswap /swapfile</strong><br><br>
+            Подключаем файл подкачки:<br><br>
+            <strong class="p11 blue">swapon /swapfile</strong><br><br>
+            Проверяем, что <strong class="strong">swap</strong> подключен<br><br> 
+            <strong class="p11 blue">swapon -s</strong><br><br>
+            Чтобы не подключать <strong class="strong">swap</strong> файл каждый раз, добавляем строчку в <strong class="strong">/etc/fstab</strong>:<br><br>
+            <strong class="p11 blue">/swapfile none swap sw 0 0</strong><br><br>
+            Создавать и использовать <strong class="strong">swap</strong> файлы в <strong class="strong">Linux</strong> можно в любм количестве.<br>
+            При этом можно указать приоритет подключаемого <strong class="strong">swap</strong> файла или раздела:<br>
+            Например, высший приоритет для файла подкачки задаётся так:<br><br>
+            <strong class="p11 blue">swapon -p 1 /swapfile</strong><br><br>
+            Приоритет является целым числом от 0 до 32767.<br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong> создаём <strong class="strong">Unit swap.service</strong>:<br><br>
+            <strong class="p11 darkgrey">vim /etc/systemd/system/swap.service</strong><br><br>
+            следующего содержания:<br><br>
+            <strong class="p11 darkgrey">[Unit]</strong><br>
+            <strong class="p11 darkgrey">Description=Start swap</strong><br><br>
+            <strong class="p11 darkgrey">[Service]</strong><br>
+            <strong class="p11 darkgrey">Type=oneshot</strong><br>
+            <strong class="p11 darkgrey">RemainAfterExit=yes</strong><br>
+            <strong class="p11 darkgrey">ExecStart=/sbin/swapon /swapfile</strong><br>
+            <strong class="p11 darkgrey">ExecStop=/sbin/swapoff /swapfile</strong><br><br>
+            <strong class="p11 darkgrey">[Install]</strong><br>
+            <strong class="p11 darkgrey">WantedBy=multi-user.target</strong><br><br>
+            Перезагружаем <strong class="strong">systemd</strong> для измененния <strong class="strong">Unit</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl daemon-reload</strong><br><br>
+            Добавляем <strong class="strong">Unit</strong> в автозапуск:<br><br>
+            <strong class="p11 darkgrey">systemctl enable swap.service</strong><br><br>
+            Запускаем <strong class="strong">Unit</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl start swap.service</strong></strong><br><br>
+            <strong class="strong">Btrfs</strong> не поддерживает файлы подкачки. Несоблюдение этого предупреждения, может стать результатом разрушения файловой системы. Пока что, файл подкачки может быть использован в <strong class="strong">Btrfs</strong>, если смонтирован через loop-устройство, при этом будет сильно уменьшена производительность подкачки.
+         </p>
+         <h2 id="p8" class="music1"><a class="send-link1 special-link1 a" href="https://linux.die.net/man/8/e2fsck">Утилита e2fsck
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">Linux</strong> - одна из самых надёжных операционных систем, однако это не означает, что оборудование на котором она работает так же надёжно.<br> 
+            Жёсткие диски могут работать с ошибками и как следствие, возникают проблемы на файловых системах.<br>
+            С помощю утилиты <strong class="strong">e2fsck</strong> можно проверить наличие ошибок и восстановить работу файловых систем <strong class="strong">ext2; ext3; ext4</strong>.<br>
+            Перед её работой необходимо обязательно отмантировать проверяемую файловую систему!!!<br>
+            Например:<br><br>
+            <strong class="p11 blue">umount /dev/sda4</strong><br><br>
+            после успешного размонтирования запускаем утилиту:<br><br>
+            <strong class="p11 blue">e2fsck -y /dev/sda4</strong><br><br>
+            опция <strong class="strong">-y</strong> сообщает, что мы согласны со всеми задаваемыми вопросами утилитой <strong class="strong">e2fsck</strong>
+         </p>
+         <h2 id="p9">Сохранение слоя в <strong class="strong">GIMP</strong></h2>
+         <p>Для сохранения слоя изображения, например <strong class="strong">gif</strong>, необходимо нажать <strong class="strong">Shift</strong> и кликнуть по глазику выбраного слоя.<br><br>
+         </p>
+         <h2 id="p10">Логи</h2>
+         <p>Большинство файлов логов <strong class="strong">Linux</strong> находятся в папке <strong class="strong">/var/log/</strong>.<br> 
+            Список файлов логов можно вывести с помощью команды:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ls -l /var/log</strong><br><br>
+            Некоторых из этих логов встречаются только в определенных дистрибутивах.<br>
+            <strong class="strong">/var/log/messages</strong> - содержит глобальные системные логи <strong class="strong">Linux</strong>, в том числе те, которые регистрируются при запуске системы. В этот лог записываются несколько типов сообщений: это почта, <strong class="strong">cron</strong>, различные сервисы, ядро, аутентификация и другие.<br>
+            <strong class="strong">/var/log/dmesg</strong> - содержит сообщения, полученные от ядра. Регистрирует много сообщений еще на этапе загрузки, в них отображается информация об аппаратных устройствах, которые инициализируются в процессе загрузки. Количество сообщений в логе ограничено, и когда файл будет переполнен, с каждым новым сообщением старые будут перезаписаны. Также можно посмотреть сообщения из этого лога с помощью команды <strong class="strong">dmseg</strong>.<br>
+            <strong class="strong">/var/log/auth.log</strong> - содержит информацию об авторизации пользователей в системе, включая пользовательские логины и механизмы аутентификации, которые были использованы.<br>
+            <strong class="strong">/var/log/boot.log</strong> - Содержит информацию, которая регистрируется при загрузке системы.<br>
+            <strong class="strong">/var/log/daemon.log</strong> - Включает сообщения от различных фоновых демонов.<br>
+            <strong class="strong">/var/log/kern.log</strong> - Тоже содержит сообщения от ядра, полезны при устранении ошибок пользовательских модулей, встроенных в ядро.<br>
+            <strong class="strong">/var/log/lastlog</strong> - Отображает информацию о последней сессии всех пользователей. Это нетекстовый файл, для его просмотра необходимо использовать команду <strong class="strong">lastlog</strong>.<br>
+            <strong class="strong">/var/log/maillog /var/log/mail.log</strong> - журналы сервера электронной почты, запущенного в системе.<br>
+            <strong class="strong">/var/log/user.log</strong> - Информация из всех журналов на уровне пользователей.<br>
+            <strong class="strong">/var/log/Xorg.x.log</strong> - Лог сообщений <strong class="strong">Х</strong> сервера.<br>
+            <strong class="strong">/var/log/alternatives.log</strong> - Информация о работе программы <strong class="strong">update-alternatives</strong>. Это символические ссылки на команды или библиотеки по умолчанию.<br>
+            <strong class="strong">/var/log/btmp</strong> - лог файл <strong class="strong">Linux</strong> содержит информацию о неудачных попытках входа. Для просмотра файла удобно использовать команду <strong class="strong">last -f /var/log/btmp</strong><br>
+            <strong class="strong">/var/log/cups</strong> - Все сообщения, связанные с печатью и принтерами.<br>
+            <strong class="strong">/var/log/anaconda.log</strong> - все сообщения, зарегистрированные при установке сохраняются в этом файле.<br>
+            <strong class="strong">/var/log/cron</strong> - Всякий раз когда демон <strong class="strong">Cron</strong> запускает выполнения программы, он записывает отчет и сообщения самой программы в этом файле.<br>
+            <strong class="strong">/var/log/secure</strong> - содержит информацию, относящуюся к аутентификации и авторизации. Например, SSHd регистрирует здесь все, в том числе неудачные попытки входа в систему.<br>
+            <strong class="strong">/var/log/wtmp</strong> или <strong class="strong">/var/log/utmp</strong> - системные логи <strong class="strong">Linux</strong>, содержат журнал входов пользователей в систему. Можно узнать кто и когда вошел в систему.<br>
+            <strong class="strong">/var/log/faillog</strong> - лог системы <strong class="strong">linux</strong>, содержит неудачные попытки входа в систему. Используйте команду <strong class="strong">faillog</strong>, чтобы отобразить содержимое этого файла.<br>
+            <strong class="strong">/var/log/mysqld.log</strong> - файлы логов <strong class="strong">Linux</strong> от сервера баз данных <strong class="strong">MySQL</strong>.<br>
+            <strong class="strong">/var/log/httpd/</strong> или <strong class="strong">/var/log/apache2</strong> - лог файлы <strong class="strong">linux11</strong> веб-сервера <strong class="strong">Apache</strong>. Логи доступа находятся в файле <strong class="strong">access_log</strong>, а ошибок в <strong class="strong">error_log</strong>.<br>
+            <strong class="strong">/var/log/lighttpd/</strong> - логи <strong class="strong">linux</strong> веб-сервера <strong class="strong">lighttpd</strong><br>
+            <strong class="strong">/var/log/conman/</strong> - файлы логов клиента <strong class="strong">ConMan</strong>.<br>
+            <strong class="strong">/var/log/mail/</strong> - в этом каталоге содержатся дополнительные логи почтового сервера<br>
+            <strong class="strong">/var/log/prelink/</strong> - Программа <strong class="strong">Prelink</strong> связывает библиотеки и исполняемые файлы, чтобы ускорить процесс их загрузки. <strong class="strong">/var/log/prelink/prelink.log</strong> содержит информацию о <strong class="strong">.so</strong> файлах, которые были изменены программой.<br>
+            <strong class="strong">/var/log/audit/</strong>- Содержит информацию, созданную демоном аудита <strong class="strong">auditd</strong>.<br>
+            <strong class="strong">/var/log/setroubleshoot/ - SE Linux</strong> использует демон <strong class="strong">setroubleshootd</strong> (<strong class="strong">SE Trouble Shoot Daemon</strong>) для уведомления о проблемах с безопасностью. В этом журнале находятся сообщения этой программы.<br>
+            <strong class="strong">/var/log/samba/</strong> - содержит информацию и журналы файлового сервера <strong class="strong">Samba</strong>, который используется для подключения к общим папкам <strong class="strong">Windows</strong>.<br>
+            <strong class="strong">/var/log/sa/</strong> - Содержит <strong class="strong">.cap</strong> файлы, собранные пакетом <strong class="strong">Sysstat</strong>.<br>
+            <strong class="strong">/var/log/sssd/</strong> - Используется системным демоном безопасности, который управляет удаленным доступом к каталогам и механизмами аутентификации.<br>
+            Смотрим лог <strong class="strong">/var/log/messages</strong>, с возможностью прокрутки:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">less /var/log/messages</strong><br><br>
+            Просмотр логов <strong class="strong">Linux</strong>, в реальном времени:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">tail -f /var/log/messages</strong><br><br>
+            Выводим только ошибки из <strong class="strong">/var/log/messages</strong>:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">grep -i error /var/log/messages</strong><br><br>
+            Логи хранят в себе ценную информацию, позволяющую понять, что, когда и как происходило в системе.<br>
+            Но со временем логи вырастают до гигантских объемов.<br>
+            Чтобы диск системы не переполнился логами под завязку и не завалил её, надо логи периодически подчищать.<br>
+            Процесс сохранения нескольких копий логов с удалением старой и созданием новой копии называется ротацией.<br>
+            Для этой цели существует программа <strong class="strong">logrotate</strong>.<br>
+            После устаноки <strong class="strong">logrotate</strong> создаём файл конфигурации, например (для <strong class="strong">MySql /etc/logrotate.d/mysql</strong>) для <strong class="strong">Apache2</strong>:<br><br>
+            <strong class="p11 blue">vim /etc/logrotate.d/apache2</strong><br><br>
+            и заполняем его:<br><br>
+            <strong class="p11 blue">/var/log/apache2/*log {<br>
+            <strong class="p11">weekly</strong></strong> # регулярность ротации - ротация раз в неделю, возможна иная периодичность: <strong class="strong">daily</strong>, <strong class="strong">monthly</strong><br>
+            <strong class="p11 blue">compress</strong> # сжимать копию лога, по умолчанию для этого используется архиватор <strong class="strong">gzip</strong>, хотя можно изменить на другой<br>
+            <strong class="p11 blue">delaycompress</strong> # сжимать последнюю копию только при следующей ротации, это удобно, потому что самые свежие логи не придётся разархивировать<br>
+            <strong class="p11 blue">notifempty</strong> # не ротировать лог, если он пуст<br>
+            <strong class="p11 blue">missingok</strong> # не проверять наличие файла (если лога нет, то ничего страшного)<br>
+            <strong class="p11 blue">rotate 24</strong> # количество сохраняемых копий<br>
+            <strong class="p11 blue">mail umanov@mail.ru</strong> # отправляет свежую созданную копию на указанный <strong class="strong">e-mail</strong><br>
+            <strong class="p11 blue">create 644 root root</strong> # сразу после ротации старого создать новый пустой лог, указываются, соответственно, права доступа, юзер и группа файла<br>
+            <strong class="p11 blue">sharedscripts</strong> # запустить скрипт или утилиту после ротации всех логов<br>
+            <strong class="p11 blue">postrotate</strong> # выполнить далее указанный скрипт сразу после ротации<br>
+            <strong class="p11 blue">/etc/init.d/apache2 reload > /dev/null 2>&1 || true</strong> # перезапускаем <strong class="strong">apache</strong><br>
+            <strong class="gray"># для systemd:</strong><br>
+            <strong class="p11 darkgrey">systemctl restart apache2 > /dev/null 2>&1 || true</strong><br>
+            <strong class="p11 blue">endscript</strong> # признак окончания вызова скрипта<br>
+            <strong class="p11 blue">}</strong><br><br>
+            Вместо <strong class="strong">weekly</strong> можно указать <strong class="strong">size 500M</strong><br>
+            Тестируем конфиг:<br><br>
+            <strong class="p11 blue">logrotate -d /etc/logrotate.d/apache2</strong><br><br>
+            С ключом <strong class="strong">-d</strong> программа выводит на экран диагностические сообщения, не трогая логи.<br>
+            Если всё в порядке, запускаем программу в рабочем режиме:<br><br>
+            <strong class="p11 blue">logrotate -v -f /etc/logrotate.d/apache2</strong>
+         </p>
+         <h2 id="p11">Сжимаем файлы <strong class="strong">.pdf</strong>, <strong class="strong">.jpeg</strong> и <strong class="strong">.png</strong></h2>
+         <p>Сжимаем файл <strong class="strong">.pdf</strong> с помощью утилиты <strong class="strong">ps2pdf</strong>, которая является частью пакета <strong class="strong">ghostscript</strong>:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ps2pdf big.pdf little.pdf</strong><br><br>
+            Сжимается в несколько раз. При этом видимого ухудшения качества практически не проиcходит.<br>
+            Сжимаем файл <strong class="strong">.jpeg</strong> с помощью утилиты "<strong class="strong">jpegoptim</strong>":<br><br>
+            <strong class="p11 blue">emerge --ask jpegoptim</strong><br><br>
+            Для сжатия без потерь используется команда:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">jpegoptim photo.jpg</strong><br><br>
+            С помощью опции "<strong class="strong">-d</strong>" указываем директорию для сохранения сжатого файла:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">jpegoptim -d ./compressed photo.jpg</strong><br><br>
+            Для проверки возможности и степень сжатия, без его выполнения, используем опцию "<strong class="strong">-n</strong>":<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">jpegoptim -n photo.jpg</strong><br><br>
+            Можно сжать с потерями.<br>
+            В этом случае используем опцию "<strong class="strong">-m&lt;maximum-quality></strong>", где качество задается в диапазоне от 0 до 100 (0 - наихудшее качество, 100 - наилучшее качество).<br>
+            Например, для сжатия файла с 50% качеством:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">jpegoptim -m50 photo.jpg</strong><br><br>
+            Для сжатия большого количества изображений, находящихся в одной директории, используем следующий скрипт:<br><br>
+            <strong class="p11 blue">#!/bin/sh<br>
+            <strong class="p11">for i in *.jpg; do jpegoptim -d . /compressed -p "$i" ; done</strong></strong><br><br>
+            сжать все <strong class="strong">.jpg</strong> файлы в текущем каталоге и поместите их в каталог <strong class="strong">./compressed</strong> с той же датой изменения, что и в исходных файлах.<br>
+            Сжимаем файл <strong class="strong">.png</strong> с помощью утилиты "<strong class="strong">optipng</strong>":<br><br>
+            <strong class="p11 blue">emerge --ask optipng</strong><br><br>
+            Синтаксис утилиты тот же, как и у предыдущих, но отличается опциями:<br>
+            <strong class="strong">-backup</strong> - сохранять копии измененных файлов;<br>
+            <strong class="strong">-dir</strong> - папка для записи файлов;<br>
+            <strong class="strong">-force</strong> - принудительная запись исходящего файла;<br>
+            <strong class="strong">-out</strong> - записать исходящий файл в указанный;<br>
+            <strong class="strong">-simulate</strong> - не выполнять никаких действий, а только показать результат;<br>
+            <strong class="strong">-o</strong> - установить уровень сжатия от 0 до 7.
+         </p>
+         <h2 id="p12">Разрезание файла на части командой <strong class="strong">split</strong></h2>
+         <p>Часто используемые опции:<br>
+            <strong class="strong">-b</strong>, <strong class="strong">--bytes=SIZE</strong> эта опция задает размер выводимых файлов.<br>
+            <strong class="strong">-d</strong>, <strong class="strong">--numeric-suffixes</strong> использовать цифровые суффиксы вместо алфавитных.<br>
+            <strong class="strong">-n</strong>, <strong class="strong">--number=CHUNKS</strong> задает количество выводимых файлов.<br>
+             Если не используется опция <strong class="strong">suffix</strong>, по умолчанию команда <strong class="strong">split</strong> будет разделять файлы на части, название которых начинаеться с <strong class="strong">x</strong>, за которым следуют еще два символа в алфавитном порядке. Например, первый файл называться <strong class="strong">xaa</strong>, за тем идут <strong class="strong">xab</strong>, <strong class="strong">xac</strong>, а последний файл называться <strong class="strong">xzz</strong>. Это значит, что можно разбить файл не более чем на 676 частей (26x26).<br>
+             Заходим в директорию с файлом:<br><br>
+             <strong class="p11 strong">$</strong> <strong class="blue">cd ~/Gentoo/</strong><br><br>
+             Разбиваем, например <strong class="strong">.iso</strong> - файл на четыре части:<br><br>
+             <strong class="p11 strong">~/Gentoo $</strong> <strong class="blue">split -n 4 Gentoo.iso</strong><br><br>
+             Проверяем:<br><br>
+             <strong class="p11 strong">~/Gentoo $</strong> <strong class="blue">ls -l<br>
+             итого 13312000<br>
+             -rw-r--r-- 1 nikolay nikolay 6815744000 фев 16 15:58 Gentoo.iso<br>
+             -rw-r--r-- 1 nikolay nikolay 1703936000 фев 16 20:43 xaa<br>
+             -rw-r--r-- 1 nikolay nikolay 1703936000 фев 16 20:44 xab<br>
+             -rw-r--r-- 1 nikolay nikolay 1703936000 фев 16 20:44 xac<br>
+             -rw-r--r-- 1 nikolay nikolay 1703936000 фев 16 20:45 xad</strong><br><br>
+             С помощью команды <strong class="strong">cat</strong> собираем файл обратно:<br><br>
+             <strong class="p11 strong">~/Gentoo $</strong> <strong class="blue">cat x* > newGentoo.iso</strong><br><br>
+             Поверяем суммы:<br><br>
+             <strong class="p11 strong">~/Gentoo $</strong> <strong class="blue">md5sum *.iso<br>
+             41e3a4b20ba35887b66ca08f3d4524f3  Gentoo.iso<br>
+             41e3a4b20ba35887b66ca08f3d4524f3  newGentoo.iso</strong>
+         </p>
+         <h2 id="p13"><strong class="strong">OpenSSL</strong> - распаковка файла <strong class="strong">.tar.gz.enc</strong></h2>
+         <p><strong class="strong">OpenSSL</strong> — это система защиты и сертификации данных. Название <strong class="strong">SSL</strong> переводится, как система безопасных сокетов (<strong class="strong">secure socket layer</strong>). <strong class="strong">OpenSSL</strong> используется практически всеми сетевыми серверами для защиты передаваемой информацией.<br> 
+            Убеждаемся, что есть пароль для распаковыемого файла.<br>
+            Запускаем следующие команды:<br><br>
+            <strong class="p11 blue">openssl aes-256-cbc -d -in your_archive_filename.tar.gz.enc -out your_archive_filename.tar.gz</strong><br>
+            Вводим пароль при появлении запроса.<br>
+            <strong class="p11 blue">tar -zxvf your_archive_filename.tar.gz</strong> 
+         </p>
+         <h2 id="p14">Проверка оперативной памяти с помощью <strong class="strong">Memtest86+</strong></h2>
+         <p><strong class="strong">Memtest86+</strong> записывает в каждый блок памяти информацию, а затем считывает её и проверяет на ошибки. В процессе тестирования утилита совершает несколько проходов, что позволяет выявить и составить список плохих блоков памяти.<br>
+            Загружаем программу:<br><br>
+            <strong class="p11 blue">emerge --ask memtest86+</strong><br><br>
+            После загрузки программы, генерируем конфигурацию <strong class="strong">GRUB</strong>:<br><br>
+            <strong class="p11 blue">grub-mkconfig -o /boot/grub/grub.cfg</strong><br><br>
+            Прежде чем, запустить проверку оперативной памяти убираем из слотов все плашки памяти, кроме одной. Каждую плашку проверяем поочерёдно.<br>
+            Проверку запускаем через меню <strong class="strong">GRUB</strong>.
+         </p><br>
+            <div class="kartinka5"><img src="Rain/memtest.png" alt="Monero"></div><br>
+         <p>Программа тестирует оперативную память циклически, т.е. у нее есть десять тестов, которые она гоняет пnо кругу, полный проход по всем от 0 до 9ти.<br>
+            Пробегов памяти может быть несколько, в зависимости от выбранного режима. Обычно как  минимум хватает двух-трёх циклов.<br>
+            Если по окончании теста выдаётся сообщения <strong class="strong">** Pass complete, no errors, press Esc to exit **</strong>, то память не содержит неисправных блоков.<br>
+            Если в процессе или по окончании теста появляются ошибки красного цвета, то память скорее всего неисправная.<br>
+            Завершить тест можно, перезагрузив компьютер нажатием кнопочки <strong class="strong">Esc</strong>.
+         </p>
+         <h2 id="p15" class="cockroach">"У вас нет прав на подключение этого устройства"</h2>
+         <p>Если после подключения флешки появляется выше указанное предупреждение, создаём файл <strong class="strong">10-udisks.rules</strong> и добавляем правило:<br><br>
+            <strong class="p11 blue">vim /etc/polkit-1/rules.d/10-udisks.rules<br>
+            polkit.addRule(function(action, subject) {<br>
+            if (action.id == "org.freedesktop.udisks2.filesystem-mount" && subject.isInGroup("plugdev")) {<br>
+            return "yes";<br>
+            }<br>
+            });</strong><br><br> 
+         </p>
+         <h2 id="p16">Определяем присутствие включений <strong class="strong">AdBlock</strong> или <strong class="strong">AdGuard</strong></h2>
+         <p>Эти расширения блокируют рекламу на сайтах, соответственно доход с рекламы не идёт.<br>
+            Создаём <strong class="strong">DIV</strong> с идентификатором, на пример, <strong class="strong">#spoof-overlay</strong>. Нельзя создавать классы или идентификаторы, в которых присутствует слова <strong class="strong">ad</strong> или <strong class="strong">advertising</strong>, так как <strong class="strong">AdGuard DIV</strong>-ы с ними заблокирует. Внутри <strong class="strong">DIV</strong>-а укажем просьбу, выключить <strong class="strong">AdBlock</strong> или <strong class="strong">AdGuard</strong>:<br><br>
+            <strong class="p11 blue">&lt;div id="spoof-overlay"><br>
+            <strong class="p11">Выключите, пожалуйста, AdBlock или AdGuard!<br>
+            <strong class="p11">&lt;/div></strong></strong></strong><br><br>
+            Добавим немного стилей:<br><br>
+            <strong class="p11 blue">#spoof-overlay{<br>
+            <strong class="p11">display:none;<br>
+            <strong class="p11">position:fixed;<br>
+            <strong class="p11">color:white;<br>
+            <strong class="p11">text-align:center;<br>
+            <strong class="p11">font-size:22px;<br>
+            <strong class="p11">top:10%;<br>
+            <strong class="p11">z-index:99999;}</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+            <strong class="strong">display:none;</strong> - будем менять это свойство в <strong class="strong">JavaScript</strong>, если у посетителя включен <strong class="strong">AdBlock</strong>.<br>
+            Для этого создадим два <strong class="strong">JS</strong> файла. Первый назовем <strong class="strong">advert.js</strong>, второй <strong class="strong">custom.js</strong>. <strong class="strong">Advert</strong> это название популярной рекламной сети. <strong class="strong">Adblock</strong> блокирует все их рекламные баннеры и тизеры, соответственно он примет скрипт <strong class="strong">advert.js</strong> за оригинальный. <strong class="strong">Adblock</strong> подумает, что это реклама и не выполнит его. Проверим факт выполнения этого <strong class="strong">JavaScript</strong> файла и его подгрузки. Если он подгрузится, то <strong class="strong">Adblock</strong> отключен, если нет, то будет выводиться информация о том, что это реклама.<br>
+            Создадим простую функцию в файле <strong class="strong">advert.js</strong> и назовём её <strong class="strong">spoof</strong>:<br><br>
+            <strong class="p11 blue">function spoof() {<br>
+            <strong class="p11">window.spoof_adblock = true;<br>
+            <strong class="p11">}<br>
+            <strong class="p11">spoof();</strong></strong></strong></strong><br><br>
+            Проверяем наличие свойства <strong class="strong">spoof_adblock</strong> в объекте <strong class="strong">window</strong>. Если свойство есть, это будет говорить о том, что <strong class="strong">Adblok</strong> отключен.<br> 
+            Создаём файл <strong class="strong">custom.js</strong> со следующим кодом:<br><br>
+            <strong class="p11 blue">jQuery(document).ready(function() {<br>
+            <strong class="p11">if( typeof window.spoof_adblock == 'undefined')<br>
+            <strong class="p11">{ //Если AdBlock или AdGuard активен! Покажем наше окно с сообщением<br>
+            <strong class="p11">jQuery('#spoof-overlay').fadeIn('slow');<br>
+            <strong class="p11">}});</strong></strong></strong></strong></strong><br><br>
+            Первым подключаем скрипт <strong class="strong">advert.js</strong> за-тем <strong class="strong">custom.js.</strong>
+        </p>
+        <h2 id="p17">Избавление от рекламы в правом нижнем углу браузера</h2>
+        <p>Реклама появляется в углу браузера <strong class="strong">Google Chrome</strong> постоянно. Если она сильно раздражает, заходим в Настройки --> Дополнительные --> Конфиденциальность и безопасность --> Настройки сайта --> Уведомления --> опускаемся в самый низ, Разрешить, нажимаем на все строки где есть <strong class="strong">***</strong> (три точки) и удалить.
+        </p>
+        <h2 id="p18">Уничтожение данных на жёстком диске</h2>
+        <p>Чтобы на носителе ничего нельзя было восстановить - можно забить его нулями:<br><br>
+           <strong class="p11 blue">dd if=/dev/zero of=/dev/DEVICE</strong><br><br>  
+           <strong class="strong">/dev/random</strong> и <strong class="strong">/dev/urandom</strong> - специальные символьные псевдоустройства в некоторых <strong class="strong">UNIX</strong>-подобных системах. Они предоставляют интерфейс к системному генератору случайных чисел, который выводит шум из драйверов устройств и других источников в «хаотичный» пул (англ. <strong class="strong">entropy pool</strong>). Генератор также сохраняет необходимое количество битов шума в этом пуле и формирует из него случайную либо псевдослучайную последовательность чисел.<br>
+           Разницу между <strong class="strong">/dev/random</strong> и <strong class="strong">/dev/urandom</strong> можно описать так:<br>
+           <strong class="strong">/dev/random</strong> - генератор случайных чисел;<br>
+           <strong class="strong">/dev/urandom</strong> - генератор псевдослучайных чисел.<br>
+           При чтении данных из устройства <strong class="strong">/dev/random</strong> выводятся только случайные байты, полностью состоящие из битов шума «хаотичного» пула ОС. Если «хаотичный» пул опустел, <strong class="strong">/dev/random</strong> ничего не выдаст, пока необходимое количество битов в пуле не будет создано, читающая <strong class="strong">/dev/random</strong> программа будет ждать появления очередного случайного байта.<br>
+           В ядре <strong class="strong">Linux</strong> «хаотичный» пул получает энтропию из нескольких источников, в том числе из аппаратного генератора случайных чисел современных процессоров <strong class="strong">Intel</strong>.<br>
+           Устройство <strong class="strong">/dev/random</strong> может быть необходимо пользователям, которые требуют очень высокого коэффициента случайности, например, при создании ключа шифрования, предполагающего длительное использование.<br>
+           Чтение данных устройства <strong class="strong">/dev/urandom</strong> возвратит столько байтов, сколько было запрошено. В результате, если в пуле было недостаточно битов, теоретически возможно найти уязвимость алгоритма, использующего это устройство (на настоящее время нет опубликованных работ о такой атаке). Если это важно, следует использовать <strong class="strong">/dev/random</strong>.<br>
+           Пример типичного использования <strong class="strong">/dev/urandom</strong> - заполнение массива «шумом».<br>
+           Заполняем раздел случайными данными для удаления остаточной информации:<br><br>
+           <strong class="p11 blue">dd if=/dev/urandom of=/dev/sdb2</strong><br><br> 
+           Проверить можно тем же <strong class="strong">dd</strong>:<br><br>
+           <strong class="p11 blue">dd if=/dev/sdb | hexdump -C</strong><br><br>   
+           Команда <strong class="strong">hexdump</strong> предназначена для вывода содержимого бинарных файлов.<br>
+           Базовый синтаксис команды выглядит следующим образом:<br><br>
+           <strong class="p11 blue">hexdump [параметры] имя-бинарного-файла</strong><br><br>
+           Утилита позволяет задать длину исследуемого фрагмента файла в байтах с помощью параметра <strong class="strong">-n</strong>, сдвиг от начала файла в байтах с помощью параметра <strong class="strong">-s</strong>, задать строку форматирования с помощью параметра <strong class="strong">-e</strong>, а также выбрать формат вывода с помощью одного из описанных ниже параметров.<br> 
+           Для понимания, создаём текстовый файл <strong class="strong">hexdump.txt</strong> со строкой "<strong class="strong">linux-faq.ru</strong>".<br><br>
+           <strong class="p11 blue">cat hexdump.txt<br>
+           <strong class="p11">linux-faq.ru</strong></strong><br><br>
+           Используем команду <strong class="strong">hexdump</strong> без каких-либо параметров для исследования этого файла:<br><br>
+           <strong class="p11 blue">hexdump hexdump.txt<br>
+           <strong class="p11">0000000 696c 756e 2d78 6166 2e71 7572 000a<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           В столбце слева приведены 32-битные адреса, а после них следуют шестнадцатеричные представления пар байтов.<br> 
+           Эквивалентный результат будет выведен при использовании параметра <strong class="strong">-x</strong>, с немного измененным форматированием:<br><br>
+           <strong class="p11 blue">hexdump -x hexdump.txt<br>
+           <strong class="p11">0000000 696c 756e 2d78 6166 2e71 7572 000a<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           Используем параметр <strong class="strong">-b</strong> для исследования файла:<br><br>
+           <strong class="p11 blue">hexdump -b hexdump.txt<br>
+           <strong class="p11">0000000 154 151 156 165 170 055 146 141 161 056 162 165 012<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           В этом формате после шестнадцатеричных значений сдвигов выводятся восьмеричные значения каждого из байтов файла.<br>
+           Используем параметр <strong class="strong">-c</strong> для исследования файла:<br><br>
+           <strong class="p11 blue">hexdump -c hexdump.txt<br>
+           <strong class="p11">0000000 l i n u x - f a q . r u n<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           В этом формате после шестнадцатеричных значений выводятся непосредственно символы.<br>
+           Используем параметр <strong class="strong">-d</strong> для исследования файла:<br><br>
+           <strong class="p11 blue">hexdump -d hexdump.txt<br>
+           <strong class="p11">0000000 26988 30062 11640 24934 11889 30066 00010<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           В этом формате после шестнадцатеричных значений сдвигов приводятся десятичные представления пар байтов.<br>
+           Используем параметр <strong class="strong">-o</strong> для исследования файла:<br><br>
+           <strong class="p11 blue">hexdump -o hexdump.txt<br>
+           <strong class="p11">0000000 064554 072556 026570 060546 027161 072562 000012<br>
+           <strong class="p11">000000d</strong></strong></strong><br><br>
+           В этом формате после шестнадцатеричных значений сдвигов приводятся восьмеричные представления пар байтов.<br>
+           Используем параметр <strong class="strong">-C</strong> для исследования файла:<br><br>
+           <strong class="p11 blue">hexdump -C hexdump.txt<br>
+           <strong class="p11">00000000 6c 69 6e 75 78 2d 66 61 71 2e 72 75 0a |linux-faq.ru.<br>
+           <strong class="p11">0000000d</strong></strong></strong><br><br>
+           Это классический формат <strong class="strong">hex</strong>-редакторов, который предусматривает вывод шестнадцатеричных значений всех байтов файла с соответствующими им символами.
+        </p><br>
+      </div><!--
+      --><div class="section11">
+         <h2 class="p2 p3">Продаются<br>книги</h2>
+        <div class="kartinka5">
+        <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="Утилита e2fsck"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="Сохранение слоя в GIMP">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="Сохранение слоя в GIMP">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+			    	<div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="Сжимаем .pdf">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas> 
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a class="moneyY" target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Я разбогател достаточно старомодным способом: был мил с богатым родственником прямо перед его смертью." Малькольм Форбс'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="swap"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">       
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt=""></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="операционная система"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul> 
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="keepass"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="virtualbox"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="skype"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="pulseaudio"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="keepass"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="keepass русский"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="swap"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="Сжимаем .pdf"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img  src="Соцсети/Help.png" alt="virtualbox"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                    <!--Rain-->
+        <script src="Rain/rain.js"></script>
+        <script src="ScriptHtml.js"></script>
+                    <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+		             <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script src="link2.js"></script>
+                       <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+         <div class="photo" data-title="Top"><img src="naverh.png" alt="skype"></div></a>
+         </div>
+            <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <!--<a target="_blank" href="http://app3.jivosite.com/">--><img class="DogJivosite" src="Соцсети/Dog.gif" alt="конвертер HEIK"><!--</a>-->
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email
+        <script src="Comments/owl.carousel.min.js"></script>-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+                            <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE 
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+        </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
+

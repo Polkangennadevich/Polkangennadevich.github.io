@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Настройка samba</title>
+     <meta name="description" content="Настройка Samba server, установленую на Gentoo Linux.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="samba linux,samba сервер,создание групп,добавление пользователей,группы пользователей,локальные пользователи,домен windows">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Даже если бы сама Мать Тереза завела себе страницу в Интернете, она стала бы получать жалобы недовольных посетителей.</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="samba linux"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="группы пользователей"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Мудрость - это умение выслушивать противоположную точку зрения, а не доказывать с пеной у рта свою правоту, унижая собеседника."</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+           <ul>
+            <li class="p1"><a class="blue aS" href="Samba.html#ss1">Установка Samba</a></li>
+            <li class="p1"><a class="blue aS" href="Samba.html#ss2">Настройка конфигурационного файла</a></li>
+            <li class="p1"><a class="white aS" href="#ss3">Создаём указанные директории</a></li>
+            <li class="p1"><a class="white aS" href="#ss4">Настройка</a></li>
+            <li class="p1"><a class="white aS" href="#ss5">Создание Samba пользователя Root</a></li>
+            <li class="p1"><a class="white aS" href="#ss6">Проверим, чтобы в конфигурационном файле небыло ошибок</a></li>
+            <li class="p1"><a class="white aS" href="#ss7">Группы пользователей</a></li>
+            <li class="p1"><a class="white aS" href="#ss8">Ввод в демон</a></li>
+            <li class="p1"><a class="white aS" href="#ss9">Добавление пользователей</a></li>
+            <li class="p1"><a class="white aS" href="#ss10">Проверяем</a></li>
+            <li class="p1"><a class="white aS" href="#ss11">Список команд для управления демоном</a></li>
+            <li class="p1"><a class="white aS" href="#ss12">Информация</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h2 id="ss3">Создаём указанные директории</h2>
+         <p><strong class="p11 blue">mkdir -p /srv/samba/netlogon</strong><br>
+            <strong class="p11 blue">mkdir /etc/samba/printer</strong><br>
+            <strong class="p11 blue">mkdir /home/samba</strong><br> 
+            <strong class="p11 blue">mkdir /home/samba/public</strong><br><br>
+            <strong class="p11 blue">chmod 755 /home/samba</strong><br>
+            <strong class="p11 blue">chmod 755 /home/samba/public</strong><br><br>
+            (Директории <strong class="strong">/var/spool/cups</strong>, <strong class="strong">/home/nikolay/Документы</strong> и <strong class="strong">/run/media/nikolay</strong> уже имеются)<br>
+            <strong class="blue">#</strong> при необходимости директории {<strong class="strong">homs,incoming,docs,distrib,clients</strong>}<br>
+            <strong class="blue">#</strong> В директории <strong class="strong">/srv/netlogon</strong> необходимо создать два файла <strong class="strong">users.bat</strong> и <strong class="strong">nt_managers.bat</strong><br> 
+            Эти файлы будут выполняться одноимёнными группами пользователей при входе в домен.<br> 
+            В них содержаться команды для монтирования сетевых дисков и синхронизации часов.<br> 
+            Между ними может быть одно различие: обычными пользователями не будет монтироваться сетевой диск на ресурс <strong class="strong">clienеts</strong>.<br><br> 
+            <strong class="p11 blue">/srv/samba/netlogon/users.bat</strong><br>  
+            <strong class="p11 blue">/srv/samba/netlogon/nt_managers.bat</strong><br><br>
+            Создаю только один файл <strong class="strong">/srv/samba/netlogon/nt_managers.bat</strong> с обычными пользователями и монтированием сетевого диска на ресурс <strong class="strong">clients</strong>.<br> 
+            <b class="p3">Внимание</b>: очень важно чтобы файлы были в <b class="p3">Windows'</b>кой кодировке и <b class="p3">dos'</b>м окончанием строки (<strong class="strong">&lt;CR&gt;&lt;NL&gt;</strong>).<br> 
+            Самый лучший способ - создать их в "Блокноте" и затем закачть по <strong class="strong">FTP</strong> на сервер<br> 
+            (хотя можно открыть в <strong class="strong">vim</strong>, <strong class="strong">KWrite</strong>) сразу с преобразованием<br><br>
+            <strong class="blue">#</strong> (предварительно необходимо создать группу <strong class="strong">nt_managers</strong>)<br><br>
+            <strong class="p11 blue">groupadd nt_manager</strong><br>
+            <strong class="p11 blue">vim /--cmd "edit ++enc=cp1251 ++ff=dos" -- /srv/samba/netlogon/nt_managers.bat</strong><br><br>
+            <strong class="p11 blue">net time \\SERVER /set /yes</strong><br>
+            <strong class="p11 blue">net use x: \\SERVER\incoming</strong><br>
+            <strong class="p11 blue">net use y: \\SERVER\docs</strong><br>
+            <strong class="p11 blue">net use z: \\SERVER\distrib</strong><br>                                                                                                                                                                                                                                                                                                                                                                                                                    
+            <strong class="p11 blue">net use w: \\SERVER\clients</strong>
+         <h1 id="ss4" class="darkblue">Настройка <strong class="strong">Samba</strong></h1>
+         <p>Для директорий <strong class="strong">/home/nikolay/Документы [linux]</strong> выставим другие права.<br> 
+            Все пользователи домена должны иметь права на чтение/запись в директорию<br>
+            <strong class="strong">/home/nikolay/Документы</strong><br> 
+            Для этого сменим группу этой директории на <strong class="strong">users</strong> и дадим членам этой группы права на запись.<br><br>
+            <strong class="p11 blue">chgrp -R users /home/nikolay/Документы</strong><br>
+            <strong class="p11 blue">chmod -R g+w /home/nikolay/Документы</strong><br><br>
+            Директория <strong class="strong">/run/media/nikolay [usb]</strong> доступна только для <b class="p3">root</b> и её права изменить невозможно.<br>         
+            <strong class="blue">#</strong> В директорию <strong class="strong">clients</strong> должны иметь доступ только менеджеры.<br> 
+            Ограничение на доступ выставлены в конфигурационном файле выше (строка <strong class="strong">valid users = @managers</strong>).<br> 
+            Все члены этой группы также должны иметь права на запись.<br>
+            Для этого поступим так же как и с <strong class="strong">incoming</strong>. Сменим группу на <strong class="strong">nt_managers</strong> и дадим ей права на запись.<br><br>
+            <strong class="blue"># chgrp -R nt_managers /srv/samba/clients<br>
+            # chmod -R g+w /srv/samba/clients</strong><br><br>
+            Для того чтобы в директориях <strong class="strong">incoming</strong> и <strong class="strong">clients</strong> пользователи могли править файлы и каталоги которые были созданы другими -<br> 
+            в конфигурационном файле добавлены строки с указанием маски для создаваемых файлов и каталогов<br> 
+            (<strong class="strong">create mask = 0775, directory mask = 0775</strong>).
+         </p>
+         <h2 id="ss5">Создаём Samba пользователя <b class="p3">Root</b></h2>
+         <p>(Пароли <strong class="strong">Samba</strong> не должны быть такими же, как в системных паролях <strong class="strong">/etc/passwd</strong>)<br><br>
+            <strong class="p11 blue">pdbedit -a</strong> <b class="p3">root</b><br>
+            <strong class="p11 blue">new password: 1234</strong><br>
+            <strong class="p11 blue">retype new password: 1234</strong>
+         </p>
+         <h2 id="ss6">Проверим чтобы в конфигурационном файле небыло ошибок</h2>
+         <p><strong class="p11 blue">/usr/bin/testparm</strong><br><br>
+            Запускаем<br><br>
+            <strong class="p11 blue">/etc/init.d/samba start</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl start smbd.service</strong></strong><br><br>
+            Проверим что <strong class="strong">SAMBA</strong> успешно стартовал:<br><br>
+            <strong class="p11 blue">ps ax | grep mbd</strong><br>
+            <strong class="p11 blue">12790 ?        Ss     0:00 /usr/sbin/smbd -D</strong><br>
+            <strong class="p11 blue">12795 ?        Ss     0:00 /usr/sbin/nmbd -D</strong><br>
+            <strong class="p11 blue">12799 ?        S      0:00 /usr/sbin/smbd -D</strong><br>
+            <strong class="p11 blue">12803 pts/1    S+     0:00 grep --colour=auto mbd</strong><br><br>
+            Пробуем подключиться и посмотреть на доступные сетевые ресурсы<br><br>
+            <strong class="p11 blue">smbclient -L localhost -Uroot%1234</strong><br><br>
+         <table class="blue">
+            <tr><th class="p11">Domain=[QEMU]</th> <th class="p11">OS=[Windows 6.1]</th> <th class="p11">Server=[Samba 4.5.10]</th></tr>
+            <tr><th>Sharename</th> <th>Type</th> <th>Comment</th></tr>
+            <tr><th>---------</th> <th>----</th> <th>-------</th></tr>
+            <tr><th>print$</th>    <th>Disk</th> <th>Printer Drivers</th></tr>
+            <tr><th>HP LaserJet P1102w Printer</th>   <th>HP LaserJet P1102w</th></tr>
+            <tr><th>public</th>    <th>Disk</th> <th>Public Stuff</th></tr>
+            <tr><th>Документы Disk</th>      <th>Windows-Gentoo</th></tr>
+            <tr><th>usb</th>       <th>Disk</th></tr>     
+            <tr><th>IPC$</th>      <th>IPC</th>  <th>IPC Service (QEMU Server)</th></tr>
+            <tr><th>root</th>      <th>Disk</th> <th>Home Directories</th></tr>
+            <tr><th>Domain=[QEMU] OS=[Windows 6.1]</th> <th>Server=[Samba 4.5.10]</th></tr>
+            <tr><th>Server</th>    <th>Comment</th></tr>
+            <tr><th>---------</th> <th>-------</th></tr>
+            <tr><th>Workgroup</th> <th>Master</th></tr>
+            <tr><th>---------</th> <th>-------</th></tr>
+         </table>
+         </p>
+         <h2 id="ss7">Группы пользователей</h2>
+         <p>Переходим к созданию групп пользователей.<br>
+            Cоздадим необходимые <strong class="strong">linux</strong> группы чтобы потом сопоставить их с аналогичными группами <b class="p3">Windows</b>.<br> 
+            В <b class="p3">Windows</b> по умолчанию прописаны следующие основные группы:<br>
+            1) <strong class="strong">Guests</strong> 2) <strong class="strong">Users</strong> 4)<strong class="strong"> Administrators</strong><br>
+            <b class="p3">Windows</b> группе <strong class="strong">Guests</strong> можно сопоставить <strong class="strong">Linux</strong> группу<br> 
+            <strong class="strong">nobody, Users -users</strong>, для <strong class="strong">Administrators - nt_admins</strong><br> 
+            Заодно создадим отдельную группу для менеджеров <strong class="strong">nt_manager</strong>.<br>
+            Создаем <strong class="strong">Linux</strong> группы:<br><br>
+            <strong class="p11 blue">groupadd nt_workstations</strong><br>
+            <strong class="p11 blue">groupadd nt_admins</strong><br>
+            <strong class="blue"># groupadd nt_managers</strong><br><br>
+            Каждой <b class="p3">Windows</b> группе должна быть сопоставлена соответствующая <strong class="strong">Linux</strong> группа.<br> 
+            Изначально никаких сопоставлений не создано.<br>
+            Сопоставляем созданные группы:<br><br>
+            <strong class="blue"># </strong>Гости<br><br>
+            <strong class="blue"># net groupmap add rid=514 ntgroup="Domain Guests" unixgroup=nobody</strong><br><br>
+            Пользователи<br><br>
+            <strong class="p11 blue">net groupmap add rid=513 ntgroup="Domain Users" unixgroup=users</strong><br><br>
+            <b class="p3">Windows</b> станции<br><br>
+            <strong class="p11 blue">net groupmap add rid=515 ntgroup="Domain Computers" unixgroup=nt_workstations</strong><br><br>
+            Администраторы<br><br>
+            <strong class="p11 blue">net groupmap add rid=512 ntgroup="Domain Admins" unixgroup=nt_admins</strong><br><br>
+            <strong class="blue">#</strong> Менеджеры<br><br>
+            <strong class="blue"># net groupmap add ntgroup="Managers" unixgroup=nt_managers</strong><br><br>
+            Число после <strong class="strong">rid=</strong> - это числовой идентификатор основных <b class="p3">Windows</b> групп.<br>
+            Таблица <strong class="strong">RID</strong> для основных <b class="p3">Windows</b> групп<br><br>
+            <strong class="p11 blue">Domain Admins 512</strong><br>
+            <strong class="p11 blue">Domain Users 513</strong><br>
+            <strong class="p11 blue">Domain Guests 514</strong><br>
+            <strong class="p11 blue">Domain Computers 515</strong><br><br>
+            Создадим пользователя "<strong class="strong">nikolay</strong>", который будет администратором домена<br>
+            (первичная группа - <strong class="strong">nt_admins</strong>)<br><br>
+            <strong class="p11 blue">useradd -m -c "Admin" -G nt_admins -g users nikolay</strong><br><br>
+            Добавим пользователя в БД <strong class="strong">SAMBA</strong><br><br>
+            <strong class="p11 blue">pdbedit -a nikolay</strong><br>
+            <strong class="p11 blue">new password: 5678</strong><br>
+            <strong class="p11 blue">retype new password: 5678</strong><br><br>
+            Как только создан пользователь - администратор, дальше, для управления доменом, в основном будет использоваться утилита <strong class="strong">net</strong>.<br> 
+            С ее помощью производятся все административные действия.<br>
+            Проверим, добавился ли он в группу "<strong class="strong">Domain Admins</strong>"<br><br>
+            <strong class="p11 blue">net rpc group members "Domain Admins" -Unikolay%5678</strong><br><br>
+            <strong class="p11 blue">QEMU\nikolay</strong><br><br>
+            По умолчанию у группы <strong class="strong">Domain Admins</strong> нет никаких прав кроме кроме назначать и удалять привелегии другим.<br> 
+            Дадим группе <strong class="strong">Domain Admins</strong> все права<br><br>
+            <strong class="p11 blue">net sam rights grant "Domain Admins" SeMachineAccountPrivilege SeTakeOwnershipPrivilege SeBackupPrivilege SeRestorePrivilege SeRemoteShutdownPrivilege 
+            SePrintOperatorPrivilege SeAddUsersPrivilege SeDiskOperatorPrivilege -Unikolay%5678</strong>
+         </p>
+         <h2 id="ss8">Ввод в домен</h2>
+         <p>Посмотрим на общую картину домена<br><br>
+            <strong class="p11 blue">net rpc info -Unikolay%5678</strong><br><br>
+            <strong class="p11 blue">Domain Name: QEMU</strong><br>
+            <strong class="p11 blue">Domain SID: S-1-5-21-4125663820-1216428154-320922198</strong><br>
+            <strong class="p11 blue">Sequence number: 1446443097</strong><br>
+            <strong class="p11 blue">Num users: 2</strong><br>
+            <strong class="p11 blue">Num domain groups: 2</strong><br>
+            <strong class="p11 blue">Num local groups: 0</strong><br><br>
+            Для того чтобы ввести в домен <b class="p3">Windows10</b> ПК нужно:<br>
+            1) В проводнике, правой кнопкой мышки щёлкаем на "Этот компьютер", выбраем пункт "Свойства", далее "Изменить параметры".<br>
+            2) В описании добавляем "Имя компьютера",(например "Мой компьютер") Нажимаем кнопку "Изменить..."<br>
+            3) Вводим: "Является членом рабочей группы" (Вводим название рабочей группы. В примере "<strong class="strong">QEMU</strong>") "<b class="p3">OK</b>"<br>
+            4) Перезагружаемся.<br> 
+            5) Вызвать "Выполнить", в появившемся окне набрать<br>
+            <strong class="strong">IP</strong> компьютера <strong class="strong">Linux</strong> "<strong class="strong">\\192.168.0.104</strong>" "<b class="p3">OK</b>"<br>
+            6) В появившемся окне ввода имени и пароля, набрать домен и пароль???(В примере набрать<br> 
+            пользователя "<strong class="strong">nikolay</strong>" и пароль "<strong class="strong">5678</strong>". Для доступа в директорию<br> 
+            "<strong class="strong">/run/media/nikolay</strong>" необхадимо набрать "<b class="p3">root</b>" и его пароль "<strong class="strong">1234</strong>").<br>
+            7) Подключаем принтер:<br>
+            В открывшемся окне с подключенными папками и принтером, щёлкаем по принтеру.<br>
+            Появляется окно с автоматическим подбором драйвера.<br>
+            Если драйвер не находится, предлагается установить его вручную. Соглашаемся.<br>
+            Появляется окно с набором драйверов.<br>
+            Влевой части выбираем производителя (<strong class="strong">HP</strong>), вправой части необходимый драйвер<br> 
+            (<strong class="strong">HP LaserJet Professional 1102w</strong>). 
+         </p>
+         <h2 id="ss9">Добавление пользователей</h2>
+         <p>Добавим в БД <strong class="strong">SAMBA</strong> все рабочие станции. По умолчанию они будут<br>
+            принадлежать группе "<strong class="strong">Domain Computers</strong>".<br><br>
+            <strong class="blue"># net rpc user add comp1$ -U nikolay%5678<br>
+            # net rpc user add comp2$ -U nikolay%5678<br>
+            # net rpc user add comp3$ -U nikolay%5678<br><br>
+            #</strong> Добавим в БД <strong class="strong">SAMBA</strong> всех пользователей. По умолчанию они будут принадлежать группе "<strong class="strong">Domain Users</strong>".<br><br>
+            <strong class="blue"># net rpc user add user1 -U nikolay%5678<br>
+            # net rpc user add user2 -U nikolay%5678<br>
+            # net rpc user add user3 -U nikolay%5678<br><br>
+            #</strong> Как было оговорено выше, в нашем домене будут две группы пользователей.<br>
+            Обычные пользователи и менеджеры. Только менеджеры будут иметь доступ к ресурсу <strong class="strong">clients</strong>.<br> 
+            Сделаем менеджером пользователя <strong class="strong">user3</strong>. Для этого пользователю <strong class="strong">user3</strong> необходимо сменить первичную группу с <strong class="strong">users</strong><br> 
+            на <strong class="strong">nt_managers</strong>. Почему бы просто не добавить его в группу <strong class="strong">nt_managers</strong>?<br>
+            Можно и так, но тогда невозможно будет сделать менеджерам отличные от обычных пользователей сетевые диски.<br> 
+            Дело в том, что для монтирования дисков <strong class="strong">SAMBA</strong> вызывает <strong class="strong">bat</strong> файл с названием именно первичной группы пользователя.<br> 
+            Как уже было сказано, по умолчанию первичная группа всех создаваемых пользователей это <strong class="strong">users</strong>.<br> 
+            Следовательно всем будут монтироваться одинаковые наборы дисков. Из за этого не нужно добавлять<br>
+            пользователя в другую группу, нужно менять первичную.<br> 
+            Сменим первичную группу пользователя <strong class="strong">user3</strong> на <strong class="strong">nt_managers</strong>, а потом пропишем его в обычные пользователи.<br><br>
+            <strong class="blue"># usermod -g nt_managers user3<br>
+            # net rpc group addmem "Domain Users" user3 -U nikolay%5678</strong><br><br>
+            <strong class="blue">#</strong> Проверим, сейчас у <strong class="strong">user3</strong> первичная группа должна быть <strong class="strong">nt_managers</strong>, и дополнительная <strong class="strong">users</strong><br><br>
+            <strong class="blue"># groups user3</strong><br>
+            <strong class="p11 blue">user3 : nt_managers users</strong><br><br>
+            Пользователям нужно присвоить начальные пароли:<br><br>
+            <strong class="blue"># smbpasswd user1<br>
+            # smbpasswd user2<br>
+            # smbpasswd user3</strong>
+         </p>
+         <h2 id="ss10">Проверяем</h2>
+         <p>Список всех групп<br><br>
+            <strong class="p11 blue">net rpc group -U nikolay%5678</strong><br><br>
+            <strong class="p11 blue">Domain Admins</strong><br>
+            <strong class="p11 blue">Domain Computers</strong><br>
+            <strong class="p11 blue">Domain Users</strong><br>
+            <strong class="p11 blue">Domain Guests</strong><br>
+            <strong class="p11 blue">Managers</strong><br><br>
+            Список всех пользователей<br><br>
+            <strong class="p11 blue">net rpc user -U nikolay%5678</strong><br><br>
+            <strong class="p11"><b class="p3">root</b></strong><br>
+            <strong class="p11 blue">nikolay</strong><br><br>
+            Список администраторов (группа "<strong class="strong">Domain Admins</strong>")<br><br>
+            <strong class="p11 blue">net rpc group members "Domain Admins" -U nikolay%5678</strong><br><br>
+            <strong class="p11 blue">QEMU\nikolay</strong><br><br>
+            Список обычных пользователей (группа "<strong class="strong">Domain Users</strong>")<br><br>
+            <strong class="p11 blue">net rpc group members "Domain Users" -U nikolay%5678</strong><br><br>
+            <strong class="p11 blue">GENTOO\nikolay</strong><br><br>
+            Список пользователей-менеджеров (группа "<strong class="strong">Managers</strong>")<br><br>
+            <strong class="blue">net rpc group members "Managers" -U nikolay%5678</strong><br><br>
+            Список компьютеров (группа "<strong class="strong">Domain Computers</strong>")<br><br>
+            <strong class="p11 blue">net rpc group members "Domain Computers" -U nikolay%5678</strong><br><br>
+            <strong class="p11 blue">QEMU\server$</strong><br>
+            <strong class="p11 blue">QEMU\gentoo$</strong><br><br>
+            Если какому то пользователю нужны дополнительные права, позже его можно добавить в локальную группу "Опытные пользователи"<br> 
+            следующей коммандой (также эту комманду, для каждого пользователя можно вызывать автоматически, см. <strong class="strong">smb.conf</strong>):<br>
+            <strong class="strong">net rpc group addmem</strong> "Опытные пользователи"<br><br> 
+            <strong class="p11 blue">"ASU\user_name" -S "user_comp" -Unikolay%5678</strong>
+         <h2 id="ss11">Список команд для управления демоном</h2>
+         <p>Ниже собраны комманды используемые для управления доменом и получения о нем информации.<br> 
+            Чтобы не вводить новые названия, оставил их из примера.<br><br>
+            1) Добавить/удалить сопоставление<br><br>
+            <strong class="p11 blue"> net groupmap {add,delete} ntgroup="Managers" unixgroup=nt_managers</strong><br><br>
+            2) Добавить/удалить пользователя<br><br>
+            <strong class="p11 blue"> net rpc user {add,delete} user1 -U nikolay%5678</strong><br><br>
+            3) Добавить/удалить компьютер<br><br>
+            <strong class="p11 blue"> net rpc user {add,delete} comp1$ -U nikolay%5678</strong><br><br>
+            4) Добавить/убрать пользователя в доп. группу<br><br>
+            <strong class="p11 blue"> net rpc group {addmem,delmem} "Managers" user1 -U nikolay%5678</strong><br><br>
+            5) Сменить основную группу пользователя<br><br>
+            <strong class="p11 blue"> usermod -g nt_managers user3</strong><br><br>
+         </p>
+        <div class="samba1">
+         <p>6) Установить пароль для пользователя<br><br>
+            <strong class="p11 blue"> smbpasswd user1</strong><br><br>
+            7) Ввести сервер в домен<br><br>
+            <strong class="p11 blue"> net rpc join -Unikolay%5678</strong><br><br>
+            8) Проверить на вход в домен<br><br>
+            <strong class="p11 blue"> net rpc testjoin</strong><br><br>
+            <strong class="p11 blue">Join to 'QEMU' is OK</strong><br><br>
+            9) Добавить права определенной группе<br><br>
+            <strong class="p11 blue">net rpc rights grant "Domain Admins" SeMachineAccountPrivilege SeTakeOwnershipPrivilege SeBackupPrivilege
+            SeRestorePrivilege SeRemoteShutdownPrivilege SePrintOperatorPrivilege SeAddUsersPrivilege 
+            SeDiskOperatorPrivilege -Uroot%1234</strong>
+         </p>
+         <h2 id="ss12">Информация</h2>
+         <p>1) Список сопоставлений:<br><br>
+            <strong class="p11 blue"> net groupmap list</strong><br><br>
+            2) Список всех пользователей<br><br>
+            <strong class="p11 blue"> net rpc user -U nikolay%5678</strong><br><br>
+            3) Список всех групп<br><br>
+            <strong class="p11 blue"> net rpc group -U nikolay%5678</strong><br><br>
+            4) Список пользователей принадлежащих определенной группе<br><br>   
+            <strong class="p11 blue"> net rpc group members "Managers" -U nikolay%5678</strong><br><br>
+            5) Список компьютеров (группа "<strong class="strong">Domain Computers</strong>")<br><br>
+            <strong class="p11 blue"> net rpc group members "Domain Computers" -U nikolay%5678</strong><br><br>
+            6) Группы, которым принадлежит определенный пользователь<br><br>    
+            <strong class="p11 blue"> net rpc user info user3 -Unikolay%5678</strong><br><br>
+            7) Общая информация о домене<br><br>
+            <strong class="p11 blue"> net rpc info -Unikolay%5678<br></strong>
+         </p>
+        </div>
+         <div class="kartinka5"><a class="a steps cursorG1" href="Samba.html#ss1"><img src="Gentoo/steps.png" alt="samba сервер"></a></div>
+      </div><!--
+      --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Все жалуются на нехватку денег, но никто не жалуется на нехватку мозгов!" Фаина Раневская'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="домен windows"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="группы пользователей"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="samba linux"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="samba сервер"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="создание групп"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="добавление пользователей"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="группы пользователей"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="локальные пользователи"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="домен windows"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="создание групп"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="домен windows"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                     <!--Google Analytics Yandex.Metrika counter Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="samba linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+                            <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+		                    <!--Burro-->
+        <script type="text/javascript" src="Curtain/jquery.orize.1.0.js"></script>
+        <script>
+          $(window).load(function () {
+        $('.burro').orize({'orizer': 'burro'});
+        // For The Konami Code Version
+        $('body').orize({
+        'enterOn': 'konami-code',
+        'orizer': 'burro'
+        }).orize({
+            'enterOn': 'timer',
+            'delayTime': 2000
+        });
+        });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

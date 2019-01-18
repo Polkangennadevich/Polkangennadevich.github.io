@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404 Page | Come in, we will be glad!!!</title>
+<meta name="description" content="Сообщение об ошибке 404, о том, что сервер не может найти данные согласно запросу.">
+<meta name="keywords" content="404,404 Page Not Found">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "../LastModified.php";?>
+<link rel="shortcut icon" href="../dog.gif" type="image/gif">
+<link rel="stylesheet" type="text/css" href="err404.css">
+</head>
+<body>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="../cars.gif" width="185" height="92" alt="404 Page Not Found"></div>
+     </noscript>
+   <section id="night">
+    <div class="ufoWrap night">
+     <div class='center'>
+      <div class="ufoInner">
+        <div id='ufo'>
+          <ul class='blinkers'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <div class="dome"></div>
+          <div class="antigrav">
+            <div class="rings">
+              <div class="inner"></div>
+              <ul>
+                <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+              </ul>
+            </div>
+          </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div id="BabaYga"></div>
+    <hgroup>
+      <h1>404 Page Not Found</h1>
+      <h2>We couldn't find what you were looking for.</h2>
+    </hgroup>
+    <div class="imgParallax">
+      <img src="Избушка.png" alt="Linux" style="width:525px; height:357px;">
+    </div>
+   </section> 
+   <section id="swamp">
+    <div id="fish" class="element"></div>
+    <div id="elephant" class="element"></div>
+   </section>
+   <section id="forest">
+    <h3 class="come"><a class="a a1" href="http://linuxtosha.ru/index.html">Come in, we will be glad !!!</a></h3>
+   </section>
+   <script type="text/javascript" src="jquery-1.5.0.min.js"></script>
+                    <!--Fish & Elephant-->
+   <script>
+    $(document).ready(function () {
+    var myHeight;
+    $('.element').each(function (i) {
+        var myElement = $(this);
+        myElement.data('params', {
+            top1: $(this).css('top'),
+            x1: $(this).css('left')
+        });
+        switch (i) {
+        case 0:
+            myElement.data('params', {
+                top0: -1000,
+                x0: -2000,
+                top1: $(this).css('top'),
+                x1: $(this).css('left')
+            });
+            break;
+        case 1:
+            myElement.data('params', {
+                top0: 0,
+                x0: -2000,
+                top1: $(this).css('top'),
+                x1: $(this).css('left')
+            });
+            break;
+        }
+    });
+    function init() {
+        myHeight = $(window).height();
+        $('header').css('height', myHeight - 300);
+        $('section').css('min-height', Math.max(myHeight / 2 + 250, 600));
+    }
+    $(window).scroll(function () {
+        var s_max = myHeight / 2 + 1000;
+
+        function move(p0, p1, s) {
+            return Math.min((-p0 + p1) / s_max * s + p0, p1);
+        }
+        var scrollTop = parseInt($(window).scrollTop());
+        $('.element').each(function (i) {
+            var myX = move($(this).data('params').x0, parseInt($(this).data('params').x1), scrollTop),
+                myY = move($(this).data('params').top0, parseInt($(this).data('params').top1), scrollTop);
+            if (i < 3) {
+                $(this).stop().css({
+                    left: myX + 'px',
+                    top: myY + 'px'
+                })
+            } else {
+                $(this).stop().css({
+                    right: myX + 'px',
+                    top: myY + 'px'
+                })
+            }
+        })
+    })
+    init();
+    $(window).resize(function () {
+        init();
+    });
+    })
+   </script>
+                    <!--BabaYaga-->
+   <script>
+    $(window).load(function(){
+	// We are listening for the window load event instead of the regular document ready.
+	function animSteam(){
+	// Create a new span with the steam1, or steam2 class:
+	$('<span>',{
+	className:'steam'+Math.floor(Math.random()*2 + 1),
+	css:{
+	// Apply a random offset from 10px to the left to 10px to the right
+	marginLeft	: -10 + Math.floor(Math.random()*20)
+	}
+	}).appendTo('#BabaYga').animate({
+			left:'-=70%',
+			bottom:'-=450'
+	}, 120,function(){
+	// When the animation completes, remove the span and
+	// set the function to be run again in 10 milliseconds
+	$(this).remove();
+	setTimeout(animSteam,10);
+	});
+	}
+	function moveBabaYga(){
+    $('#BabaYga').animate({'left':'+=70%','bottom':'+=450'},5000).delay(1000)
+            .animate({'bottom':'-=450'},5000).delay(1000)
+            .animate({'left':'-=70%'},5000,function(){
+	setTimeout(moveBabaYga,1000);
+	});
+    }
+    // Run the functions when the document and all images have been loaded.
+	moveBabaYga();
+	animSteam();
+    });
+   </script>
+                    <!--Избушка-->
+   <script>
+   $(document).ready(function(){
+    var l = -parseInt($('.imgParallax img').width()-$('body').width())/1;
+    var t = -parseInt($('.imgParallax img').height()-$('body').height())/50;
+    $('.imgParallax').css('left',l).css('top',t);
+    $('body').mouseenter(function(e){
+    var x = e.pageX;
+    var y = e.pageY;
+    $('body').mousemove(function(p,d){
+    var x = p.pageX;
+    var y = p.pageY;
+    var p = x-250; 
+    var d = y-250; 
+    $('.imgParallax').css('left',l-p).css('top',t+d);
+    });
+    });
+    });
+   </script>
+</body>
+</html>
+

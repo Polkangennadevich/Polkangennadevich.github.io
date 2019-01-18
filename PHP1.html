@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>PHP продолжение</title>
+     <meta name="description" content="Установка и использование PHP на Gentoo Linux (продолжение).">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="php">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Лошадь всю жизнь проработала в колхозе, а председателем не стала...</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="hvr-curl music"><a><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="базы данных"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Фаина Георгиевна, как ваши дела? - Вы знаете, милочка, что такое говно? Так оно по сравнению с моей жизнью - повидло." Фаина Георгиевна Раневская</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+            <li class="p1"><a class="blue aS" href="PHP.html#php1">Включение поддержки PHP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php2">Руководство по PHP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php3">Операторы</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php4">Массивы</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php5">Простые многомерные массивы</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php6">Ассоциативные массивы в PHP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php7">Синтаксис регулярных выражений</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php8">Конструкция if</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php9">Циклы</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php10">Конструкция return</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php11">Конструкция включений require</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php12">Конструкция include</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php13">Конструкции однократного включения require_once и include_once</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php14">Альтернативный синтаксис управляющих структур</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php15">Аргументы функции</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php16">Переменные извне PHP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php17">Переменные окружения CGI</a></li>
+            <li class="p1"><a class="blue aS" href="PHP.html#php18">Заголовки HTTP</a></li>
+            <li class="p1"><a class="white aS" href="#php1">Класс (class)</a></li>
+            <li class="p1"><a class="white aS" href="#php2">Свойства</a></li>
+            <li class="p1"><a class="white aS" href="#php3">Объекты (Object)</a></li>
+            <li class="p1"><a class="white aS" href="#php4">Директива new</a></li>
+            <li class="p1"><a class="white aS" href="#php5">Доступ к классам и объектам</a></li>
+            <li class="p1"><a class="white aS" href="#php6">Инициализация объектов</a></li>
+            <li class="p1"><a class="white aS" href="#php7">Преобразование в объект</a></li>
+            <li class="p1"><a class="white aS" href="#php8">Наследование</a></li>
+            <li class="p1"><a class="white aS" href="#php9">Конструктор</a></li>
+            <li class="p1"><a class="white aS" href="#php10">Деструктор</a></li>
+            <li class="p1"><a class="white aS" href="#php11">Объявление типов</a></li>
+            <li class="p1"><a class="white aS" href="#php12">Ключевое слово static</a></li>
+            <li class="p1"><a class="white aS" href="#php13">Позднее статическое связывание</a></li>
+            <li class="p1"><a class="white aS" href="#php14">Ограничения self::</a></li>
+            <li class="p1"><a class="white aS" href="#php15">Использование позднего статического связывания</a></li>
+            <li class="p1"><a class="white aS" href="#php16">Пример отличия "self::", "static::" и "parent::"</a></li>
+            <li class="p1"><a class="white aS" href="#php17">Финальные методы</a></li>
+            <li class="p1"><a class="white aS" href="#php18">Пространства имён</a></li>
+            <li class="p1"><a class="white aS" href="#php19">Исключения</a></li>
+            <li class="p1"><a class="white aS" href="#php20">Функции PHP для работы с MySQL</a></li>
+            <li class="p1"><a class="white aS" href="#php21">Хэш-функции</a></li>
+            <li class="p1"><a class="white aS" href="#php22">HTTP Cookies</a></li>
+            <li class="p1"><a class="white aS" href="#php23">Cтраницы отзывов на сайте без базы данных</a></li>
+            <li class="p1"><a class="white aS" href="#php24">Подключение к базе данных MySql</a></li>
+            <li class="p1"><a class="white aS" href="#php25">Случайные числа на PHP</a></li>
+            <li class="p1"><a class="white aS" href="#php26">Создаём программу добавления почты</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!--
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+    <h2 id="php1">Класс (<strong class="strong">class</strong>)</h2>
+    <p>Класс - является одним из базовых понятий объектно-ориентированного программирования.<br> 
+       Классы образуют синтаксическую базу ООП. Их можно рассматривать как своего рода "контейнеры" для логически связанных данных и функций.<br> 
+       Класс - это своеобразный тип данных.<br>
+       Каждое определение класса начинается с ключевого слова <strong class="strong">class</strong>, затем следует имя класса, и далее пара фигурных скобок, которые заключают в себе определение свойств и методов этого класса.<br>
+       Класс может содержать собственные константы, переменные (называемые свойствами) и функции (называемые методами).<br>     
+       Пример простого определения класса:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class SimpleClass<br>
+       <strong class="p11">{</strong></strong></strong><br>
+       // объявление свойства<br>
+       <strong class="blue p11">public $var = 'значение по умолчанию';</strong><br>
+       // объявление метода<br>
+       <strong class="blue p11">public function displayVar() {<br>
+       <strong class="p11">echo $this->var;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php2">Свойства</h2>
+    <p>Переменные, которые являются членами класса, называются "свойства".<br>
+       Каждому объявлению свойства, содержащегося в классе, должно предшествовать ключевое слово <strong class="strong">var</strong>.<br> 
+       Область видимости свойства, метода или константы (начиная c <strong class="strong">PHP 7.1.0</strong>) может быть определена путём использования следующих ключевых слов в объявлении: <strong class="strong">public</strong>, <strong class="strong">protected</strong> или <strong class="strong">private</strong>.<br> 
+       Доступ к свойствам и методам класса, объявленным как <strong class="strong">public</strong> (общедоступный), разрешён отовсюду. Модификатор <strong class="strong">protected</strong> (защищённый) разрешает доступ самому классу, наследующим его классам и родительским классам. Модификатор <strong class="strong">private</strong> (закрытый) ограничивает область видимости так, что только класс, где объявлен сам элемент, имеет к нему доступ. Извне её вызов запрещён, как будто её и нет вовсе.<br> 
+       Если объявляется свойство с помощью <strong class="strong">var</strong> вместо <strong class="strong">public</strong>, <strong class="strong">protected</strong> или <strong class="strong">private</strong>, тогда <strong class="strong">PHP 5</strong> будет рассматривать свойство так, как если оно было объявлено как <strong class="strong">public</strong>.
+    </p>
+    <h1 id="php3" class="darkblue">Объекты (<strong class="strong">Object</strong>)</h1>
+    <p>Объект является одним из базовых понятий объектно-ориентированного программирования.<br>
+       Объект представляет собой переменную, экземпляр которой создаётся по специальному шаблону, называемому классом.<br>
+       Если класс можно рассматривать как тип данных, то объект - как переменную (по аналогии). Скрипт может одновременно работать с несколькими объектами одного класса, как с несколькими переменными.<br>
+       Объект - это совокупность данных (свойств) и функций (методов) для их обработки. Вообще, объектом является все то, что поддерживает инкапсуляцию.<br>
+       (Инкапсуляция, англ. <strong class="strong">encapsulation</strong>, от лат. <strong class="strong">in capsula</strong> - в информатике размещение в одном компоненте данных и методов, которые с ними работают. Также может означать скрытие внутренней реализации от других компонентов. Например, доступ к скрытой переменной может предоставляться не напрямую, а с помощью методов для чтения (геттер) и изменения (сеттер) её значения.)<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class foo<br>
+       <strong class="p11">{<br>
+       <strong class="p11">function do_foo()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo "Doing foo.";<br> 
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$bar = new foo;</strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Теперь <strong class="strong">$bar</strong> хранит все данные класса <strong class="strong">foo</strong>.<br>
+       <strong class="blue p11">$bar->do_foo();<br>
+       <strong class="p11">?></strong></strong><br>
+    </p>
+    <h2 id="php4">Директива <strong class="strong">new</strong></h2> 
+    <p>Для создания экземпляра класса используется директива <strong class="strong">new</strong>. Новый объект всегда будет создан, за исключением случаев, когда он содержит конструктор, в котором определён вызов исключения в случае ошибки. Рекомендуется определять классы до создания их экземпляров (в некоторых случаях это обязательно).<br>
+       Если с директивой <strong class="strong">new</strong> используется строка (<strong class="strong">string</strong>), содержащая имя класса, то будет создан новый экземпляр этого класса. Если имя находится в пространстве имён, то оно должно быть задано полностью.<br>
+       Пример создание экземпляра класса:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$instance = new SimpleClass();</strong></strong><br>
+       // Это же можно сделать с помощью переменной:<br>
+       <strong class="blue p11">$className = 'SimpleClass';<br>
+       <strong class="p11">$instance = new $className();</strong></strong> // <strong class="strong">new SimpleClass()</strong><br>
+       <strong class="blue p11">?></strong><br><br>
+       В контексте класса можно создать новый объект через <strong class="strong">new self</strong> и <strong class="strong">new parent</strong>.<br>
+       Когда происходит присвоение уже существующего экземпляра класса новой переменной, то эта переменная будет указывать на этот же экземпляр класса. То же самое происходит и при передаче экземпляра класса в функцию. Копию уже созданного объекта можно создать через её клонирование.<br>
+       Пример присваивание объекта:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$instance = new SimpleClass();<br>
+       <strong class="p11">$assigned   =  $instance;<br>
+       <strong class="p11">$reference  =& $instance;<br>
+       <strong class="p11">$instance->var = '$assigned будет иметь это значение';<br>
+       <strong class="p11">$instance = null;</strong></strong></strong></strong></strong></strong> // <strong class="strong">$instance</strong> и <strong class="strong">$reference</strong> становятся <strong class="strong">null</strong><br>
+       <strong class="blue p11">var_dump($instance);<br>
+       <strong class="p11">var_dump($reference);<br>
+       <strong class="p11">var_dump($assigned);</strong></strong></strong> // <strong class="strong">var_dump</strong> - выводит информацию о переменной.<br> 
+       // Описание: <strong class="strong">var_dump ( mixed $value , mixed ...$values ) : void</strong><br>
+       // Функция отображает структурированную информацию об одном или нескольких выражениях, включая их тип и значение. Массивы и объекты анализируются рекурсивно с разным отступом у значений для визуального отображения структуры.<br>
+       // <strong class="strong">value</strong> - выражение, которое необходимо отобразить.<br>
+       // <strong class="strong">values</strong> - следующие выражения для отображения.<br>
+       // Эта функция не возвращает значения после выполнения.<br>
+       <strong class="blue p11">?></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">NULL<br>
+       NULL<br>
+       object(SimpleClass)#1 (1) {<br>
+       ["var"]=><br>
+       string(30) "$assigned будет иметь это значение"<br>
+       }</strong><br>
+       В <strong class="strong">PHP 5.3.0</strong> введены несколько новых методов создания экземпляров объекта.<br>
+       Пример создание новых объектов:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class Test<br>
+       <strong class="p11">{<br>
+       <strong class="p11">static public function getNew()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">return new static;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class Child extends Test<br>
+       <strong class="p11">{ }<br>
+       <strong class="p11">$obj1 = new Test();<br>
+       <strong class="p11">$obj2 = new $obj1;<br>
+       <strong class="p11">var_dump($obj1 !== $obj2);<br>
+       <strong class="p11">$obj3 = Test::getNew();<br>
+       <strong class="p11">var_dump($obj3 instanceof Test);<br>
+       <strong class="p11">$obj4 = Child::getNew();<br>
+       <strong class="p11">var_dump($obj4 instanceof Child);</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> // Оператор <strong class="strong">instanceof</strong> используется для определения того, является ли текущий объект экземпляром указанного класса.<br>
+       <strong class="blue p11">?></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">bool(true)<br>
+       bool(true)<br>
+       bool(true)</strong><br>
+       В <strong class="strong">PHP 5.4.0</strong> введена возможность обратиться к свойству или методу только что созданного объекта в одном выражении.<br>
+       Пример доступ к свойствам/методам только что созданного объекта:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">echo (new DateTime())->format('Y');<br>
+       <strong class="p11">?></strong></strong></strong><br><br>
+       Результатом выполнения данного примера будет что-то подобное: <strong class="strong">2021</strong>
+    </p>
+    <h2 id="php5">Доступ к классам и объектам</h2> 
+    <p>В пределах методов класса доступ к нестатическим свойствам может быть получен с помощью объектного оператора "<strong class="strong">-></strong>".<br>  
+       Пример:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Создаем новый класс <strong class="strong">Coor</strong>:<br>
+       <strong class="blue p11">class Coor {</strong><br>
+       // данные (свойства):<br>
+       <strong class="blue p11">var $name;</strong><br>
+       // Чтобы получить доступ к членам класса внутри класса, необходимо использовать указатель <strong class="strong">$this</strong>, который всегда относится к текущему объекту.<br> 
+       // Псевдопеременная <strong class="strong">$this</strong> доступна в том случае, если метод был вызван в контексте объекта. <strong class="strong">$this</strong> является ссылкой на вызываемый объект. <br> 
+       // методы:<br>
+       <strong class="blue p11">function Getname() {<br>
+       <strong class="p11">echo $this->name;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">function Setname($name) {<br>
+       <strong class="p11">$this->name = $name;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong><br>
+       // Создаем объект класса <strong class="strong">Coor</strong>:<br>
+       <strong class="blue p11">$object = new Coor;</strong><br>
+       // Теперь для изменения имени используем метод <strong class="strong">Setname()</strong>:<br>
+       <strong class="blue p11">$object->Setname("Nick");</strong><br>
+       // А для доступа, как и прежде, <strong class="strong">Getname()</strong>:<br>
+       <strong class="blue p11">$object->Getname();</strong><br>
+       // Сценарий выводит <strong class="strong">'Nick'</strong><br>
+       <strong class="blue p11">?></strong><br><br>
+       Указатель <strong class="strong">$this</strong> можно также использовать для доступа к методам, а не только для доступа к данным:<br><br>
+       <strong class="blue p11">function Setname($name) {<br>
+       <strong class="p11">$this->name = $name;<br>
+       <strong class="p11">$this->Getname();<br>
+       <strong class="p11">}</strong></strong></strong></strong><br><br>
+       Доступ к статическим свойствам осуществляется с помощью оператора разрешения области видимости "<strong class="strong">::</strong>" (также называемый "<strong class="strong">Paamayim Nekudotayim</strong>") или просто "двойное двоеточие" - это лексема, позволяющая обращаться к статическим свойствам, константам и переопределённым свойствам или методам класса.<br>
+       При обращении к этим элементам извне класса, необходимо использовать имя этого класса.<br>
+       Статические методы - это функции, используемые в контексте класса. Они сами не могут получать доступ ни к каким обычным свойствам класса, потому что такие свойства принадлежат объектам.<br> 
+       Начиная с <strong class="strong">PHP 5.3.0</strong>, существует возможность ссылаться на класс используя переменную. Значение переменной в таком случае не может быть ключевым словом (например, <strong class="strong">self</strong>, <strong class="strong">parent</strong> и <strong class="strong">static</strong>).<br>
+       Пример использования "<strong class="strong">::</strong>" вне объявления класса:<br><br>
+       <strong class="blue p11">&lt;php<br>
+       <strong class="p11">class MyClass {<br>
+       <strong class="p11">const CONST_VALUE = 'Значение константы';<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$classname = 'MyClass';<br>
+       <strong class="p11">echo $classname::CONST_VALUE;</strong></strong></strong></strong></strong></strong> // Начиная с PHP 5.3.0<br>
+       <strong class="blue p11">echo MyClass::CONST_VALUE;<br>
+       <strong class="p11">?></strong></strong>
+    </p>
+    <h2 id="php6">Инициализация объектов</h2>
+    <p>Инициализация объекта - присвоить его свойствам первоначальные значения.<br> 
+       Предположим, имя класса <strong class="strong">Coor</strong> и он содержит два свойства: имя человека и город его проживания. Можно написать метод (функцию), который будет выполнять инициализацию объекта, например <strong class="strong">Init()</strong>:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Создаем новый класс <strong class="strong">Coor</strong>:<br>
+       <strong class="blue p11">class Coor {</strong><br>
+       // данные (свойства):<br>
+       <strong class="blue p11">var $name;<br>
+       <strong class="p11">var $city;</strong></strong><br>
+       // Инициализирующий метод:<br>
+       <strong class="blue p11">function Init($name) {<br>
+       <strong class="p11">$this->name = $name;<br>
+       <strong class="p11">$this->city = "London";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong><br>
+       // Создаём объект класса <strong class="strong">Coor</strong>:<br>
+       <strong class="blue p11">$object = new Coor;</strong><br>
+       // Для инициализации объекта сразу вызываем метод:<br>
+       <strong class="blue p11">$object->Init();<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Вызываем функцию сразу после создания объекта, либо вызываем какой-нибудь метод между созданием (оператор <strong class="strong">new</strong>) объекта и его инициализацией (вызовом <strong class="strong">Init</strong>).<br>
+       Для того, чтобы <strong class="strong">PHP</strong> знал, что определённый метод нужно вызывать автоматически при создании объекта, ему нужно дать имя такое же, как и у класса (<strong class="strong">Coor</strong>):<br><br>
+       <strong class="blue p11">function Coor ($name)<br>
+       <strong class="p11">$this->name = $name;<br>
+       <strong class="p11">$this->city = "London";<br>
+       <strong class="p11">}</strong></strong></strong></strong>
+    </p>
+    <h2 id="php7">Преобразование в объект</h2> 
+    <p>Если <strong class="strong">object</strong> преобразуется в <strong class="strong">object</strong>, объект не изменится.<br> 
+       Если значение другого типа преобразуется в <strong class="strong">object</strong>, создаётся новый экземпляр встроенного класса <strong class="strong">stdClass</strong>. Если значение было <strong class="strong">NULL</strong>, новый экземпляр будет пустым. Массивы преобразуются в <strong class="strong">object</strong> с именами полей, названными согласно ключам массива и соответствующими им значениям:<br><br> 
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$obj = (object) array('1' => 'foo');<br>
+       <strong class="p11">var_dump(isset($obj->{'1'}));</strong></strong></strong> // выводит '<strong class="strong">bool(true)</strong>'<br>
+       <strong class="blue p11">var_dump(key($obj));</strong> // выводит '<strong class="strong">string(1) "1"</strong>'<br>
+       <strong class="blue p11">$obj = (object) array('1' => 'foo');<br>
+       <strong class="p11">var_dump(isset($obj->{'1'}));</strong></strong> // выводит '<strong class="strong">bool(true)</strong>'<br>
+       <strong class="blue p11">var_dump(key($obj));</strong> // выводит '<strong class="strong">string(1) "1"</strong>'<br>
+       <strong class="blue p11">?></strong><br><br>
+       При преобразовании любого другого значения, оно будет помещено в поле с именем <strong class="strong">scalar</strong> соответствующему типу:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$obj = (object) 'привет';</strong></strong><br>
+       <strong class="blue p11">echo $obj->scalar;</strong> // выведет 'привет'<br>
+       <strong class="blue p11">?></strong>
+    </p>
+    <h2 id="php8">Наследование</h2>
+    <p>Часто необходимо создание классов содержащих переменные и функция аналогичные переменным и функциям из другого уже существующего класса.<br>
+       Для облегчения этого, классы могут быть расширениями (производными) других классов.<br>
+       Производный класс имеет все переменные и функции базового класса (это называется "наследование") и, кроме того, все что добавляется в расширенном определении.<br>
+       Производный класс всегда зависит от одного базового класса, то есть множественное наследование не поддерживается. Классы расширяются при помощи ключевого слова '<strong class="strong">extends</strong>'.<br>                              
+       Если не используется автозагрузка, классы должны быть объявлены до того, как они будут использоваться. Если класс расширяет другой, то родительский класс должен быть объявлен до наследующего класса.<br>
+       Пример наследования:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class Foo<br>
+       <strong class="p11">{<br>
+       <strong class="p11">public function printItem($string)<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo 'Foo: ' . $string . PHP_EOL;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public function printPHP()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo 'PHP просто супер.' . PHP_EOL;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class Bar extends Foo<br>
+       <strong class="p11">{<br>
+       <strong class="p11">public function printItem($string)<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo 'Bar: ' . $string . PHP_EOL;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$foo = new Foo();<br>
+       <strong class="p11">$bar = new Bar();</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">$foo->printItem('baz');</strong> // Выведет: <strong class="strong">'Foo: baz'</strong><br>
+       <strong class="blue p11">$foo->printPHP();</strong> // Выведет: <strong class="strong">'PHP просто супер'</strong><br> 
+       <strong class="blue p11">$bar->printItem('baz');</strong> // Выведет: <strong class="strong">'Bar: baz'</strong><br>
+       <strong class="blue p11">$bar->printPHP();</strong> // Выведет: <strong class="strong">'PHP просто супер'</strong><br>
+       <strong class="blue p11">?></strong>
+    </p>
+    <h2 id="php9">Конструктор</h2>
+    <p>Конструктор выглядит как обычный метод <strong class="strong">PHP</strong>, разница заключается только в том, что он начинается с "<strong class="strong">__</strong>" двух символов подчёркивания:<br><br>
+       <strong class="blue p11">__construct ([ mixed $args [, $... ]] ) : void</strong><br><br> 
+       <strong class="strong">PHP 5</strong> позволяет объявлять методы-конструкторы. Классы, в которых объявлен метод-конструктор, будут вызывать этот метод при каждом создании нового объекта.<br>
+       <strong class="strong">PHP</strong>-конструктор вызывается только один раз. Нельзя вызвать конструктор явно, он вызывается автоматически при создании объекта.<br>
+       Чтобы создать экземпляр класса, используется ключевое слово <strong class="strong">new</strong>, и в этот момент вызывается конструктор.<br>
+       Это может оказаться полезным, например, для инициализации какого-либо состояния объекта перед его использованием.<br>
+       Конструкторы, определённые в классах-родителях не вызываются автоматически, если дочерний класс определяет собственный конструктор. Чтобы вызвать конструктор, объявленный в родительском классе, требуется вызвать <strong class="strong">parent::__construct()</strong> внутри конструктора дочернего класса. Если в дочернем классе не определён конструктор, то он может быть унаследован от родительского класса как обычный метод (если он не был определён как приватный).<br>
+       Пример использования унифицированных конструкторов:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class BaseClass {<br>
+       <strong class="p11">function __construct() {<br>
+       <strong class="p11">print "Конструктор класса BaseClass\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class SubClass extends BaseClass {<br>
+       <strong class="p11">function __construct() {<br>
+       <strong class="p11">parent::__construct();<br>
+       <strong class="p11">print "Конструктор класса SubClass\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class OtherSubClass extends BaseClass {</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // наследует конструктор <strong class="strong">BaseClass</strong><br>
+       <strong class="blue p11">}</strong><br>
+       // Конструктор класса <strong class="strong">BaseClass</strong><br>
+       <strong class="blue p11">$obj = new BaseClass();</strong><br>
+       // Конструктор класса <strong class="strong">BaseClass</strong><br>
+       // Конструктор класса <strong class="strong">SubClass</strong><br>
+       <strong class="blue p11">$obj = new SubClass();</strong><br>
+       // Конструктор класса <strong class="strong">BaseClass</strong><br>
+       <strong class="blue p11">$obj = new OtherSubClass();<br>
+       ?></strong></strong><br><br>
+       Пример, конструкторы в классах, находящихся в пространстве имен:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">namespace Foo;<br>
+       <strong class="p11">class Bar {<br>
+       <strong class="p11">public function Bar() {</strong></strong></strong></strong><br>
+       // рассматривается как конструктор в версиях <strong class="strong">PHP 5.3.0-5.3.2</strong><br>
+       // и как обычный метод, начиная с версии <strong class="strong">PHP 5.3.3</strong><br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong>
+    </p>
+    <h2 id="php10">Деструктор</h2>   
+    <p>Деструктор - специальный метод объекта, который вызывается при уничтожении этого объекта (например, после завершения программы).<br> 
+       Деструкторы обычно выполняют служебную работу - закрывают файлы, записывают протоколы работы, разрывают соединения, "форматируют винчестер" - в общем, освобождают ресурсы.<br>
+       Деструктор - это специальный метод класса с именем <strong class="strong">__destruct()</strong>, который будет гарантированно вызван при потере последней ссылки на объект в программе. Так как деструктор запускается самим <strong class="strong">PHP</strong>, он не должен принимать никаких параметров.<br>
+    </p>
+    <h2 id="php11">Объявление типов</h2>
+    <p>Объявление типов также известно, как подсказки для типов в <strong class="strong">PHP 5</strong>.<br>
+       Объявления типов позволяют функциям строго задавать тип передаваемых параметров. Передача в функцию значений несоответствующего типа будет приводить к ошибке: в <strong class="strong">PHP 5</strong> это будет обрабатываемая фатальная ошибка, а в <strong class="strong">PHP 7</strong> будет выбрасываться исключение <strong class="strong">TypeError</strong>.<br>
+       Чтобы объявить тип аргумента, необходимо перед его именем добавить имя требуемого типа. Объявление типов может принимать значения <strong class="strong">NULL</strong>, если значение по умолчанию для аргумента является <strong class="strong">NULL</strong>.<br> 
+       В <strong class="strong">PHP 7</strong> добавлена возможность объявлять тип возвращаемого значения. Аналогично объявлению типов аргументов можно задать тип значения, которое будет возвращаться функцией. Типы, которые можно объявить для возвращаемых значений те же, что и для аргументов функций.<br>
+       Режим строгой типизации также работает при объявлении типа возвращаемого значения. В обычном режиме слабой типизации возвращаемое из функции значение приводится к корректному типу. При строгой типизации возвращаемое значение должно быть заданного типа, иначе будет выброшено исключение <strong class="strong">TypeError</strong>.<br>
+       Начиная с <strong class="strong">PHP 7.1.0</strong> возвращаемые значения могут быть помечены как обнуляемые, путём добавления префикса в виде вопросительного знака "<strong class="strong">?</strong>" к названию типу. Это означает, что функция возвращает либо значение указанного типа, либо значение <strong class="strong">NULL</strong>.<br>
+       Если переопределяется родительский метод, возвращаемое значение дочернего метода должно быть того же типа, что и родительского. Если в родительском методе не задан тип возвращаемого значения, то в дочернем методе можно указать любой.<br>
+       Пример обычное объявление типа возвращаемого значения:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function sum($a, $b): float {<br>
+       <strong class="p11">return $a + $b;<br>
+       <strong class="p11">}</strong></strong></strong></strong><br>
+       // Будет возвращаться значение типа <strong class="strong">float</strong><br>
+       <strong class="blue p11">var_dump(sum(1, 2));<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">float(3)</strong><br>
+       Пример объявление обнуляемого типа (начиная с <strong class="strong">PHP 7.1.0</strong>)<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function get_item(): ?string {<br>
+       <strong class="p11">if (isset($_GET['item'])) {<br>
+       <strong class="p11">return $_GET['item'];<br>
+       <strong class="p11">} else {<br>
+       <strong class="p11">return null;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong> 
+    </p>
+    <h2 id="php12">Ключевое слово <strong class="strong">static</strong></h2>
+    <p>Ключевое слово <strong class="strong">static</strong> имеет в <strong class="strong">PHP</strong> три различных значения.<br>
+       <strong class="p11">Значение первое</strong> - статическая локальная переменная:<br><br>
+       <strong class="blue p11">function foo() {<br>
+       <strong class="p11">$a = 0;<br>
+       <strong class="p11">echo $a;<br>
+       <strong class="p11">$a = $a + 1;<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">foo();</strong> // 0<br>
+       <strong class="blue p11">foo();</strong> // 0<br>
+       <strong class="blue p11">foo();</strong> // 0<br><br>
+       В <strong class="strong">PHP</strong> переменные локальны. Это значит, что переменная, определённая и получившая значение внутри функции (метода), существует только во время выполнения этой функции (метода). При выходе из метода локальная переменная уничтожается, а при повторном входе - создаётся заново. В коде выше такой локальной переменной является переменная <strong class="strong">$a</strong> - она существует только внутри функции <strong class="strong">foo()</strong> и каждый раз при вызове этой функции создаётся заново. Инкремент переменной в этом коде бессмысленен, поскольку на следующей же строчке кода функция закончит свою работу и значение переменной будет потеряно. Сколько бы раз мы не вызвали функцию <strong class="strong">foo()</strong>, она всегда будет выводить <strong class="strong">0</strong>.<br>
+       Всё меняется, если перед присваиванием поставить ключевое слово <strong class="strong">static</strong>:<br><br>
+       <strong class="blue p11">function foo() {<br>
+       <strong class="p11">static $a = 0;<br>
+       <strong class="p11">echo $a;<br>
+       <strong class="p11">$a = $a + 1;<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">foo();</strong> // 0<br>
+       <strong class="blue p11">foo();</strong> // 1<br>
+       <strong class="blue p11">foo();</strong> // 2<br><br>
+       Ключевое слово <strong class="strong">static</strong>, написанное перед присваиванием значения локальной переменной, приводит к следующим эффектам:<br>
+       присваивание выполняется только один раз, при первом вызове функции;<br>
+       значение помеченной таким образом переменной сохраняется после окончания работы функции;<br>
+       при последующих вызовах функции вместо присваивания переменная получает сохранённое ранее значение.<br>
+       Такое использование слова <strong class="strong">static</strong> называется статическая локальная переменная.<br>
+       Статической переменной присваивать можно только константы или константные выражения. Вот такой код:<br><br>
+       <strong class="blue p11">static $a = bar();</strong><br><br>
+       приведёт к ошибке парсера (ПО, выделяющее определённые части информации из массива данных) . Начиная с версии 5.6 стало допустимым присвоение не только констант, но и константных выражений (например - «1+2» или "[1, 2, 3]"), то есть таких выражений, которые не зависят от другого кода и могут быть вычислены на этапе компиляции.<br>
+       <strong class="p11">Значение второе</strong> - методы существуют в единственном экземпляре:<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">public function foo() {<br>
+       <strong class="p11">static $x = 0;<br>
+       <strong class="p11">echo ++$x;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$a1 = new A;<br>
+       <strong class="p11">$a2 = new A;</strong></strong></strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">$a1->foo();</strong> // 1<br>
+       <strong class="blue p11">$a2->foo();</strong> // 2<br>
+       <strong class="blue p11">$a1->foo();</strong> // 3<br>
+       <strong class="blue p11">$a2->foo();</strong> // 4<br><br>
+       "Разные объекты - разные методы" наглядно видно на этом примере, что динамические методы в <strong class="strong">PHP</strong> «не размножаются». Даже если будет сто объектов этого класса, метод будет существовать лишь в одном экземпляре, просто при каждом вызове в него будет пробрасываться разный <strong class="strong">$this</strong>.<br>
+       Наследование класса (и метода) приводит к тому, что всё-таки создаётся новый метод:<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">public function foo() {<br>
+       <strong class="p11">static $x = 0;<br>
+       <strong class="p11">echo ++$x;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class B extends A {<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$a1 = new A;<br>
+       <strong class="p11">$b1 = new B;</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">$a1->foo();</strong> // 1<br>
+       <strong class="blue p11">$b1->foo();</strong> // 1<br>
+       <strong class="blue p11">$a1->foo();</strong> // 2<br>
+       <strong class="blue p11">$b1->foo();</strong> // 2<br><br>
+       Динамические методы в <strong class="strong">PHP</strong> существуют в контексте классов, а не объектов. И только лишь в рантайме (<strong class="strong">run-time</strong> - время выполнения, означает работу компьютерной программы, то есть время, когда программа запущена и выполняется)  происходит подстановка "<strong class="strong">$this = текущий_объект</strong>".<br>
+       <strong class="p11">Значение третье</strong> - статические свойства и методы классов.<br>
+       В объектной модели <strong class="strong">PHP</strong> существует возможность задавать свойства и методы не только для объектов - экземпляров класса, но и для класса в целом. Для этого тоже служит ключевое слово <strong class="strong">static</strong>.<br>
+       Это означает, что функция или переменная в действительности является членом класса, а не членом объекта этого класса.<br>
+       Объявление свойств и методов класса статическими позволяет обращаться к ним без создания экземпляра класса. Свойство класса, объявленное как статическое, не может быть доступно посредством экземпляра класса (но статический метод может быть вызван).<br>
+       Для доступа к таким свойствам и методам используются конструкции с двойным двоеточием («<strong class="strong">Paamayim Nekudotayim</strong>»), такие как <strong class="strong">ИМЯ_КЛАССА::$имяПеременной</strong> и <strong class="strong">ИМЯ_КЛАССА:: имяМетода()</strong>:<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">public static $x = 'foo';<br>
+       <strong class="p11">public static function test() {<br>
+       <strong class="p11">return 42;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">echo A::$x;</strong> // <strong class="strong">'foo'</strong><br>
+       <strong class="blue p11">echo A::test();</strong> // <strong class="strong">42</strong><br><br>
+       Так как статические методы вызываются без создания экземпляра класса, то псевдопеременная <strong class="strong">$this</strong> недоступна внутри метода, объявленного как статический.<br>
+       Это проистекает из самого определения статического метода - поскольку он связан с классом, а не объектом, в нём недоступна псевдопеременная <strong class="strong">$this</strong>, указывающая в динамических методах на текущий объект.<br>
+       В отличие от других языков, <strong class="strong">PHP</strong> не определяет ситуацию «в статическом методе написано <strong class="strong">$this</strong>» на этапе парсинга или компиляции. Подобная ошибка может возникнуть только в рантайме, если попытаться выполнить код с <strong class="strong">$this</strong> внутри статического метода.<br>
+       Код типа такого:<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">public $id = 42;<br>
+       <strong class="p11">static public function foo() {<br>
+       <strong class="p11">echo $this->id;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong><br><br>
+       не приведёт ни к каким ошибкам, до тех пор, пока не попытаться использовать метод <strong class="strong">foo()</strong> неподобающим образом:<br><br>
+       <strong class="blue p11">$a = new A;<br>
+       <strong class="p11">$a->foo();</strong></strong><br><br>
+       (и сразу получим «<strong class="strong">Fatal error: Using $this when not in object context</strong>»)<br>
+       <strong class="strong">static</strong> не аксиома!<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">static public function foo() {<br>
+       <strong class="p11">echo 42;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$a = new A;<br>
+       <strong class="p11">$a->foo();</strong></strong></strong></strong></strong></strong></strong><br><br>
+       Статический метод, если он не содержит в коде <strong class="strong">$this</strong>, вполне можно вызывать в динамическом контексте, как метод объекта. Это не является ошибкой в <strong class="strong">PHP</strong>.<br>
+       Обратное не совсем верно:<br><br>
+       <strong class="blue p11">class A {<br>
+       <strong class="p11">public function foo() {<br>
+       <strong class="p11">echo 42;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">A::foo();</strong></strong></strong></strong></strong></strong><br><br>
+       Динамический метод, не использующий <strong class="strong">$this</strong>, можно выполнять в статическом контексте,но получим предупреждение «<strong class="strong">Non-static method A::foo() should not be called statically</strong>» уровня <strong class="strong">E_STRICT</strong>. Здесь необходимо решать - или строго следовать стандартам кода, или подавлять предупреждения. Первое, предпочтительнее.<br>
+       Всё написанное выше относится только к методам. Использование статического свойства через "<strong class="strong">-></strong>" невозможно и ведёт к фатальной ошибке.
+    </p>
+    <h2 id="php13">Позднее статическое связывание</h2>
+    <p>В версии 5.3 добавлено «позднее статическое связывание» или <strong class="strong">LSB</strong> (<strong class="strong">Late Static Binding</strong>).<br>
+       Понять суть <strong class="strong">LSB</strong> проще всего на примерах:<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table = 'table';<br>
+       <strong class="p11">public static function getTable() {<br>
+       <strong class="p11">return self::$table;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">echo Model::getTable();</strong> // <strong class="strong">'table'</strong><br><br>
+       Такая языковая возможность называется «ранним статическим связыванием». Почему ранним? Потому что связывание <strong class="strong">self</strong> и конкретного имени класса происходит не в рантайме, а на более ранних этапах - парсинга и компиляции кода, а «статическое» - потому что речь идёт о статических свойствах и методах.<br>
+       Изменим код:<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table = 'table';<br>
+       <strong class="p11">public static function getTable() {<br>
+       <strong class="p11">return self::$table;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class User extends Model {<br>
+       <strong class="p11">public static $table = 'users';<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">echo User::getTable();</strong> // <strong class="strong">'table'</strong><br><br>
+       <strong class="strong">self</strong> был связан с классом <strong class="strong">Model</strong> тогда, когда о классе <strong class="strong">User</strong> ещё ничего не было известно, поэтому и указывает на <strong class="strong">Model</strong>.<br>
+       Для решения этой дилеммы был придуман механизм связывания «позднего», на этапе рантайма. Работает он очень просто - достаточно вместо слова «<strong class="strong">self</strong>» написать «<strong class="strong">static</strong>» и связь будет установлена с тем классом, который вызывает данный код, а не с тем, где он написан:<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table = 'table';<br>
+       <strong class="p11">public static function getTable() {<br>
+       <strong class="p11">return static::$table;
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class User extends Model {<br>
+       <strong class="p11">public static $table = 'users';<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       <strong class="blue p11">echo User::getTable();</strong> // '<strong class="strong">users</strong>'<br><br>
+       Это и есть «позднее статическое связывание».<br>
+       Для большего удобства в <strong class="strong">PHP</strong> кроме слова «<strong class="strong">static</strong>» есть еще специальная функция <strong class="strong">get_called_class()</strong>, которая сообщит - в контексте какого класса в данный момент работает код.<br>
+       Если говорить более точно, позднее статическое связывание сохраняет имя класса указанного в последнем "не перенаправленном вызове". В случае статических вызовов это явно указанный класс (обычно слева от оператора "<strong class="strong">::</strong>"); в случае не статических вызовов это класс объекта.<br> 
+       "Перенаправленный вызов" - это статический вызов, начинающийся с <strong class="strong">self::</strong>, <strong class="strong">parent::</strong>, <strong class="strong">static::</strong>, или, если двигаться вверх по иерархии классов, <strong class="strong">forward_static_call()</strong>. Функция <strong class="strong">get_called_class()</strong> может быть использована для получения строки с именем вызванного класса, а <strong class="strong">static::</strong> представляет её область действия.<br>
+       Само название "позднее статическое связывание" отражает в себе внутреннюю реализацию этой особенности. "Позднее связывание" отражает тот факт, что обращения через <strong class="strong">static::</strong> не будут вычисляться по отношению к классу, в котором вызываемый метод определён, а будут вычисляться на основе информации в ходе исполнения. Также эта особенность была названа "статическое связывание" потому, что она может быть использована (но не обязательно) в статических методах.
+    </p>
+    <h2 id="php14">Ограничения <strong class="strong">self::</strong></h2> 
+    <p>Статические ссылки на текущий класс, такие как <strong class="strong">self::</strong> или <strong class="strong">__CLASS__</strong>, вычисляются используя класс, к которому эта функция принадлежит, как и в том месте, где она была определена:<br><br>
+       Пример использование <strong class="strong">self::</strong><br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class A {<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public static function test() {<br>
+       <strong class="p11">self::who();<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class B extends A {<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">B::test();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера: <strong class="strong">A</strong><br>
+       Ключевое слово <strong class="strong">self</strong> в <strong class="strong">PHP</strong> всегда значит «имя класса, где это слово написано». В данном случае <strong class="strong">self</strong> заменяется на класс <strong class="strong">A</strong>, а <strong class="strong">self::who()</strong> — на <strong class="strong">A::who()</strong>.
+    </p>
+    <h2 id="php15">Использование позднего статического связывания</h2> 
+    <p>Позднее статическое связывание пытается устранить ограничение <strong class="strong">self::</strong>, предоставляя ключевое слово, которое ссылается на класс, вызванный непосредственно в ходе выполнения. Попросту говоря, ключевое слово, которое позволит ссылаться на <strong class="strong">B</strong> из <strong class="strong">test()</strong> в предыдущем примере. Было решено не вводить новое ключевое слово, а использовать <strong class="strong">static</strong>, которое уже зарезервировано.<br>
+       Пример простое использование <strong class="strong">static::</strong><br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class A {<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public static function test() {<br>
+       <strong class="p11">static::who();</strong></strong></strong></strong></strong></strong></strong> // Здесь действует позднее статическое связывание<br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class B extends A {<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">B::test();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера: <strong class="strong">B</strong><br>
+       В нестатическом контексте вызванным классом будет тот, к которому относится экземпляр объекта. Поскольку <strong class="strong">$this-></strong> будет пытаться вызывать закрытые методы из той же области действия, использование <strong class="strong">static::</strong> может дать разные результаты.<br> 
+       Другое отличие в том, что <strong class="strong">static::</strong> может ссылаться только на статические поля класса.<br>
+       Пример использование <strong class="strong">static::</strong> в нестатическом контексте:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class A {<br>
+       <strong class="p11">private function foo() {<br>
+       <strong class="p11">echo "success!\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public function test() {<br>
+       <strong class="p11">$this->foo();<br>
+       <strong class="p11">static::foo();<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class B extends A {</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       /* <strong class="strong">foo()</strong> будет скопирован в <strong class="strong">В</strong>, следовательно его область действия по прежнему <strong class="strong">А</strong>, и вызов будет успешным */<br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">class C extends A {<br>
+       <strong class="p11">private function foo() {</strong></strong></strong><br>
+       /* исходный метод заменен; область действия нового метода - <strong class="strong">С</strong> */<br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$b = new B();<br>
+       <strong class="p11">$b->test();<br>
+       <strong class="p11">$c = new C();<br>
+       <strong class="p11">$c->test();</strong></strong></strong></strong></strong></strong> // потерпит ошибку<br>
+       <strong class="blue p11">?></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">success!<br>
+       success!<br>
+       success!<br>
+       Fatal error:  Call to private method C::foo() from context 'A' in /tmp/test.php on line 9</strong></strong></strong></strong><br>
+       Разрешающая область позднего статического связывания будет фиксирована вычисляющем её статическим вызовом. С другой стороны, статические вызовы с использованием таких директив как <strong class="strong">parent::</strong> или <strong class="strong">self::</strong> перенаправляют информацию вызова.<br>
+       Пример перенаправленные и не перенаправленные вызовы:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class A {<br>
+       <strong class="p11">public static function foo() {<br>
+       <strong class="p11">static::who();<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__."\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class B extends A {<br>
+       <strong class="p11">public static function test() {<br>
+       <strong class="p11">A::foo();<br>
+       <strong class="p11">parent::foo();<br>
+       <strong class="p11">self::foo();<br>
+       <strong class="p11">}<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__."\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class C extends B {<br>
+       <strong class="p11">public static function who() {<br>
+       <strong class="p11">echo __CLASS__."\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">C::test();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">A<br>
+       C<br>
+       C</strong></strong></strong>
+    </p>    
+    <h2 id="php16">Пример отличия "<strong class="strong">self::</strong>", "<strong class="strong">static::</strong>" и "<strong class="strong">parent::</strong>"</h2> 
+    <p>Создадим класс '<strong class="strong">Model</strong>' (базовый) и дочерний '<strong class="strong">Users</strong>'<br>
+       1) В этом случае "<strong class="strong">self::</strong>" находится в родительском классе, следовательно берет данные из родительского(от туда где он находится).<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table='table';<br>
+       <strong class="p11">public static function getTable() {<br>
+       <strong class="p11">return self::$table;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class User extends Model{<br>
+       <strong class="p11">public static $table='users';<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo User::getTable();</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> //выведет <strong class="strong">'table'</strong><br><br> 
+       2) В этом случае "<strong class="strong">static::</strong>" берет данные из вызывающего класса, в нашем случае '<strong class="strong">Users</strong>'.<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table='table';<br>
+       <strong class="p11">public static function getTable() {<br>
+       <strong class="p11">return static::$table;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class User extends Model{<br>
+       <strong class="p11">public static $table='users';<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo User::getTable();</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> //выведет <strong class="strong">'users'</strong><br><br>
+       3) Здесь "<strong class="strong">parent::</strong>" используется для доступа к методам и свойствам базового (родительского) класса. Здесь мы, в дочернем классе, переопределили метод базового класса( <strong class="strong">foo()</strong> ), но с помощью "<strong class="strong">parent::</strong>" все ещё можем обратиться к родительскому методу.<br><br>
+       <strong class="blue p11">class Model {<br>
+       <strong class="p11">public static $table='table';<br>
+       <strong class="p11">public static function foo() {<br>
+       <strong class="p11">echo "1_test";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class User extends Model{<br>
+       <strong class="p11">public static function foo() {<br>
+       <strong class="p11">echo "2_test";<br>
+       <strong class="p11">parent::foo();<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo User::foo();</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> //выведет <strong class="strong">'2_test1_test'</strong><br><br>
+       <strong class="strong">self</strong> — класс в котором написано, заменяется на имя текущего класса.<br>
+       <strong class="strong">self</strong> - вызываем метод именно этого класса.<br>
+       <strong class="strong">static</strong> — класс в котором выполнилось.<br>
+       <strong class="strong">static</strong> - вызываем метод текущего класса.<br>
+       Разница между <strong class="strong">self</strong> и <strong class="strong">static</strong> хорошо видна, например, делается <strong class="strong">new self()</strong> или <strong class="strong">new static()</strong> - в первом случае будет создан объект класса, где упомянут <strong class="strong">self</strong> (т.е. создан родитель), во втором - объект того класса, где вызывается метод (т.е. потомок).<br>
+       <strong class="strong">parent</strong> - вызываем родительский метод (не обязательно статичный).<br>     
+       Префикс <strong class="strong">parent::</strong> очень похож на префикс <strong class="strong">self::</strong>, но заставляет <strong class="strong">PHP</strong> обратиться к функциям родительского (базового) класса, а не текущего.<br>
+       <strong class="strong">parent</strong> заменяется на имя базового класса. 
+    </p>    
+    <h2 id="php17">Финальные методы</h2>
+    <p><strong class="strong">PHP 5</strong> предоставляет ключевое слово <strong class="strong">final</strong>, разместив которое перед объявлениями методов класса, можно предотвратить их переопределение в производных классах.<br>
+       Если же сам класс определяется с этим ключевым словом, то он не сможет быть унаследован.<br><br> 
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class Base {<br>
+       <strong class="p11">public final function test() { }<br>
+       <strong class="p11">}<br>
+       <strong class="p11">class Derive extends Base {<br>
+       <strong class="p11">public function test() { }</strong></strong></strong></strong></strong></strong> // Ошибка! Нельзя переопределить<br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">?></strong></strong><br><br>
+       При запуске этого несложного сценария выдается ошибка <strong class="strong">Fatal error: Cannot override final method Base::test()</strong><br>
+       В <strong class="strong">PHP</strong>, можно не только запретить переопределение методов, но и запретить наследование от указанного класса вообще. Для этого ключевое слово <strong class="strong">final</strong> необходимо поставить перед определением класса, например:<br><br>
+       <strong class="blue p11">final class Base { }</strong><br><br>
+       Теперь нельзя создавать классы, производные от <strong class="strong">Base</strong>.
+    </p>   
+    <h2 id="php18">Пространства имён</h2>
+    <p>Пространство имён (<strong class="strong">namespace</strong>) - это имеющий имя фрагмент программы, содержащий в себе: функции, переменные, константы и другие именованные сущности. Это один из способов инкапсуляции элементов.<br> 
+       Такое абстрактное понятие можно увидеть например, в любой операционной системе, директории служат для группировки связанных файлов и выступают в качестве пространства имён для находящихся в них файлов. В качестве конкретного примера файл <strong class="strong">foo.txt</strong> может находиться сразу в обеих директориях: <strong class="strong">/home/greg</strong> и <strong class="strong">/home/other</strong>, но две копии <strong class="strong">foo.txt</strong> не могут существовать в одной директории. Кроме того, для доступа к <strong class="strong">foo.txt</strong> извне директории <strong class="strong">/home/greg</strong>, необходимо добавить имя директории перед именем файла используя разделитель, чтобы получить <strong class="strong">/home/greg/foo.txt</strong>. Этот же принцип распространяется и на пространства имён в программировании.<br>
+       Для получения "извне" доступа к идентификатору из некоторого пространства имён служит синтаксис <strong class="strong">имяПространстваИмён::имяИдентификатора</strong>.<br>
+       Предположим, что есть два пространства имён: <strong class="strong">main</strong> (основная программа) и <strong class="strong">lib</strong> (библиотека стороннего производителя). И там, и там может быть определена функция <strong class="strong">length()</strong>.<br>
+       При этом доступ к одной функции будет выглядеть как <strong class="strong">lib::length()</strong>, а к другой - <strong class="strong">main::length()</strong>. Причём для кода, который сам находится в пространстве имён <strong class="strong">main</strong>, префикс <strong class="strong">main::</strong> можно не указывать.<br>
+       В <strong class="strong">PHP</strong> пространства имён используются для решения двух проблем, с которыми сталкиваются авторы библиотек и приложений при создании повторно используемых элементов кода, таких как классы и функции:<br>
+       Конфликт имён между кодом и внутренними классами/функциями/константами <strong class="strong">PHP</strong> или сторонними.<br>
+       Возможность создавать псевдонимы (или сокращения) для Ну_Очень_Длинных_Имен, чтобы облегчить первую проблему и улучшить читаемость исходного кода.<br>
+       Пространства имён <strong class="strong">PHP</strong> предоставляют возможность группировать логически связанные классы, интерфейсы, функции и константы.<br>
+       Хотя любой корректный <strong class="strong">PHP</strong>-код может находиться внутри пространства имён, только классы (включая абстрактные и трейты), интерфейсы, функции и константы зависят от него.<br>
+       Пространства имён объявляются с помощью зарезервированного слова <strong class="strong">namespace</strong>.<br> 
+       Файл, содержащий пространство имён, должен содержать его объявление в начале перед любым другим кодом, кроме зарезервированного слова <strong class="strong">declare</strong>.<br> 
+       Кроме того, в отличие от любой другой конструкции <strong class="strong">PHP</strong>, одно и то же пространство имён можно определять в нескольких файлах, что позволяет распределять их содержимое по файловой системе.<br> 
+       Несколько пространств имён также можно описать в одном файле с помощью двух допустимых синтаксических конструкций:<br><br> 
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">namespace MyProject;<br>
+       <strong class="p11">const CONNECT_OK = 1;<br>
+       <strong class="p11">class Connection { /* ... */ }<br>
+       <strong class="p11">function connect() { /* ... */  }<br>
+       <strong class="p11">namespace AnotherProject;<br>
+       <strong class="p11">const CONNECT_OK = 1;<br>
+       <strong class="p11">class Connection { /* ... */ }<br>
+       <strong class="p11">function connect() { /* ... */  }<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Используя директиву <strong class="strong">use</strong>, можно получить класс из другого пространства имён.<br>
+       Возможность ссылаться на внешнее абсолютное имя по псевдониму или импортированию - это важная особенность пространств имён. Это похоже на возможность файловых систем <strong class="strong">unix</strong> создавать символические ссылки на файл или директорию.<br>
+       Все версии <strong class="strong">PHP</strong>, поддерживающие пространства имён, поддерживают три вида создания псевдонима имени или импорта: создание псевдонима для имени класса, создание псевдонима для имени интерфейса и для имени пространства имён. <strong class="strong">PHP 5.6+</strong> также поддерживает импорт функций и имён констант.<br>
+       В <strong class="strong">PHP</strong> создание псевдонима имени выполняется с помощью оператора <strong class="strong">use</strong>.<br> 
+       Пример, показывающий 5 типов импорт/создание псевдонима имени с помощью оператора <strong class="strong">use</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">namespace foo;<br>
+       <strong class="p11">use My\Full\Classname as Another;</strong></strong></strong><br>
+       // это тоже самое, что и использование <strong class="strong">My\Full\NSname as NSname</strong><br>
+       <strong class="blue p11">use My\Full\NSname;</strong><br>
+       // импортирование глобального класса<br>
+       <strong class="blue p11">use ArrayObject;</strong><br>
+       // импортирование функции (<strong class="strong">PHP 5.6+</strong>)<br>
+       <strong class="blue p11">use function My\Full\functionName;</strong><br>
+       // псевдоним функции (<strong class="strong">PHP 5.6+</strong>)<br>
+       <strong class="blue p11">use function My\Full\functionName as func;</strong><br>
+       // импортирование константы (<strong class="strong">PHP 5.6+</strong>)<br>
+       <strong class="blue p11">use const My\Full\CONSTANT;<br>
+       <strong class="p11">$obj = new namespace\Another;</strong></strong> // создает экземпляр класса <strong class="strong">foo\Another</strong><br>
+       <strong class="blue p11">$obj = new Another;</strong> // создает объект класса <strong class="strong">My\Full\Classname</strong><br>
+       <strong class="blue p11">NSname\subns\func();</strong> // вызывает функцию <strong class="strong">My\Full\NSname\subns\func</strong><br>
+       <strong class="blue p11">$a = new ArrayObject(array(1));</strong> // создает объект класса <strong class="strong">ArrayObject</strong><br>
+       // без выражения "<strong class="strong">use ArrayObject</strong>" мы создадим объект класса <strong class="strong">foo\ArrayObject</strong><br>
+       <strong class="blue p11">func();</strong> // вызывает функцию <strong class="strong">My\Full\functionName</strong><br>
+       <strong class="blue p11">echo CONSTANT;</strong> // выводит содержимое константы <strong class="strong">My\Full\CONSTANT</strong><br>
+       <strong class="blue p11">?></strong>
+    </p>
+    <h2 id="php19">Исключения</h2>
+    <p>Механизм обработки исключений (<strong class="strong">exceptions</strong>) - это технология, позволяющая писать код восстановления после серьёзной ошибки в удобном для программиста виде.<br> 
+       Исключение - это некоторое сообщение об ошибке вида "серьёзная". При своей генерации оно автоматически передаётся в участок программы, который лучше всего "осведомлен", что же следует предпринять в данной конкретной ситуации.<br>
+       Этот участок называется обработчиком исключения.<br>
+       Код обработчика исключения помещается в блок инструкции <strong class="strong">catch</strong> (в переводе с английского - "ловить").<br>
+       Блок <strong class="strong">try</strong> (в переводе с английского - "попытаться") используется для того, что бы указать в программе область перехвата. Любые исключения, сгенерированные внутри неё (и только они), будут переданы соответствующему обработчику.<br>
+       Инструкция <strong class="strong">throw</strong> используется для генерации исключения. Генерацию также называют возбуждением или даже выбрасыванием (или "вбрасыванием") исключения (от англ. <strong class="strong">throw</strong> - бросать).<br> 
+       Любое исключение представляет собой обычный объект <strong class="strong">PHP</strong>, который создаётся в операторе <strong class="strong">new</strong>.<br>
+       В блоке <strong class="strong">catch</strong> указано, в какую переменную должен быть записан "пойманный" объект-исключение перед запуском кода обработчика. Также обязательно задаётся тип исключения - имя класса. Обработчик будет вызван только для тех объектов-исключений, которые совместимы с указанным типом (например, для объектов данного типа).<br>
+       Инструкция <strong class="strong">throw</strong> не просто генерирует объект-исключение и передаёт его обработчику блока <strong class="strong">catch</strong>. Она также немедленно завершает работу текущего <strong class="strong">try</strong> - блока.<br>
+       Код генерирующий исключение, должен быть окружен блоком <strong class="strong">try</strong>, для того, чтобы можно было перехватить исключение. Каждый блок <strong class="strong">try</strong> должен иметь как минимум один соответствующий ему блок <strong class="strong">catch</strong> или <strong class="strong">finally</strong>.<br>
+       Генерируемый объект должен принадлежать классу <strong class="strong">Exception</strong> или наследоваться от <strong class="strong">Exception</strong>. Попытка сгенерировать исключение другого класса приведёт к фатальной ошибке <strong class="strong">PHP</strong>.<br>
+       Можно использовать несколько блоков <strong class="strong">catch</strong>, перехватывающих различные классы исключений. Нормальное выполнение (когда не генерируются исключения в блоках <strong class="strong">try</strong>) будет продолжено за последним блоком <strong class="strong">catch</strong>. Исключения могут быть сгенерированы (или вызваны ещё раз) оператором <strong class="strong">throw</strong> внутри блока <strong class="strong">catch</strong>.<br>
+       При генерации исключения код, следующий после описываемого выражения, не будет выполнен, а <strong class="strong">PHP</strong> попытается найти первый блок <strong class="strong">catch</strong>, перехватывающий исключение данного класса. Если исключение не будет перехвачено, <strong class="strong">PHP</strong> выдаст фатальную ошибку: "<strong class="strong">Uncaught Exception ...</strong>" (Не перехваченное исключение), если не был определён обработчик ошибок при помощи функции <strong class="strong">set_exception_handler()</strong>.<br>
+       В <strong class="strong">PHP 7.1</strong> и выше, блок <strong class="strong">catch</strong> может принимать несколько типов исключений с помощью символа (<strong class="strong">|</strong>). Это полезно, когда разные исключения из разных иерархий классов обрабатываются одинаково.<br>
+       В <strong class="strong">PHP 5.5</strong> и более поздних версиях блок <strong class="strong">finally</strong> также можно использовать после или вместо блока <strong class="strong">catch</strong>. Код в блоке <strong class="strong">finally</strong> всегда будет выполняться после кода в блоках <strong class="strong">try</strong> и <strong class="strong">catch</strong>, независимо от того, было ли выброшено исключение, перед тем как продолжится нормальное выполнение кода.<br>
+       Одно важное взаимодействие происходит между блоком <strong class="strong">finally</strong> и оператором <strong class="strong">return</strong>. Если оператор <strong class="strong">return</strong> встречается внутри блоков <strong class="strong">try</strong> или <strong class="strong">catch</strong>, блок <strong class="strong">finally</strong> все равно будет выполнен. Кроме того, оператор <strong class="strong">return</strong> выполняется, когда встречается, но результат будет возвращён после выполнения блока <strong class="strong">finally</strong>. Если блок <strong class="strong">finally</strong> также содержит оператор <strong class="strong">return</strong>, возвращается значение, указанное в блоке <strong class="strong">finally</strong>.<br>
+       Внутренние функции <strong class="strong">PHP</strong> в основном используют сообщения об ошибках, и только новые объектно-ориентированные расширения используют исключения. Однако, ошибки можно легко преобразовать в исключения с помощью класса <strong class="strong">ErrorException</strong>.<br>
+       Стандартная библиотека <strong class="strong">PHP</strong> (<strong class="strong">SPL</strong>) предоставляет хороший набор встроенных классов исключений.<br>
+       Пример выбрасывание исключений:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function inverse($x) {<br>
+       <strong class="p11">if (!$x) {<br>
+       <strong class="p11">throw new Exception('Деление на ноль.');<br>
+       <strong class="p11">}<br>
+       <strong class="p11">return 1/$x;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">echo inverse(5) . "\n";<br>
+       <strong class="p11">echo inverse(0) . "\n";<br>
+       <strong class="p11">} catch (Exception $e) {<br>
+       <strong class="p11">echo 'Выброшено исключение: ',  $e->getMessage(), "\n";<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Продолжение выполнения<br>
+       <strong class="blue p11">echo "Привет, мир\n";<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Результат выполнения данного примера:<br> 
+       0.2<br>
+       Выброшено исключение: Деление на ноль.<br>
+       Привет, мир<br>
+       Пример обработка исключений с помощью блока <strong class="strong">finally</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function inverse($x) {<br>
+       <strong class="p11">if (!$x) {<br>
+       <strong class="p11">throw new Exception('Деление на ноль.');<br>
+       <strong class="p11">}<br>
+       <strong class="p11">return 1/$x;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">echo inverse(5) . "\n";<br>
+       <strong class="p11">} catch (Exception $e) {<br>
+       <strong class="p11">echo 'Поймано исключение: ',  $e->getMessage(), "\n";<br>
+       <strong class="p11">} finally {<br>
+       <strong class="p11">echo "Первый блок finally.\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">echo inverse(0) . "\n";<br>
+       <strong class="p11">} catch (Exception $e) {<br>
+       <strong class="p11">echo 'Поймано исключение: ',  $e->getMessage(), "\n";<br>
+       <strong class="p11">} finally {<br>
+       <strong class="p11">echo "Второй блок finally.\n";<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Продолжение нормального выполнения<br>
+       <strong class="blue p11">echo "Привет, мир\n";<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Результат выполнения данного примера:<br> 
+       0.2<br>
+       Первый блок <strong class="strong">finally</strong><br>
+       Поймано исключение: Деление на ноль.<br>
+       Второй блок <strong class="strong">finally</strong><br>
+       Привет, мир<br>
+       Пример взаимодействие между блоками <strong class="strong">finally</strong> и <strong class="strong">return</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function test() {<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">throw new Exception('foo');<br>
+       <strong class="p11">} catch (Exception $e) {<br>
+       <strong class="p11">return 'catch';<br>
+       <strong class="p11">} finally {<br>
+       <strong class="p11">return 'finally';<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo test();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">finally</strong><br>
+       Пример вложенные исключения:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class MyException extends Exception { }<br>
+       <strong class="p11">class Test {<br>
+       <strong class="p11">public function testing() {<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">throw new MyException('foo!');<br>
+       <strong class="p11">} catch (MyException $e) {</strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // повторный выброс исключения<br>
+       <strong class="blue p11">throw $e;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">} catch (Exception $e) {<br>
+       <strong class="p11">var_dump($e->getMessage());<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$foo = new Test;<br>
+       <strong class="p11">$foo->testing();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">string(4) "foo!"</strong><br>
+       Пример обработка нескольких исключений в одном блоке <strong class="strong">catch</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">class MyException extends Exception { }<br>
+       <strong class="p11">class MyOtherException extends Exception { }<br>
+       <strong class="p11">class Test {<br>
+       <strong class="p11">public function testing() {<br>
+       <strong class="p11">try {<br>
+       <strong class="p11">throw new MyException();<br>
+       <strong class="p11">} catch (MyException | MyOtherException $e) {<br>
+       <strong class="p11">var_dump(get_class($e));<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$foo = new Test;<br>
+       <strong class="p11">$foo->testing();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера:<br>
+       <strong class="strong">string(11) "MyException"</strong>
+    </p>
+    <h2 id="php20">Функции <strong class="strong">PHP</strong> для работы с <strong class="strong">MySQL</strong></h2> 
+    <p>Основной функцией для соединения с сервером <strong class="strong">MySQL</strong> является <strong class="strong">mysql_connect()</strong>, которая подключает скрипт к серверу баз данных <strong class="strong">MySQL</strong> и выполняет авторизацию пользователя с базой данных. Синтаксис у данной функции такой:<br>
+       <strong class="strong">mysql_connect ([string $hostname] [, string $user] [, sting $password])</strong>;<br>
+       Все параметры данной функции являются необязательными, поскольку значения по умолчанию можно прописать в конфигурационном файле <strong class="strong">php.ini</strong>.<br> 
+       Если необходимо указать другие имя <strong class="strong">MySQL</strong>-хоста, пользователя и пароль, всегда можно это сделать. Параметр <strong class="strong">$hostname</strong> может быть указан в виде: хост:порт.<br>             
+       Для закрытия соединения предназначена функция <strong class="strong">mysql_close(int $connection_id)</strong>.<br>
+       Функция <strong class="strong">mysql_select_db (string $db [, int $id])</strong> выбирает базу данных, с которой будет работать <strong class="strong">PHP</strong> скрипт. Если открыто не более одного соединения, можно не указывать параметр <strong class="strong">$id</strong>.<br>
+       Попытка установить соединение с <strong class="strong">MySQL</strong>:<br><br>
+       <strong class="blue p11">if (!mysql_connect($server, $user, $ password)) {<br>
+       <strong class="p11">echo "Ошибка подключения к серверу MySQL";<br>
+       <strong class="p11">exit;<br>
+       <strong class="p11">}</strong></strong></strong></strong><br><br>
+       Соединились, теперь выбираем базу данных:<br><br>
+       <strong class="blue p11">mysql_select_db($db);</strong><br><br>
+       Все запросы к текущей базе данных отправляются функцией <strong class="strong">mysql_query()</strong>. Этой функции нужно передать один параметр - текст запроса. Текст запроса может содержать пробельные символы и символы новой строки (<strong class="strong">\n</strong>). Текст должен быть составлен по правилам синтаксиса <strong class="strong">SQL</strong>.<br> 
+       Пример запроса:<br><br>
+       <strong class="blue p11">$q = mysql_query("SELECT * FROM mytable");</strong><br><br>
+       Приведенный запрос должен вернуть содержимое таблицы <strong class="strong">mytable</strong>. Результат запроса присваивается переменной <strong class="strong">$q</strong>.<br> 
+       Результат - это набор данных, который после выполнения запроса нужно обработать определенным образом.<br>
+       Если запрос, выполненный с помощью функции <strong class="strong">mysql_query()</strong> успешно выполнился, то в результате клиент получит набор записей, который может быть обработан следующими функциями <strong class="strong">PHP</strong>:<br>
+       <strong class="strong">mysql_result()</strong> - получить необходимый элемент из набора записей;<br>
+       <strong class="strong">mysql_fetch_array()</strong> - занести запись в массив;<br>
+       <strong class="strong">mysql_fetch_row()</strong> - обрабатывает ряд результата запроса и возвращает массив с числовыми индексами;<br>
+       <strong class="strong">mysql_fetch_assoc()</strong> - занести запись в ассоциативный массив;<br>
+       <strong class="strong">mysql_fetch_object()</strong> - занести запись в объект.<br>
+       Также можно определить количество содержащихся записей и полей в результате запроса. Функция <strong class="strong">mysql_num_rows()</strong> позволяет узнать, сколько записей содержит результат запроса:<br><br>
+       <strong class="blue p11">$q = mysql_query("SELECT * FROM mytable");<br>
+       <strong class="p11">echo "В таблице mytable ".mysql_num_rows($q)." записей";</strong></strong><br><br>
+       Запись состоит из полей (колонок). С помощью функции <strong class="strong">mysql_num_fields()</strong> можно узнать, сколько полей содержит каждая запись результата:<br><br>
+       <strong class="blue p11">$q = mysql_query("SELECT * FROM mytable");<br>
+       <strong class="p11">echo "В таблице mytable ".mysql_num_fields($q)." полей ";</strong></strong><br><br>
+       Есть возможность узнать значение каждого поля. Это можно сделать с помощью следующей функции:<br><br>
+       <strong class="blue p11">mysql_result (int $result, int $row, mixed $field);</strong><br><br>
+       Параметр функции <strong class="strong">$row</strong> задает номер записи, а параметр <strong class="strong">$field</strong> - имя или порядковый номер поля.<br>
+       Предположим, <strong class="strong">SQL</strong>-запрос вернул следующий набор данных:<br><br>
+       <strong class="blue p11">Email Name Last_Name<br>
+       <strong class="p11">------------------------------------<br>
+       <strong class="p11">ivanov@mail.ru     Ivan     Ivanov<br>
+       <strong class="p11">petrov@mail.ru     Petr      Petrov</strong></strong></strong></strong><br><br>
+       Вывести это в браузер можно следующим образом:<br><br>
+       <strong class="blue p11">$rows = mysql_num_rows($q);<br>
+       <strong class="p11">$fields = mysql_num_fields($q);<br>
+       <strong class="p11">echo "&lt;pre>";<br>
+       <strong class="p11">for ($c=0; $c&lt;$rows; $c++) {<br>
+       <strong class="p11">for ($cc=0; $cc&lt;$fields; $cc++) {<br>
+       <strong class="p11">echo mysql_result($q, $c, $cc)."\t";<br>
+       <strong class="p11">echo "\n";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo "&lt;/pre>";</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Скрипт вывода содержимого таблицы <strong class="strong">MySQL</strong> в виде <strong class="strong">HTML</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       $host = "localhost";<br>
+       $user = "user";<br>
+       $password = "secret_password";</strong></strong></strong></strong><br>
+       // Производим попытку подключения к серверу <strong class="strong">MySQL</strong>:<br>
+       <strong class="blue p11">if (!mysql_connect($host, $user, $password))<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo "&lt;h2>MySQL Error!&lt;/h2>";<br>
+       <strong class="p11">exit;<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong><br>
+       // Выбираем базу данных:<br>
+       <strong class="blue p11">mysql_select_db($db);</strong><br>
+       // Выводим заголовок таблицы:<br>
+       <strong class="blue p11">echo "&lt;table border=\"1\" width=\"100%\" bgcolor=\"#FFFFE1\">";<br>
+       <strong class="p11">echo "&lt;tr>&lt;td>Email&lt;/td>&lt;td>Имя&lt;/td>&lt;td>Месяц&lt;/td>";<br>
+       <strong class="p11">echo "&lt;td>Число&lt;/td>&lt;td>Пол&lt;/td>&lt;/tr>";</strong></strong></strong><br>
+       // <strong class="strong">SQL</strong>-запрос:<br>
+       <strong class="blue p11">$q = mysql_query ("SELECT * FROM mytable");</strong><br>
+       // Выводим таблицу:<br>
+       <strong class="blue p11">for ($c=0; $c&lt;mysql_num_rows($q); $c++)<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo "&lt;tr>";<br>
+       <strong class="p11">$f = mysql_fetch_array($q);<br>
+       <strong class="p11">echo "&lt;td>$f[email]&lt;/td>&lt;td>$f[name]&lt;/td>&lt;td>$f[month]&lt;/td>";<br>
+       <strong class="p11">echo "&lt;td>$f[day]&lt;/td>&lt;td>$[s]&lt;/td>";<br>
+       <strong class="p11">echo "&lt;/tr>";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo "&lt;/table>";<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php21">Хэш-функции</h2>
+    <p><strong class="strong">md5(string $str)</strong><br> 
+       Возвращает хэш-код строки <strong class="strong">$str</strong>, основанный на алгоритме корпорации <strong class="strong">RSA Data Security</strong> под названием "<strong class="strong">MD5 Message-Digest Algorithm</strong>".<br> 
+       Хэш-код - это просто строка, практически уникальная для каждой из строк <strong class="strong">$str</strong>. То есть вероятность того, что две разные строки, переданные в <strong class="strong">$str</strong>, дадут нам одинаковый хэш-код, стремится к нулю.<br>
+       Если длина строки <strong class="strong">$str</strong> может достигать нескольких тысяч символов, то её <strong class="strong">MD5</strong>-код занимает максимум 32 символа.<br>
+       Для чего нужен хэш-код и, в частности, алгоритм <strong class="strong">MD5</strong>? Например, для проверки паролей на истинность.<br>
+       К примеру, есть система со многими пользователями, каждый из которых имеет свой пароль. Можно, конечно, хранить все эти пароли в обычном виде, или зашифровать их каким-нибудь способом, но тогда велика вероятность того, что в один прекрасный день этот файл с паролями у вас украдут.<br>
+       Сделаем так: в файле паролей будем хранить не сами пароли, а их (<strong class="strong">MD5</strong>) хэш-коды. При попытке какого либо пользователя войти в систему вычислим хэш-код только что введённого им пароля и сравним его с тем, который записан в базе данных. Если коды совпадут, значит, все в порядке, а если нет - что ж, извините...<br>
+       Конечно, при вычислении хэш-кода какая-то часть информации о строке <strong class="strong">$str</strong> безвозвратно теряется. И именно это позволяет не опасаться, что злоумышленник, получивший файл паролей, сможет его когда-нибудь расшифровать. Ведь в нем нет самих паролей, нет даже их каких-то связных частей!<br>
+       Пример использования алгоритма хеширования <strong class="strong">MD5</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$pass_a = "MySecret";<br>
+       <strong class="p11">$pass_b = "MySecret";</strong></strong></strong><br>
+       // Выводим хеш-код строки <strong class="strong">MySecret ($pass_a)</strong> - исходный пароль<br>
+       <strong class="blue p11">echo "&lt;b>Хеш-код исходного пароля '$pass_a':&lt;/b>&lt;b style=\"color:green\">".md5($pass_a)."&lt;/b>&lt;br>";</strong><br>
+       // Выводим хеш-код строки <strong class="strong">MySecret ($pass_b)</strong> - верифицируемый пароль<br>
+       <strong class="blue p11">echo "&lt;b>Хеш-код верифицируемого пароля '$pass_b':&lt;/b>&lt;b style=\"color:green\">".md5($pass_b)."&lt;/b>&lt;br>";</strong><br>
+       // Сравниваем хеш-коды <strong class="strong">MD5</strong> исходного и верифицируемого пароля<br>
+       <strong class="blue p11">echo "&lt;h3>Проверяем истинность введенного пароля:&lt;/h3>";<br>
+       <strong class="p11">if (md5($pass_a)===md5($pass_b)) echo "&lt;h3 style=\"color:green\">Пароль верный! (Хеш-коды совпадают)&lt;/h3>";<br>
+       <strong class="p11">else echo "&lt;h3 style=\"color:red\">Пароль неверный! (Хеш-коды не совпадают)&lt;/h3>"</strong></strong></strong><br>
+       // В данной ситуации выводит: Пароль верный! (Хеш-коды совпадают)<br>
+       // Попробуйте изменить значение строки <strong class="strong">$pass_b</strong> :)<br>
+       <strong class="blue p11">?></strong>
+    </p>
+    <h2 id="php22" class="strong">HTTP Cookies</h2> 
+    <p><strong class="strong">PHP</strong> прозрачно поддерживает <strong class="strong">HTTP cookies</strong> как определено в <strong class="strong">RFC 6265</strong>.<br> 
+       <strong class="strong">Cookies</strong> - это механизм для хранения данных в удалённом браузере и, таким образом, отслеживание и идентификации вернувшихся пользователей.<br> 
+       Можно установить <strong class="strong">cookies</strong>, используя функцию <strong class="strong">setcookie()</strong>.<br> 
+       <strong class="strong">Cookies</strong> являются частью <strong class="strong">HTTP</strong>-заголовка, поэтому функция <strong class="strong">SetCookie</strong> должна вызываться до того, как браузеру будет отправлен какой бы то ни было вывод. Это то же ограничение, что и для функции <strong class="strong">header()</strong>. Данные, хранящиеся в <strong class="strong">cookie</strong>, доступны в соответствующих массивах данных <strong class="strong">cookie</strong>, таких как <strong class="strong">$_COOKIE</strong> и <strong class="strong">$_REQUEST</strong>.<br>
+       Чтобы присвоить множество значений одной переменной <strong class="strong">cookie</strong>, можно присвоить их как массив:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">setcookie("MyCookie[foo]", 'Testing 1', time()+3600);<br>
+       <strong class="p11">setcookie("MyCookie[bar]", 'Testing 2', time()+3600);<br>
+       <strong class="p11">?></strong></strong></strong></strong><br><br>
+       Это создаст две разные <strong class="strong">cookie</strong>, хотя в скрипте <strong class="strong">MyCookie</strong> будет теперь одним массивом.<br> 
+       Если необходимо установить именно одну <strong class="strong">cookie</strong> со множеством значений, сначала рассматриваем возможность использования к значениям такие функции, как <strong class="strong">serialize()</strong> или <strong class="strong">explode()</strong>.<br>
+       Обращаем внимание, что <strong class="strong">cookie</strong> заменит предыдущую <strong class="strong">cookie</strong> с тем же именем в браузере, если только путь или домен не отличаются. Так, для приложения корзины покупок возможно сохранить счётчик:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if (isset($_COOKIE['count'])) {<br>
+       <strong class="p11">$count = $_COOKIE['count'] + 1;<br>
+       <strong class="p11">} else {<br>
+       <strong class="p11">$count = 1;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">setcookie('count', $count, time()+3600);<br>
+       <strong class="p11">setcookie("Cart[$count]", $item, time()+3600);<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php23">Cтраницы отзывов на сайте без базы данных</h2>
+    <p>Все сообщения будут приходить на <strong class="strong">email</strong>. Закрываем доступ нежелательным <strong class="strong">IP</strong> адресам. Отсеиваем спам который содержит <strong class="strong">http://</strong>. Преграждаем отсылку отзывов роботами.<br>
+       При первом сообщении создастся файл <strong class="strong">comments.txt</strong>. В него будут попадать все отзывы, кроме тех, которые содержат <strong class="strong">http://</strong>. Отзывы можно добавлять, редактировать или удалять.<br>
+       Перед началом проверяем отправку писем с помощью <strong class="strong">PHP</strong>.<br>
+       Создаём файл <strong class="strong">mail.php</strong> следующего содержания:<br><br>
+       <strong class="blue">&lt;?php<br>
+       <strong class="p11">var_dump(mail("support@thehost.com","Test","test"));<br>
+       ?></strong></strong><br><br>
+       В браузере запускаем созданный файл по ссылке <strong class="strong">домен/mail.php</strong> и если все работает, получаем ответ <strong class="strong">bool true</strong>, а на указанный  ящик придет письмо с темой <strong class="strong">Test</strong> и текстом <strong class="strong">test</strong>. Если не работает, получим <strong class="strong">bool false</strong>, а письмо не придёт.<br>
+       При удачной проверке в файле <strong class="strong">.htaccess</strong> закрываем доступ к  информации <strong class="strong">comments.txt</strong>:<br><br>
+       <strong class="blue">&lt;Files "comments.txt"><br>
+       <strong class="p11">Deny from all<br>
+       &lt;/Files></strong></strong><br><br>
+       В корне сайта создаём файл <strong class="strong">comments.php</strong>:<br><br>
+       <strong class="blue">&lt;?php<br>
+       <strong class="p11">$z = array($_POST['name'], $_POST['city'], $_POST['e_mail'], date("m.d.Y H:i"), $_SERVER['REMOTE_ADDR'], $_POST['content'], $_POST['robot'] );</strong></strong>  # переменная <strong class="strong">$_SERVER</strong> - это массив, содержащий информацию, такую как заголовки, пути и местоположения скриптов. Записи в этом массиве создаются веб - сервером. <strong class="strong">'REMOTE_ADDR'</strong>  <strong class="strong">IP</strong> - адрес сервера, на котором выполняется текущий скрипт<br>
+       <strong class="blue p11">if ($z[0]==NULL && $z[1]==NULL && $z[2]==NULL && $z[5]==NULL && $z[6]==NULL) {<br>
+       <strong class="p11">echo &lt;&lt;&lt;TOSHA</strong><br> 
+       <strong class="p11">&lt;center>&lt;form method='post'></strong><br>
+       <strong class="p11">&lt;label>Как к Вам обращаться?&lt;/label></strong><br>
+       <strong class="p11">&lt;input type='text' name='name' required/></strong><br>
+       <strong class="p11">&lt;label>Где Вы живёте?&lt;/label></strong><br>
+       <strong class="p11">&lt;input type='text' name='city' required/>&lt;br>&lt;br></strong><br>
+       <strong class="p11">&lt;label>Email (не публикуется)&lt;/label></strong><br>
+       <strong class="p11">&lt;input type='email' name='email' required/>&lt;br>&lt;br></strong><br>
+       <strong class="p11">&lt;label>Oставить отзыв:&lt;/label></strong><br>
+       <strong class="p11">&lt;textarea name='content' required rows=10 cols=40>&lt;/textarea></strong><br>
+       <strong class="p11">&lt;p>Я не Робот&lt;/p></strong><br>
+       <strong class="p11">&lt;label>Введите это слово: Кукареку&lt;/label></strong><br>
+       <strong class="p11">&lt;input type='text' name='robot' required/>&lt;br>&lt;br></strong><br>
+       <strong class="p11">&lt;input type='submit' value='отправить отзыв' style='cursor:pointer;'/></strong><br>
+       <strong class="p11">&lt;/form>&lt;/center></strong><br>
+       TOSHA;<br> 
+       <strong class="p11">}</strong><br>
+       <strong class="p11">if ($z[0] && $z[1] && $z[2] && $z[5] && $z[4] !== '00.000.000.000' && $z[6] == 'Кукареку' ) {</strong></strong> # 00.000.000.000 блокировка <strong class="strong">ip</strong> адреса<br>
+       <strong class="blue p11">mail("umanov@mail.ru", "Отзывы на 'Установка Linux'", $z[0] . "\n" . $z[1] . "\n" . $z[2] . "\n" . $z[4] . "\n" . $z[5] );<br>
+       <strong class="p11">if (strpos($z[3], 'http://') === false) {</strong></strong> # <strong class="strong">strpos</strong> возвращает позицию, в которой находится искомая строка<br>
+       <strong class="blue p11">$fp = fopen("comments.txt", "a+");</strong> # '<strong class="strong">a+</strong>' открывает файл для чтения и записи; помещает указатель в конец файла. Если файл не существует - пробует его создать.<br>
+       <strong class="blue p11">$mytext = "\n" . $z[0] . "\n" . $z[1] <strong class="darkgrey">. "\n" . $z[2]</strong> . "\n" . $z[3] <strong class="darkgrey">. "\n" . $z[4]</strong> . "\n" . $z[5] ."&lt;br>";<br>
+       <strong class="p11">fwrite($fp, $mytext);</strong><br>
+       <strong class="p11">fclose($fp);</strong><br>
+       <strong class="p11">$dl = '&lt;h2 style="color:green;">Ваш отзыв будет опубликован после проверки администратором сайта.&lt;/h2>&lt;br>';</strong><br>
+       <strong class="p11">echo $dl;</strong><br>
+       <strong class="p11">return $dl;</strong><br>
+       <strong class="p11">Header("Location: ". $_SERVER['PHP_SELF'] );</strong></strong> # <strong class="strong">Header</strong> отправка <strong class="strong">HTTP</strong> - заголовка. <strong class="strong">'PHP_SELF'</strong> имя файла скрипта, который сейчас выполняется, относительно корня документов<br>
+       <strong class="blue p11">exit;<br>
+       <strong class="p11">} else {</strong><br>
+       <strong class="p11">$dl = '&lt;h2 style="color:red;">Что то мне не очень нравится Ваш отзыв!&lt;/h2>'; }</strong><br>
+       <strong class="p11">} else {</strong><br>
+       <strong class="p11">$fp = @fopen("comments.txt", "r");</strong></strong> # '<strong class="strong">r</strong>' открывает файл только для чтения; помещает указатель в начало файла<br>
+       <strong class="blue p11">if ($fp) {<br>
+       <strong class="p11">while (!feof($fp)) {</strong><br>
+       <strong class="p11">$dl .= fgetss($fp, 8000,"&lt;br>");</strong></strong> # разрешается не удалять тег <strong class="strong">&lt;br></strong><br> 
+       <strong class="blue p11">} }<br>
+       <strong class="p11">fclose($fp); }</strong><br> 
+       ?><br>
+       <strong class="p11">&lt;?php echo $dl; ?></strong></strong><br><br>
+       Логический оператор <strong class="strong">&&</strong> (<strong class="strong">and</strong>) выполняет условие только в том случае, если все условия истинные <strong class="strong">true</strong>. Если хотя бы одно условие ложно, то всё условие ложно <strong class="strong">false</strong>.<br>
+       Когда пишется текст и нужно вставить разрыв строки, необходимо использовать правильные символы. Например  в качестве символа конца строки, системы <strong class="strong">Unix</strong> используют <strong class="strong">\n</strong>.<br>
+       Процесс обьединения двух строк называется "конкатенация". Оператор конкатенации в <strong class="strong">PHP</strong> - это точка (<strong class="strong">.</strong>).
+       Оператор присваивания с конкатенацией (<strong class="strong">.=</strong>), присоединяет правый аргумент к левому.<br>
+       <strong class="strong">PHP</strong> поддерживает один оператор управления ошибками: знак <strong class="strong">@</strong>. В случае, если он предшествует какому-либо выражению в <strong class="strong">PHP</strong>-коде, любые сообщения об ошибках, генерируемые этим выражением, будут проигнорированы.<br>
+       Функция <strong class="strong">fgets()</strong>, используется для получения данных из файла, за раз считывает одну строку данных возвращая её значение, сдвигая при этом указатель на следующую строку файла и удаляет любые <strong class="strong">NULL</strong> байты, <strong class="strong">HTML</strong> и <strong class="strong">PHP</strong>-теги из прочитанной строки.<br> 
+       Функция <strong class="strong">feof()</strong>, которая означает "файл конец файла", возвращает <strong class="strong">false</strong>, если в файле ещё остались строки с данными, и <strong class="strong">true</strong>, если программа находится в конце данных файла.<br>
+       Для вывода всего файла эта функция обычно вызывается в теле цикла (например <strong class="strong">while</strong>), который выполняется до тех пор, пока <strong class="strong">feof()</strong> истинно.
+    </p>
+   <h2 id="php24">Подключение к базе данных <strong class="strong">MySql</strong></h2>
+    <p><strong class="blue">&lt;?php $link = mysqli_connect("localhost", "root", "xxxyyyzzz", "reviews");</strong> # устанавливает новое соединение с сервером <strong class="strong">MySQL</strong><br>
+       # <strong class="strong">"localhost"</strong> может быть именем хоста или  <strong class="strong">IP</strong> адресом, <strong class="strong">"root"</strong> имя пользователя <strong class="strong">MySQL</strong>, <strong class="strong">"xxxyyyzzz"</strong> пароль пользователя <strong class="strong">MySQL</strong>, <strong class="strong">"reviews"</strong> имя базы данных<br>
+       // <strong class="darkgrey">mysqli_select_db($link, "reviews");</strong> # устанавливает базу данных для выполняемых запросов. Эта функция используется только для смены базы данных во время подключения<br>
+       // добавить данные в таблицу<br>
+       <strong class="blue p11">$query = "INSERT INTO Отзывы VALUES ( 'null','$z[0]', '$z[1]', '$z[2]', '$z[3]', '$z[4]','$z[5]' )";<br>
+       <strong class="p11">if ($result = mysqli_query($link, $query)){</strong></strong> # выполняет запрос к базе данных<br>
+       <strong class="blue p11">echo "&lt;center>&lt;table border = 1>\n";</strong><br>
+       // получить названия полей<br> 
+       <strong class="blue p11">echo "&lt;tr>\n";<br>
+       <strong class="blue p11">while ($finfo = mysqli_fetch_field($result)) {</strong></strong> # возвращает информацию об одном столбце результирующего набора в виде объекта. Для получения определения всех столбцов, необходимо запустить функцию многократно<br> 
+       <strong class="blue p11">echo "&lt;th>$finfo->name&lt;/th>\n"; }<br>
+       <strong class="p11">echo "&lt;/tr>\n\n";</strong></strong><br>
+       // получить данные строк и сохранить их в ассоциативный массив<br>
+       <strong class="blue p11">while ($row = mysqli_fetch_assoc($result)) {</strong> # извлекает результирующий ряд в виде ассоциативного массива<br>
+       <strong class="blue p11">echo "&lt;tr>\n";</strong><br>
+       // просмотреть каждое поле<br>
+       <strong class="blue p11">foreach ($row as $col => $val) {<br>
+       <strong class="p11">echo "&lt;td>$val&lt;/td>\n"; }</strong><br>
+       <strong class="p11">echo "&lt;/tr>\n\n"; }</strong><br>
+       <strong class="p11">echo "&lt;/table>&lt;/center>\n"; }</strong></strong>
+       // Проверка подключения базы данных <strong class="strong">MySql</strong><br> 
+       <strong class="blue p11">if (mysqli_connect_errno()) {</strong> # возвращает код ошибки последней попытки соединения<br>
+       <strong class="blue p11">echo "Не удалось подключиться: %s\n", mysqli_connect_error();<br>
+       <strong class="p11">exit();</strong><br>
+       <strong class="p11">} else {</strong><br>
+       <strong class="p11">die ('Подключение к базе данных прошло успешно.'); }</strong></strong> # <strong class="strong">die</strong> - эквивалент функции <strong class="strong">exit</strong><br>
+       <strong class="blue">?></strong>
+    </p>
+    <h2 id="php25">Случайные числа на <strong class="strong">PHP</strong></h2>
+    <p>Случайные числа на <strong class="strong">PHP</strong> получаются с исполбзованием функции <strong class="strong">rand</strong>.<br>
+       Функция <strong class="strong">rand</strong> имеет два параметра. Первый должен содержать наименьшее требуемое значение числа, а второй - наибольшее.<br>
+       Большинство языков просто генерируют случайное число с плавающей точкой, находящееся в диапазоне от нуля до еденицы, а потом приходится переводить его в нужный диапазон.<br>
+       <strong class="strong">PHP</strong> позволяет создавать числа в заранее заданном диапазоне.<br><br>
+       <strong class="blue">&lt;?php<br>
+       <strong class="p11">$roll = rand(1,6);</strong><br>
+       <strong class="p11">if ($roll==1){</strong><br>
+       <strong class="p11">echo "&lt;h1>The's an ace!!!&lt;/h1>";}</strong><br>
+       <strong class="p11">else if ($roll==2){</strong><br>
+       <strong class="p11">$binValue = "010";}</strong><br>
+       <strong class="p11">else if ($roll==3){</strong><br>
+       <strong class="p11">$binValue="011";}</strong><br>
+       <strong class="p11">else if ($roll==4){</strong><br>
+       <strong class="p11">$binValue="100";}</strong><br>
+       <strong class="p11">else if ($roll==5){</strong><br>
+       <strong class="p11">$binValue="101";}</strong><br>
+       <strong class="p11">else {</strong><br>
+       <strong class="p11">echo "Thet's not an ase...";};</strong><br>
+       <strong class="p11">echo "In binary, that's $binValue";</strong><br>
+       <strong class="p11">echo "&lt;br>";</strong><br>
+       <strong class="p11">echo "&lt;img src = die$roll.jpg>";</strong><br>
+       ?></strong><br><br>
+       Первое условие сравнивает значение <strong class="strong">$roll</strong> с еденицей.<br>
+       Если это так, то выполняется соответствующий участок кода "<strong class="strong">The's an ace!!!</strong>"<br>
+       Если первое условие не выполняется, программа последовательно проходит все пары операторов<br>
+       <strong class="strong">if else</strong> до тех пор, пока какой-либо условный оператор не вернёт значение "истина". Если ни одно из условий не истинно, будет выполнен код последнего оператора <strong class="strong">else</strong>.<br>
+       Вообще условие можно представить как выражение, которое может быть либо истинным (<strong class="strong">true</strong>), либо ложным (<strong class="strong">false</strong>).<br>
+       Бывает, что нет необходимости в последнем операторе <strong class="strong">else</strong>, однако программы не всегда работают так как ожидается, а по тому не лишним бывает написать код для оператора <strong class="strong">else</strong>. Будет лучше, если программа сообщит о том, что чтото произошло, чем если она внезапно закроется в тот момент, когда с ней работают пользователи.<br>
+       Иногда последнее возможное значение задаётся ключевым словом <strong class="strong">default</strong>. Оно работает точно так же, как оператор <strong class="strong">else</strong> в структуре <strong class="strong">if</strong> с несколькими сравнениями.<br>
+       После него помещается код, который будет выполнен в том случае, если не отработает ни один из других  операторов <strong class="strong">case</strong>.<br><br>
+       <strong class="blue p11">default: echo "This is an illegal die!";</strong>
+    </p>
+    <h2 id="php26">Создаём программу добавления почты</h2>
+    <p>Результат работы этой программы в том, что одно и то же письмо используется несколько раз, но каждый раз в нём меняются имена и адреса электронной почты, на полученые из файла.<br> 
+       Файл данных для этой программы является обычным файлом. Каждая строка состоит из имени и адреса электронной почты, разделённых символом пробела.<br><br>
+       <strong class="blue p11">Nikolay umanov@mail.ru<br>
+       <strong class="p11">Sergey polkan@gmail.com</strong><br>
+       <strong class="p11">Lubov kukareku@gmail.com</strong><br><br> 
+       &lt;?php<br>
+       <strong class="p11">$theDate = file("comments.txt");</strong><br>
+       <strong class="p11">foreach ($theDate as $line) {</strong><br>
+       <strong class="p11">$line = rtrim($line);</strong><br>
+       <strong class="p11">echo "&lt;h2>$line&lt;/h2>";</strong><br>
+       <strong class="p11">list($name, $email) = preg_split("/\s+/", $line);</strong><br> sobaka
+       <strong class="p11">$message = &lt;&lt;&lt;TOSHA</strong><br>
+       <strong class="p11">TO: $email</strong><br>
+       <strong class="p11">Dear: $name</strong><br>
+       <strong class="p11 Psobaka">"In the whole history of the world there is but one thing that money can not buy... to wit - the wag of a dog's tail". Josh Billings</strong><br>
+       TOSHA;<br>
+       <strong class="p11">echo "&lt;pre>$message&lt;/pre>";}</strong><br>
+       ?></strong><br><br>
+       <strong class="strong">preg_split()</strong> разбивает строку по регулярному выражению, в данном случае <strong class="strong">"/\s+/"</strong> (<strong class="strong">\s</strong> пробел, <strong class="strong">+</strong> один или больше)<br>
+       <strong class="strong">list()</strong> позволяет выделить элементы массива в скалярные переменные.<br>
+       Довольно часто требуется вывести сразу несколько строк <strong class="strong">HTML</strong> кода, и может оказаться утомительным обрамлять каждую строку кавычками (особенно потому, что в <strong class="strong">HTML</strong> они тоже нередко используются). В языке <strong class="strong">PHP</strong> существует специальный механизм цитирования.<br>
+       Фрагмент <strong class="strong">&lt;&lt;&lt;TOSHA</strong> показывает, что после него идёт текст, занимающий несколько строк и заканчивающийся символом <strong class="strong">TOSHA;</strong><br>
+       Можно использовать вместо "<strong class="strong">TOSHA</strong>" любую фразу на своё усмотрение.<br>
+       Окончание (в данном случае <strong class="strong">TOSHA</strong>) должно занимать отдельную строку и перед ней не должно быть пробелов.<br>
+       Следующим очевидным этапом будет автоматическая отправка каждого сообщения в виде электронного письма. Для этого <strong class="strong">PHP</strong> представляет функцию <strong class="strong">mail()</strong>.<br>
+       Работа этой функции зависит от настроек сервера и на каждом сервере она может работать по разному.
+    </p>
+    <div class="kartinka5"><a class="a steps cursorG1" href="PHP.html"><img src="Gentoo/steps.png" alt="PHP"></a></div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="" width="100%" height="100%"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+         </div>
+         </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>      
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+       <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Какая боль, какая боль... повсюду скидки - денег ноль...."'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="массивы"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside hvr-curl">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="hvr-curl music"><a><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="ядро gentoo"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="ядро"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="ядро linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="код ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="обновление ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="исходные коды ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="код ядра linux"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="ядро gentoo"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                  <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="ядро linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+         </div>
+         <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
+

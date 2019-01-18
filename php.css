@@ -1,0 +1,81 @@
+#container{margin:0 auto;-moz-perspective:900px;-webkit-perspective:900}
+#frame {width:35px;-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;/* translate must be last */-moz-transform: rotateX(35deg) rotateY(45deg) rotateZ(15deg) translate3d(325px,-70px,50px);-webkit-transform: rotateX(10deg) rotateY(90deg) rotateZ(0deg) translate3d(325px,-70px,50px);margin:50px auto 500px;}
+.strip{-moz-transform-style: preserve-3d;-webkit-transform-style: preserve-3d;-moz-animation: spin 25s infinite linear;-webkit-animation: spin 25s infinite linear}
+.strip div{position:absolute;background:#000 url(СлайдШоу/linux.jpg);border:solid rgb(145,87,0);border-width:thin 0;height:500px;width:35px;opacity:1;}
+.strip .a{background-position:0 0;-moz-transform: rotateY(0deg) translateZ(248px);-webkit-transform: rotateY(0deg) translateZ(248px)}
+.strip .b {background-position:752px 0;
+	   -moz-transform: rotateY(7.5deg) translateZ(248px);
+	-webkit-transform: rotateY(7.5deg) translateZ(248px)}
+.strip .c {background-position: 726px 0;
+	   -moz-transform: rotateY(15deg) translateZ(248px);
+	-webkit-transform: rotateY(15deg) translateZ(248px)}
+.strip .d {background-position: 693px 0;
+	   -moz-transform: rotateY(22.5deg) translateZ(248px);
+	-webkit-transform: rotateY(22.5deg) translateZ(248px)}	
+.strip .e {background-position: 660px 0;
+	   -moz-transform: rotateY(30deg) translateZ(248px);
+	-webkit-transform: rotateY(30deg) translateZ(248px)}	
+.strip .f {background-position: 627px 0;
+	   -moz-transform: rotateY(37.5deg) translateZ(248px);
+	-webkit-transform: rotateY(37.5deg) translateZ(248px)}
+.strip .g {background-position: 594px 0;
+	   -moz-transform: rotateY(45deg) translateZ(248px);
+	-webkit-transform: rotateY(45deg) translateZ(248px)}
+.strip .h {background-position: 561px 0;
+	   -moz-transform: rotateY(52.5deg) translateZ(248px);
+	-webkit-transform: rotateY(52.5deg) translateZ(248px)}	
+.strip .i {background-position: 528px 0;
+	   -moz-transform: rotateY(60deg) translateZ(248px);
+	-webkit-transform: rotateY(60deg) translateZ(248px)}	
+.strip .j {background-position: 495px 0;
+	   -moz-transform: rotateY(67.5deg) translateZ(248px);
+	-webkit-transform: rotateY(67.5deg) translateZ(248px)}
+.strip .k {background-position: 462px 0;
+	   -moz-transform: rotateY(75deg) translateZ(248px);
+	-webkit-transform: rotateY(75deg) translateZ(248px)}
+.strip .l {background-position: 429px 0;
+	   -moz-transform: rotateY(82.5deg) translateZ(248px);
+	-webkit-transform: rotateY(82.2deg) translateZ(248px)}	
+.strip .m {background-position: 396px 0;
+	   -moz-transform: rotateY(90deg) translateZ(248px);
+	-webkit-transform: rotateY(90deg) translateZ(248px)}		
+.strip .n {background-position: 363px 0;
+	   -moz-transform: rotateY(97.5deg) translateZ(248px);
+	-webkit-transform: rotateY(97.5deg) translateZ(248px)}
+.strip .o {background-position: 330px 0;
+	   -moz-transform: rotateY(105deg) translateZ(248px);
+	-webkit-transform: rotateY(105deg) translateZ(248px)}
+.strip .p {background-position: 297px 0;
+	   -moz-transform: rotateY(112.5deg) translateZ(248px);
+	-webkit-transform: rotateY(112.5deg) translateZ(248px)}	
+.strip .q {background-position: 264px 0;
+	   -moz-transform: rotateY(120deg) translateZ(248px);
+	-webkit-transform: rotateY(120deg) translateZ(248px)}	
+.strip .r {background-position: 231px 0;
+	   -moz-transform: rotateY(127.5deg) translateZ(248px);
+	-webkit-transform: rotateY(127.5deg) translateZ(248px)}
+.strip .s {background-position: 198px 0;
+	   -moz-transform: rotateY(135deg) translateZ(248px);
+	-webkit-transform: rotateY(135deg) translateZ(248px)}
+.strip .t {background-position: 165px 0;
+	   -moz-transform: rotateY(142.5deg) translateZ(248px);
+	-webkit-transform: rotateY(142.5deg) translateZ(248px)}	
+.strip .u {background-position: 132px 0;
+	   -moz-transform: rotateY(150deg) translateZ(248px);
+	-webkit-transform: rotateY(150deg) translateZ(248px)}	
+.strip .v {background-position: 99px 0;
+	   -moz-transform: rotateY(157.5deg) translateZ(248px);
+	-webkit-transform: rotateY(157.5deg) translateZ(248px)}
+.strip .w {background-position: 66px 0;
+	   -moz-transform: rotateY(165deg) translateZ(248px);
+	-webkit-transform: rotateY(165deg) translateZ(248px)}
+.strip .x {background-position: 33px 0;
+	   -moz-transform: rotateY(172.5deg) translateZ(248px);
+	-webkit-transform: rotateY(172.5deg) translateZ(248px)}
+@-moz-keyframes spin {
+	from { -moz-transform: rotateY(0)}
+	to   { -moz-transform: rotateY(-360deg)}}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotateY(0)}
+	to   { -webkit-transform: rotateY(-360deg)}}
+.php{margin:0 20px;}.phph2{text-shadow:#000000 -1px -1px 0,#fff 1px 1px 0;}

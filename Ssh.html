@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>ssh, openvpn and nfs</title>
+     <meta name="description" content="Подключение к удалённому компьютеру через ssh, OpenVPN и nfs. Установка и настройка.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="Установка SSH,файл сервер,SSH Server,файл клиент,ssh клиент,настройка ssh,ssh ключ,nfs,SSH на Windows 10,OpenVPN">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Ssh-Centos/ssh.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">"Вежливое обращение сделает клиента ходячей рекламой." Джеймс Кэш Пенни</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="файл сервер"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="nfs"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Быть самым богатым человеком на кладбище - это не главное... Ложиться спать и говорить себе, что сделал действительно нечто прекрасное - вот что главное." Стив Джобс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <li class="p1"><a class="white aS" href="#ssh1">Установка SSH</a></li>
+            <li class="p1"><a class="white aS" href="#ssh2">Конфигурируем файлы сервера</a></li>
+            <li class="p1"><a class="white aS" href="#ssh3">Конфигурируем файлы клиента</a></li>
+            <li class="p1"><a class="white aS" href="#ssh4">Генерируем ключи на сервере</a></li>
+            <li class="p1"><a class="white aS" href="#ssh5">Поддержка ключей DSA</a></li>
+            <li class="p1"><a class="white aS" href="#ssh6">Копирование файлов и выполнение команд через SSH</a></li>
+            <li class="p1"><a class="white aS" href="#ssh7">Установка "Gentoo" по SSH</a></li>
+            <li class="p1"><a class="white aS" href="#ssh8">SSH на Windows 10</a></li>
+            <li class="p1"><a class="white aS" href="#ssh9">Установка и настройка OpenVPN</a></li>
+            <li class="p1"><a class="white aS" href="#ssh10">Создание общего каталога между компьютерами</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h1 id="ssh1" class="music1"><a class="send-link special-link a" href="http://wiki.gentoo.org/wiki/SSH/ru">Установка SSH
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h1>
+        <div class="kartinka3 ih-item right_to_left"><a href="https://ru.wikipedia.org/wiki/SSH">
+         <div class="img16"><img src="Ssh-Centos/ssh.gif" alt="файл клиент"></div>
+         <div class="info16">
+         <h2>Помогу<br>установить<br><strong class="strong">SSH</strong>!</h2>
+         </div></a>
+        </div>
+         <p class="music1">Приведённые ниже действия выполнялись на<br>
+         <a class="special-link1 a link1" href="Gentoo.html#sg1">ОС Gentoo</a> и <a class="special-link2 a link1" href="Qemu.html#q1">ОС Windows10</a> установленной на виртуальной машине <a class="special-link3 a link1" href="Qemu.html#q">Qemu</a>.<br>
+            На <b class="p3">Windows</b> загружаем и устанавливаем 
+            <a class="special-link4 a link1" href="https://www.itefix.net/content/copssh-free-edition">Copssh Free Edition</a>"<br><br>         
+            На <strong class="strong">Gentoo</strong> устанавливаем <strong class="strong">net-misc/openssh</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge --ask net-misc/openssh</strong><br><br>
+            Генерируем ключ, который будет использоваться для протокола <strong class="strong">SSH</strong> версии 2 (алгоритмы <strong class="strong">DSA</strong> И <strong class="strong">RSA</strong>):<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># /usr/bin/ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ""</strong><br><br> 
+            <b class="p11 p3">root</b> <strong class="blue"># /usr/bin/ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ""</strong><br><br>
+            После установки "<strong class="strong">Copssh Free Edition</strong>" на  <b class="p3">Windows</b> открываем "<strong class="strong">2.Start a Unix BASH Shell</strong>" и работаем, как в обычной консоли <strong class="strong">Linux</strong>.<br>            
+            На <strong class="strong">Gentoo</strong> запускаем <strong class="strong">OpenSSH</strong> по умолчанию:<br><br>   
+            <b class="p11 p3">root</b> <strong class="blue"># rc-update add sshd default</strong><br><br>
+            <strong class="strong">OpenSSH</strong> можно запускать, останавливать и перезапускать следующими командами:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"> # /etc/init.d/sshd start<br>
+            <b class="p11 p3">root</b> # /etc/init.d/sshd stop<br>
+            <b class="p11 p3">root</b> # /etc/init.d/sshd restart</strong>
+         </p>         
+         <h2 id="ssh2">Конфигурируем файлы сервера</h2>  
+         <p>для <b class="p3">Windows</b> (файлы <strong class="strong">/etc/sshd_config</strong>), для <strong class="strong">Gentoo</strong> (файлы <strong class="strong">/etc/ssh/sshd_config</strong>).<br>
+            Я сконфигурировал следующие значения:<br><br>
+            <strong class="p11 blue">Port 2002</strong><br>
+            <strong class="p11 blue">ListenAddress 0.0.0.0</strong><br>
+            <strong class="p11 blue">Protocol 2</strong><br>
+            <strong class="p11 blue">HostKey /etc/ssh/ssh_host_rsa_key</strong><br>
+            <strong class="p11 blue">KeyRegenerationInterval 1h</strong><br>
+            <strong class="p11 blue">ServerKeyBits 1024</strong><br>
+            <strong class="p11 blue">SyslogFacility AUTH</strong><br>
+            <strong class="p11 blue">LogLevel INFO</strong><br>
+            <strong class="p11 blue">LoginGraceTime 2m</strong><br>
+            <strong class="p11 blue">PermitRootLogin no</strong><br>
+            <strong class="p11 blue">StrictModes yes</strong><br>
+            <strong class="p11 blue">PubkeyAuthentication yes</strong><br>
+            <strong class="p11 blue">AuthorizedKeysFile      .ssh/authorized_keys</strong><br>
+            <strong class="p11 blue">RhostsRSAAuthentication no</strong><br>
+            <strong class="p11 blue">IgnoreUserKnownHosts no</strong><br>
+            <strong class="p11 blue">PasswordAuthentication no</strong><br>
+            <strong class="p11 blue">UsePAM yes<br>
+            # X11Forwarding yes<br>
+            # X11DisplayOffset 10<br>
+            # X11UseLocalhost yes</strong><br>
+            <strong class="p11 blue">PrintMotd no</strong><br>
+            <strong class="p11 blue">PrintLastLog no</strong><br>
+            <strong class="p11 blue">UsePrivilegeSeparation sandbox  # Default for new installations.</strong><br>
+            <strong class="p11 blue">ClientAliveInterval 30</strong><br>
+            <strong class="p11 blue">Subsystem sftp /usr/lib64/misc/sftp-server</strong><br>
+            <strong class="p11 blue">AcceptEnv LANG LC_*</strong>
+         </p>
+         <h2 id="ssh3">Конфигурируем файлы клиента</h2>
+         <p>для клиента: <b class="p3">Windows</b> (файлы <strong class="strong">/etc/ssh_config</strong>), для <strong class="strong">Gentoo</strong> (файлы <strong class="strong">/etc/ssh/ssh_config</strong>)<br><br>
+            <strong class="p11 blue">Host*<br>
+            # ForwardAgent yes<br>
+            # ForwardX11 yes</strong><br>
+            <strong class="p11 blue">RhostsRSAAuthentication no</strong><br>
+            <strong class="p11 blue">RSAAuthentication yes</strong><br>
+            <strong class="p11 blue">PasswordAuthentication no</strong><br>
+            <strong class="p11 blue">BatchMode no</strong><br>
+            <strong class="p11 blue">CheckHostIP yes</strong><br>
+            <strong class="p11 blue">IdentityFile ~/.ssh/id_rsa</strong><br>
+            <strong class="p11 blue">Port 2002</strong><br>
+            <strong class="p11 blue">Protocol 2</strong><br>
+            <strong class="p11 blue">SendEnv LANG LC_*</strong><br><br>
+            Создаём папки "<strong class="strong">authorized_keys</strong>" для <b class="p3">Windows</b>:<br><br>
+            <strong class="p11 strong">lubov@lubov $</strong> <strong class="blue">mkdir /cygdrive/c/Documents\ and\ Settings/Lubov/.ssh/authorized_keys/</strong><br><br>
+            для <strong class="strong">Gentoo</strong>:<br><br>
+             <strong class="p11 strong">nikolay@localhost $</strong> <strong class="blue">mkdir /home/nikolay/.ssh/authorized_keys/</strong>
+         </p> 
+         <h2 id="ssh4">Генерируем ключи на сервере (<strong class="strong">Gentoo</strong>)</h2>
+         <p><strong class="p11 strong">nikolay@localhost $</strong> <strong class="blue">ssh-keygen -t rsa</strong><br><br>
+            <strong class="p11 blue">Generating public/private rsa key pair.</strong><br>
+            <strong class="p11 blue">Enter file in which to save the key (/home/nikolay/.ssh/id_rsa):</strong><br>
+            <strong class="p11 blue">Enter passphrase (empty for no passphrase): набираем пароль</strong><br>
+            <strong class="p11 blue">Enter same passphrase again: повторяем набраный пароль</strong><br>
+            <strong class="p11 blue">Your identification has been saved in /home/nikolay/.ssh/id_rsa.</strong><br>
+            <strong class="p11 blue">Your public key has been saved in /home/nikolay/.ssh/id_rsa.pub.</strong><br>
+            <strong class="p11 blue">The key fingerprint is:</strong><br>
+            <strong class="p11 blue">de:ad:be:ef:15:g0:0d:13:37:15:ad:cc:dd:ee:ff:61 nikolay@localhost</strong><br>
+            <strong class="p11 blue">The key's randomart image is:</strong><br>
+            <strong class="p11 blue">+--[ RSA 2048]----+</strong><br>
+            <strong class="p11 blue">|                 |</strong><br>
+            <strong class="p11 blue">|     .           |</strong><br>
+            <strong class="p11 blue">| . .. n   .      |</strong><br>
+            <strong class="p11 blue">|   . (: . .      |</strong><br>
+            <strong class="p11 blue">|  o   . . : .    |</strong><br>
+            <strong class="p11 blue">| . ..: >.) .     |</strong><br>
+            <strong class="p11 blue">|  * ?. .         |</strong><br>
+            <strong class="p11 blue">| o.. .. ..       |</strong><br>
+            <strong class="p11 blue">| :. .  ! .       |</strong><br>
+            <strong class="p11 blue">+-----------------+</strong><br><br>
+            Копируем полученный ключ "<strong class="strong">id_rsa.pub</strong>" (например через флешку) из папки <strong class="strong">/home/nikolay/.ssh/</strong><br>
+            в папку "<strong class="strong">/cygdrive/c/Documents\ and\ Settings/Lubov/.ssh/authorized_keys</strong>" клиента (<b class="p3">Windows</b>)<br>
+            Заходим из клиента  (<b class="p3">Windows</b>) на сервер (<strong class="strong">Gentoo</strong>):<br><br>
+            <strong class="p11 strong">lubov@lubov $</strong> <strong class="blue">ssh nikolay@192._ _ _._._ _ _. -p 2002</strong><br>
+            <strong class="strong">nikolay@localhost</strong><br><br>
+            При первом входе в систему, пользователь получает сообщение, что ключ хоста для этой системы должен быть подтвержден.<br>
+            Выход домой:<br><br>
+            <strong class="p11 strong">nikolay@localhost $</strong> <strong class="blue">exit</strong><br><br>
+            <strong class="gray">Чтобы демон <strong class="strong">OpenSSH</strong> загружался при запуске системы в <strong class="strong">Systemd</strong>:<br><br>
+            <b class="p3 p11">root</b> <strong class="darkgrey"># systemctl enable sshd.service<br>
+            Created symlink from /etc/systemd/system/multi-user.target.wants/sshd.service to /usr/lib64/systemd/system/sshd.service.</strong><br><br>
+            Для запуска <strong class="strong">OpenSSH</strong> демона:<br><br> 
+            <b class="p3 p11">root</b> <strong class="darkgrey"># systemctl start sshd.service</strong><br><br>
+            Для проверки работает ли сервис:<br><br>
+            <b class="p3 p11">root</b> <strong class="darkgrey"># systemctl status sshd.service</strong></strong>
+         </p>  
+         <h2 id="ssh5" class="music1"><a class="send-link2 special-link5 a" href="http://www.openssh.com/legacy.html">Поддержка ключей DSA
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p>В новой версии <strong class="strong">ssh</strong> по умолчанию не поддерживает <strong class="strong">DSA</strong> ключи.<br>
+            Для их поддержки необходимо:<br>
+            1) В домашней директории создать файл <strong class="strong">~/.ssh/config</strong><br>
+            2) Установить <strong class="strong">chmod 600 ~/.ssh/config</strong><br>
+            3) В файле ввести:<br><br>
+            <strong class="p11 blue">Host Ваш-хост<br>
+            <strong class="p11">HostkeyAlgorithms +ssh-dss<br>
+            <strong class="p11">PubkeyAcceptedKeyTypes=+ssh-dss</strong></strong></strong><br><br>
+            При возникновении следующей ошибки:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ssh nikolay@domen.ru<br> 
+            Unable to negotiate with XX.XXX.XX.XX port 22: no matching host key type found. Their offer: ssh-dss</strong><br><br>
+            исправляем:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ssh -oHostKeyAlgorithms=+ssh-dss nikolay@domen.ru</strong>
+         </p>
+         <h2 id="ssh6">Копирование файлов и выполнение команд через <strong class="strong">SSH</strong></h2>
+         <p>Во время копирования исходного фала в файл назначения, который уже существует,<br> 
+            <strong class="strong">SCP</strong> перезаписывает файл назначения. Если файл назначения еще не существует, 
+            тогда создается пустой файл, ему задается имя файла назначения и уже в него записывается содержимое копируемого файла.<br>
+            Копируем файл "<strong class="strong">file.txt</strong>" с локального компьютера на удаленный сервер.<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">scp /local/directory/file.txt user@remote.host:/remote/directory</strong><br><br>
+            Копируем файл "<strong class="strong">file.txt</strong>" из удаленного сервера на локальный компьютер.<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">scp user@remote.host:/remote/directory/file.txt /local/directory</strong><br><br>
+            В случае возникновения проблеммы копирования файлов на сервер, удаляем файл "<strong class="strong">.ssh/known_hosts</strong>"
+            находящийся в домашней директории клиента:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">rm ~/.ssh/known_hosts</strong><br><br>
+            При повторном копировании на сервер, <strong class="strong">ssh</strong> сам создаст новый файл"<strong class="strong">.ssh/known_hosts</strong>".<br>
+            <b id="rsync">Пример синхронизации удаленного хоста с локальной директорией утилитой <strong class="strong">Rsync</strong>:</b><br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">rsync -acvP --delete-during -compress-level=9 -e "ssh -p remote_ssh_port" user@remote.host:/remote/directory /local/directory</strong><br><br>
+            При этом, на стороне источника необходимо иметь установленную <strong class="strong">rsync</strong>.<br>
+            Выполнение команд осуществляется следующим образом:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ssh user@remote.host [команда] /remote/directory/file.txt</strong><br><br>
+            Например удаление файла:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">ssh user@remote.host rm /remote/directory/file.txt</strong><br><br>
+         </p>
+         <h2 id="ssh7">Установка <strong class="strong">"Gentoo"</strong> по <strong class="strong">SSH</strong></h2>
+         <p>Для разрешения другим пользователям доступ к системе во время установки <strong class="strong">Gentoo</strong>, 
+            необходимо установить пароль для <b class="p3">root</b> и создать учетную запись пользователя, <strong class="strong">SSH</strong> демон должен быть запущен.<br>
+            Устанавливаем пароль для <b class="p3">root</b>:<br><br>
+            <b class="p3 p11">root</b> <strong class="blue"># passwd</strong><br>
+            <strong class="p11 blue">New password: (Enter the new password)</strong><br>
+            <strong class="p11 blue">Re-enter password: (Re-enter the password)</strong><br><br>
+            Для создания учетной записи пользователя, сначала вводим учетные данные, следом задаём пароль аккаунту.<br><br> 
+            <b class="p3 p11">root</b> <strong class="blue"># useradd -m -G users nikolay</strong><br>
+            <b class="p3 p11">root</b> <strong class="blue"># passwd nikolay</strong><br>
+            <strong class="p11 blue">New password: (Enter nikolay's password)</strong><br>
+            <strong class="p11 blue">Re-enter password: (Re-enter nikolay's password)</strong><br><br>
+            Для переключения с (текущего) пользователя <b class="p3">root</b> на вновь созданный аккаунт пользователя используется команда <strong class="strong">su</strong>:<br><br>
+            <b class="p3 p11">root</b> <strong class="blue"># su  nikolay</strong><br><br>
+            Генерируем ключи на сервере: для <b class="p3">root</b>:<br><br>
+            <b class="p3 p11">root</b> <strong class="blue"># ssh-keygen -t rsa</strong><br><br>
+            и при необходимости, для пользователя.<br>
+            Ключ "<strong class="strong">id_rsa.pub</strong>" из папки <strong class="strong">/root/.ssh/</strong> сервера передаём клиенту и копируем в папку <strong class="strong">~/.ssh/authorized_keys/</strong><br>
+            Чтобы запустить демон <strong class="strong">SSH</strong>, выполняем следующую команду:<br><br>
+            <b class="p3 p11">root</b> <strong class="blue"># service sshd start</strong><br><br>
+            Заходим на сервер:<br>
+            Для <b class="p3">root</b>:<br><br>
+            <strong class="p11 strong">localhost $</strong> <strong class="blue">ssh root@192._ _ _._._ _ _. -p 2002</strong><br><br>
+            В случае возникновения проблеммы входа на сервер, удаляем файл "<strong class="strong">~/.ssh/known_hosts</strong>" и пробуем зайти повторно.<br>
+            Для пользователя, как обычно.
+         </p>
+         <h2 id="ssh8"><strong class="strong">SSH</strong> на <b class="p3">Windows 10</b></h2>
+         <p>В настоящее время <strong class="strong">OpenSSH</strong> на <b class="p3">Windows 10</b> находится в бета-тестировании.<br>
+            Для его установки, открываем:<br> 
+            "Парамерты" > "Приложения" > "Управление дополнительным компонентами" > выбераем "Клиент OpenSSH" и/или "Сервер OpenSSH"<br>
+            Убеждаемся, что они доступны.<br>
+            Открываем <strong class="strong">PowerShell</strong> от администратора нажимая клавишы <strong class="strong">Windows + X</strong> и выбираем <strong class="strong">PowerShell(администратор)</strong>.<br>
+            Набираем команду:<br><br>
+            <strong class="p11 blue">Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'</strong><br><br>
+            Для установки клиента и сервера используем следующие команды:<br><br>
+            <strong class="p11 blue">Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0<br>
+            <strong class="p11">Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</strong></strong><br><br>
+            Настраиваем <strong class="strong">OpenSSH Server (sshd)</strong>.<br><br>
+            <strong class="p11 blue">cd C:\Windows\System32\OpenSSH</strong>
+         </p><br>
+            <div class="kartinka5"><img src="Ssh-Centos/sshW.png" alt="SSH Server"></div><br>
+         <p>Запускаем <strong class="strong">SSH Server</strong> сервис:<br><br>
+            <strong class="p11 blue">Start-Service sshd<br>
+            <strong class="p11">Get-Service sshd</strong></strong>
+         </p><br>
+            <div class="kartinka5"><img src="Ssh-Centos/sshW2.png" alt="SSH Server"></div><br>
+         <p>Открываем порт <strong class="strong">22/tcp</strong>:<br><br>
+            <strong class="p11 blue">New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)'</strong>
+         </p><br>
+            <div class="kartinka5"><img src="Ssh-Centos/sshW3.png" alt="SSH Server"></div><br>
+         <p>Создаём папку <strong class="strong">authorized_keys</strong> для хранения публичных ключей:<br>
+            "Локальный диск(C:)" > "Пользователи" > "User" > ".ssh" > "authorized_keys"<br>
+            <strong class="strong">OpenSSH</strong> на <b class="p3">Windows 10</b> готов принимать подключения.
+         </p>
+         <h2 id="ssh9" class="music1"><a class="send-link2 special-link6 a" href="https://wiki.gentoo.org/wiki/OpenVPN">Установка и настройка OpenVPN
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">VPN</strong> (<strong class="strong">Virtual Private Network</strong>, Виртуальная частная сеть) – это решение, позволяющее обеспечивать анонимность в сети Интернет, одновременно шифруя и сжимая весь передаваемый трафик. Суть технологии заключается в том, что на компьютер - клиент устанавливается специальная программа, которая «на лету» и прозрачно для пользователя зашифровывает все передаваемые данные и передаёт на промежуточный компьютер (<strong class="strong">VPN</strong>-сервер). На <strong class="strong">VPN</strong>-сервере установлено специальное программное обеспечение, которое расшифровывает трафик и посылает его в нужном направлении.<br>
+            В ядре сервера и клиента устанавливаем следующие параметры:<br><br>
+            <strong class="p11 blue">Device Drivers  ---><br>
+            <strong class="p11">[*] Network device support  ---><br>
+            <strong class="p11">[*] Network core driver support<br>
+            <strong class="p11">&lt;*>   Universal TUN/TAP device driver support</strong></strong></strong></strong><br><br>
+            Устанавливаем <strong class="strong">OpenVPN</strong> на сервере и клиенте.<br><br>
+            <strong class="p11 blue">emerge --ask net-vpn/openvpn</strong><br><br>
+            Для создания ключей <strong class="strong">OpenVPN</strong>, на сервер устанавливаем скрипы <a class="special-link7 a link1" href="https://wiki.gentoo.org/wiki/Create_a_Public_Key_Infrastructure_Using_the_easy-rsa_Scripts">easy-rsa</a>:<br><br>
+            <strong class="p11 blue">emerge --ask app-crypt/easy-rsa</strong><br>
+            <strong class="p11 blue">cp -a /usr/share/easy-rsa /root/easy-rsa-example</strong><br>
+            <strong class="p11 blue">cd /root/easy-rsa-example</strong><br>
+            <strong class="p11 blue">mv vars.example vars</strong><br><br>
+            Заполняем файл <strong class="strong">vars</strong>.<br><br>
+            Не оставляем ни один из этих параметров пустым. Изменяем параметр <strong class="strong">KEY_SIZE</strong> на 2048 для <strong class="strong">SSL/TLS</strong>, чтобы использовать 2048-битные ключи <strong class="strong">RSA</strong> для аутентификации.<br><br>
+            <strong class="p11 blue">vim /root/easy-rsa-example/vars<br><br>
+            # Choices are:<br>
+            # cn_only - use just a CN value<br>
+            # org - use the "traditional" Country/Province/City/Org/OU/email/CN format<br>
+            set_var EASYRSA_DN "org"<br>
+            # Организационные поля (используются в режиме 'org' и игнорируются в режиме 'cn_only')<br> 
+            # Это значения по умолчанию для полей, которые будут помещены в # сертификат. Не оставляйте ни одного из этих полей пустыми, хотя в интерактивном режиме<br> 
+            # вы можете опустить любое конкретное поле, набрав «.» символ (недействителен для # электронной почты)<br>
+            set_var EASYRSA_REQ_COUNTRY "US"<br>
+            set_var EASYRSA_REQ_PROVINCE "CA"<br>
+            set_var EASYRSA_REQ_CITY "SanFrancisco"<br>
+            set_var EASYRSA_REQ_ORG "Fort-Funston"<br>
+            set_var EASYRSA_REQ_EMAIL "mail@host.domain"</strong><br><br>
+            Удаляем все ранее созданные сертификаты:<br><br>
+            <strong class="p11 blue">./easyrsa init-pki</strong><br><br>
+            Это удалит все ранее созданные сертификаты, хранящиеся в <strong class="strong">/root/easy-rsa-example/pki</strong>, включая сертификат центра сертификации (<strong class="strong">CA</strong>).<br>
+            Опция <strong class="strong">build-ca</strong> генерирует сертификат центра сертификации (<strong class="strong">CA</strong>):<br><br>
+            <strong class="p11 blue">./easyrsa build-ca</strong><br><br>
+            Опция <strong class="strong">gen-req &lt;имя сервера> nopass</strong> генерирует запрос сертификата сервера и ключ. Убедимся, что имя сервера (общее имя при запуске скрипта) уникально. Опция <strong class="strong">nopass</strong> означает, что нет необходимости импортировать пароль:<br><br>
+            <strong class="p11 blue">./easyrsa gen-req example nopass</strong><br><br>
+            Опция <strong class="strong">sign-req server &lt;имя сервера></strong> подписывает файл сертификата <strong class="strong">.crt</strong>, необходимый для сервера.<br><br>
+            <strong class="p11 blue">./easyrsa sign-req server example</strong><br><br>
+            Опция <strong class="strong">gen-dh</strong> генерирует файл <strong class="strong">.pem</strong> параметров Диффи-Хеллмана (<strong class="strong">DH</strong>), необходимый серверу. Лучше создать новый для каждого сервера, но можно использовать тот же:<br><br>
+            <strong class="p11 blue">./easyrsa gen-dh</strong><br><br>
+            Опция <strong class="strong">build-client-full &lt;client name> nopass</strong> генерирует сертификат и ключ клиента. Убедимся, что имя клиента (общее имя при запуске скрипта) уникально. Опция <strong class="strong">nopass</strong> означает, что нет необходимости вводить пароль.<br>
+            Не вводите контрольный пароль или название компании, когда сценарий запрашивает его.<br>
+            Каждый раз, когда создаём новый ключ клиента, делается только этот шаг!<br><br>
+            <strong class="p11 blue">./easyrsa build-client-full clientA nopass</strong><br><br>
+            Генерируем секретный код аутентификации сообщений (<strong class="strong">HMAC</strong>) на основе хеша.<br><br>
+            <strong class="p11 blue">openvpn --genkey --secret /root/easy-rsa-example/pki/ta.key</strong><br><br>
+            Опция <strong class="strong">./easyrsa build-server-full &lt;имя сервера> nopass</strong> генерирует сертификат и ключ сервера (делает то же самое, что и <strong class="strong">gen-req</strong> и <strong class="strong">sign-req</strong>). Убедимся, что имя сервера (общее имя при запуске скрипта) уникально. Опция <strong class="strong">nopass</strong> означает, что нет необходимости вводить пароль.<br>
+            <strong class="strong">ca.crt</strong> (сервер + все клиенты) Публичный ключ (сертификат) корневого центра сертификации (<strong class="strong">CA</strong>), не секретный.<br>
+            <strong class="strong">ca.key</strong> (только для машины, подписывающей ключи) Приватный ключ корневого центра сертификации (<strong class="strong">CA</strong>), секретный.<br>
+            <strong class="strong">dh{n}.pem</strong> (только сервер) Параметры Диффи Хеллмана, не секретный.<br>
+            <strong class="strong">ta.key</strong> (сервер + все клиенты) <strong class="strong">HMAC</strong> подпись к пакетам <strong class="strong">SSL/TLS</strong>, секретный.<br>
+            <strong class="strong">server.crt</strong> (только сервер) Сертификат (публичный ключ) сервера, не секретный.<br>
+            <strong class="strong">server.key</strong> (только сервер) Приватный ключ сервера, секретный.<br>
+            <strong class="strong">clientA.crt</strong> (только <strong class="strong">clientA</strong>) Сертификат (публичный ключ) <strong class="strong">ClientA</strong>, не секретный.<br>
+            Файл <strong class="strong">.pem</strong>: протокол Ди́ффи — Хе́ллмана (англ. <strong class="strong">Diffie-Hellman</strong>, <strong class="strong">DH</strong>) — криптографический протокол, позволяющий двум и более сторонам получить общий секретный ключ, используя не защищённый от прослушивания канал связи.<br>
+            Для безопасности рекомендуется, чтобы центр сертификации был на отдельном компьютере, ключи сервера генерировались на другом компьютере, и каждый клиент генерировал свои ключи на своём компьютере.<br>
+            Все созданные ключи размещаем на сервере в директории <strong class="strong">/etc/openvpn/keys/</strong>.<br>
+            Создаём файл конфигурации на сервере:<br><br>
+            <strong class="p11 blue">vim /etc/openvpn/server/server.conf<br><br>
+            # Какой порт использовать<br>
+            # Значением по умолчанию является 1194<br>
+            port 1194<br>
+            # TCP или UDP протокол. Рекомендуется UDP<br> 
+            ;proto tcp<br>
+            proto udp<br>
+            # Не нужно менять<br>
+            ;dev tap<br>
+            dev tun<br>
+            # Ключи: первым идёт публичный ключ центра сертификации<br>
+            # затем публичный ключ сервера<br>
+            # затем приватный ключ сервера<br>
+            ca /etc/openvpn/keys/ca.crt<br>
+            cert /etc/openvpn/keys/servername.crt<br>
+            key /etc/openvpn/keys/servername.key  # Этот файл нужно хранить в секрете<br>
+            # Параметры Diffie hellman<br>
+            dh /etc/openvpn/keys/dh.pem<br>
+            # Будет создана виртуальная локальная сеть<br>
+            # Здесь указываются её параметры<br>
+            # Не нужно ничего менять без особых причин<br>
+            server 10.8.0.0 255.255.255.0<br>
+            # При перезагрузке сервера, клиенту будет назначен его прежний IP адрес<br>
+            ifconfig-pool-persist ipp.txt<br>
+            # Эта настройка делает так, что при подключении к VPN<br>
+            # для клиентов сервер VPN становится шлюзом по умолчанию<br>
+            push "redirect-gateway def1 bypass-dhcp"<br>
+            # Если раскомментировать эту настройку,<br> 
+            # то для нескольких клиентов можно использовать одну и ту же пару<br>
+            # приватный-публичный ключ,<br>
+            # но это не рекомендуется<br>
+            ;duplicate-cn<br>
+            # Пинговать удалённый узел каждые 10 секунд<br>
+            # и считать его упавшим, если он не ответил за 120 секунд<br>
+            keepalive 10 120<br>
+            # Дополнительная защита для DoS атак и флудинга портов UDP<br>
+            # благодаря созданию "HMAC файервола"<br>
+            # за счёт добавления дополнительной подписи к SSL/TLS<br>
+            # Файл ta.key был создан во время генерирования ключей,<br>
+            # он должен быть доставлен также каждому клиенту<br>
+            remote-cert-tls client<br>
+            tls-auth /etc/openvpn/keys/ta.key 0 # Этот файл нужно хранить в секрете<br>
+            # Выбор криптографических шифров<br>
+            # У клиентов должно быть также<br>
+            ;cipher AES-256-CBC<br>
+            # Включение сжатия и отправка настройки клиенту<br>
+            compress lz4-v2<br>
+            ;push "compress lz4-v2"<br>
+            # Максимальное число одновременно подключённых клиентов<br>
+            ;max-clients 100<br>
+            # Понижение привилегий демона OpenVPN<br>
+            # после запуска<br>
+            #<br>
+            # Только для не <b class="p3">Windows</b> систем.<br>
+            ;user nobody<br>
+            ;group nobody<br>
+            # Хранить ключи в памяти, на случай, если не получается<br>
+            # получить к ним доступ из-за понижения привилегий<br>
+            ; persist-key<br>
+            ; persist-tun<br>
+            # Короткий файл текущего статус<br>
+            # содержит текущие соединения<br>
+            # обрезается и перезаписывается каждую минуту<br>
+            ;status openvpn-status.log<br>
+            # По умолчанию логи идут в syslog<br> 
+            # "log" означает перезапись файла журнала при каждом запуске OpenVPN,<br>
+            # а "log-append" означает дополнение журнала<br>
+            # Используйте только одну, а не обе!<br>
+            ;log openvpn.log<br>
+            ;log-append  openvpn.log<br>
+            # Уровень вербальности<br>
+            # 0 тихий, кроме фатальных ошибок<br>
+            # 4 подходит для обычного использования<br>
+            # 5 и 6 помогают в отладке при решении проблем с подключением<br>
+            # 9 крайне вербальный<br>
+            verb 4<br>
+            # Предупреждать клиента, что сервер перезапускается<br>
+            # чтобы клиенты могли автоматически переподключиться<br>
+            explicit-exit-notify 1</strong><br><br>
+            Тестируем <strong class="strong">OpenVPN</strong> сервер:<br><br>
+            <strong class="p11 blue">openvpn /etc/openvpn/server/server.conf</strong><br><br>
+            Если есть ошибки в файле конфигурации, то программа сразу завершиться с ошибкой.<br>
+            Если всё в порядке запускаем <strong class="strong">OpenVPN</strong> сервер:<br><br>
+            <strong class="p11 blue">/etc/init.d/openvpn start</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemctl</strong> используется команда вида <strong class="strong">openvpn-server@&lt;configuration>.service</strong>, где <strong class="strong">&lt;configuration></strong> - это файл конфигурации, который лежит в папке <strong class="strong">/etc/openvpn/server/</strong>, но без расширения <strong class="strong">.conf</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl start openvpn-server@server.service</strong><br><br>
+            Включение маршрутизации трафика на <strong class="strong">OpenVPN</strong> сервере.<br>
+            На данном этапе, если бы кто-то подключился к <strong class="strong">OpenVPN</strong> серверу, то он не сможет подключаться к глобальной сети. Чтобы это стало возможным нужно настроить маршрутизацию трафика.<br>
+            Для этого создайте файл <strong class="strong">vpn_route.sh</strong>.<br>
+            B этот файл скопируем следующее содержимое, отредактировав его под свои нужды.<br><br>
+            <strong class="p11 blue">#!/bin/sh<br><br>
+            # укажите имя интерфейса, иначе скрипт попытается выбрать его автоматически<br>
+            #DEV='eth0'<br>
+            DEV='enp3s0'<br>
+            PRIVATE=10.8.0.0/24<br>
+            if [ -z "$DEV" ]; then<br>
+            DEV="$(ip route | grep default | head -n 1 | awk '{print $5}')"<br>
+            fi<br>
+            # Включаем форвардинг пакетов, чтобы из туннельного интерфейса<br>
+            # они попадали на внешний интерфейс<br>
+            sysctl net.ipv4.ip_forward=1<br>
+            # Убеждаемся, что iptables не блокируют перенаправляемый трафик:<br>
+            iptables -I FORWARD -j ACCEPT<br>
+            # Преобразование адресов (NAT) для приходящих из туннеля пакетов<br>
+            # При включенной пересылке пакеты по умолчанию перенаправляются<br> 
+            # с исходным адресом без изменений, то есть в нашем случае 10.8.0.*<br>
+            # такие пакеты либо удаляются на шлюзе ISP, либо даже если они<br>
+            # отправляются в пункт назначения, ответ никогда не находит обратного пути.<br>
+            # Эти частные адреса не маршрутизируются в Интернете.<br>
+            # Решением является преобразование адресов (NAT) исходящего трафика,<br> 
+            # то есть заменить частный 10.8.0.* адрес общедоступным IP адресом VPN-сервера.<br> 
+            # Это позволит ответам достичь VPN-сервера,<br> 
+            # и там они будут отправлены обратно в туннель.<br>
+            iptables -t nat -I POSTROUTING -s $PRIVATE -o $DEV -j MASQUERADE</strong><br><br>
+            Делаем файл исполняемым:<br><br>
+            <strong class="p11 blue">chmod 755 vpn_route.sh</strong><br><br>
+            Чтобы изменения вступили прямо сейчас, до перезапуски компьютера, выполним:<br><br>
+            <strong class="p11 blue">bash vpn_route.sh</strong><br><br>
+            <strong class="gray">Если всё нормально, то для добавления его в автозагрузку <strong class="strong">systemd</strong> создаём файл:<br><br>
+            <strong class="p11 darkgrey">vim /etc/systemd/system/enable-openvpn-routing.service</strong><br><br>
+            Со следующим содержимым:<br><br>
+            <strong class="darkgrey">[Unit]<br>
+            Description=Включение роутинга OpenVPN трафика<br><br>
+            [Service]<br>
+            ExecStart=vpn_route.sh<br><br>
+            [Install]<br>
+            WantedBy=multi-user.target</strong><br><br>
+            Строку <strong class="strong">vpn_route.sh</strong> – заменяем на свой путь.<br>
+            И активируем автозапуск этого файла:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl enable enable-openvpn-routing</strong></strong><br><br>
+            На клиентскую машину в директорию <strong class="strong">/etc/openvpn/keys/</strong> переносим следующие ключи: <strong class="strong">ca.crt</strong>, <strong class="strong">clientA.crt</strong>, <strong class="strong">clientA.key</strong>, <strong class="strong">ta.key</strong>, <strong class="strong">dh.pem</strong>.<br>
+            Создаём файл конфигурации на клиенте:<br><br>
+            <strong class="p11 blue">vim /etc/openvpn/client/client.conf<br><br>
+            # Программа выступает в роли клиента (а не сервера)<br>
+            client<br>
+            # Самая важная настройка:<br>
+            # впишите здесь IP адрес СВОЕГО OpenVPN СЕРВЕРА<br>
+            # Другие настройки можно вообще не менять!!!<br>
+            remote 10.8.0.0<br>
+            # Сервер использует 1194 порт, этот же порт указывается здесь<br>
+            port 1194<br>
+            # Не меняйте<br>
+            dev tun<br>
+            # Выбор протокола TCP или UDP<br>
+            # Должен быть таким же, как на сервере<br>
+            ;proto tcp<br>
+            proto udp<br>
+            # Имя хоста/IP и порт сервера.<br>
+            # Можно вписать несколько удалённых серверов<br>
+            # для балансировки нагрузки.<br>
+            ;remote my-serverA 1194<br>
+            remote 192.168.0.101 1194<br>
+            ;remote my-serverB 1194<br>
+            # Если для балансировки нагрузки вы вписали несколько хостов<br>
+            # то при включении этой опции будет выбран случайный<br>
+            # в противном случае они будут следовать по очереди<br>
+            ;remote-random<br>
+            # Бесконечно пытаться преобразовать имя хоста<br>
+            # сервера OpenVPN. Очень полезно на машинах<br>
+            # которые подключены к интернету не постоянно,<br>
+            # например, для ноутбуков<br>
+            resolv-retry infinite<br>
+            # Большинству клиентов не нужно<br>
+            # привязываться к определённому локальному порту<br>
+            nobind<br>
+            # Понизить привилегии после подключения (только для не <b class="p3">Windows</b>)<br>
+            ;user nobody<br>
+            ;group nobody<br>
+            # Пытаться сохранить прежнее состояние после перезапуска.<br>
+            persist-key<br>
+            persist-tun<br>
+            # Здесь можно настроить HTTP прокси<br>
+            # для подключения к OpenVPN серверу<br>
+            # поддерживается аутентификация на удалённом прокси<br>
+            ;http-proxy-retry # retry on connection failures<br>
+            ;http-proxy [proxy server] [proxy port #]<br>
+            # Беспроводные сети часто создают много дублирующих пакетов<br>
+            # Включите эту настройку, чтобы не показывать предупреждения<br>
+            # о дубликатах<br>
+            mute-replay-warnings<br>
+            # Путь до сертификатов<br>
+            ca /etc/openvpn/keys/ca.crt<br>
+            cert /etc/openvpn/keys/clientA.crt<br>
+            key /etc/openvpn/keys/clientA.key<br>
+            # Дополнительная защита<br>
+            remote-cert-tls server<br>
+            # Ключ для дополнительной защиты<br>
+            tls-auth /etc/openvpn/keys/ta.key 1<br>
+            #Параметры Диффи-Хеллмана.<br>
+            # Создайте свой собственный с помощью:<br>
+            # openssl dhparam -out dh1024.pem 1024<br>
+            # Замените 2048 на 1024, если вы используете<br>
+            # 2048 битных ключей.<br>
+            dh /etc/openvpn/keys/dh.pem<br>
+            # Набор шифров как на сервере<br>
+            ;cipher AES-256-CBC<br>
+            # Сжатие. Не включайте, если не включено на сервере<br>
+            comp-lzo<br>
+            # Вербальность журнала.<br>
+            verb 3</strong><br><br>
+            Тестируем <strong class="strong">OpenVPN</strong> клиент:<br><br>
+            <strong class="p11 blue">openvpn /etc/openvpn/client/client.conf</strong><br><br>
+            Не закрывая соединение, в другом терминале вводим:<br><br>
+            <strong class="p11 blue">ifconfig</strong> # Должен появиться новый интерфейс<br><br>
+            <strong class="blue">enp3s0: ...<br><br>
+            lo: ...<br><br>
+            tun0: flags=4305&lt;UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500<br>
+            inet 10.8.0.0  netmask 255.255.255.0  destination 10.8.0.0<br>
+            inet6 fe80::bfb5:81e5:b4b:e712  prefixlen 64  scopeid 0x20&lt;link><br>
+            unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)<br>
+            RX packets 0  bytes 0 (0.0 B)<br>
+            RX errors 0  dropped 0  overruns 0  frame 0<br>
+            TX packets 14  bytes 818 (818.0 B)<br>
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</strong><br><br>
+            Если всё в порядке запускаем клиент <strong class="strong">OpenVPN</strong>, при желании добавляем его в автозагрузку.<br><br>
+            <strong class="p11 blue">/etc/init.d/openvpn start</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemctl</strong> используется команда вида <strong class="strong">openvpn-client@&lt;configuration>.service</strong>, где <strong class="strong">&lt;configuration></strong> - это файл конфигурации, который лежит в папке <strong class="strong">/etc/openvpn/client/</strong>, но без расширения <strong class="strong">.conf</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl start openvpn-client@client.service<br>
+            <strong class="p11">systemctl enable openvpn-client@client.service</strong></strong></strong>
+         </p>
+         <h2 id="ssh10">Создание общего каталога между компьютерами</h2>
+         <p>Под <b class="p3">root</b> на основном компьютере (сервере с ОС "<strong class="strong">opensuse 42.1</strong>")</p>
+        <div class="kartinka3"><a href="http://software.opensuse.org/421/en"><div class="opensuse"></div></a></div>
+         <p>отключить “<strong class="strong">Брандмауэр</strong>” и “<strong class="strong">Файрвол</strong>”; добавить строку: (общая папка) <strong class="strong">/home/nikolay</strong><br> 
+            (адрес сети клиента) <strong class="strong">192.168.0.101 (rw root_squash)</strong> в файл <strong class="strong">/etc/exports</strong> перезагрузить компьютер.<br>
+            На клиентском компьютере (с ОС «<strong class="strong">Gentoo</strong>») в конфиге ядра должна быть включена поддержка <strong class="strong">NFS</strong>:<br><br>
+            <strong class="p11 blue">File Systems ---></strong><br>                                                                                                 
+            <strong class="p11 blue">Network File Systems ---></strong><br>                                                                                          
+            <strong class="p11 blue">&lt; * &gt; NFS file system support</strong><br>                                                                                
+            <strong class="p11 blue">[ * ] Provide NFSv3 client support</strong><br>                                                                                  
+            <strong class="p11 blue">[ * ] Allow direct I/O on NFS files (EXPERIMENTAL)</strong><br>                                                   
+            <strong class="p11 blue">&lt; * &gt; NFS server support</strong><br>                                                                              
+            <strong class="p11 blue">[ * ] Provide NFSv3 server support</strong><br>                                                                                 
+            <strong class="p11 blue"> --- Provide NFS server over TCP support</strong><br><br>
+            Отключение <strong class="strong">iptables</strong> в тех случаях, когда для нормальной работы сервера внутри корпоративной сети
+            не требуется фильтровать трафик и для некоторого снижения сетевой нагрузки можно отключить встроенный файрволл <strong class="strong">Iptables</strong>.<br>
+            Делается это следующим образом:<br><br>
+            <strong class="p11 blue"># /etc/init.d/iptables stop</strong> (файрволл будет неактивен до следующей перезагрузки)<br><br>
+            1. установить пакет <strong class="strong">nfs-utils</strong><br><br>                                                                                                                      
+            <strong class="p11 blue"># emerge nfs-utils</strong><br><br>                                                                                          
+            (запускаем <strong class="strong">nfs</strong> сервер -<br><br>                                                        
+            <strong class="p11 blue"># /etc/init.d/nfs start</strong><br><br>                                                                                 
+            и добавляем его в автостарт при загрузке -<br><br>                                                  
+            <strong class="p11 blue"># rc-update add nfs default </strong><br><br>                                                                                                                                                                                     
+            2. добавить следующие службы в авто-запуск: <strong class="strong">nfsmount</strong> и <strong class="strong">rpcbind</strong>:<br><br>
+            <strong class="p11 blue"># rc-update add nfsmount</strong><br>
+            <strong class="p11 blue"># rc-update add rpcbind</strong><br><br>
+            3. Пункт 2 нужен для монтирования через <strong class="strong">/etc/fstab</strong>.<br>
+            Если  монтируем командой <strong class="strong">mount</strong> вручную, достаточно запустить <strong class="strong">rpcbind</strong> в активной сессии<br>
+            (<strong class="strong">/etc/init.d/rpcbind start</strong>), либо также включить ее в автозапуск (у меня она включена по умолчанию).<br>
+            Соответственно, команда ручного монтирования, пример:<br>                                           
+            <strong class="strong">mount</strong> (адрес сети сервера)<strong class="strong">192.168.0.102:/home/nikolay /mnt</strong><br>
+            Здесь серверная папка <strong class="strong">/home/nikolai</strong>, локальная точка монтирования <strong class="strong">/mnt</strong><br>
+            Для потоянного монтирования через <strong class="strong">/etc/fstab</strong> строчка в файле должна быть такой:<br><br>
+            <strong class="p11 blue">192.168.0.102:/home/nikolay  /mnt  nfs  defaults  0 0</strong><br><br>                                        
+            4.<strong class="strong"># usermod -d /home/главная_учётная_запись локальная_учётная_запись</strong><br>                                                        
+            Ради эксперимента, чтобы убедиться что <strong class="strong">NFS</strong> настроен и работает, можно попробовать сменить права доступа к директории:<br><br>                                                                                      
+            <strong class="p11 blue"># chmod 777 /home/nikolay</strong><br><br>
+         </p>
+      </div><!--
+      --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Если не в деньгах счастье, то отдайте их мне." Жюль Ренар'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="ssh ключ"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="SSH на Windows 10"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="файл сервер"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="Установка SSH"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="ssh клиент"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="настройка ssh"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="ssh ключ"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="nfs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="файл сервер"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="Установка SSH"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux.">
+          <img src="Соцсети/Help.png" alt="дистрибутивы linux"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                       <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img src="naverh.png" alt="настройка ssh"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

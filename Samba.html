@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка Samba</title>
+     <meta name="description" content="Установка Samba server на операционную систему Gentoo Linux.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="конфигурационный файл,windows 10,настройка конфигурационного файла,samba 4,установка samba,workgroup,файловая система cifs">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Curtain/curtain.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Не страшно платить налоги, страшно когда их не с чего платить!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="конфигурационный файл"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="файловая система cifs"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Никогда не суди с первого взгляда ни о собаке, ни о человеке. Потому что, простая дворняга… может иметь добрейшую душу, а человек приятной наружности … может оказаться редкой сволочью…" Владимир Высоцкий</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <li class="p1"><a class="white aS" href="#ss1">Установка Samba</a></li>
+            <li class="p1"><a class="white aS" href="#ss2">Настройка конфигурационного файла</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss3">Создаём указанные директории</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss4">Настройка</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss5">Создание Samba пользователя Root</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss6">Проверим, чтобы в конфигурационном файле небыло ошибок</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss7">Группы пользователей</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss8">Ввод в демон</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss9">Добавление пользователей</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss10">Проверяем</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss11">Список команд для управления демоном</a></li>
+            <li class="p1"><a class="blue aS" href="Samba1.html#ss12">Информация</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+        <div id="js" class="fon-samba">
+         <div id="curtain" class="sl-slider-wrapper kartinka121">
+            <div class="sl-slider">
+             <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+			  <div class="sl-slide-inner">
+			    <div class="bg-img"></div> 
+              </div>
+             </div>
+             <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+              <div class="sl-slide-inner"> 
+               <a class="samba" href="https://ru.wikipedia.org/wiki/Samba">
+               <span><img class="dancer" src="Curtain/dancer.gif" alt="установка samba"></span>
+               <div class="kartinka5"><img class="Samba dance" src="Curtain/dance.gif" alt="установка samba"></div>
+               </a>
+              </div>
+             </div>     
+            </div><!-- /sl-slider -->
+         </div><!--curtain-->
+        </div>
+        <nav id="nav-dots" class="nav-dots">
+          <span class="nav-dot-current current-wrapper current-wrapper1 button-2"><p>Кончили танцевать</p></span>
+          <span class="current-wrapper current-wrapper1 button-1"><p>Танцуют... Все!</p></span>
+        </nav>
+         <h1 id="ss1" class="music1"><a class="send-link special-link a" href="https://wiki.gentoo.org/wiki/Samba/Guide">Установка Samba
+                 <span class="icon-wrapper">
+                    <span class="icon-1"></span><span class="icon-2"></span>
+                 </span></a>
+         </h1>
+         <p class="music1">Создание и настройка первичного контроллера <b class="p3">Windows</b> домена<br>  
+            с несколькими расшаренными ресурсами и общим принтером.<br>
+            Администрирование домена будет осуществляться удалённо, через утилиту <strong class="strong">net</strong>.<br> 
+            Приведённые ниже действия выполнялись на <a class="special-link1 a link1" href="Gentoo.html#sg1">ОС "Gentoo"</a> и <a class="special-link2 a link1" href="Qemu.html#q1">ОС "Windows10"</a> установленной на<br> <a class="special-link3 a link1" href="Qemu.html#q">ВМ "Qemu"</a><br>
+            Пакет "<strong class="strong">Samba</strong>" для своей работы требует поддержки файловых систем <strong class="strong">cifs</strong> ядром <strong class="strong">Linux</strong>.<br>
+            Убедиться в поддержке ядром <strong class="strong">cifs</strong> можно, выполнив команду:<br><br> 
+            <strong class="p11 blue">#grep CONFIG_CIFS /usr/src/linux-16.X.X-gentoo/.config</strong><br><br> 
+            Необходимо следующее:<br><br>
+            <strong class="p11 blue">File Systems ---></strong><br>
+            <strong class="p11 blue">[*] Network File Systems ---></strong><br>
+            <strong class="p11 blue">[*] CIFS support (advanced network filesystem, SMBFS successor)---></strong><br>
+            <strong class="p11 blue">[*] CIFS Statistics</strong><br>
+            <strong class="p11 blue">[*] Extended Statistics</strong><br>
+            <strong class="p11 blue">[*] CIFS Extended Attributes</strong><br>
+            <strong class="p11 blue">[*] CIFS POSIX Extentions</strong><br><br>
+            Для оптимизации производительности, размера и время сборки, используйте <strong class="strong">USE</strong> флаги.<br> 
+            В начале добавте файлы <strong class="strong">PPD</strong>, чтобы убедиться, что, когда <strong class="strong">CUPS</strong> будет построен,<br> 
+            он имеет надлежащую поддержку <strong class="strong">Foomatic</strong>:<br><br> 
+            <strong class="p11 blue">echo "net-print/cups ppds" >> /etc/portage/package.use</strong><br>
+            <strong class="p11 blue">echo "net-fs/samba readline cups pam" >> /etc/portage/package.use</strong><br><br> 
+            Устанавливаем "<strong class="strong">Samba</strong>"<br><br> 
+            <strong class="p11 blue">emerge --ask net-fs/samba</strong><br><br> 
+            <strong class="gray">(Используя принтер <strong class="strong">HP</strong>, при необходимости, устанавливаем <a class="special-link4 a link1" href="Gentoo4.html#hplip">hplip</a>)</strong>
+         </p>
+         <h2 id="ss2">Настройка конфигурационного файла</h2>
+         <p><strong class="p11 blue">cp /etc/samba/smb.conf.default /etc/samba/smb.conf</strong><br><br>
+            Открываем:<br><br>
+            <strong class="p11 blue">vim  /etc/samba/smb.conf</strong><br><br>
+            Наполняем следующим содержимым:<br><br>
+            <strong class="blue"># </strong>По умолчанию в <b class="p3">Windows</b> установлено: <strong class="strong">workgroup = WORKGROUP</strong><br><br>
+            <strong class="p11 blue">[global]<br><br>
+            # workgroup = NT-Domain-Name or Workgroup-Name, eg: MIDEARTH</strong><br><br>
+            <strong class="p11 blue">workgroup = QEMU</strong><br>
+            <strong class="p11 blue">netbios name = GENTOO<br><br>
+            # server string is the equivalent of the NT Description field</strong><br><br>
+            <strong class="p11 blue">server string = QEMU Server</strong><br>
+            <strong class="p11 blue">max protocol = smb3</strong><br>
+            <strong class="p11 blue">unix charset = utf8</strong><br>
+            <strong class="p11 blue">dos charset = cp1251</strong><br>
+            <strong class="p11 blue">time server = yes<br><br>
+            # Server role. Defines in which mode Samba will operate. Possible<br>
+            # values are "standalone server", "member server", "classic primary<br>
+            # domain controller", "classic backup domain controller", "active<br>
+            # directory domain controller".<br>
+            #<br>
+            # Most people will want "standalone sever" or "member server".<br>
+            # Running as "active directory domain controller" will require first<br>
+            # running "samba-tool domain provision" to wipe databases and create a<br>
+            # new domain.</strong><br><br>
+            <strong class="p11 blue">server role = standalone server<br><br>
+            # Security mode. Defines in which mode Samba will operate. Possible<br> 
+            # values are share, user, server, domain and ads. Most people will want<br> 
+            # user level security. See the Samba-HOWTO-Collection for details.<br>
+            # security = user<br>
+            # This option is important for security. It allows you to restrict<br>
+            # connections to machines which are on your local network. The<br>
+            # following example restricts access to two C class networks and<br>
+            # the "loopback" interface. For more examples of the syntax see<br>
+            # the smb.conf man page<br>
+            ;   hosts allow = 192.168.1. 192.168.2. 127.<br>
+            # hosts allow = 192.168.0.<br><br>
+            #</strong> Если <strong class="strong">enp3s0</strong> является локальный сетевой интерфейс:<br><br>
+            <strong class="p11 blue">interfaces = lo enp3s0</strong><br>
+            <strong class="p11 blue">bind interfaces only = yes<br><br>
+            # If you want to automatically load your printer list rather<br>
+            # than setting them up individually then you'll need this</strong><br><br>
+            <strong class="p11 blue">load printers = yes<br><br>
+            # you may wish to override the location of the printcap file</strong><br><br>
+            <strong class="p11 blue">printcap = /etc/printcap<br><br>
+            # on SystemV system setting printcap name to lpstat should allow<br>
+            # you to automatically obtain a printer list from the SystemV spool<br>
+            # system<br>
+            ;   printcap name = lpstat</strong><br><br>
+            <strong class="p11 blue">printcap name = cups<br><br>
+            # It should not be necessary to specify the print system type unless<br>
+            # it is non-standard. Currently supported print systems include:<br>
+            # bsd, cups, sysv, plp, lprng, aix, hpux, qnx</strong><br><br>
+            <strong class="p11 blue">printing = cups<br><br>
+            # Uncomment this if you want a guest account, you must add this to /etc/passwd<br>
+            # otherwise the user "nobody" is used<br>
+            ;  guest account = pcguest<br>
+            # this tells Samba to use a separate log file for each machine<br>
+            # that connects</strong><br><br>
+            <strong class="p11 blue">log level = 1</strong><br>
+            <strong class="p11 blue">log file = /var/log/samba/log.%m<br><br>
+            # Put a capping on the size of the log files (in Kb).</strong><br><br>
+            <strong class="p11 blue">max log size = 50<br><br>
+            # Use password server option only with security = server<br>
+            # The argument list may include:<br>
+            #   password server = My_PDC_Name [My_BDC_Name] [My_Next_BDC_Name]<br>
+            # or to auto-locate the domain controller/s<br>
+            #   password server = *<br>
+            ;   password server = &lt;NT-Server-Name&lg;<br>
+            # Use the realm option only with security = ads<br>
+            # Specifies the Active Directory realm the host is part of<br>
+            ;   realm = MY_REALM<br>
+            # Backend to store user information in. New installations should<br> 
+            # use either tdbsam or ldapsam. smbpasswd is available for backwards<br> 
+            # compatibility. tdbsam requires no further configuration. If you're<br> 
+            # migrating from &lt; samba 3.4, you'll have to convert your old user<br> 
+            # passwords to the new backend with the command:<br>
+            # pdbedit -i smbpasswd:/var/lib/samba/private/smbpasswd -e</strong><br><br>
+            <strong class="p11 blue">passdb backend = tdbsam<br><br>
+            # Using the following line enables you to customise your configuration<br>
+            # on a per machine basis. The %m gets replaced with the netbios name<br>
+            # of the machine that is connecting.<br>
+            # Note: Consider carefully the location in the configuration file of<br>
+            # this line.  The included file is read at that point.<br>
+            ;   include = /etc/samba/smb.conf.%m<br>
+            # Configure Samba to use multiple interfaces<br>
+            # If you have multiple network interfaces then you must list them<br>
+            # here. See the man page for details.<br>
+            ;   interfaces = 192.168.12.2/24 192.168.13.2/24<br> 
+            # Browser Control Options:<br>
+            # set local master to no if you don't want Samba to become a master<br>
+            # browser on your network. Otherwise the normal election rules apply</strong><br><br>
+            <strong class="p11 blue">local master = yes<br><br>
+            # OS Level determines the precedence of this server in master browser<br>
+            # elections. The default value should be reasonable</strong><br><br>
+            <strong class="p11 blue">os level = 255<br><br>
+            # Domain Master specifies Samba to be the Domain Master Browser. This<br>
+            # allows Samba to collate browse lists between subnets. Don't use this<br>
+            # if you already have a Windows NT domain controller doing this job</strong><br><br>
+            <strong class="p11 blue">domain master = yes<br><br>
+            # Preferred Master causes Samba to force a local browser election on startup<br>
+            # and gives it a slightly higher chance of winning the election</strong><br><br>
+            <strong class="p11 blue">preferred master = yes<br><br>
+            # Enable this if you want Samba to be a domain logon server for<br> 
+            # Windows95 workstations.</strong><br><br>
+            <strong class="p11 blue">logon drive =</strong><br>
+            <strong class="p11 blue">logon home =</strong><br>
+            <strong class="p11 blue">domain logons = yes<br><br>
+            # if you enable domain logons then you may want a per-machine or<br>
+            # per user logon script<br>
+            # run a specific logon batch file per workstation (machine)<br>
+            ;   logon script = %m.bat<br>
+            # run a specific logon batch file per username<br>
+            ;   logon script = %U.bat</strong><br><br>
+            <strong class="p11 blue">logon script = %U.bat<br><br>
+            # Where to store roving profiles (only for Win95 and WinNT)<br>
+            # %L substitutes for this servers netbios name, %U is username<br>
+            # You must uncomment the [Profiles] share below<br>
+            ; logon path = \\%L\Profiles\%U</strong><br><br>
+            <strong class="p11 blue">logon path =<br><br>
+            # Windows Internet Name Serving Support Section:<br>
+            # WINS Support - Tells the NMBD component of Samba to enable it's WINS Server</strong><br><br>
+            <strong class="p11 blue">wins support = yes<br><br>
+            # WINS Server - Tells the NMBD components of Samba to be a WINS Client<br>
+            # Note: Samba can be either a WINS Server, or a WINS Client, but NOT both<br>
+            ; wins server = w.x.y.z<br>
+            # WINS Proxy - Tells Samba to answer name resolution queries on<br> 
+            # behalf of a non WINS capable client, for this to work there must be<br>
+            # at least one  WINS Server on the network. The default is NO.<br>
+            ;   wins proxy = yes<br>
+            # DNS Proxy - tells Samba whether or not to try to resolve NetBIOS names<br>
+            # via DNS nslookups. The default is NO.</strong><br><br>
+            <strong class="p11 blue">dns proxy = no<br><br>
+            # These scripts are used on a domain controller or stand-alone<br> 
+            # machine to add or delete corresponding unix accounts</strong><br><br>
+            <strong class="p11 blue">add user script = /usr/sbin/useradd %u</strong><br>
+            <strong class="p11 blue">add group script = /usr/sbin/groupadd %g</strong><br>
+            <strong class="p11 blue">add user to group script = /usr/bin/gpasswd %u %g</strong><br>
+            <strong class="p11 blue">add machine script = /usr/sbin/adduser -n -g machines -c Machine -d /dev/null -s /bin/false %u<br><br>
+            # set primary group script=/usr/sbin/usermod -g %g %u</strong><br><br>
+            <strong class="p11 blue">delete user script = /usr/sbin/userdel %u</strong><br>
+            <strong class="p11 blue">delete user from group script = /usr/sbin/deluser %u %g</strong><br>
+            <strong class="p11 blue">delete group script = /usr/sbin/groupdel %g<br><br>
+            # ============================ Share Definitions =========================</strong><br><br>
+            <strong class="p11 blue">[homes]</strong><br><br>
+            <strong class="p11 blue">comment = Home Directories</strong><br>
+            <strong class="p11 blue">browseable = no</strong><br>
+            <strong class="p11 blue">writable = yes<br><br>
+            # Un-comment the following and create the netlogon directory for Domain Logons</strong><br><br>
+            <strong class="p11 blue">[netlogon]</strong><br><br>
+            <strong class="p11 blue">comment = Network Logon Service</strong><br>
+            <strong class="p11 blue">path = /srv/samba/netlogon</strong><br>
+            <strong class="p11 blue">read only = yes</strong><br>
+            <strong class="p11 blue">browseable = no<br>
+            ; guest ok = yes<br>
+            ; writable = no<br>
+            ; share modes = no<br><br>
+            # Un-comment the following to provide a specific roving profile share<br>
+            # the default is to use the user's home directory<br><br>
+            # [Profiles]<br><br>
+            ; path = /var/lib/samba/profiles<br>
+            ; browseable = no<br>
+            ; guest ok = yes<br><br>
+            # NOTE: If you have a BSD-style print system there is no need to<br> 
+            # specifically define each individual printer<br><br>
+            # [printers]<br><br>
+            ; comment = All Printers<br>
+            ; path = /var/spool/samba<br>
+            ; browseable = no<br><br>
+            # Set public = yes to allow user 'guest account' to print<br><br>
+            ; guest ok = yes<br>
+            ; writable = no<br>
+            ; printable = yes<br>
+            ; read only = yes<br>
+            ; public = yes<br><br>
+            #</strong> Информация о драйвере принтера<br><br>
+            <strong class="p11 blue">[print$]</strong><br><br>
+            <strong class="p11 blue">comment = Printer Drivers<br><br>
+            #</strong> Этот путь имеет структуру драйвера<br><br>
+            <strong class="p11 blue">path = /etc/samba/printer</strong><br> 
+            <strong class="p11 blue">guest ok = yes</strong><br>
+            <strong class="p11 blue">browseable = yes</strong><br>
+            <strong class="p11 blue">read only = yes<br><br>
+            #</strong> Настройка принтера для общего доступа<br><br>
+            <strong class="p11 blue">[HP LaserJet P1102w]</strong><br><br>
+            <strong class="p11 blue">comment = HP LaserJet P1102w</strong><br>
+            <strong class="p11 blue">printable = yes</strong><br>
+            <strong class="p11 blue">path = /var/spool/cups</strong><br>
+            <strong class="p11 blue">public = yes</strong><br>
+            <strong class="p11 blue">guest ok = yes<br><br>
+            # This one is useful for people to share files<br><br>
+            # [tmp]<br><br>
+            ; comment = Temporary file space<br>
+            ; path = /tmp<br>
+            ; read only = no<br>
+            ; public = yes<br><br>
+            # A publicly accessible directory, but read only, except for people in<br>
+            # the "staff" group</strong><br><br>
+            <strong class="p11 blue">[public]</strong><br><br>
+            <strong class="p11 blue">comment = Public Stuff</strong><br>
+            <strong class="p11 blue">browseable = yes</strong><br>
+            <strong class="p11 blue">path = /home/samba/public</strong><br>
+            <strong class="p11 blue">public = yes</strong><br>
+            <strong class="p11 blue">create mode = 0766</strong><br>
+            <strong class="p11 blue">guest ok = yes<br>
+            ; writable = yes<br>
+            ; printable = no<br>
+            ; write list = @staff</strong><br><br>
+            <strong class="p11 blue">[Документы]</strong><br><br>
+            <strong class="p11 blue">comment = Windows-Gentoo</strong><br>
+            <strong class="p11 blue">path = /home/nikolay/Документы</strong><br>
+            <strong class="p11 blue">guest ok = No</strong><br>
+            <strong class="p11 blue">read only = No</strong><br>
+            <strong class="p11 blue">browseable = Yes</strong><br>
+            <strong class="p11 blue">create mask = 774</strong><br>
+            <strong class="p11 blue">directory mask = 775</strong><br><br>
+            <strong class="p11 blue">[usb]</strong><br><br>
+            <strong class="p11 blue">path = /run/media/nikolay</strong><br>
+            <strong class="p11 blue">guest ok = No</strong><br>
+            <strong class="p11 blue">read only = No</strong><br>
+            <strong class="p11 blue">browseable = Yes</strong><br>
+            <strong class="p11 blue">create mask = 775</strong><br>
+            <strong class="p11 blue">directory mask = 775<br><br>
+            # [incoming]<br><br>
+            ; path = /srv/samba/incoming<br>
+            ; writable = yes<br>
+            ; create mask = 0775<br>
+            ; force group = users<br>	
+            ; directory mask = 0775<br><br>
+            # [docs]<br><br>
+            ; path = /srv/samba/docs<br>
+            ; write list = @nt_admins<br><br>
+            # [distrib]<br><br>
+            ; path = /srv/samba/distrib<br>
+            ; write list = @nt_admins<br><br>
+            # [clients]<br><br>
+            ; path = /srv/samba/clients<br>
+            ; writable = yes<br>
+            ; valid users = @managers</strong>
+         </p>
+         <div class="kartinka5"><a class="a steps cursorG" href="Samba1.html#ss3"><img src="Gentoo/steps1.png" alt="samba 4"></a></div>
+      </div><!--
+      --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Время, которое мы имеем, - это деньги, которых мы не имеем." Ильф и Петров'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="файловая система cifs"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="настройка конфигурационного файла"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="конфигурационный файл"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section> 
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="windows 10"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="настройка конфигурационного файла"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="samba 4"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="установка samba"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="workgroup"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="файловая система cifs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="установка samba"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="workgroup"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+       <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Curtain-->            
+        <script type="text/javascript" src="Curtain/modernizr.custom.79639.js"></script>
+        <script type="text/javascript" src="Curtain/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript" src="Curtain/jquery.slitslider.js"></script>
+		<script type="text/javascript">	
+		$(function() {
+            var Page = (function() {
+            var $nav = $( '#nav-dots > span' ),
+						slitslider = $( '#curtain' ).slitslider( {
+							onBeforeChange : function( slide, pos ) {
+                $nav.removeClass( 'nav-dot-current' );
+				$nav.eq( pos ).addClass( 'nav-dot-current' );
+            }
+						} ),
+            init = function() {
+            initEvents();
+			},
+						initEvents = function() {
+            $nav.each( function( i ) {
+            $( this ).on( 'click', function( event ) {
+            var $dot = $( this );
+            if( !slitslider.isActive() ) {
+            $nav.removeClass( 'nav-dot-current' );
+			$dot.addClass( 'nav-dot-current' );
+			}
+			slitslider.jump( i + 1 );
+									return false;
+			} );
+			} );
+            };
+            return { init : init };
+            })();
+            Page.init();
+            /** Notes: 
+			* example how to add items:*/
+            /*var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
+			// call the plugin's add method
+			ss.add($items);*/
+			});
+        </script>
+                     <!--Танцуют все--> 
+        <script type="text/javascript" src="Curtain/clickspark.js"></script>
+        <script>
+            $(document).ready(function () {
+            //$('.button-1').clickSpark();
+            $('.button-1').clickSpark({
+                particleImagePath: 'Curtain/particle-1.png',
+                particleCount: 35,
+                particleSpeed: 10,
+                particleSize: 15,
+                particleRotationSpeed: 20,
+                animationType: 'explosion',
+                callback: ''
+            });
+            //$('.button-2').clickSpark();
+            $('.button-2').clickSpark({
+                particleImagePath: 'Curtain/particle-2.png',
+                particleCount: 35,
+                particleSpeed: 10,
+                particleSize: 15,
+                particleRotationSpeed: 20,
+                animationType: 'explosion',
+                callback: ''
+            });
+            });
+        </script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                       <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="конфигурационный файл"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

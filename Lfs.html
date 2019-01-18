@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Linux с нуля</title>
+     <meta name="description" content="Хост система Linux From Scratch.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="Linux From Scratch,LFS,хост-система,Требования к хост-системе,Linux с нуля">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+     <link rel="stylesheet" href="Zoome/LfsZoome.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">"Женщина может сделать миллионером любого мужчину-миллиардера." Чарли Чаплин</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="Linux с нуля"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="Linux From Scratch"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Если Вашего бизнеса нет в Интернете, то Вас нет в бизнесе!" Билл Гейтс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+           <li class="p1"><a class="white aS" href="#lfs">Linux From Scratch</a></li>
+           <li class="p1"><a class="white aS" href="#lfs1">2.2. Требования к хост-системе</a></li>
+           <li class="p1"><a class="white aS" href="#lfs2">Создание новых разделов</a></li>
+           <li class="p1"><a class="white aS" href="#lfs3">Создание файловых систем на разделах</a></li>
+           <li class="p1"><a class="white aS" href="#lfs4">2.6. Настройка переменной окружения $LFS</a></li>
+           <li class="p1"><a class="white aS" href="#lfs5">2.7. Монтирование нового раздела</a></li>
+           <li class="p1"><a class="white aS" href="#lfs6">3. Пакеты и патчи</a></li>
+           <li class="p1"><a class="white aS" href="#lfs7">3.2. Все пакеты</a></li>
+           <li class="p1"><a class="white aS" href="#lfs8">3.3. Необходимые патчи</a></li>
+           <li class="p1"><a class="white aS" href="#lfs9">4.2. Создание директории $LFS/tools</a></li>
+           <li class="p1"><a class="white aS" href="#lfs10">4.3. Добавление пользователя LFS</a></li>
+           <li class="p1"><a class="white aS" href="#lfs11">4.4. Установка рабочего окружения</a></li>
+           <li class="p1"><a class="white aS" href="#lfs12">5.3. Общие инструкции по компиляции</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs13">5.4. Binutils-2.31.1 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs14">5.5. GCC-8.1.0 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs15">5.6. Заголовочные файлы Linux-4.17.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs16">5.7. Glibc-2.27</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs17">5.8. Libstdc++ из пакета GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs18">5.9. Binutils-2.31.1 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs19">5.10. GCC-8.2.0 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs20">5.11. Tcl-8.6.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs21">5.12. Expect-5.45.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs22">5.13. DejaGNU-1.6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs23">5.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs24">5.15. Ncurses-6.1</a></li>   
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs25">5.16. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs26">5.17. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs27">5.18. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs28">5.19. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs29">5.20. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs30">5.21. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs31">5.22. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs32">5.23. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs33">5.24. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs34">5.25. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs35">5.26. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs36">5.27. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs37">5.28. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs38">5.29. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs39">5.30. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs40">5.31. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs41">5.32. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs42">5.33. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs43">5.34. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs44">5.35. Удаление ненужных файлов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs45">5.36. Изменение прав</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs46">6. Установка основного системного программного обеспечения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs48">6.3. Управление пакетами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs49">6.4. Вход в окружение Chroot</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs50">6.5. Создание каталогов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs51">6.6. Создание основных файлов и символических ссылок</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs52">6.7. Заголовочные файлы API Linux-4.17.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs53">6.8. Man-pages-4.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs54">6.9. Glibc-2.28</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs55">6.10. Перенастройка временного набора инструментов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs56">6.11. Zlib-1.2.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs57">6.12. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs58">6.13. Readline-7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs59">6.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs60">6.15. Bc-1.07.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs61">6.16. Binutils-2.31.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs62">6.17. GMP-6.1.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs63">6.18. MPFR-4.0.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs64">6.19. MPC-1.1.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs65">6.20. GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs66">6.21. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs67">6.22. Pkg-config-0.29.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs68">6.23. Ncurses-6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs69">6.24. Attr-2.4.48</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs70">6.25. Acl-2.2.53</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs71">6.26. Libcap-2.25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs72">6.27. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs73">6.28. Shadow-4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs74">6.29. Psmisc-23.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs75">6.30. Iana-Etc-2.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs76">6.31. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs77">6.32. Flex-2.6.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs78">6.33. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs79">6.34. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs80">6.35. Libtool-2.4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs81">6.36. GDBM-1.17</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs82">6.37. Gperf-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs83">6.38. Expat-2.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs84">6.39. Inetutils-1.9.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs85">6.40. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs86">6.41. XML::Parser-2.44</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs87">6.42. Intltool-0.51.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs88">6.43. Autoconf-2.69</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs89">6.44. Automake-1.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs90">6.45. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs91">6.46. Kmod-25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs92">6.47. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs93">6.48. Libelf 0.173</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs94">6.49. Libffi-3.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs95">6.50. OpenSSL-1.1.0h</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs96">6.51. Python-3.7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs97">6.52. Ninja-1.8.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs98">6.53. Meson-0.47.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs99">6.54. Procps-ng-3.3.15</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs100">6.55. E2fsprogs-1.44.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs101">6.56. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs102">6.57. Check-0.12.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs103">6.58. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs104">6.59. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs105">6.60. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs106">6.61. Groff-1.22.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs107">6.62. GRUB-2.02</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs108">6.63. Less-530</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs109">6.64. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs110">6.65. IPRoute2-4.17.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs111">6.66. Kbd-2.0.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs112">6.67. Libpipeline-1.5.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs113">6.68. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs114">6.69. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs115">6.70. Sysklogd-1.5.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs116">6.71. Sysvinit-2.90</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs117">6.72. Eudev-3.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs118">6.73. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs119">6.74. Man-DB-2.8.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs120">6.75. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs121">6.76. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs122">6.77. Vim-8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs123">6.79. Повторная очистка от отладочных символов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs124">6.80. Выполнение очистки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs125">7. Конфигурация системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs126">7.2. LFS-Bootscripts-20180820</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs127">7.3. Обработка устройств и модулей</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs128">7.4. Управление устройствами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs129">7.5. Конфигурация Сети</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs130">7.6. Настройка и использование System V Bootscript</a></li> 
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs131">7.7. Файлы запуска оболочки Bash</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs132">7.8. Создание файла /etc/inputrc</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs133">7.9. Создание файла /etc/shells</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs134">8.2. Создание файла /etc/fstab</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs135">8.3. Linux-4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs136">8.4. Использование GRUB для настройки процесса загрузки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs137">9.3. Перезагрузка системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs138">Приложение C. Зависимости</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs139">Приложение E. Правила конфигурации Udev</a></li>
+           <li class="p1"><a class="blue aS" href="http://rus-linux.net/nlib.php?name=/MyLDP/BOOKS/BLFS-ru/blfs-ru-index.html">Beyond Linux® From Scratch. Version 2011-12-30</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">ng.tumanov@mail.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+            <div class="kartinka5">
+               <span class="my-img-wrap"><div class="zm-wrap"><img id="img3" src="Zoome/thumb_3.jpg" alt="хост-система" rel="Zoome/3.jpg"><div class="zm-hover"></div></div>
+               </span>
+            </div>
+            <h1 id="lfs" class="music1"><a class="send-link special-link a" href="http://www.linuxfromscratch.org/lfs/">Linux From Scratch 
+             (Linux с нуля)<span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span></span></a>
+            </h1>
+            <p class="macos">"Как мало мы знаем, как много надо знать, как мало мы знаем"</p><br>
+            <p>"<strong class="strong">Linux From Scratch</strong>" операционная система полностью скомпилированная с нуля, из исходных кодов.</p>
+            <h2 id="lfs1">2.2. Требования к хост-системе</h2> 
+              <p>Система должна иметь следующее программное обеспечение с минимальными  версиями:<br>
+                 <strong class="p11 strong">Bash-3.2 <strong class="darkblue">(</strong>/bin/sh <strong class="darkblue">должен быть символической или жесткой ссылкой на</strong> bash<strong class="darkblue">)</strong><br>
+                 <strong class="p11">Binutils-2.25 <strong class="darkblue">(Версия старше чем 2.31.1 не рекомендуется, потому что тестирование таковой не проводилось.)</strong><br>
+                 <strong class="p11">Bison-2.7 <strong class="darkblue">(</strong>/usr/bin/yacc <strong class="darkblue">должен быть ссылкой на</strong> bison <strong class="darkblue">или небольшим скриптом который выполняет</strong> bison<strong class="darkblue">)</strong><br>
+                 <strong class="p11">Bzip2-1.0.4<br>
+                 <strong class="p11">Coreutils-6.9<br>
+                 <strong class="p11">Diffutils-2.8.1<br>
+                 <strong class="p11">Findutils-4.2.31<br>
+                 <strong class="p11">Gawk-4.0.1 <strong class="darkblue">(</strong>/usr/bin/awk <strong class="darkblue">должен быть ссылкой на</strong> gawk<strong class="darkblue">)</strong><br>
+                 <strong class="p11">GCC-4.9 <strong class="darkblue">включая компилятор</strong> Си++ , g++ <strong class="darkblue">(Версия старше чем 8.1.0 не рекомендуется, потому что тестирование таковой не проводилось.)</strong><br>
+                 <strong class="p11">Glibc-2.11 <strong class="darkblue">(Версия старше чем 2.27 не рекомендуется, потому что тестирование таковой не проводилось.)</strong><br>
+                 <strong class="p11">Grep-2.5.1a<br>
+                 <strong class="p11">Gzip-1.3.12<br>
+                 <strong class="p11">Linux 3.2 <strong class="darkblue">ядро</strong><br>  
+                 <strong class="p11">M4-1.4.10<br>
+                 <strong class="p11">Make-3.81<br>
+                 <strong class="p11">Patch-2.5.4<br>
+                 <strong class="p11">Perl-5.8.8<br>
+                 <strong class="p11">Sed-4.1.5<br>
+                 <strong class="p11">Tar-1.22<br>
+                 <strong class="p11">Texinfo-4.7<br>
+                 <strong class="p11">Xz-5.0.0<br></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>
+                 Чтобы узнать, имеет ли хост-система все соответствующие версии и возможность компиляции программ, создаём скрипт:<br><br>
+                 <strong class="p11 blue">cat > version-check.sh &lt;&lt; "EOF"<br>
+                 <strong class="p11">#!/bin/bash<br>
+                 # Simple script to list version numbers of critical development tools<br>
+                 <strong class="p11">export LC_ALL=C<br>
+                 <strong class="p11">bash --version | head -n1 | cut -d" " -f2-4<br>
+                 <strong class="p11">MYSH=$(readlink -f /bin/sh)<br>
+                 <strong class="p11">echo "/bin/sh -> $MYSH"<br>
+                 <strong class="p11">echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"<br>
+                 <strong class="p11">unset MYSH<br>
+                 <strong class="p11">echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-<br>
+                 <strong class="p11">bison --version | head -n1<br>
+                 <strong class="p11">if [ -h /usr/bin/yacc ]; then<br>
+                 <strong class="p11">echo "/usr/bin/yacc -> `readlink -f /usr/bin/yacc`";<br>
+                 <strong class="p11">elif [ -x /usr/bin/yacc ]; then<br>
+                 <strong class="p11">echo yacc is `/usr/bin/yacc --version | head -n1`<br>
+                 <strong class="p11">else<br>
+                 <strong class="p11">echo "yacc not found"<br>
+                 <strong class="p11">fi<br>
+                 <strong class="p11">bzip2 --version 2>&1 &lt; /dev/null | head -n1 | cut -d" " -f1,6-<br>
+                 <strong class="p11">echo -n "Coreutils: "; chown --version | head -n1 | cut -d")" -f2<br>
+                 <strong class="p11">diff --version | head -n1<br>
+                 <strong class="p11">find --version | head -n1<br>
+                 <strong class="p11">gawk --version | head -n1<br>
+                 <strong class="p11">if [ -h /usr/bin/awk ]; then<br>
+                 <strong class="p11">echo "/usr/bin/awk -> `readlink -f /usr/bin/awk`";<br>
+                 <strong class="p11">elif [ -x /usr/bin/awk ]; then<br>
+                 <strong class="p11">echo awk is `/usr/bin/awk --version | head -n1`<br>
+                 <strong class="p11">else<br>
+                 <strong class="p11">echo "awk not found"<br>
+                 <strong class="p11">fi<br>
+                 <strong class="p11">gcc --version | head -n1<br>
+                 <strong class="p11">g++ --version | head -n1<br>
+                 <strong class="p11">ldd --version | head -n1 | cut -d" " -f2-  # glibc version<br>
+                 <strong class="p11">grep --version | head -n1<br>
+                 <strong class="p11">gzip --version | head -n1<br>
+                 <strong class="p11">cat /proc/version<br>
+                 <strong class="p11">m4 --version | head -n1<br>
+                 <strong class="p11">make --version | head -n1<br>
+                 <strong class="p11">patch --version | head -n1<br>
+                 <strong class="p11">echo Perl `perl -V:version`<br>
+                 <strong class="p11">sed --version | head -n1<br>
+                 <strong class="p11">tar --version | head -n1<br>
+                 <strong class="p11">makeinfo --version | head -n1<br>
+                 <strong class="p11">xz --version | head -n1<br>
+                 <strong class="p11">echo 'int main(){}' > dummy.c && g++ -o dummy dummy.c<br>
+                 <strong class="p11">if [ -x dummy ]<br>
+                 <strong class="p11">then echo "g++ compilation OK";<br>
+                 <strong class="p11">else echo "g++ compilation failed"; fi<br>
+                 <strong class="p11">rm -f dummy.c dummy<br>
+                 <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                 Запускаем созданный скрипт:<br><br>
+                 <strong class="p11 blue">bash version-check.sh</strong>
+              </p>
+            <h2 id="lfs2">Создание новых разделов</h2>
+              <p>Подключаем пустой диск к рабочему компьютеру (хост-системе) и определяем его:<br><br>
+                 <strong class="p11 blue">ls -l /dev/disk/by-id/</strong><br><br> 
+                 Разбиваем диск:<br><br>
+                 <strong class="blue p11">fdisk -t dos /dev/sdb<br>
+                 <strong class="p11">Command (m for help): a<br>
+                 <strong class="p11">Command (m for help): w</strong></strong></strong><br><br>
+                 <strong class="p11 blue">parted -a optimal /dev/sdb</strong><br>
+                 <strong class="p11 blue">(parted) mklabel gpt</strong><br>
+                 <strong class="p11 blue">(parted) unit kb</strong><br>
+                 <strong class="p11 blue">(parted) mkpart primary 1024 3072</strong><br>
+                 <strong class="p11 blue">(parted) name 1 grub</strong><br>
+                 <strong class="p11 blue">(parted) set 1 bios_grub on</strong><br> 
+                 <strong class="p11 blue">(parted) mkpart primary 3072 134144</strong><br>
+                 <strong class="p11 blue">(parted) name 2 boot</strong><br>
+                 <strong class="p11 blue">(parted) mkpart primary 134144 4328448</strong><br>
+                 <strong class="p11 blue">(parted) name 3 swap</strong><br>
+                 <strong class="p11 blue">(parted) mkpart primary 4328448 56757248</strong><br>
+                 <strong class="p11 blue">(parted) name 4 rootfs</strong><br>
+                 <strong class="p11 blue">(parted) mkpart primary 56757248 -1</strong><br>
+                 <strong class="p11 blue">(parted) name 5 home</strong><br>
+                 <strong class="p11 blue">(parted) set 2 boot on</strong><br>
+                 <strong class="p11 blue">(parted) print</strong>
+             </p>  
+             <table class="blue">
+                 <tr><th class="p11">Номер</th> <th>Начало</th> <th>Конец</th> <th>Размер</th> <th>Файловая система</th> <th>Имя</th> <th>Флаги</th></tr>                                      
+                 <tr><th>1</th> <th>1024kB</th> <th>3073kB</th> <th>2049kB</th> <th></th> <th>grub</th> <th>bios_grub</th></tr>                                  
+                 <tr><th>2</th> <th>3073kB</th> <th>134MB</th> <th>131MB</th> <th class="gray">ext4</th> <th>boot</th> <th>загрузочный, esp</th></tr>                           
+                 <tr><th>3</th> <th>134MB</th> <th>4328MB</th> <th>4194MB</th> <th class="gray">linux-swap(v1)</th> <th>swap</th></tr>                                               
+                 <tr><th>4</th> <th>4328MB</th> <th>56,8GB</th> <th>52,4GB</th> <th class="gray">ext4</th> <th>rootfs</th></tr>                                             
+                 <tr><th>5</th> <th>56,8GB</th> <th>2000GB</th> <th>1944GB</th> <th class="gray">ext4</th> <th>home</th></tr>
+             </table>
+             <p><strong class="p11 blue">(parted) q</strong></p>
+            <h2 id="lfs3">Создание файловых систем на разделах</h2>
+              <p>Чтобы у раздела <strong class="strong">/dev/sdb4</strong> была файловая система <strong class="strong">ext4</strong>, требуется выполнить:<br><br>
+                 <strong class="p11 blue">mkfs.ext4 /dev/sdb4</strong><br><br>
+                 Для других разделов выбираем свою файловую систему.<br>
+                 Подключение раздела подкачки:<br><br>
+                 <strong class="p11 blue">mkswap /dev/sdb3<br>
+                 <strong class="p11">swapon /dev/sdb3</strong></strong>
+              </p>
+            <h2 id="lfs4">2.6. Настройка переменной окружения <strong class="strong">$LFS</strong></h2>
+              <p>Переменная должна хранить путь до каталога, где будет выполняться процесс сборки <strong class="strong">LFS</strong> системы.<br>
+                 Определите каталог, где будет храниться система <strong class="strong">LFS</strong>:<br><br>
+                 <strong class="p11 blue">export LFS=/mnt/lfs</strong><br><br>
+                 Проверяем что переменная <strong class="strong">LFS</strong> устанавливается каждый раз, когда выходим и заново заходим в рабочую оболочку (например, при выполнении команды <strong class="strong">su</strong> в root или другого пользователя). Проверяем, что переменная установлена правильно:<br><br>
+                 <strong class="p11 blue">echo $LFS</strong><br><br>
+                 Убедимся, что вывод отображает путь к тому каталогу, где будет выполнена сборка системы <strong class="strong">LFS</strong> (<strong class="strong">/mnt/lfs</strong>).
+              </p>
+            <h2 id="lfs5">2.7. Монтирование нового раздела</h2>
+              <p>Выбераем точку монтирования и присваиваем путь до нее переменной <strong class="strong">LFS</strong> командой:<br><br>
+                 <strong class="p11 blue">mkdir -pv $LFS<br>
+                 <strong class="p11">mount -v -t ext4 /dev/sdb4 $LFS</strong></strong><br><br>
+                 Убедимся что монтирование не было выполнено с ограниченными правами (такими как <strong class="strong">nosuid or nodev</strong> опциями). Выполняем команду <strong class="strong">mount</strong> без каких либо параметров, чтобы посмотреть какие опции заданы для смонтированных разделов <strong class="strong">LFS</strong>. Если опции <strong class="strong">nosuid</strong> и (или) <strong class="strong">nodev</strong> установлены, разделы необходимо размонтировать и выполнить монтирование заново.<br> 
+                 В приведенных выше инструкциях предполагается, что не будет перезапускаться компьютер в процессе сборки <strong class="strong">LFS</strong>. Если выключится компьютер, потребуется выполнять монтирование повторно каждый раз, после перезагрузки хост-системы. Можно отредактировать файл <strong class="strong">LFS/etc/fstab</strong>, чтобы разделы автоматически монтировались после перезагрузки:<br><br>
+              </p>
+                <ul class="fstab">
+                <li><p><strong class="p11 blue">/dev/sdb2</strong></p></li>                
+                <li><p><strong class="p11 blue">/dev/sdb3</strong></p></li>                                                                                                                                         
+                <li><p><strong class="p11 blue">/dev/sdb4</strong></p></li>                     
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">/mnt/lfs/boot</strong></p></li>
+                <li><p><strong class="p11 p11 blue">none</strong></p></li> 
+                <li><p><strong class="p11 blue">/mnt/lfs</strong></p></li>  
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">ext4</strong></p></li> 
+                <li><p><strong class="p11 blue">swap</strong></p></li>  
+                <li><p><strong class="p11 blue">ext4</strong></p></li> 
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">noauto,noatime</strong></p></li> 
+                <li><p><strong class="p11 blue">sw</strong></p></li>
+                <li><p><strong class="p11 blue">defaults</strong></p></li> 
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">0 2</strong></p></li>  
+                <li><p><strong class="p11 blue">0 0</strong></p></li> 
+                <li><p><strong class="p11 blue">1 1</strong></p></li> 
+               </ul>
+            <h2 id="lfs6">3. Пакеты и патчи</h2> 
+              <p>Загруженные пакеты и патчи необходимо где-нибудь сохранить. Необходим рабочий каталог, в котором можно будет распаковывать пакеты и выполнять их настройку и компиляцию. Каталог <strong class="strong">$LFS/sources</strong> может быть использован как место для хранения, а также как место для настройки и компиляции. Используя этот каталог, необходимые элементы будут расположены и доступны на всех этапах создания системы <strong class="strong">LFS</strong>.<br>
+                 Создаём такой каталог:<br><br>
+                 <strong class="p11 blue">mkdir -v $LFS/sources</strong><br><br>
+                 Делаем этот каталог доступным для записи и липким. «Липким» означает, что даже если у некоторых пользователей есть разрешение на запись в этот каталог, то только владелец сможет удалить содержимое каталога.<br><br>
+                 <strong class="p11 blue">chmod -v a+wt $LFS/sources</strong><br><br>
+                 Самый простой способ загрузки всех требуемых пакетов и патчей - воспользоваться файлом <strong class="strong">wget-list</strong>. Далее его можно передать как параметр программе <a class="special-link1 a link1" href="https://linuxfromscratch.org.ru/lfs/view/development/wget-list">wget</a>. Например:<br><br>
+                 <strong class="p11 blue">wget --input-file=wget-list --continue --directory-prefix=$LFS/sources</strong><br><br>
+                 Начиная с версии 7, есть два отдельных файла - <a class="link1 special-link2 a" href="https://linuxfromscratch.org.ru/lfs/view/development/md5sums">md5sums</a>, которые могут понадобится для проверки пакетов. Помещаем этот файл в каталог <strong class="strong">$LFS/sources</strong>:<br><br>
+                 <strong class="p11 blue">pushd $LFS/sources<br>
+                 <strong class="p11">md5sum -c md5sums<br>
+                 <strong class="p11">popd</strong></strong></strong>
+               </p>
+            <h2 id="lfs7">3.2. Все пакеты</h2>
+               <p>Загружаем следующие пакеты с указанными версиями:<br>
+                  <a class="link1 special-link3 a" href="https://download.savannah.gnu.org/">Acl (2.2.53)</a> - пакет содержит утилиты для администрирования списков контроля доступа, которые используются для определения более детализированных дискреционных прав доступа к файлам и каталогам.<br>
+                  <!--Ссылка на загрузку: href="https://download.savannah.gnu.org/releases/acl/acl-2.2.53.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 007aabf1dbb550bcddde52a244cd1070</strong><br>
+                  <a class="link1 special-link4 a" href="https://savannah.nongnu.org/projects/attr">Attr (2.4.48)</a> - пакет содержит программы для администрирования расширенных атрибутов объектов файловой системы.<br>
+                  <!--Ссылка на загрузку: https://download.savannah.gnu.org/releases/attr/attr-2.4.48.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: bc1e5cb5c96d99b24886f1f527d3bb3d</strong><br>
+                  <a class="link1 special-link5 a" href="https://www.gnu.org/software/autoconf/">Autoconf (2.69)</a> - пакет содержит программы для создания сценариев оболочки, которые могут автоматически настраивать исходный код из шаблона разработчика. Часто необходимо пересобрать пакет после обновления процедур сборки.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 50f97f4159805e374639a73e2636f22e</strong><br>
+                  <a class="link1 special-link6 a" href="https://www.gnu.org/software/automake/">Automake (1.16)</a> - пакет содержит программы для создания файлов <strong class="strong">Make</strong> из шаблона. Часто необходимо пересобрать пакет после обновления процедур сборки.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/automake/automake-1.16.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 53f38e7591fa57c3d2cee682be668e5b</strong><br>
+                  <a class="link1 special-link7 a" href="https://www.gnu.org/software/bash/">Bash (4.4.18)</a> - пакет удовлетворяет требованию ядра <strong class="strong">LSB</strong> для предоставления интерфейса <strong class="strong">Bourne Shell</strong> к системе. Он был выбран по сравнению с другими пакетами оболочки из-за его общего использования и широких возможностей помимо основных функций оболочки.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/bash/bash-4.4.18.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 518e2c187cc11a17040f0915dddce54e</strong><br>
+                  <a class="link1 special-link8 a" href="https://www.gnu.org/software/bc/">Bc (1.07.1)</a> - пакет обеспечивает произвольную точность языка числовой обработки. Он удовлетворяет требованию, необходимому при сборке ядра Linux.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: cda93857418655ea43590736fc3ca9fc</strong><br>
+                  <a class="link1 special-link9 a" href="https://www.gnu.org/software/binutils/">Binutils (2.31.1)</a> - пакет содержит компоновщик, ассемблер и другие инструменты для работы с объектными файлами. Программы в этом пакете необходимы для компиляции большинства пакетов в системе <strong class="strong">LFS</strong> и за ее пределами.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 5b7c9d4ce96f507d95c1b9a255e52418</strong><br>
+                  <a class="link1 special-link10 a" href="https://www.gnu.org/software/bison/">Bison (3.0.5)</a> - пакет содержит <strong class="strong">GNU</strong>-версию <strong class="strong">yacc</strong> (еще одного компилятора компилятора), необходимую для сборки нескольких других программ <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/bison/bison-3.0.5.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 3e54f20988ecd1b62044e25481e5f06b</strong><br>
+                  <a class="link1 special-link11 a" href="http://www.bzip.org/">Bzip2 (1.0.6)</a> - пакет содержит программы для сжатия и распаковки файлов.<br>
+                  Контрольная сумма <strong class="strong">MD5: 00b516f4704d4a7cb50a1d97e6e8e15b</strong><br>
+                  <a class="link1 special-link12 a" href="https://libcheck.github.io/check">Check (0.12.0)</a> - пакет содержит тестовый комплект для других программ. Он устанавливается только во временную цепочку инструментов.<br>
+                  <!--Ссылка на загрузку: https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 31b17c6075820a434119592941186f70</strong><br>
+                  <a class="link1 special-link13 a" href="https://www.gnu.org/software/coreutils/">Coreutils (8.30)</a> - пакет содержит ряд необходимых программ для просмотра и управления файлами и каталогами. Эти программы необходимы для управления файлами командной строки и необходимы для процедур установки каждого пакета в <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/coreutils/coreutils-8.30.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: ab06d68949758971fe744db66b572816</strong><br>
+                  <a class="link1 special-link14 a" href="https://www.gnu.org/software/dejagnu/">DejaGNU (1.6.1)</a> - пакет содержит рамки для тестирования других программ. Он устанавливается только во временную цепочку инструментов.<br>
+                  <!--https://dev.gentoo.org/~blueness/eudev/eudev-3.2.5.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 2ac8405a4c7ca8611d004fe852966c6f</strong><br>
+                  <a class="link1 special-link15 a" href="https://www.gnu.org/software/diffutils/">Diffutils (3.6)</a> - пакет содержит программы, которые показывают различия между файлами или каталогами. Эти программы могут использоваться для создания исправлений, а также используются в процедурах сборки многих пакетов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/diffutils/diffutils-3.6.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 07cf286672ced26fba54cd0313bdc071</strong><br>
+                  <a class="link1 special-link16 a" href="https://dev.gentoo.org/~blueness/eudev/">Eudev (3.2.5)</a> - пакет является диспетчером устройств. Он динамически управляет записями в каталоге <strong class="strong">/dev</strong> при добавлении или удалении устройств из системы.<br>
+                  <!--https://dev.gentoo.org/~blueness/eudev/eudev-3.2.5.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 6ca08c0e14380f87df8e8aceac123671</strong><br>
+                  <a class="link1 special-link17 a" href="http://e2fsprogs.sourceforge.net/">E2fsprogs (1.44.3)</a> - пакет содержит утилиты для обработки файловых систем <strong class="strong">ext2</strong>, <strong class="strong">ext3</strong> и <strong class="strong">ext4</strong>. Это наиболее распространенные и тщательно протестированные файловые системы, которые поддерживает <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.44.3/e2fsprogs-1.44.3.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 6bd765f3cf8f15740cdf81e71e88f2a4</strong><br>
+                  <a class="link1 special-link18 a" href="https://sourceware.org/ftp/elfutils/">Elfutils (0.173)</a> - предоставляет библиотеки и инструменты для файлов <strong class="strong">ELF</strong> и данных <strong class="strong">DWARF</strong>. Большинство утилит в этом пакете доступны в других пакетах, но библиотека необходима для сборки ядра <strong class="strong">Linux</strong> с использованием стандартной (и наиболее эффективной) конфигурации.<br>
+                  <!--Ссылка на загрузку: https://sourceware.org/ftp/elfutils/0.173/elfutils-0.173.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 35decb1ebfb90d565e4c411bee4185cc</strong><br>
+                  <a class="link1 special-link19 a" href="https://libexpat.github.io/">Expat (2.2.5)</a> - пакет содержит относительно небольшую библиотеку разбора <strong class="strong">XML</strong>. Требуется модулем <strong class="strong">XML::Parser Perl</strong>.<br>
+                  <!--Ссылка на загрузку: https://prdownloads.sourceforge.net/expat/expat-2.2.5.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 789e297f547980fc9ecc036f9a070d49</strong><br>
+                  <a class="link1 special-link20 a" href="https://core.tcl.tk/expect/">Expect (5.45.4)</a> - пакет содержит программу для ведения диалогов с другими сценариями. Обычно используется для тестирования других пакетов. Он устанавливается только во временную цепочку инструментов.<br>
+                  <!--Ссылка на загрузку: https://prdownloads.sourceforge.net/expect/expect5.45.4.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 00fce8de158422f5ccd2666512329bd2</strong><br>
+                  <a class="link1 special-link21 a" href="https://www.darwinsys.com/file/">File (5.33)</a> - пакет содержит утилиту для определения типа заданного файла или файлов. Несколько пакетов нужно собрать. Может быть недоступен в указанном месте. Администраторы сайта иногда удаляют старые версии при выпуске новых. Альтернативное место загрузки, которое может иметь нужную версию, можно найти <a class="link1 special-link22 a" href="http://www.linuxfromscratch.org/lfs/download.html#ftp">здесь</a>.<br>
+                  <!--Ссылка на загрузку: ftp://ftp.astron.com/pub/file/file-5.33.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: bbe6db96e3a9ca9554dce647390540ef</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/findutils/">Findutils (4.6.0)</a> - пакет содержит программы для поиска файлов в файловой системе. Он используется во многих скриптах сборки пакетов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 9936aa8009438ce185bea2694a997fc1</strong><br>
+                  <a class="link1 special-link24 a" href="https://github.com/westes/flex">Flex (2.6.4)</a> - пакет содержит утилиту для генерации программ, распознающих шаблоны в тексте. Это <strong class="strong">GNU</strong>-версия программы <strong class="strong">lex</strong> (<strong class="strong">lexical analyzer</strong>). Требуется собрать несколько пакетов <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 2882e3179748cc9f9c23ec593d6adc8d</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gawk/">Gawk (4.2.1)</a> - пакет содержит программы для работы с текстовыми файлами. Это <strong class="strong">GNU</strong>-версия <strong class="strong">awk</strong> (<strong class="strong">Aho-Weinberg-Kernighan</strong>). Он используется в сценариях сборки многих других пакетов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 95cf553f50ec9f386b5dfcd67f30180a</strong><br>
+                  <a class="link1 special-link24 a" href="https://gcc.gnu.org/">GCC (8.1.0)</a> - пакет является коллекцией компиляторов <strong class="strong">Gnu</strong>. Он содержит компиляторы <strong class="strong">C</strong> и <strong class="strong">C++</strong>, а также некоторые другие, не созданные <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 65f7c65818dc540b3437605026d329fc</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gdbm/">GDBM (1.16)</a> - пакет содержит библиотеку менеджера баз данных <strong class="strong">GNU</strong>. Он используется еще одним <strong class="strong">LFS</strong>-пакетом, <strong class="strong">Man-DB</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gdbm/gdbm-1.16.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 05ee82b8f9188a8228c2384f4b9f2eac</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gettext/">Gettext (0.19.8.1)</a> - пакет содержит утилиты и библиотеки для интернационализации и локализации многочисленных пакетов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gettext/gettext-0.19.8.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: df3f5690eaa30fd228537b00cb7b7590</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/libc/">Glibc (2.27)</a> - пакет содержит основную библиотеку <strong class="strong">C</strong>. Программы <strong class="strong">Linux</strong> не будут работать без него.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/glibc/glibc-2.27.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 898cd5656519ffbc3a03fe811dd89e82</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gmp/">GMP (6.1.2)</a> - пакет содержит математические библиотеки, которые предоставляют полезные функции для арифметики произвольной точности. Требуется построить <strong class="strong">Gcc</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: f58fa8001d60c4c77595fbbb62b63c1d</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gperf/">Gperf (3.1)</a> - пакет содержит программу, которая генерирует идеальную хэш-функцию из набора ключей. Требуется для <strong class="strong">Eudev</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 9e251c0a618ad0824b51117d5d9db87e</strong><br>
+                  <a class="send-link special-link24 a" href="https://www.gnu.org/software/grep/">Grep (3.1)</a> - пакет содержит программы для поиска по файлам. Эти программы используются скриптами сборки большинства пакетов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/grep/grep-3.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: feca7b3e7c7f4aab2b42ecbfc513b070</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/groff/">Groff (1.22.3)</a> - пакет содержит программы для обработки и форматирования текста. Одной из важных функций этих программ является форматирование страниц руководства.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: cc825fa64bc7306a885f2fb2268d3ec5</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/grub/">GRUB (2.02)</a> - пакет является <strong class="strong">Grand Unified Boot Loader</strong>. Это один из нескольких доступных загрузчиков, но он самый гибкий.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 8a4a2a95aac551fb0fba860ceabfa1d3</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/gzip/">Gzip (1.9)</a> - пакет содержит программы для сжатия и распаковки файлов.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/gzip/gzip-1.9.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 9492c6ccb2239ff679a5475a7bb543ed</strong><br>
+                  <a class="link1 special-link24 a" href="http://freecode.com/projects/iana-etc">Iana-Etc (2.30)</a> - пакет предоставляет данные для сетевых служб и протоколов. Это необходимо для обеспечения надлежащих сетевых возможностей.<br>
+                  <!--Ссылка на загрузку: http://anduin.linuxfromscratch.org/LFS/iana-etc-2.30.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 3ba3afb1d1b261383d247f46cb135ee8</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/inetutils/">Inetutils (1.9.4)</a> - пакет содержит программы для базового сетевого администрирования.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 87fef1fa3f603aef11c41dcc097af75e</strong><br>
+                  <a class="link1 special-link24 a" href="https://freedesktop.org/wiki/Software/intltool">Intltool (0.51.0)</a> - пакет содержит инструменты для извлечения переводимых строк из исходных файлов.<br>
+                  <!--Ссылка на загрузку: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 12e517cac2b57a0121cda351570f1e63</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.kernel.org/pub/linux/utils/net/iproute2/">IPRoute2 (4.17.0)</a> - пакет содержит программы для базовых и расширенных сетей <strong class="strong">IPv4</strong> и <strong class="strong">IPv6</strong>. Он был выбран из других распространенных пакетов сетевых инструментов (<strong class="strong">net-tools</strong>) для его возможностей <strong class="strong">IPv6</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-4.17.0.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 6f3a87fe2d97c28214fc2faab2c257d6</strong><br>
+                  <a class="link1 special-link24 a" href="http://ftp.altlinux.org/pub/people/legion/kbd">Kbd (2.0.4)</a> - пакет содержит файлы таблиц клавиш, утилиты клавиатуры для неамериканских клавиатур и ряд консольных шрифтов.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/utils/kbd/kbd-2.0.4.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: c1635a5a83b63aca7f97a3eab39ebaa6</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.kernel.org/pub/linux/utils/kernel">Kmod (25)</a> - пакет содержит программы, необходимые для администрирования модулей ядра <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-25.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 34f325cab568f842fdde4f8b2182f220</strong><br>
+                  <a class="link1 special-link24 a" href="http://www.greenwoodsoftware.com/less/">Less (530)</a> - пакет содержит очень хороший просмотрщик текстовых файлов, который позволяет прокручивать вверх или вниз при просмотре файла. Он также используется <strong class="strong">Man-DB</strong> для просмотра <strong class="strong">man</strong>-страниц.<br>
+                  <!--Ссылка на загрузку: http://www.greenwoodsoftware.com/less/less-530.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 6a39bccf420c946b0fd7ffc64961315b</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/lfs/downloads/development/">LFS-Bootscripts (20170626)</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/lfs/downloads/development/lfs-bootscripts-20170626.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 8a9f3d5aab3f77a70fef0773e8bc7b2b</strong><br>
+                  <a class="link1 special-link24 a" href="https://sites.google.com/site/fullycapable/">Libcap (2.25)</a> - пакет реализует интерфейсы пользовательского пространства с возможностями <strong class="strong">POSIX 1003.1e</strong>, доступными в ядрах <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 6666b839e5d46c2ad33fc8aa2ceb5f77</strong><br>
+                  <a class="link1 special-link24 a" href="https://sourceware.org/libffi/">Libffi (3.2.1)</a> - пакет реализует переносимый интерфейс программирования высокого уровня для различных соглашений о вызовах. Некоторые программы могут не знать во время компиляции, какие аргументы должны быть переданы в функцию. Например, интерпретатору можно сообщить во время выполнения о количестве и типах аргументов, используемых для вызова данной функции. <strong class="strong">Libffi</strong> может использоваться в таких программах для обеспечения моста между программой-интерпретатором и скомпилированным кодом.<br>
+                  <!--Ссылка на загрузку: ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 83b89587607e3eb65c70d361f13bab43</strong><br>
+                  <a class="link1 special-link24 a" href="http://libpipeline.nongnu.org/">Libpipeline (1.5.0)</a> - пакет содержит библиотеку для гибкого и удобного управления конвейерами подпроцессов. Это требуется пакетом <strong class="strong">Man-DB</strong>.<br>
+                  <!--Ссылка на загрузку: https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: b7437a5020190cfa84f09c412db38902</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/libtool/">Libtool (2.4.6)</a> - пакет содержит скрипт поддержки универсальной библиотеки <strong class="strong">GNU</strong>. Это оборачивает сложность использования разделяемых библиотек в согласованный, переносимый интерфейс. Это необходимо для тестовых наборов в других пакетах <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 1bfb9b923f2c1339b4d2ce1807064aa5</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.kernel.org/">Linux (4.17.9)</a><br>
+                  Ядро <strong class="strong">Linux</strong> обновляется достаточно часто, по причине разрешения проблем безопасности. Необходимо использовать последний стабильный релиз <strong class="strong">4.17.x</strong> версии ядра, если в разделе опечаток и неточностей не указано иное.<br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/m4/">M4 (1.4.18)</a> - пакет содержит общий текстовый макропроцессор, полезный в качестве инструмента для сборки других программ.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 730bb15d96fffe47e148d1e09235af82</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/make/">Make (4.2.1)</a> - пакет содержит программу для управления сборкой пакетов. Это требуется почти для каждого пакета в <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/make/make-4.2.1.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 15b012617e7c44c0ed482721629577ac</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.nongnu.org/man-db/">Man-DB (2.8.3)</a> - пакет содержит программы для поиска и просмотра справочных страниц. Он был выбран вместо пакета <strong class="strong">man</strong> из-за превосходных возможностей интернационализации. Это поставляет программу <strong class="strong">man</strong>.<br>
+                  <!--Ссылка на загрузку: https://download.savannah.gnu.org/releases/man-db/man-db-2.8.3.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 6f3055e18fdd1ce5cbbdb30403991ec7</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.kernel.org/doc/man-pages/">Man-pages (4.16)</a> - пакет содержит фактическое содержимое основных справочных страниц по <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/docs/man-pages/man-pages-4.16.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: ad9f1ff81276fe8d90d077484d6d4b5e</strong><br>
+                  <a class="link1 special-link24 a" href="https://mesonbuild.com">Meson (0.47.1)</a> - пакет предоставляет программный инструмент для автоматизации создания программного обеспечения. Основная цель <strong class="strong">Meson</strong> - минимизировать время, которое разработчики программного обеспечения тратят на настройку своей системы сборки.<br>
+                  <!--Ссылка на загрузку: https://github.com/mesonbuild/meson/releases/download/0.47.1/meson-0.47.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 5ed95fd4e9c7634f7cf3482d352804e7</strong><br>
+                  <a class="link1 special-link24 a" href="http://www.multiprecision.org/">MPC (1.1.0)</a> - пакет содержит функции для арифметики комплексных чисел. Требуется <strong class="strong">Gcc</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 4125404e41e482ec68282a2e687f6c73</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.mpfr.org/">MPFR (4.0.1)</a> - пакет содержит функции для арифметики с множественной точностью. Требуется <strong class="strong">Gcc</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.mpfr.org/mpfr-4.0.1/mpfr-4.0.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: b8dd19bd9bb1ec8831a6a582a7308073</strong><br>
+                  <a class="link1 special-link24 a" href="https://ninja-build.org/">Ninja (1.8.2)</a> - пакет содержит небольшую систему сборки с акцентом на скорость. Он спроектирован так, чтобы его входные файлы генерировались системой сборки более высокого уровня, и выполнял сборки как можно быстрее.<br>
+                  <!--Ссылка на загрузку: https://github.com/ninja-build/ninja/archive/v1.8.2/ninja-1.8.2.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 5fdb04461cc7f5d02536b3bfc0300166</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/ncurses/">Ncurses (6.1)</a> - пакет содержит библиотеки для независимой от терминала обработки экранов символов. Он часто используется для обеспечения управления курсором для системы меню. Это необходимо для ряда пакетов в LFS.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 98c889aaf8d23910d2b92d65be2e737a</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.openssl.org/">OpenSSL (1.1.0h)</a> - пакет предоставляет инструменты управления и библиотеки, относящиеся к криптографии. Они полезны для предоставления криптографических функций другим пакетам, включая ядро <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: https://openssl.org/source/openssl-1.1.0h.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 5271477e4d93f4ea032b665ef095ff24</strong><br>
+                  <a class="link1 special-link24 a" href="https://savannah.gnu.org/projects/patch/">Patch (2.7.6)</a> - пакет содержит программу для изменения или создания файлов путем применения файла исправления, обычно создаваемого программой <strong class="strong">diff</strong>. Это необходимо для процедуры сборки для нескольких пакетов <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 78ad9937e4caadcba1526ef1853730d5</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.perl.org/">Perl (5.28.0)</a> - пакет является интерпретатором языка исполнения <strong class="strong">PERL</strong>. Он необходим для установки и тестирования комплектов нескольких пакетов <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://www.cpan.org/src/5.0/perl-5.28.0.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: f3245183c0a08f65e94a3333995af08e</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.freedesktop.org/wiki/Software/pkg-config">Pkg-config (0.29.2)</a> - пакет предоставляет программу для возврата метаданных об установленной библиотеке или пакете.<br>
+                  <!--Ссылка на загрузку: https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: f6e931e319531b736fadc017f470e68a</strong><br>
+                  <a class="link1 special-link24 a" href="https://sourceforge.net/projects/procps-ng">Procps (3.3.15)</a> - пакет содержит программы для мониторинга процессов. Эти программы полезны для системного администрирования, а также используются загрузочными скриптами <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://sourceforge.net/projects/procps-ng/files/Production/procps-ng-3.3.15.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 2b0717a7cb474b3d6dfdeedfbad2eccc</strong><br>
+                  <a class="link1 special-link24 a" href="http://psmisc.sourceforge.net/">Psmisc (23.1)</a> - пакет содержит программы для отображения информации о запущенных процессах. Эти программы полезны для системного администрирования.<br>
+                  <!--Ссылка на загрузку: https://sourceforge.net/projects/psmisc/files/psmisc/psmisc-23.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: bbba1f701c02fb50d59540d1ff90d8d1</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.python.org/">Python (3.7.0)</a> - пакет предоставляет интерпретируемый язык, который имеет философию дизайна, которая подчеркивает читабельность кода.<br>
+                  <!--Ссылка на загрузку: https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: eb8c2a6b1447d50813c02714af4681f3</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.python.org/">Python Documentation (3.7.0)</a><br>
+                  <!--Ссылка на загрузку: https://docs.python.org/ftp/python/doc/3.7.0/python-3.7.0-docs-html.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: c4637cf2a9a6ebb8c5e9dc8ff13fb4cb</strong><br>
+                  <a class="link1 special-link24 a" href="https://tiswww.case.edu/php/chet/readline/rltop.html">Readline (7.0)</a> - пакет представляет собой набор библиотек, который предлагает редактирование командной строки и возможности истории. Используется <strong class="strong">Bash</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 205b03a87fc83dab653b628c59b9fc91</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/sed/">Sed (4.5)</a> - пакет позволяет редактировать текст, не открывая его в текстовом редакторе. Это также необходимо для большинства скриптов конфигурации пакетов <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/sed/sed-4.5.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: ade8f8c2c548bf41f74db2dcfc37e4e3</strong><br>
+                  <a class="link1 special-link24 a" href="https://github.com/shadow-maint/shadow/releases/">Shadow (4.6)</a> - пакет содержит программы для безопасной обработки паролей.<br>
+                  <!--Ссылка на загрузку: https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: b491fecbf1232632c32ff8f1437fd60e</strong><br>
+                  <a class="link1 special-link24 a" href="http://www.infodrom.org/projects/sysklogd/">Sysklogd (1.5.1)</a> - пакет содержит программы для регистрации системных сообщений, таких как те, которые выдаются процессами ядра или демона, когда происходят необычные события.<br>
+                  <!--Ссылка на загрузку: http://www.infodrom.org/projects/sysklogd/download/sysklogd-1.5.1.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: c70599ab0d037fde724f7210c2c8d7f8</strong><br>
+                  <a class="link1 special-link24 a" href="https://savannah.nongnu.org/projects/sysvinit">Sysvinit (2.90)</a> - пакет предоставляет программу <strong class="strong">init</strong>, которая является родителем всех других процессов в системе <strong class="strong">Linux</strong>.<br>
+                  <!--Ссылка на загрузку: http://download.savannah.nongnu.org/releases/sysvinit/-->
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/tar/">Tar (1.30)</a> - пакет предоставляет возможности архивирования и извлечения практически всех пакетов, используемых в <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/tar/tar-1.30.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 2d01c6cd1387be98f57a0ec4e6e35826</strong><br>
+                  <a class="link1 special-link24 a" href="http://tcl.sourceforge.net/">Tcl (8.6.8)</a> - пакет содержит язык команд инструментов, используемый во многих тестовых пакетах в пакетах <strong class="strong">LFS</strong>. Он устанавливается только во временную цепочку инструментов.<br>
+                  <!--Ссылка на загрузку: https://downloads.sourceforge.net/tcl/tcl8.6.8-src.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 81656d3367af032e0ae6157eff134f89</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.gnu.org/software/texinfo/">Texinfo (6.5)</a> - пакет содержит программы для чтения, записи и конвертации информационных страниц. Он используется в процедурах установки многих пакетов <strong class="strong">LFS</strong>.<br>
+                  <!--Ссылка на загрузку: https://ftp.gnu.org/gnu/texinfo/texinfo-6.5.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 3715197e62e0e07f85860b3d7aab55ed</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.iana.org/time-zones">Time Zone Data (2018e)</a><br>
+                  <!--Ссылка на загрузку: https://www.iana.org/time-zones/repository/releases/tzdata2018e.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: 97d654f4d7253173b3eeb76a836dd65e</strong><br>
+                  <a class="link1 special-link24 a" href="http://anduin.linuxfromscratch.org/LFS/">Udev-lfs Tarball (udev-lfs-20171102)</a><br>
+                  <!--Ссылка на загрузку: http://anduin.linuxfromscratch.org/LFS/udev-lfs-20171102.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: d92afb0c6e8e616792068ee4737b0d24</strong><br>
+                  <a class="link1 special-link24 a" href="http://freshmeat.sourceforge.net/projects/util-linux">Util-linux (2.32.1)</a> - пакет содержит различные утилиты. Среди них есть утилиты для обработки файловых систем, консолей, разделов и сообщений.<br>
+                  <!--Ссылка на загрузку: https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 9e5b1b8c1dc99455bdb6b462cf9436d9</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.vim.org/">Vim (8.1)</a> - пакет содержит редактор. Он был выбран из-за его совместимости с классическим редактором <strong class="strong">vi</strong> и огромного количества мощных возможностей. Редактор является личным выбором для пользователей, и при желании может быть заменен на любой другой редактор.<br>
+                  <!--Ссылка на загрузку: ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2-->
+                  Контрольная сумма <strong class="strong">MD5: 1739a1df312305155285f0cfa6118294</strong><br>
+                  <a class="link1 special-link24 a" href="https://github.com/chorny/XML-Parser">XML::Parser (2.44)</a> - пакет представляет собой модуль <strong class="strong">Perl</strong>, который взаимодействует с <strong class="strong">Expat</strong>.<br>
+                  <!--Ссылка на загрузку: https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz-->
+                  Контрольная сумма <strong class="strong">MD5: af4813fe3952362451201ced6fbce379</strong><br>
+                  <a class="link1 special-link24 a" href="https://tukaani.org/xz">Xz Utils (5.2.4)</a> - пакет содержит программы для сжатия и распаковки файлов. Он обеспечивает максимально возможное сжатие и полезен для распаковки пакетов в формате <strong class="strong">XZ</strong> или <strong class="strong">LZMA</strong>.<br>
+                  <!--Ссылка на загрузку: https://tukaani.org/xz/xz-5.2.4.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 003e4d0b1b1899fc6e3000b24feddf7c</strong><br>
+                  <a class="link1 special-link24 a" href="https://www.zlib.net/">Zlib (1.2.11)</a> - пакет содержит процедуры сжатия и распаковки, используемые некоторыми программами.<br>
+                  <!--Ссылка на загрузку: https://zlib.net/zlib-1.2.11.tar.xz-->
+                  Контрольная сумма <strong class="strong">MD5: 85adef240c5f370b308da8c938951a68</strong>
+               </p>
+            <h2 id="lfs8">3.3. Необходимые патчи</h2>
+               <p>К пакетам потребуются патчи. Они исправляют ошибки в пакетах которые должны быть исправлены владельцем пакета. Патчи также вносят небольшие модификации чтобы облегчить работу с пакетами:<br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Bzip2 Documentation Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/bzip2-1.0.6-install_docs-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: 6a5ac7e89b791aae556de0f745916f7f</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Coreutils Internationalization Fixes Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/coreutils-8.30-i18n-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: a9404fb575dfd5514f3c8f4120f9ca7d</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Glibc FHS Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/glibc-2.27-fhs-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: 9a5997c3452909b1769918c759eff8a2</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Kbd Backspace/Delete Fix Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/kbd-2.0.4-backspace-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: f75cca16a38da6caa7d52151f7136895</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Ninja Limit Jobs Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/ninja-1.8.2-add_NINJAJOBS_var-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: f537a633532492e805aa342fa869ca45</strong><br>
+                  <a class="link1 special-link24 a" href="https://linuxfromscratch.org.ru/patches/lfs/development/">Sysvinit Consolidated Patch</a><br>
+                  <!--Ссылка на загрузку: https://linuxfromscratch.org.ru/patches/lfs/development/sysvinit-2.90-consolidated-1.patch-->
+                  Контрольная сумма <strong class="strong">MD5: b7872b43a97a81bac4f9fc8ffaef4364</strong><br>
+                  В дополнение к необходимым патчам, существует множество опциональных, созданных сообществом <strong class="strong">LFS</strong>. Эти патчи исправляют проблемы или добавляют функциональность которая не включена по умолчанию. Не забудьте ознакомиться с базой патчей, расположенной <a class="link1 special-link24 a" href=" https://linuxfromscratch.org.ru/patches/downloads/">здесь</a> и воспользуйтесь ими в соответствии с требованиями к вашей системе.<br>
+                  Полный комплект пакетов и патчи можно найти <a class="link1 special-link23 a" href="https://www.dropbox.com/s/v37zzce5zikco3c/Programs.zip?dl=0">здесь - 374,6 Mb</a>.
+               </p>
+            <h2 id="lfs9">4.2. Создание директории <strong class="strong">$LFS/tools</strong></h2>
+               <p>Все программы которые будут скомпилированы, будут установлены в каталог <strong class="strong">$LFS/tools</strong> чтобы можно было оставить их отдельно от сборки  конечной системы. Программы которые будут скомпилированы - временные инструменты и не будут входить в конечную сборку <strong class="strong">LFS</strong> системы. После использования временных инструментов, от них можно избавиться. Использование каталога <strong class="strong">$LFS/tools</strong> для хранения временного набора инструментов также полезно для того, чтобы не засорять рабочие каталоги хост-системы (что можно случайно сделать).<br>
+                  Создаём каталог:<br><br>
+                  <strong class="p11 blue">mkdir -v $LFS/tools</strong><br><br>
+                  Создаём символическую ссылки /tools в хост-системе, которая будет указывать на созданный каталог с временными инструментами:<br><br>
+                  <strong class="p11 blue">ln -sv $LFS/tools /</strong><br><br>
+                  Вышеприведенная команда верна. Команда <strong class="strong">ln</strong> имеет несколько синтаксических вариаций, поэтому обязательно проверьте <strong class="strong">info coreutils ln and ln(1)</strong> перед тем, как сообщить о предполагаемой ошибке.
+                  Созданная символическая ссылка позволяет выполнить компиляцию временного набора инструментов по ссылке <strong class="strong">/tools</strong>, это означает что компилятор, ассемблер и компоновщик смогут работать на тот момент, когда мы все еще используем некоторые инструменты хост-системы и в дальнейшем, когда мы выполним команду «<strong class="strong">chroot</strong>» в раздел <strong class="strong">LFS</strong>.
+                </p>
+            <h2 id="lfs10">4.3. Добавление пользователя <strong class="strong">LFS</strong></h2>
+               <p>Когда мы находимся в системе под пользователем <b class="p3">root</b>, одна единственная ошибка может привести к повреждению или поломке хост-системы. Рекомендуется выполнять сборку пакетов для временного набора инструментов от обычного пользователя, без привилегий. Можно использовать произвольного пользователя, но для упрощения настройки чистого рабочего окружения создаём нового пользователя с именем <strong class="strong">lfs</strong> как члена группы <strong class="strong">lfs</strong> и используйте этого пользователя на время всего процесса установки временного набора инструментов:<br><br>
+                  <strong class="p11 blue">groupadd lfs<br>
+                  <strong class="p11">useradd -s /bin/bash -g lfs -m -k /dev/null lfs</strong></strong><br><br>
+                  Значение параметров командной строки:<br>
+                  <strong class="strong">-s /bin/bash</strong> Устанавливает <strong class="strong">bash</strong> оболочкой по умолчанию для пользователя <strong class="strong">lfs</strong>.<br>
+                  <strong class="strong">-g lfs</strong> Опция добавляет пользователя <strong class="strong">lfs</strong> в созданную группу <strong class="strong">lfs</strong>.<br>
+                  <strong class="strong">-m</strong> Создает домашний каталог для пользователя <strong class="strong">lfs</strong>.<br>
+                  <strong class="strong">-k /dev/null</strong> Этот параметр предотвращает возможное копирование файлов из предустановленного набора каталогов (по умолчанию <strong class="strong">/etc/skel</strong>), изменив местоположение ввода на специальное <strong class="strong">null</strong> устройство.<br>
+                  <strong class="strong">lfs</strong> Это наименнование созданного пользователя и группы.<br>
+                  Для входа в систему как пользователь <strong class="strong">lfs</strong>, создадим для учётной записи пароль:<br><br>
+                  <strong class="p11 blue">passwd lfs</strong><br><br>
+                  Предоставим <strong class="strong">lfs</strong> полный доступ к <strong class="strong">$LFS/tools</strong> сделав пользователя <strong class="strong">lfs</strong> владельцем каталога:<br><br>
+                  <strong class="p11 blue">chown -v lfs $LFS/tools</strong><br><br>
+                  Предоставляем пользователю <strong class="strong">lfs</strong> права на следующий каталог:<br><br>
+                  <strong class="p11 blue">chown -v lfs $LFS/sources</strong><br><br>
+                  Выполним вход как пользователь <strong class="strong">lfs</strong>:<br><br>
+                  <strong class="p11 blue">su - lfs</strong><br><br>
+                  Аргумент «<strong class="strong">-</strong>» предает значение для команды <strong class="strong">su</strong> для начала запуска <strong class="strong">login</strong>-оболочки, в отличие от обычной. Различия между двумя типами оболочек можно подробно изучить в <strong class="strong">bash(1)</strong> и информация о <strong class="strong">bash</strong>.
+               </p>
+            <h2 id="lfs11">4.4. Установка рабочего окружения</h2>
+               <p>Настроим хорошо работающее окружение. Создадим два файла для оболочки <strong class="strong">bash</strong>. При входе в систему как пользователь <strong class="strong">lfs</strong> выполняем следующую команду для создания нового файла <strong class="strong">.bash_profile</strong>:<br><br>
+                  <strong class="p11 blue">cat > ~/.bash_profile &lt;&lt;"EOF"<br>
+                  <strong class="p11">exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash<br>
+                  <strong class="p11">EOF</strong></strong></strong><br><br>
+                  Когда выполнен вход под пользователем <strong class="strong">lfs</strong>, при инициализации оболочки <strong class="strong">login</strong>, будет читать данные из файла <strong class="strong">/etc/profile</strong> хост-системы (который возможно будет содержать некоторые настройки и дополнительные переменные), и затем данные из файла <strong class="strong">.bash_profile</strong>. Команда <strong class="strong">exec env -i.../bin/bash</strong> в файле <strong class="strong">.bash_profile</strong> заменяет запущенную оболочку новой полностью пустой средой, кроме таких переменных, как <strong class="strong">HOME</strong>, <strong class="strong">TERM</strong>, и <strong class="strong">PS1</strong>. Такой подход гарантирует, что нежелательные и потенциально опасные переменные окружения хост-системы не попадут в среду сборки. В результате чего мы получаем чистое окружение.<br>
+                  Новый экземпляр оболочки - это <strong class="strong">non-login</strong> оболочка, которая не выполняет чтение файла <strong class="strong">/etc/profile</strong> или <strong class="strong">.bash_profile</strong>, но выполняет чтение из файла <strong class="strong">.bashrc</strong>. Создадим файл <strong class="strong">.bashrc</strong>:<br><br>
+                  <strong class="p11 blue">cat > ~/.bashrc &lt;&lt; "EOF"<br>
+                  <strong class="p11">set +h<br>
+                  <strong class="p11">umask 022<br>
+                  <strong class="p11">LFS=/mnt/lfs<br>
+                  <strong class="p11">LC_ALL=POSIX<br>
+                  <strong class="p11">LFS_TGT=$(uname -m)-lfs-linux-gnu<br>
+                  <strong class="p11">PATH=/tools/bin:/bin:/usr/bin<br>
+                  <strong class="p11">export LFS LC_ALL LFS_TGT PATH<br>
+                  <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                  Команда <strong class="strong">set +h</strong> отключает хеш-функцию <strong class="strong">bash</strong>. Хеширование полезно когда <strong class="strong">bash</strong> использует хеш-таблицу для хранения полного пути исполняемых файлов чтобы избежать поиска в переменной окружения <strong class="strong">PATH</strong> при каждом обращении. Однако новые инструменты должны быть использованы сразу после их установки. При выключении хеш-функции оболочка будет всегда искать переменную окружения <strong class="strong">PATH</strong> когда программу необходимо запустить. Таким образом, оболочка будет выполнять поиск скомпилированных инструментов в каталоге <strong class="strong">$LFS/tools</strong>, как только они станут доступны без запоминания предыдущей версии той же программы в другом расположении.<br>
+                  Указание для значения <strong class="strong">022</strong> маски создания файлов пользователя (<strong class="strong">umask</strong>) для создания новых файлов и каталогов позволяет выполнять запись только их владельцу, но они останутся доступными на чтение и выполнение для остальных пользователей (при условии, что режимы по умолчанию используют системный вызов <strong class="strong">open(2)</strong>, новые файлы получат разрешение <strong class="strong">644</strong> а каталоги <strong class="strong">755</strong>).<br>
+                  Переменная окружения <strong class="strong">LFS</strong> должны указывать на выбранную точку монтирования.<br>
+                  Переменная <strong class="strong">LC_ALL</strong> управляет локализацией некоторых программ, и формирует сообщения в соответствии с соглашениями локализаций указанной страны. Если указать значение <strong class="strong">LC_ALL</strong> в «<strong class="strong">POSIX</strong>» или «<strong class="strong">C</strong>» (что одно и тоже) гарантирует, что все будет работает так, как ожидается в chroot окружении.<br>
+                  Переменная <strong class="strong">LFS_TGT</strong> содержит совместимое описание компьютера, которая будет использоваться при сборке кросс-компилятора и компоновщика и затем при кросс-компиляции временного набора инструментов. Более подробная информация содержится в разделе.<br>
+                  Указание значения <strong class="strong">/tools/bin</strong> перед стандартным содержимым переменной <strong class="strong">PATH</strong> дает возможность оболочке сразу использовать программы и библиотеки, которые были установлены в этот каталог. В сочетании с отключением хеширования, снижается риск, что старые программы будут использованы хост-системой когда те же программы будут доступны в среде окружения.<br>
+                  Чтобы полностью подготовить среду для временных инструментов, указываем источник только что созданного профиля пользователя:<br><br>
+                  <strong class="p11 blue">source ~/.bash_profile</strong><br><br>
+                  Время компиляции пакета может быть сокращено за счет выполнения "параллельной сборки". Для этого можно установить соответствующую переменную окружения или непосредственно указать программе make количество доступных процессоров.<br><br>
+                  <strong class="p11 blue">export MAKEFLAGS='-j 2'</strong><br><br>
+                  или каждый раз производить сборку так:<br><br> 
+                  <strong class="p11 blue">make -j2</strong><br><br>
+                  При использовании многопоточной компиляции <strong class="strong">SBU</strong> будут варьироваться гораздо сильнее, чем обычно. Также станет намного сложнее анализировать вывод процесса сборки, поскольку строки от различных потоков перемешаются между собой. Если получины ошибки, необходимо вернуться к однопоточному режиму, чтобы выявить проблему.
+            <h2 id="lfs12">5.3. Общие инструкции по компиляции</h2> 
+               <p>Еще раз выполним проверку, и убедимся, что переменная окружения <strong class="strong">LFS</strong> установлена правильно:<br><br>
+                  <strong class="p11 blue">echo $LFS</strong><br><br>
+                  Убедмся что вывод указывает на путь к точке монтирования раздела <strong class="strong">LFS</strong>, <strong class="strong">/mnt/lfs</strong><br>
+                  Предполагается, что все необходимые символические ссылки ,указанны правильно:<br>
+                  <strong class="strong">bash</strong> используемая оболочка.<br>
+                  <strong class="strong">sh</strong> символическая ссылка на <strong class="strong">bash</strong>.<br>
+                  <strong class="strong">/usr/bin/awk</strong> символическая ссылка на <strong class="strong">gawk</strong>.<br>
+                  <strong class="strong">/usr/bin/yacc</strong> символическая ссылка на <strong class="strong">bison</strong> или файл сценария, которая будет выполняться программой <strong class="strong">bison</strong>.<br>
+                  Чтобы выполнить процесс сборки:<br>
+                  Сохраняем все файлы исходных кодов пакетов и патчи в каталог, который будет доступен из среды <strong class="strong">chroot</strong>, например <strong class="strong">/mnt/lfs/sources/</strong>. Не следует сохранять исходные коды пакетов и патчи в каталог <strong class="strong">/mnt/lfs/tools/</strong>.<br>
+                  Перейдим в каталог с исходными кодами.<br>
+                  Для каждого пакета используем команду <strong class="strong">tar</strong> для распаковки пакета, который необходимо скомпилировать. Убедимся, что выполняются команды пользователем <strong class="strong">lfs</strong> когда выполняем распаковку пакета.<br>
+                  Переходим в каталог, который был создан в процессе распаковки пакета.<br>
+                  Следуем инструкциям, чтобы выполнить сборку пакета.<br>
+                  Возвращаемся обратно в каталог с исходными кодами и патчами.<br>
+                  Удаляем каталог созданный в процессе распаковки пакета, если инструкции не указывают на другие действия. 
+               </p>
+            <div class="kartinka5"><a class="a steps cursorG" href="Lfs1.html#lfs13"><img src="Gentoo/steps1.png" alt="хост-система"></a></div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="хост-система"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//nikolay.interviewonline.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="animated fadeIn full-opacity"  alt="Linux From Scratch">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/camera.png" class="animated fadeIn full-opacity"  alt="Linux From Scratch">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Хочу столько денег, чтобы в них можно было книги прятать…" Олег Рой'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="ДваДоллара"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="Linux с нуля"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: ng.tumanov@mail.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="хост-система"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="facebook"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="Вконтакте"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="twitter"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="Однокласники"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="Мой Мир"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="instagram"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="Linux From Scratch"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Zoome-->
+        <script type="text/javascript" src="Zoome/zoome-e.js"></script>
+        <script type="text/javascript">
+	        $(function(){
+	        $('#img3').zoome({hoverEf:'grayscale',showZoomState:true,zoomRange:[1,5],zoomStep:0.5,defaultZoom:1.5,magnifierSize:[200,200]});
+            });
+	        function destroyZoome(obj){
+		    if(obj.parent().hasClass('zm-wrap'))
+		    {
+			obj.unwrap().next().remove();
+		    }
+	        }
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                     <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="Требования к хост-системе"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

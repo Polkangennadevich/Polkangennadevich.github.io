@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка Centos, Red Hat & Fedora</title>
+     <meta name="description" content="Установка операционных систем Centos, Red Hat и Fedora Linux, разбивка диска. Установка редактора VIM и рабочего стола KDE на Centos, Red Hat и Fedora.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content=">Установка Centos,Установка Red Hat,Установка Fedora,linux centos,kde установка,centos kde,обновление системы,установка vim,red hat,fedora">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Ssh-Centos/centos.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Хочу пожелать здоровья для тех, кого я люблю. А богатства — для тех, кто любит меня!</b>
+          </h2>
+       </div>  
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="Установка Red Hat"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 dropdown-top hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>     
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="red hat"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Создавать продукт, опираясь на фокус-группы, по-настоящему трудно. Чаще всего люди не понимают, что им на самом деле нужно, пока сам им этого не покажешь." Стив Джобс</p></div>
+    </header>
+      <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+           <h2 class="p2 p3">Содержание:</h2>
+           <ul>
+            <li class="p1"><a class="white aS" href="#c1">Установка CentOS</a></li>
+            <li class="p1"><a class="white aS" href="#c2">Разбиваем диск</a></li>
+            <li class="p1"><a class="white aS" href="#c3">Установка Vim в CentOS</a></li>
+            <li class="p1"><a class="white aS" href="#c4">Установка графического интерфейса</a></li>
+            <li class="p1"><a class="white aS" href="#c5">Установка kde</a></li>
+            <li class="p1"><a class="white aS" href="#c6">Установка Red Hat</a></li>
+            <li class="p1"><a class="white aS" href="#c7">Установка Fedora</a></li>
+           </ul>
+           <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+     --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote> 
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h1 id="c1" class="music1"><a class="send-link special-link a" href="https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/index.html">Установка CentOS
+           <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h1>
+           <div class="col" ontouchstart="">
+				<div class="container">
+					<div class="front">
+						<div class="inner">
+							<p>CentOS & Red Hat</p>
+              <span>Fedora</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						<a href="https://ru.wikipedia.org/wiki/CentOS">
+						  <h2 class="blue">Окажу помощь в установке <strong class="white">CentOS</strong>, <strong class="white">Red Hat</strong> и <strong class="white">Fedora</strong></h2>
+                        </a>
+						</div>
+					</div>
+				</div>
+			</div>
+         <p class="music1"><a class="special-link1 a link1" href="https://www.centos.org/download/">Загружаем образ из сети</a> 
+            и записываем его на компакт-диск.<br>
+            Запускаем <strong class="strong">CentOs-7.X-XXXX-x86_64-Minimal.iso</strong> c <strong class="strong">CD-ROM</strong> и начинаем установку <strong id="c8" class="strong">CentOS</strong>.<br>
+            После загрузки появится меню, которое предлагает запустить процесс установки<br>
+            (пункт «<strong class="strong">Install CentOS 7</strong>» или выполнить диагностику носителя и потом запустить процесс установки<br>
+            (пункт «<strong class="strong">Test this media & Install CentOS 7</strong>»).<br>
+            Выбираем второй пункт и нажимаем «<strong class="strong">Enter</strong>».<br>
+            После проверки носителя запустится установщик<br>
+            <strong class="strong">CentOS 7</strong>.<br>
+            Выбираем русский язык и нажимаем на кнопку «Продолжить».<br>
+            Нажмём на кнопку «Клавиатура» и поменяем приоритет у раскладок, передвинув английскую раскладку наверх.<br> 
+            Так же, нажав на кнопку «Параметры» можно поменять комбинацию для переключения раскладок (например на <strong class="strong">Ctrl+Shift</strong>).<br>
+            После чего нажмём на кнопку «Готово».<br>
+            Для настройки сети нажимаем на кнопку «Сеть и имя узла» в группе настроек «Система».<br>
+            По умолчанию сеть отключена, для её включения необходимо нажать на переключатель, который находится в верхнем правом угле экрана.<br>
+            Если сеть не подключилась автоматически, её необходимо установить вручную, нажав на кнопку «Настроить…».<br>
+            Во вкладке «Общий» ставим галочку напротив пункта «Автоматически подключаться к этой сети, когда она доступна».<br>
+            Во вкладке «Параметры <strong class="strong">IPv4</strong>» в пункте «Способ настройки» либо оставляем выбранным «Автоматически (<strong class="strong">DHCP</strong>)», если в локальной сети используется <strong class="strong">DHCP</strong>, либо меняем на «Вручную» и заполняем все оставшиеся поля.<br>
+            После сохранения сетевых настроек нажимаем на кнопку «Готово» в левом верхнем углу экрана.<br> 
+            Настраиваем часовой пояс и дату. Для этого нажимаем на кнопку «Дата и время» в блоке «Региональные настройки».<br> 
+            Сначала выбираем регион и город, а затем в правом верхнем углу нажимаем на переключатель «Сетевое время».<br>
+            После этого время должно синхронизироваться с <strong class="strong">NTP</strong>-сервером.<br>
+            Нажимаем на кнопку «Готово» для возвращения в главное меню установщика.<br>
+            Нажимаем на кнопку «Источник установки» в блоке «Программное обеспечение».<br>
+            Так как загружаем с <strong class="strong">iso</strong> образа, устанавливаем галочку "Обнаруженные установочные носители:"<br>
+            Нажимаем "Проверить". Должно появиться: "Этот носитель подходит для установки".<br>
+            Нажимаем "Готово"<br>
+            В "Источник установки" также нажимаем "Готово".<br>
+            Если источник установки указан верно, с иконки кнопки уберётся оранжевый треугольник.<br>
+            В выборе программ (по желанию!) оставляем пункт «Минимальная установка» и нажимаю на кнопку «Готово».
+         </p>
+         <h2 id="c2">Разбиваем диск</h2> 
+         <p>нажмём на кнопку «Место установки».<br>
+            Смотрим что галочкой выделен нужный нам жёсткий диск, отмечаем пункт<br>
+            «Я настрою разделы» в блоке «Разбиение» и нажимаем на кнопку «Готово».<br>
+            Откроется мастер разметки жёсткого диска.<br><br>
+            Нажимаем <strong class="blue p11">+</strong><br>
+            Выбираем <strong class="blue p11">/</strong><br>
+            Добавляем <strong class="blue p11">10240Mb</strong><br>
+            Нажимаем <strong class="blue p11">"Добавить точку монтирования"</strong><br>
+            Нажимаем <strong class="blue p11">+</strong><br>
+            Выбираем <strong class="blue p11">"boot"</strong><br>
+            Добавляем <strong class="blue p11">256Mb</strong><br>
+            Нажимаем <strong class="blue p11">"Добавить точку монтирования"</strong><br>
+            Нажимаем <strong class="blue p11">+</strong><br>
+            Выбираем <strong class="blue p11">"swap"</strong><br>
+            Добавляем <strong class="blue p11">224256Mb</strong><br>
+            Нажимаем <strong class="blue p11">"Добавить точку монтирования"</strong><br>
+            Нажимаем <strong class="blue p11">+</strong><br>
+            Выбираем <strong class="blue p11">"home"</strong><br>
+            Добавляем <strong class="blue p11">оставляем свободным</strong><br>
+            Нажимаем <strong class="blue p11">"Добавить точку монтирования"</strong><br><br>
+            Если в нижней части экрана появляется: 'Предупреждения при проверке конфигурации устройства хранения. Подробнее или нажмите "Готово"', нажимаем "Подробнее" и просматриваем допущеные ошибки.
+            Устранив их нажимаем на кнопку «Готово».<br>
+            Установщик нам покажет последовательность разметки диска, которую мы должны подтвердить нажав на кнопку «Принять изменения».<br>
+            После того как всё подготовлено к установке <strong class="strong">CentOS</strong> – нажимаем на кнопку «Начать установку».<br>
+            Пока пакеты устанавливаются и настраиваются – мы зададим пароль для <b class="p3">root’</b>а и создадим пользователя для повседневной работы.<br>
+            После установки, нужно нажать на кнопку «Перезагрузить»
+         </p>
+         <h2 id="c3">Установка <strong class="strong">Vim</strong> в <strong class="strong">CentOS</strong></h2>
+         <p><strong class="blue p11">yum install vim-enhanced</strong></p>
+
+         <h2 id="c4">Установка графического интерфейса</h2>
+         <p>Необходимо установить<br><br> 
+            <strong class="blue p11">yum groupinstall basic-desktop desktop-platform x11 fonts</strong>
+         </p>
+         <h2 id="c5">Установка <strong class="strong">kde</strong></h2>
+         <p><strong class="blue p11">yum -y groupinstall kde-desktop</strong><br><br>
+            Для создания настройки, выполняющей запуск <strong class="strong">kde</strong> выполнить:<br><br>
+            <strong class="blue p11">~$ echo startkde >> ~/.xinitrc</strong><br><br>
+            Запускаем <strong class="strong">kde</strong>:<br><br>
+            <strong class="blue p11">~$ startx</strong><br><br>
+            После установки графического интерфейса, при первой перезагрузке система может один раз запустить консоль с вопросами, на которые необходимо ответить.
+         </p>
+         <h2 id="c6">Установка <strong class="strong">Red Hat</strong></h2>
+         <p>31 марта 2016 г. - 
+            <a class="special-link2 a link1" href="https://www.redhat.com/en/about/press-releases/red-hat-expands-red-hat-developer-program-no-cost-red-hat-enterprise-linux-developer-subscription">Red Hat, Inc. (NYSE: RHT)</a> объявила о бесплатной подписки <strong class="strong">Red Hat Enterprise Linux</strong>, доступной как "Программа" для разработчиков.<br>
+            Несколько языков программирования с открытым исходным кодом, базы данных, веб-серверы и средства разработки обновляются ежегодно самыми последними стабильными версиями и упаковываются через  <a class="special-link3 a link1" href="https://developers.redhat.com/products/softwarecollections/overview/">Red Hat Software Collections</a>.<br> 
+            Чтобы загрузить подписку разработчика, в которую входит сервер <strong class="strong">Red Hat Enterprise Linux 7</strong>, набор средств разработки и многое другое, должна быть учетная запись и необходимо принять условия  "Программы" для разработчиков <strong class="strong">Red Hat</strong>.<br> 
+            Загрузить <strong class="strong">Red Hat Enterprise Linux 7</strong>, с регистрацией учетной записи, можно с сайта <a class="special-link4 a link1" href="https://developers.redhat.com/products/rhel/download/">Red Hat</a>.<br>
+            После загрузки переходим на <a class="special-link6 a link1" href="https://www.redhat.com/wapps/tnc/termsack?event[]=signIn">портал пользователя</a>.<br>
+            Принимаем условия "Программы" и заполняем запрашиваемые сведения.<br>
+            Устанавливается <strong class="strong">Red Hat</strong> аналогично <a class="special-link5 a link1" href="#c8">Centos</a>.<br>
+            Для регистрации и автоматического подключения доступной подписки, соответствующей данной системе, (интернет при этом должен быть подключен) используем следующую команду <a class="special-link7 a link1" href="https://access.redhat.com/solutions/253273">Subscription-Manager</a>:<br><br>
+            <strong class="blue p11">subscription-manager register --username &lt;username> --password &lt;password> --auto-attach</strong><br><br>
+            Вместо <strong class="strong">&lt;username></strong> и <strong class="strong">&lt;password></strong> набираем логин и пароль указаные при регистрации.<br>
+            Если не удаётся подключить подписку, о чём сообщается на выходе, можно прикрепить подписку следующим образом:<br>
+            Для регистрации системы без немедленного присоединения подписки:<br><br>
+            <strong class="blue p11">subscription-manager register</strong><br><br>
+            После этого обновляем информацию на своем компьютере:<br><br>
+            <strong class="blue p11">subscription-manager refresh</strong><br><br>
+            Обязательно выполняем это при каждом добавлении или изменении прикрепленной подписки с портала клиента.<br>
+            Для присоединения любой доступной подписки, соответствующей текущей системе используем следующую команду:<br><br>
+            <strong class="blue p11">subscription-manager attach --auto</strong><br><br>
+            Используем следующую команду для присоединения подписки к определенному пулу:<br><br>
+            <strong class="blue p11">subscription-manager attach --pool=&lt;POOL_ID></strong><br><br>
+            Определить, какие пулы (<strong class="strong">&lt;POOL_ID></strong>) доступны можно:<br><br>
+            <strong class="blue p11">subscription-manager list --available</strong><br><br>
+            Просмотреть идентификатор пула, данные, например даты истечения срока действия и т.д:<br><br>
+            <strong class="blue p11">subscription-manager list --available --all</strong><br><br>
+            Просмотр доступных обновлений:<br><br>
+            <strong class="blue p11">yum check-update</strong><br><br> 
+            При возникновении ошибки, могут появиться следующие предложения:<br><br>
+            <strong class="blue">...<br>
+            Выполнить команду с временным отключением репозитория.<br>
+            <strong class="p11">yum --disablerrepo=rhel-7-server-rt-beta-rpms ...</strong><br>
+            Отключите репозиторий постоянно, поэтому yum не будет использовать его по умолчанию. Yum будет просто игнорировать репозиторий, пока вы не включите его снова навсегда или  временно, используя --enablerepo.<br>
+            <strong class="p11">yum-config-manager --disable rhel-7-server-rt-beta-rpms</strong><br>
+            или<br>
+            <strong class="p11">subscription-manager repos --disable rhel-7-server-rt-beta-rpms</strong><br>
+            Настройте пропущенный репозиторий, если он недоступен.<br>
+            Обратите внимание, что yum попытается связаться с репо при выполнении большинства команд, поэтому каждый раз будет пытаться терпеть неудачу (следовательно, yum будет намного медленнее). Если это временная проблема, то это может быть хороший компромисс:<br>
+            <strong class="p11">yum-config-manager --save --setopt=rhel-7-server-rt-beta-rpms.skip_if_unavailable=true</strong></strong><br><br>
+            Пытаемся повторно просмотреть доступные обновления.<br>
+            Если всё удачно, обновляем систему.<br><br>
+            <strong class="blue p11">yum -y update</strong><br><br>
+            Просмотреть список репозиториев:<br><br>
+            <strong class="blue p11">yum repolist</strong><br><br>
+            Отмена регистрации системы:<br><br>
+            <strong class="blue p11">subscription-manager remove --all</strong><br>
+            <strong class="blue p11">subscription-manager unregister</strong><br>
+            <strong class="blue p11">subscription-manager clean</strong><br><br>
+            Подключить подписки к системе, с помощью диспетчера подписки <strong class="strong">Red Hat</strong>:<br>
+            <a class="special-link8 a link1" href="https://access.redhat.com/">Log-in</a> на портале клиента.<br>
+            Нажать на <strong class="strong">Subscriptions</strong> в левом верхнем углу.<br>
+            Нажать на <strong class="strong">Systems</strong> вкладку в верхнем менюю<br>
+            Нажать на название <strong class="strong">system</strong>.<br>
+            Нажать на <strong class="strong">Attach a subscription</strong> в <strong class="strong">Subscriptions</strong> табуляция.<br>
+            Выбрать нужные подписки и нажать <strong class="strong">Attach Subscriptions</strong>.<br>
+            Для удаления подписки из системы, с помощью диспетчера подписки <strong class="strong">Red Hat</strong>:<br>
+            Выбрать нужную подписку <strong class="strong">Subscriptions</strong> чтобы удалить и нажать <strong class="strong">Remove</strong>.<br><br>
+         <h2 id="c7"><a class="special-link9 a link1" href="https://getfedora.org/ru/">Установка Fedora</a></h2>
+         <p>Имеется ещё один дистрибутив спонсируемый фирмой <strong class="strong">Red Hat</strong>.<br>
+            Проект <strong class="strong">Fedora</strong> служит для тестирования новых технологий, которые в дальнейшем включаются в продукты <strong class="strong">Red Hat</strong>.<br>
+            Начать работать с <strong class="strong">Fedora</strong> очень просто.<br> 
+            Все, что нужно, это <strong class="strong">USB</strong>-накопитель на 2 ГБ и <strong class="strong">Fedora-Workstation-Live</strong>.<br>
+            Загружаем <strong class="strong">Fedora-Workstation-Live</strong> с официального сайта <a class="special-link10 a link1" href="https://getfedora.org/ru/workstation/download/">Fedora</a><br>
+            Устанавливаем <strong class="strong">iso</strong>-образ на <strong class="strong">USB</strong>-накопитель.<br>
+            После установки <strong class="strong">Fedora-Workstation-Live</strong>, на флеш-накопителе можно будет запускать "живую" версию <strong class="strong">Fedora Workstation</strong>, то есть, можно будет загружать её с флэш-накопителя и сразу же пробовать, ничего не изменяя на компьютере.<br>
+            Если же необходимо установить <strong class="strong">Fedora</strong> на жёсткий диск компьютера, после запуска <strong class="strong">Fedora-Workstation-Live</strong> с флеш-накопителя, выбираем <strong class="strong">Install to Hard Drive</strong> и продолжаем установку. Диск при этом, должен быть уже отформатирован.
+         </p><br>
+              <div class="kartinka5"><img src="Ssh-Centos/fedora.png" alt="fedora"></div><br>
+         <p>Устанавливаем язык для процесса установки. Щёлкаем "ПРОДОЛЖИТЬ"<br>
+            Попадаем на вкладку "Региональные настройки системы".<br>
+            Настраиваем "Клавиатура", "Дата и Время" "Место установки".<br>
+            Подготавливаем место установки. Щёлкаем "Место установки".<br>
+            Попадаем на вкладку "Выбор устройств".<br>
+            Щёлкаем по диску, на который хотим установить <strong class="strong">Fedora</strong>. Щёлкаем "Готово".<br>
+            Если диск заполнен, появляется окно "Освобождение пространства".
+            Щёлкаем "Удалить всё", далее "Освободить".
+            Возвращаемся на вкладку "Региональные настройки системы".<br>
+            Щёлкаем "Место установки".<br>
+            Выбираем "Конфигурация устройств хранения": "По-своему".<br>
+            Щёлкаем по диску, на который хотим установить <strong class="strong">Fedora</strong>. Щёлкаем "Готово".<br>
+            Для разбивки диска щёлкаем "<strong class="strong">+</strong>".<br>
+            Устанавливаем необходимую точку монтирования и объём раздела.<br>
+            Щёлкаем "Добавить точку монтирования"<br>
+            Опять щёлкаем "<strong class="strong">+</strong>".<br>
+            Устанавливаем следующею точку монтирования и объём этого раздела.<br>
+            Щёлкаем "Добавить точку монтирования"<br>
+            И так пока не разобьём весь диск.<br>
+            Когда будет полностью разбит весь диск, щёлкаем "Готово".<br>
+            Появится окошко "Обзор изменений". Если всё устраивает, щёлкаем "Принять изменения".<br>
+            Система вернёт обратно на вкладку "Региональные настройки системы".<br>
+            Щёлкаем "Начать установку".<br>
+            После установки, перезагружаем компьютер.<br>
+            Как изменить пароль <b class="p3">root</b> с помощью <strong class="strong">GRUB</strong>?<br>
+            Для настройки <strong class="strong">GRUB</strong>, прерываем процесс загрузки компьютера, нажав на клавиатуре клавишу <strong class="strong">Esc</strong>. Когда появится меню <strong class="strong">GRUB</strong>, нажимаем на клавиатуре клавишу «<strong class="strong">e</strong>».<br>
+            При помощи стрелок переходим к строке <strong class="strong">linux  /vmlinuz-... rhgb quiet</strong>.<br>
+            Затем, заменяем <strong class="strong">rhgb quiet</strong> следующей строчкой:<br><br>
+            <strong class="blue p11">rd.break enforcing=0</strong><br><br>
+            Сохраняем изменения и перезапускаем систему, при помощи сочетания клавиш <strong class="strong">Ctrl+X</strong>.<br>
+            Щёлкаем клавишу <strong class="strong">Enter</strong>.<br>
+            Входим под <b class="p3">root</b>, набрав в командной строке <strong class="strong">su</strong>.<br>
+            Щёлкаем клавишу <strong class="strong">Enter</strong>.<br>
+            Перемонтируем жёсткий диск с разрешением на чтение и запись:<br><br>
+            <strong class="blue p11">mount -o remount,rw /sysroot</strong><br><br>
+            Запускаем команду <strong class="strong">chroot</strong>, чтобы получить доступ к системе <strong class="strong">Fedora</strong>:<br><br>
+            <strong class="blue p11">chroot /sysroot</strong><br><br>
+            Изменяем пароль <b class="p3">root</b>:<br><br>
+            <strong class="blue p11">passwd</strong><br><br>
+            Дважды вводим новый пароль.<br>
+            Дважды вводим <strong class="strong">exit</strong> для перезапуска системы.<br>
+            Перезапускаем систему:<br><br>
+            <strong class="blue p11">reboot</strong><br><br>
+            Под <b class="p3">root</b> выполняем команду, чтобы восстановить метку <strong class="strong">SELinux</strong> в файле <strong class="strong">/etc/shadow</strong>:<br><br>
+            <strong class="blue p11">restorecon -v /etc/shadow</strong><br><br>
+            Устанавливаем <strong class="strong">SELinux</strong> в усиленный режим:<br><br>
+            <strong class="blue p11">setenforce 1</strong><br><br>
+            Обновление <strong class="strong">Fedora</strong>:<br><br>
+            <strong class="blue p11">yum update rpm</strong> // обновление пакетов;<br>
+            <strong class="blue p11">yum -y update</strong> // обновление системы;<br>
+            <strong class="blue p11">yum clean all</strong> // очистка;<br><br>
+            <strong class="strong">DNF</strong> или <strong class="strong">Dandified YUM</strong> - следующее поколение приложения <strong class="strong">Yum</strong>, менеджер пакетов для дистрибутивов ОС <strong class="strong">Linux</strong> на основе <strong class="strong">RPM</strong>-пакетов.<br>
+            В основных методах <strong class="strong">dnf</strong> можно использовать почти так же, как <strong class="strong">yum</strong> для поиска, установки или удаления пакетов. 
+         </p><br>
+         </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="Установка Fedora"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="fedora">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="fedora">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Самые лучшие денежные инвестиции — это дети. На старости появится возможность кое-что вернуть обратно."'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="обновление системы"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br>RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br>4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="Установка Red Hat"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="centos 7"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="linux centos"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="linux centos"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="kde установка"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="centos kde"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="обновление системы"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="centos kde"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="установка vim"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                    <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                    <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script> 
+                    <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                    <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                 <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="linux centos"></div></a>
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

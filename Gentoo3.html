@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Gentoo "Рабочий стол"</title>
+     <meta name="description" content="Установка рабочего стола Plasma 5 и Gnome на Gentoo Linux, xorg-server,система инициализации Systemd.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="x сервер,kde plasma,gentoo plasma,plasma linux,systemd,gnome,карта видео,xorg-server,sddm,Wayland">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Время - это песок. Жизнь - это вода. Слова - это ветер. Осторожнее с этими компонентами… Чтобы не получилась - грязь…</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="x сервер"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="gentoo plasma"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Бурный протест вызывает у меня ещё только одна вещь: любители нравоучений. Никто не должен считать себя вправе выступать с проповедями." Линус Торвальдс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg1">Установка Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg2">Разбивка диска</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg3">Монтирование</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg4">Изменение корневого каталога chroot</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg5">Настройка Portage</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg6">Настройка переменной USE</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo1.html#sg7">Установка исходных кодов ядра</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg8">Создание fstab</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg9">Параметры сети</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg10">Установка Grub 2</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg11">Окончание установки Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg12">Руссификация Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg13">Подключение к интернету PPP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg14">Iptables</a></li>
+            <li class="p1"><a class="white aS" href="#sg15">Установка рабочего стола Plasma 5</a></li>
+            <li class="p1"><a class="white aS" href="#sg16">Установка с Wayland</a></li>
+            <li class="p1"><a class="white aS" href="#sg17">X server для старой видео карты nvidia</a></li>
+            <li class="p1"><a class="white aS" href="#sg18">Установка Plasma 5</a></li>
+            <li class="p1"><a class="white aS" href="#sg19">Systemd</a></li>
+            <li class="p1"><a class="white aS" href="#sg20">Установка рабочего стола Gnome с systemd</a></li>
+            <li class="p1"><a class="white aS" href="#sg21">Xorg — сервер</a></li>
+            <li class="p1"><a class="white aS" href="#sg22">Установка Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg23">Sudo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg24">Тор браузер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg25">Загрузка Gentoo без загрузчика</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg26">Broadcom Corporation и Intel Corporation WiMAX/WiFi Link 5150, настройка wi-fi</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg27">Установка wpa_supplicant</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg28">Установка сканера LIDE110</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg29">Подключение беспроводного принтера HP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg30">NTFS в Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg31">Файловая система exFAT</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg32">Non-Volatile Memory Express</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg33">Полный перенос операционной системы на другой жёсткий диск</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sb-container">Полезные ссылки</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+          <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+          <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h1 id="sg15" class="music1"><a class="send-link special-link a" href="https://wiki.gentoo.org/wiki/KDE/ru">Установка рабочего стола Plasma 5
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h1>
+         <p class="music1">Профиль для <strong class="strong">Plasma</strong> установливаем в разделе: <a class="special-link1 a link1" href="Gentoo.html#Pr">"Изменяем профили"</a><br>
+            Необходимые <a class="special-link2 a link1" href="Gentoo.html#sg6">USE - флаги</a>: <strong class="strong">dbus policykit udev udisks X</strong> и<br>
+            <strong class="strong">"VIDEO_CARDS="intel"</strong> (для видеокарты "<strong class="strong">intel</strong>")<br>
+            <strong class="strong">INPUT_DEVICES="evdev <strong class="darkgrey">synaptics</strong>"<br>
+            MAKEOPTS="-j3"</strong><br>
+            были установлены ранее.<br>
+            Запускаем необходимые службы:<br><br>
+            <a class="p11 special-link3 a link1" href="https://wiki.gentoo.org/wiki/D-Bus">D-Buss</a>:<br><br>
+            <strong class="p11 blue">/etc/init.d/dbus start</strong><br>
+            <strong class="p11 blue">rc-update add dbus default</strong><br><br>
+            В настоящее время <strong class="strong">ConsoleKit</strong> не поддерживается.<br>
+            Имеется <strong class="strong">sys-auth/elogind</strong> доступный <strong class="strong">Gentoo</strong> и получивший поддержку в <strong class="strong">KDE Plasma</strong>, <strong class="strong">Gnome</strong>, <strong class="strong">Cinnamon</strong>, <strong class="strong">MATE</strong>, <strong class="strong">Xfce</strong>, а также в большинстве других.<br>
+            Профиль рабочего стола переключается с <strong class="strong">consolekit</strong> на <strong class="strong">elogind</strong>.<br> 
+            Пользователи <strong class="strong">sys-auth/consolekit</strong>, должны рассмотреть возможность сделать то же самое.<br> 
+            Устанавливаем <strong class="strong">USE = "elogind -consolekit"</strong> в <strong class="strong">make.conf</strong>.<br>
+            Убеждаемся, что в <strong class="strong">/etc/portage/package.use</strong> нет мусора консольного набора:<br><br>
+            <strong class="p11 blue">grep -R consolekit /etc/portage/package.use</strong><br><br>
+            Перестраиваем всех затронутых потребителей и удаляем <strong class="strong">sys-auth/consolekit</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask --changed-use --deep @world<br>
+            <strong class="p11">emerge --depclean sys-auth/consolekit</strong></strong><br><br>
+            Рекомендуется в случае возникновения проблем, таких как отсутствие перезагрузки/выключения:<br><br>
+            <strong class="p11 blue">rc-update add elogind boot </strong><br><br>
+            Для пользователей <strong class="strong">~/.xinitrc</strong> вместо одного из поддерживаемых <strong class="strong">DM</strong> не забудьте: обновить (<strong class="strong">ck-launch-session</strong> пропала без замены).<br><br>
+            <a class="p11 special-link4 a link1" href="https://wiki.gentoo.org/wiki/Polkit">polkit</a>:<br><br>
+            Убеждаемся, что в ядре установлено <strong class="strong">CONFIG_FUTEX=y</strong>. Без этой опции процесс <strong class="strong">polkit</strong> может генерировать высокую загрузку процессора.<br><br>
+            <a class="p11 special-link5 a link1" href="https://wiki.gentoo.org/wiki/Udev">udev</a>:<br><br>
+            В ядре проверяем, а если нет, устанавливаем:<br><br>
+            <strong class="p11 blue">General setup  ---></strong><br>
+            <strong class="p11 blue">[*] Configure standard kernel features (expert users)  ---></strong><br>
+            <strong class="p11 blue">[ ] Enable deprecated sysfs features to support old userspace tools</strong><br>
+            <strong class="p11 blue">[*] Enable signalfd() system call</strong><br>
+            <strong class="p11 blue">Enable the block layer  ---></strong><br>
+            <strong class="p11 blue">[*] Block layer SG support v4</strong><br>
+            <strong class="p11 blue">Networking support  ---></strong><br>
+            <strong class="p11 blue">Networking options  ---></strong><br>
+            <strong class="p11 blue">&lt;*> Unix domain sockets</strong><br>
+            <strong class="p11 blue">Device Drivers  ---></strong><br>
+            <strong class="p11 blue">Generic Driver Options ---></strong><br>
+            <strong class="p11 blue">()  path to uevent helper</strong><br>
+            <strong class="p11 blue">[*] Maintain a devtmpfs filesystem to mount at /dev</strong><br>
+            <strong class="p11 blue">&lt; > ATA/ATAPI/MFM/RLL support (DEPRECATED) ---></strong><br>
+            <strong class="p11 blue">File systems ---></strong><br>
+            <strong class="p11 blue">[*] Inotify support for userspace</strong><br>
+            <strong class="p11 blue">Pseudo filesystems ---></strong><br>
+            <strong class="p11 blue">[*] /proc file system support</strong><br>
+            <strong class="p11 blue">[*] sysfs file system support</strong><br><br>
+            <strong class="p11 blue">rc-update add udev sysinit</strong><br><br>
+            <a class="p11 special-link6 a link1" href="https://wiki.gentoo.org/wiki/Udisks">udisks</a>:<br><br>
+            В ядре проверяем, а если нет, устанавливаем:<br><br>
+            <strong class="p11 blue">General setup ---></strong><br>
+            <strong class="p11 blue">[*] Support for paging of anonymous memory (swap)</strong><br>
+            <strong class="p11 blue">Device Drivers ---></strong><br>
+            <strong class="p11 blue">&lt; > ATA/ATAPI/MFM/RLL support (DEPRECATED) ---></strong><br>
+            <strong class="p11 blue">File Systems --></strong><br>
+            <strong class="p11 blue">Native Language Support --></strong><br>
+            <strong class="p11 blue">&lt;*> NLS UTF8</strong><br>
+            <strong class="p11 blue">Pseudo filesystems ---></strong><br>
+            <strong class="p11 blue">-*- Tmpfs virtual memory file system support (former shm fs)</strong><br>
+            <strong class="p11 blue">[*] Tmpfs POSIX Access Control Lists</strong><br><br>
+            Создаём группу <strong class="strong">plugdev</strong>:<br><br>
+            <strong class="p11 blue">groupadd plugdev</strong><br><br>
+            Добавляем пользователя в группу:<br><br>
+            <strong class="p11 blue">usermod -a -G plugdev nikolay</strong><br><br>
+            Устанавливаем <strong class="strong">xorg-server</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask x11-base/xorg-server</strong>
+         </p>
+         <h2 id="sg16" class="music1 darkgrey"><a class="send-link2 special-link7 a" href="https://wiki.gentoo.org/wiki/Wayland">Установка с Wayland
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="gray"><strong class="strong">Wayland</strong> - протокол, который является более простой заменой <strong class="strong">Xorg</strong>. В отличие от <strong class="strong">Xorg</strong>, <strong class="strong">Wayland</strong> не имеет <strong class="strong">API</strong> отрисовки. и соответственно ей не занимается. Такие  среды рабочего стола как <strong class="strong">GNOME</strong> и <strong class="strong">KDE</strong> уже поддерживают <strong class="strong">Wayland</strong>. Существует <strong class="strong">Xwayland</strong>, который позволяет запускать приложения <strong class="strong">X11</strong> в <strong class="strong">Wayland</strong>.<br>
+            <strong class="strong">XWayland</strong>, обеспечивает выполнение <strong class="strong">X.Org</strong>-сервера как <strong class="strong">Wayland</strong>-клиента. В режиме под управлением <strong class="strong">Wayland</strong> без <strong class="strong">X</strong>-сервера могут быть запущены приложения, написанные с использованием поддерживающих <strong class="strong">Wayland</strong> библиотек, таких как <strong class="strong">Qt</strong>, <strong class="strong">SDL</strong>, <strong class="strong">Clutter</strong> и <strong class="strong">Gtk+</strong></strong>. Компонент <strong class="strong">XWayland</strong> позволяет обеспечить совместимость с программами, использующими низкоуровневые библиотеки <strong class="strong">X11</strong>.<br> 
+            Добавляем в  <strong class="strong">/etc/portag/make.conf USE</strong> флаги:<br><br>
+            <strong class="p11 darkgrey">USE ...gles2 wayland...</strong><br><br>
+            Установка <strong class="strong">Wayland</strong>:<br><br>
+            <strong class="p11 darkgrey">emerge --ask dev-libs/wayland</strong><br><br>
+            В данной сессии редактор <strong class="strong">Vim</strong> может выдавать ошибку:<br>
+            <strong class="strong">> No protocol specified<br>
+            > No protocol specified<br>
+            > No protocol specified<br> 
+            Vim</strong></strong></strong></strong> пытается подключиться к <strong class="strong">X</strong> - серверу и терпит неудачу.<br>
+            Для устранения этой ошибки, один из вариантов, необходимо загрузить <strong class="strong">Vim</strong> с флагом <strong class="strong">-X</strong>.<br>
+            Для удаления <strong class="strong">Wayland</strong>, пересобираем систему с флагами <strong class="strong">-gles2 -wayland</strong>.<br>
+            После удаления, в <strong class="strong">Plasma 5</strong> могут не запускаться некоторые программы, например <strong class="strong">firefox</strong>, <strong class="strong">thunderbirds</strong> и.т.д.<br>
+            Если запуск, например, <strong class="strong">firefox</strong> из терминала выдаёт следующую ошибку:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">firefox<br> 
+            /usr/lib64/firefox/firefox: symbol lookup error: /usr/lib64/gtk-3.0/modules/libappmenu-gtk-module.so: undefined symbol: gdk_wayland_display_get_type</strong></strong><br><br>
+            необходимо добавить флаг <strong class="strong">-gtk</strong>, пересобрать систему и не забываем о чистке с помощью <strong class="strong">--depclean</strong>.
+         </p>
+         <h2 id="sg17" class="music1"><a class="send-link2 special-link8 a" href="https://wiki.gentoo.org/wiki/NVidia/nvidia-drivers/ru">X server для старой видео-карты "nvidia"
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1">Добавляем в <strong class="strong">/etc/portage/make.conf</strong>:
+            <strong class="strong">USE</strong> - флаг:<br><br>
+            <strong class="p11 blue">...xvmc...</strong><br>
+            <strong class="p11 blue">VIDEO_CARDS="nvidia"</strong><br>
+            <strong class="p11 blue">INPUT_DEVICES="evdev"</strong><br><br>
+            Определяем нашу видео-карту:<br><br>
+            <strong class="p11 blue">lspci</strong><br><br>
+            определилась <strong class="strong">GeForce 6200 TurboCache</strong><br>
+            <a class="special-link9 a link1" href="http://www.nvidia.com/object/IO_32667.html">На сайте "<strong class="strong">NVIDIA</strong>"</a><br>
+            определяем для неё драйвер: <strong class="strong">304.xx</strong><br>
+            <a class="special-link10 a link1" href="https://packages.gentoo.org/package/x11-drivers/nvidia-drivers">На сайте "<strong class="strong">nvidia-drivers</strong>"</a><br>
+            Утачняем драйвер:<strong class="strong">x11-drivers/nvidia-drivers-304.125</strong><br>
+            Замаскируем его:<br><br>
+            <strong class="p11 blue">vim /etc/portage/package.mask</strong><br><br>
+            <strong class="p11 blue">>x11-drivers/nvidia-drivers-304.125</strong><br><br>
+            Данный драйвер совместим с ядром более старым,чем <strong class="strong">sys-kernel/gentoo-sources-3.18</strong><br>
+            Замаскируем это ядро:<br><br>
+            <strong class="p11 blue">vim /etc/portage/package.mask<br></strong><br>
+            <strong class="p11 blue">>=sys-kernel/gentoo-sources-3.18</strong><br><br>
+            Загружаем ядро:<br><br>
+            <strong class="p11 blue">emerge --ask sys-kernel/gentoo-sources</strong><br><br>
+            Настраиваем ядро:<br><br>
+            <strong class="p11 blue">[*] Enable loadable module support ---></strong><br>
+            <strong class="p11 blue">Processor type and features ---></strong><br>
+            <strong class="p11 blue">[*] MTRR (Memory Type Range Register) support</strong><br>
+            <strong class="p11 blue">Device Drivers ---></strong><br>
+            <strong class="p11 blue">Input device support ---></strong><br>
+            <strong class="p11 blue">&lt;*>  Event interface</strong><br>
+            <strong class="p11 blue">Graphics support ---></strong><br>
+            <strong class="p11 blue">&lt; > Direct Rendering Manager (XFree86 4.1.0 and higher DRI support)</strong><br>
+            <strong class="p11 blue">-*- /dev/agpgart (AGP Support) ---></strong><br>
+            <strong class="p11 blue">Frame buffer Devices ---></strong><br>
+            <strong class="p11 blue">&lt;*> Support for frame buffer devices ---></strong><br>
+            <strong class="p11 blue">## (Disable all drivers, including VGA, Intel, nVidia, and ATI)</strong><br>
+            <strong class="p11 blue">&lt; >   nVidia Framebuffer Support</strong><br>
+            <strong class="p11 blue">&lt; >   nVidia Riva support</strong><br>
+            <strong class="p11 blue">## (Further down, enable basic console support. KMS uses this.)</strong><br>
+            <strong class="p11 blue">Console display driver support ---></strong><br>
+            <strong class="p11 blue">&lt;*>  Framebuffer Console Support</strong><br>
+            <strong class="p11 blue">Device Drivers ---></strong><br>
+            <strong class="p11 blue">&lt;*> Connector - unified userspace &lt;-> kernelspace linker  ---></strong><br>
+            <strong class="p11 blue">Graphics support ---></strong><br>
+            <strong class="p11 blue">Frame buffer Devices ---></strong><br>
+            <strong class="p11 blue">[*] Support for frame buffer devices ---></strong><br>
+            <strong class="p11 blue">[*] Enable firmware EDID</strong><br>
+            <strong class="p11 blue">&lt;*> Userspace VESA VGA graphics support</strong><br><br>
+            Альтернативой для кадрового буфера является <a class="special-link11 a link1" href="https://wiki.gentoo.org/wiki/Uvesafb">Uvesafb</a><br>
+            Устанавливаем:<br><br>
+            <strong class="p11 blue">emerge --ask --oneshot klibc</strong><br>
+            <strong class="p11 blue">emerge --ask v86d</strong><br><br>
+            После того, как установка будет завершена, необходимо активировать следующие параметры ядра:<br><br>
+            <strong class="p11 blue">General setup ---></strong><br>
+            <strong class="p11 blue">[*] Initial RAM filesystem and RAM disk (initramfs/initrd) support</strong><br>
+            <strong class="p11 blue">(/usr/share/v86d/initramfs) Initramfs source file(s)</strong><br><br>
+            В <strong class="strong">GRUB2</strong>  параметры могут быть добавлены к переменной <strong class="strong">GRUB_CMDLINE_LINUX_DEFAULT в /etc/default/grub</strong>:<br><br>
+            <strong class="p11 blue">... video=uvesafb:1920x1080-60,mtrr:3,ywrap ...</strong><br><br>
+            <strong class="p11 blue">grub2-mkconfig -o /boot/grub2/grub.cfg</strong><br><br>
+            Для <strong class="strong">UEFI</strong> систем <strong class="strong">uvesafb</strong> не работает.<br> 
+            Включение поддержки "<strong class="strong">efifb</strong>" в ядре 
+            (<strong class="strong">CONFIG_FB_EFI=y</strong>) приводит к проблемам с запуском драйверов <strong class="strong">nvidia</strong>.<br>
+            Каждый раз, когда компилируется ядро, необходимо переустановить модули ядра:<br><br>
+            <strong class="p11 blue">emerge @module-rebuild</strong><br><br>
+            Чтобы, не загружать модуль вручную, после каждой перезагрузки, добавляем <strong class="strong">nvidia</strong> в <strong class="strong">/etc/conf.d/modules</strong><br>
+            Добавляем пользователя в группу <strong class="strong">video</strong>:<br><br>
+             <strong class="p11 blue">gpasswd -a nikolay video</strong><br><br>
+            Убеждаемся, что сервер <strong class="strong">Xorg</strong> не запущен:<br><br>
+            <strong class="p11 blue">/etc/init.d/xdm status</strong><br><br>
+            <a class="special-link12 a link1" href=" https://wiki.gentoo.org/wiki/Xorg/Guide">Устанавливаем <strong class="strong">xorg-server</strong>:</a><br><br>
+            <strong class="p11 blue">emerge --ask x11-base/xorg-server</strong><br><br>
+            Переменные окружения необходимо повторно инициализировать:<br><br>
+            <strong class="p11 blue">env-update</strong><br>
+            <strong class="p11 blue">source /etc/profile</strong><br><br>
+            Запустить <strong class="strong">Nvidia-XConfig</strong> чтобы сгенерировать рабочий файл <strong class="strong">xorg.conf</strong><br><br>
+            <strong class="p11 blue">nvidia-xconfig</strong><br><br>
+            Включаем <strong class="strong">OpenGL</strong><br><br>
+            <strong class="p11 blue">eselect opengl set nvidia</strong><br><br>
+            После завершения установки, запустите <strong class="strong">modprobe nvidia</strong> для загрузки модуля ядра в память:<br><br>
+            <strong class="p11 blue">lsmod | grep nvidia</strong><br>
+            <strong class="p11 blue">rmmod nvidia</strong><br>
+            <strong class="p11 blue">modprobe nvidia</strong><br><br>
+            Попробуем <strong class="strong">StartX</strong> для запуска <strong class="strong">X сервера</strong>:<br><br>
+            <strong class="p11 blue"><strong class="strong">user $</strong> startx</strong>
+         </p>
+         <h2 id="sg18" class="music1"><a class="send-link special-link13 a" href="https://wiki.gentoo.org/wiki/KDE/Plasma_5_upgrade">Установка Plasma 5
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1">Необходимый профиль:
+            <a class="special-link14 a link1" href="Gentoo.html#Pr">default/linux/amd64/17.1/desktop/plasma (stable) *</a> был установлен ранее.<br>
+            Проверяем наличие <a class="special-link15 a link1" href="Gentoo.html#sg6">USE флагов</a> "<strong class="strong">-minimal handbook qt kde plasma</strong>" если они есть, удаляем.<br>
+            Устанавливаем <strong class="strong">Plasma</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask kde-plasma/plasma-meta</strong><br><br>
+            <a id=sddm class="special-link16 a link1" href="https://wiki.gentoo.org/wiki/SDDM">Устанавливаем дисплей менеджер <strong class="strong">Simple Desktop Display Manager (SDDM)</strong></a><br><br>
+            <strong class="p11 blue">emerge --ask x11-misc/sddm</strong><br><br>
+            Добавляем пользователя sddm в группу <strong class="strong">video</strong>:<br><br>
+            <strong class="p11 blue">usermod -a -G video sddm</strong><br><br>
+            Установите <strong class="strong">SDDM</strong> в качестве менеджера дисплея по умолчанию:<br><br> 
+            <strong class="p11 blue">vim /etc/conf.d/xdm</strong><br>
+            <strong class="p11 blue">DISPLAYMANAGER="sddm</strong>"<br>  
+            <strong class="p11 blue">rc-update add xdm default</strong><br><br>
+            Запускаем:<br><br>
+            <strong class="p11 blue">/etc/init.d/xdm start</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl enable sddm.service</strong><br>
+            <strong class="p11 darkgrey">systemctl start sddm.service</strong></strong><br><br>
+            Для графической конфигурации настроек системы, устанавливаем:<br><br>
+            <strong class="p11 blue">emerge --ask kde-plasma/sddm-kcm</strong>
+         </p>
+         <h2 id="sg19" class="music1"><a class="send-link2 special-link18 a" href="https://wiki.gentoo.org/wiki/Systemd/ru">Systemd
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1"><strong class="strong">systemd</strong> — это современная замена системы инициализации<br>
+         <strong class="strong">SysV</strong> - подобных <strong class="strong">init</strong> и <strong class="strong">rc</strong> (<strong class="strong">run command</strong>) для <strong class="strong">Linux</strong>.<br>
+            Быстрая настройка ядра, если используется <strong class="strong">gentoo-sources</strong>:<br><br>
+            <strong class="p11 blue">Gentoo Linux ---></strong><br>
+            <strong class="p11 blue">Support for init systems, system and service managers ---></strong><br>
+            <strong class="p11 blue">[ ] OpenRC, runit and other script based systems and managers</strong><br>
+            <strong class="p11 blue">[*] systemd</strong><br><br>
+            Cоздаём символьную ссылку:<br><br>
+            <strong class="p11 blue">ln -sf /proc/self/mounts /etc/mtab</strong><br><br>
+            Профиль для <strong class="strong">systemd</strong> установливаем в разделе: <a class="special-link19 a link1" href="Gentoo.html#Pr">"Изменяем профили"</a><br>
+            Проверяем <strong class="strong">USE</strong> - флаг, <strong class="strong">systemd</strong>, если его нет, то устанавливаем и отключаем флаги <strong class="strong">-consolekit -elogind</strong>.<br>
+            Обновляем систему с новыми флагами:<br><br>
+            <strong class="p11 blue">emerge -avDN @world</strong><br><br>
+            В случии проблемы с обновлением системы, пробуем решить её удалением <strong class="strong">sys-fs/udev</strong>:<br><br>
+            <strong class="p11 blue">emerge --deselect sys-fs/udev</strong><br><br>
+            Настройка <strong class="strong">GRUB2</strong> для <strong class="strong">systemd</strong>:<br><br>
+            <strong class="p11 blue">vim /etc/default/grub</strong><br>
+            <strong class="p11 blue">GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"</strong><br><br>
+            Если система всё ещё запускается с <strong class="strong">OpenRC</strong>, для <strong class="strong">grub</strong> и <strong class="strong">grub2</strong>, <strong class="strong">init</strong> может быть жёстко сконфигурирована в ядре:<br><br>
+            <strong class="p11 blue">Processor type and features --></strong><br>
+            <strong class="p11 blue">[*] Built-in kernel command line</strong><br><br> 
+            Создаём <strong class="strong">machine ID</strong> работы журналирования:<br><br>
+            <strong class="p11 blue">systemd-machine-id-setup</strong><br><br>
+            Устанавливаем имя хоста:<br><br>
+            <strong class="p11 blue">hostnamectl set-hostname &lt;HOSTNAME></strong><br><br>
+            Устанавливаем дату и время.<br>
+            Чтобы понять, как использовать <strong class="strong">timedatectl</strong>, запускаем:<br><br>
+            <strong class="p11 blue">timedatectl --help</strong><br><br>
+            Просмотреть список часовых поясов можно при помощи команды:<br><br>
+            <strong class="p11 blue">timedatectl list-timezones</strong><br><br>
+            Осуществляем установку нужного часового пояса:<br><br>
+            <strong class="p11 blue">timedatectl set-timezone &lt;часовой пояс></strong><br><br>
+            Проверяем установленные параметры:<br><br>
+            <strong class="p11 blue">timedatectl status</strong><br><br>
+            Файлы юнитов загружаются из двух мест:<br>
+            <strong class="strong">/lib/systemd/system</strong> - юниты, предоставляемые пакетами при установке. Их лучьше не трогать.<br>
+            <strong class="strong">/etc/systemd/system/</strong> - юниты, устанавливаемые системным администратором.<br>
+            Юниты установленые системным администратором  по приоритету выше предоставляемых пакетами.<br>
+            Перезагрузить <strong class="strong">systemd</strong> для поиска новых или измененных юнитов:<br><br>
+            <strong class="p11 blue">systemctl daemon-reload</strong><br><br>
+            Включаем юнит в автозагрузку:<br><br>
+            <strong class="p11 blue">systemctl enable юнит</strong><br><br>
+            Проверить, включен ли юнит в автозапуск:<br><br>
+            <strong class="p11 blue">systemctl is-enabled юнит</strong><br><br>
+            Убрать юнит из автозапуска при загрузке системы:<br><br>
+            <strong class="p11 blue">systemctl disable юнит</strong><br><br>
+            Показать состояние системы:<br><br>
+            <strong class="p11 blue">systemctl status</strong><br><br>
+            Список запущенных юнитов:<br><br>
+            <strong class="p11 blue">systemctl</strong> или<br>
+            <strong class="p11 blue">systemctl list-units</strong><br><br>
+            Список юнитов, запуск которых не удался:<br><br>
+            <strong class="p11 blue">systemctl --failed</strong><br><br>
+            Список установленных файлов юнитов:<br><br>
+            <strong class="p11 blue">systemctl list-unit-files</strong><br><br>
+            Если установлен демон <strong class="strong">syslog-ng</strong>, в файле <strong class="strong">/etc/syslog-ng/syslog-ng.conf</strong> необходимо изменить на следующее:<br><br>
+            <strong class="p11 blue">source src { systemd-journal(); internal(); };</strong><br><br>
+            Для чтения логов используется команда:<br><br>
+            <strong class="p11 blue">journalctl</strong><br><br>
+            По умолчанию <strong class="strong">journalctl</strong> отсекает части строк, которые не вписываются в экран по ширине, и, в некоторых случаях, возможно, будет лучше использовать специальную программу-обертку. Управление этой возможностью производится посредством переменной окружения <strong class="strong">SYSTEMD_LESS</strong>, в которой содержатся опции, передаваемые в <strong class="strong">less</strong>. Например:<br><br>
+            <strong class="p11 blue">SYSTEMD_LESS=FRXMK journalctl</strong><br><br>
+            Отслеживания логов в реальном времени, предварительно также выводит последние 10 сообщений:<br><br>
+            <strong class="p11 blue">journalctl -f</strong><br><br>
+            Вывод всех сообщений с момента одной из последних загрузок:<br><br>
+            <strong class="p11 blue">journalctl -b</strong> # последняя загрузка<br>
+            <strong class="p11 blue">journalctl -b -1</strong> # предыдущая загрузка<br>
+            <strong class="p11 blue">journalctl -b -N</strong> # <strong class="strong">N</strong>-я загрузка считая от последней<br><br>
+            Просмотр информации о недавних событиях в системе:<br><br>
+            <strong class="p11 blue">journalctl -n</strong><br><br>
+            По умолчанию на консоль выводится информация о последних 10 событиях. Можно указать необходимое число событий, например:<br><br>
+            <strong class="p11 blue">journalctl -n 20</strong><br><br>
+            Во время диагностики и исправления неполадок в системе требуется просмотреть логи и выяснить, есть ли в них сообщения о критических ошибках. Для этого в <strong class="strong">journalctl</strong> предусмотрена возможность фильтрации по уровню ошибки. Просмотреть сообщения обо всех ошибках, имевших место в системе, можно с помощью опции <strong class="strong">-p</strong>:<br><br>
+            <strong class="p11 blue">journalctl -p err -b</strong><br><br>
+            Приведённая команда покажет все сообщения об ошибках, имевших место в системе.<br>
+            Эти сообщения можно фильтровать по уровню.<br><br>
+            <strong class="p11 blue">0 — EMERG</strong> (система неработоспособна);<br>
+            <strong class="p11 blue">1 — ALERT</strong> (требуется немедленное вмешательство);<br>
+            <strong class="p11 blue">2 — CRIT</strong> (критическое состояние);<br>
+            <strong class="p11 blue">3 — ERR</strong> (ошибка);<br>
+            <strong class="p11 blue">4 — WARNING</strong> (предупреждение);<br>
+            <strong class="p11 blue">5 — NOTICE</strong> (всё нормально, но следует обратить внимание);<br>
+            <strong class="p11 blue">6 — INFO</strong> (информационное сообщение);<br>
+            <strong class="p11 blue">7 —DEBUG</strong> (отложенная печать).<br><br>
+            Коды уровней ошибок указываются после опции <strong class="strong">-p</strong>.<br>
+            По умолчанию <strong class="strong">journalctl</strong> использует для вывода сообщений логов внешнюю утилиту <strong class="strong">less</strong>. В этом случае к ним невозможно применять стандартные утилиты для обработки текстовых данных (например, <strong class="strong">grep</strong>). Для решения этой проблемы достаточно воспользоваться опцией <strong class="strong">−−no-pager</strong>, и все сообщения будут записываться в стандартный вывод:<br><br>
+            <strong class="p11 blue">journalctl --no-pager</strong><br><br>
+            После этого их можно будет передать другим утилитам для дальнейшей обработки или сохранить в текстовом файле.<br>
+            Узнать объём имеющихся на текущий момент логов:<br><br>
+            <strong class="p11 blue">journalctl --disk-usage</strong><br><br>
+            Настройки ротации логов можно прописать в конфигурационном файле <strong class="strong">/еtc/systemd/journald.conf</strong>, который включает в числе прочих следующие параметры:<br><br>
+            <strong class="p11 blue">SystemMaxUse=</strong> максимальный объём, который логи могут занимать на диске;<br>
+            <strong class="p11 blue">SystemKeepFree=</strong> объём свободного места, которое должно оставаться на диске после сохранения логов;<br>
+            <strong class="p11 blue">SystemMaxFileSize=</strong> объём файла лога, по достижении которого он должен быть удален с диска;<br>
+            <strong class="p11 blue">RuntimeMaxUse=</strong> максимальный объём, который логи могут занимать в файловой системе <strong class="strong">/run</strong>;<br>
+            <strong class="p11 blue">RuntimeKeepFree=</strong> объём свободного места, которое должно оставаться в файловой системе <strong class="strong">/run</strong> после сохранения логов;<br>
+            <strong class="p11 blue">RuntimeMaxFileSize=</strong> объём файла лога, по достижении которого он должен быть удален из файловой системы <strong class="strong">/run</strong>.<br>
+            <strong class="p11 blue">ForwardToSyslog=no</strong> (<strong class="strong">yes</strong>) писать логи в <strong class="strong">syslog</strong> 
+         </p>
+         <h2 id="sg20" class="music1"><a class="send-link special-link20 a" href="https://wiki.gentoo.org/wiki/GNOME/Guide/ru">Установка рабочего стола Gnome с systemd
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1">Предварительно устанавливаем и настраиваем <a class="special-link21 a link1" href="#sg17">systemd</a>.<br> 
+            Профиль <a class="special-link22 a link1" href="Gentoo.html#Pr">default/linux/amd64/17.1/desktop/gnome/systemd (stable) *</a>
+            для <strong class="strong">Gnome systemd</strong> был установлен ранее.<br>
+            <a class="special-link23 a link1" href="Gentoo.html#sg6">Необходимые переменные</a>:<br>
+            <strong class="strong">"VIDEO_CARDS="intel"</strong> (для видеокарты "<strong class="strong">intel</strong>")<br>
+            <strong class="strong">INPUT_DEVICES="evdev <strong class="darkgrey">synaptics</strong>"<br>
+            MAKEOPTS="-j3"</strong><br>
+            были установлены ранее.<br>
+            Дополнительно устанавливаем <strong class="strong">USE</strong> -флаги: <strong class="strong">gtk</strong> и <strong class="strong">gnome</strong>.
+         </p>
+         <h2 id="sg21" class="music1"><a class="send-link2 special-link24 a" href="https://wiki.gentoo.org/wiki/Xorg/Guide/ru">Xorg — сервер
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+           <p>Настраиваем конфигурацию ядра:<br><br>
+              Включение поддержки <strong class="strong">evdev</strong> в ядре<br>
+              <strong class="p11 blue">Device Drivers ---></strong><br>
+              <strong class="p11 blue">Input device support ---></strong><br>
+              <strong class="p11 blue">&lt;*>  Event interface</strong><br><br>
+              Отключение поддержки старого кадрового буффера и включение вместо него поддержки основного кадрового буфера для консоли<br>
+              <strong class="p11 blue">Device Drivers ---></strong><br>
+              <strong class="p11 blue">Graphics support ---></strong><br>
+              <strong class="p11 blue">Frame Buffer Devices ---></strong><br>
+              <strong class="p11 blue">&lt;*> Support for frame buffer devices ---></strong><br>
+              Отключаем все драйвера, включая <strong class="strong">VGA</strong>, <strong class="strong">Intel</strong>, <strong class="strong">nVidia</strong> и <strong class="strong">ATI</strong>, оставляем поддержку кадрового буфера <strong class="strong">EFI</strong>, только если используем <strong class="strong">UEFI</strong>.<br>
+              Включаем кадровый буфер для консоли. Его использует <strong class="strong">KMS</strong><br>
+              <strong class="p11 blue">Console display driver support ---></strong><br>
+              <strong class="p11 blue">&lt;*>  Framebuffer Console Support</strong><br><br>
+              Если настройки не работают при установке пакета <strong class="strong">x11-base/xorg-drivers</strong>, проверяем все доступные варианты и выбераем те, которые применимы к системе.<br><br> 
+              <strong class="p11 blue">emerge --ask --verbose x11-base/xorg-drivers</strong><br><br>
+              Устанавливаем <strong class="strong">Xorg</strong>:<br><br>
+              <strong class="p11 blue">emerge --ask x11-base/xorg-server</strong><br><br>
+              Необходимо заново инициализировать переменные окружения:<br><br>
+              <strong class="p11 blue">env-update</strong><br>
+              <strong class="p11 blue">source /etc/profile</strong> 
+           </p>
+         <h2 id="sg22">Установка <strong class="strong">Gnome</strong> с <strong class="strong">systemd</strong></h2>
+           <p>Устанавливаем "минимальный" <strong class="strong">Gnome</strong>:<br><br>
+              <strong class="p11 blue">emerge --ask gnome-base/gnome-light</strong><br><br>
+              Обновляем переменное окружение:<br><br>
+              <strong class="p11 blue">env-update && source /etc/profile</strong><br><br>
+              Проверяем, есть ли в системе группа <strong class="strong">plugdev</strong>:<br><br>
+              <strong class="p11 blue">getent group plugdev</strong><br>
+              <strong class="p11 blue">plugdev:x:104:</strong><br><br>
+              Добавляем пользователя в группу:<br><br>
+              <strong class="p11 blue">usermod -a -G plugdev nikolay</strong><br><br>
+              Для запуска <strong class="strong">GDM</strong> во время загрузки:<br><br>
+              <strong class="p11 blue">systemctl enable gdm.service</strong><br><br>
+              Для запуска <strong class="strong">GDM</strong> сразу:<br><br>
+              <strong class="p11 blue">systemctl start gdm.service</strong>
+           </p>
+           <div class="kartinka5"><a class="a steps cursorG1" href="Gentoo2.html#sg8"><img src="Gentoo/steps.png" alt="gentoo plasma"></a><a class="a steps cursorG" href="Gentoo4.html#sg22"><img src="Gentoo/steps1.png" alt="gentoo plasma"></a></div>
+         </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div> 
+    </section>
+    <section class="section2 sandbox"><canvas id="canvas-radial"></canvas>
+       <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Если каждый месяц откладывать понемногу, то уже через год вы будете удивлены, как мало у вас набралось." Эрнест Хаскинс'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="plasma linux"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="x сервер"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="x сервер"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="kde plasma"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="gentoo plasma"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="plasma linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="systemd"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="gnome"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="x сервер"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="plasma linux"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                   <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                 <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="gentoo plasma"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

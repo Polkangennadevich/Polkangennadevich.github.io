@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка LFS</title>
+     <meta name="description" content="Установка основного системного программного обеспечения Linux From Scratch.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="Управление пакетами,Создание каталогов,Заголовочные файлы">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Никогда не спорь с человеком, который укладывает твой парашют.</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="hvr-curl"><a><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="Создание каталогов"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Телевидение – это НЕ реальная жизнь. В действительности людям обычно приходится ходить на работу, а не сидеть за столиком кафе." Билл Гейтс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs">Linux From Scratch</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs1">2.2. Требования к хост-системе</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs2">Создание новых разделов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs3">Создание файловых систем на разделах</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs4">2.6. Настройка переменной окружения $LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs5">2.7. Монтирование нового раздела</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs6">3. Пакеты и патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs7">3.2. Все пакеты</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs8">3.3. Необходимые патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs9">4.2. Создание директории $LFS/tools</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs10">4.3. Добавление пользователя LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs11">4.4. Установка рабочего окружения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs12">5.3. Общие инструкции по компиляции</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs13">5.4. Binutils-2.31.1 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs14">5.5. GCC-8.1.0 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs15">5.6. Заголовочные файлы Linux-4.17.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs16">5.7. Glibc-2.27</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs17">5.8. Libstdc++ из пакета GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs18">5.9. Binutils-2.31.1 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs19">5.10. GCC-8.2.0 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs20">5.11. Tcl-8.6.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs21">5.12. Expect-5.45.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs22">5.13. DejaGNU-1.6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs23">5.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs24">5.15. Ncurses-6.1</a></li>   
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs25">5.16. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs26">5.17. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs27">5.18. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs28">5.19. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs29">5.20. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs30">5.21. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs31">5.22. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs32">5.23. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs33">5.24. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs34">5.25. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs35">5.26. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs36">5.27. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs37">5.28. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs38">5.29. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs39">5.30. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs40">5.31. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs41">5.32. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs42">5.33. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs43">5.34. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs44">5.35. Удаление ненужных файлов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs45">5.36. Изменение прав</a></li>
+           <li class="p1"><a class="white aS" href="#lfs46">6. Установка основного системного программного обеспечения</a></li>
+           <li class="p1"><a class="white aS" href="#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a></li>
+           <li class="p1"><a class="white aS" href="#lfs48">6.3. Управление пакетами</a></li>
+           <li class="p1"><a class="white aS" href="#lfs49">6.4. Вход в окружение Chroot</a></li>
+           <li class="p1"><a class="white aS" href="#lfs50">6.5. Создание каталогов</a></li>
+           <li class="p1"><a class="white aS" href="#lfs51">6.6. Создание основных файлов и символических ссылок</a></li>
+           <li class="p1"><a class="white aS" href="#lfs52">6.7. Заголовочные файлы API Linux-4.17.11</a></li>
+           <li class="p1"><a class="white aS" href="#lfs53">6.8. Man-pages-4.16</a></li>
+           <li class="p1"><a class="white aS" href="#lfs54">6.9. Glibc-2.28</a></li>
+           <li class="p1"><a class="white aS" href="#lfs55">6.10. Перенастройка временного набора инструментов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs56">6.11. Zlib-1.2.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs57">6.12. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs58">6.13. Readline-7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs59">6.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs60">6.15. Bc-1.07.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs61">6.16. Binutils-2.31.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs62">6.17. GMP-6.1.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs63">6.18. MPFR-4.0.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs64">6.19. MPC-1.1.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs65">6.20. GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs66">6.21. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs67">6.22. Pkg-config-0.29.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs68">6.23. Ncurses-6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs69">6.24. Attr-2.4.48</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs70">6.25. Acl-2.2.53</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs71">6.26. Libcap-2.25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs72">6.27. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs73">6.28. Shadow-4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs74">6.29. Psmisc-23.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs75">6.30. Iana-Etc-2.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs76">6.31. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs77">6.32. Flex-2.6.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs78">6.33. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs79">6.34. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs80">6.35. Libtool-2.4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs81">6.36. GDBM-1.17</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs82">6.37. Gperf-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs83">6.38. Expat-2.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs84">6.39. Inetutils-1.9.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs85">6.40. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs86">6.41. XML::Parser-2.44</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs87">6.42. Intltool-0.51.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs88">6.43. Autoconf-2.69</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs89">6.44. Automake-1.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs90">6.45. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs91">6.46. Kmod-25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs92">6.47. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs93">6.48. Libelf 0.173</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs94">6.49. Libffi-3.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs95">6.50. OpenSSL-1.1.0h</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs96">6.51. Python-3.7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs97">6.52. Ninja-1.8.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs98">6.53. Meson-0.47.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs99">6.54. Procps-ng-3.3.15</li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs100">6.55. E2fsprogs-1.44.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs101">6.56. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs102">6.57. Check-0.12.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs103">6.58. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs104">6.59. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs105">6.60. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs106">6.61. Groff-1.22.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs107">6.62. GRUB-2.02</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs108">6.63. Less-530</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs109">6.64. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs110">6.65. IPRoute2-4.17.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs111">6.66. Kbd-2.0.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs112">6.67. Libpipeline-1.5.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs113">6.68. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs114">6.69. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs115">6.70. Sysklogd-1.5.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs116">6.71. Sysvinit-2.90</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs117">6.72. Eudev-3.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs118">6.73. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs119">6.74. Man-DB-2.8.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs120">6.75. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs121">6.76. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs122">6.77. Vim-8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs123">6.79. Повторная очистка от отладочных символов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs124">6.80. Выполнение очистки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs125">7. Конфигурация системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs126">7.2. LFS-Bootscripts-20180820</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs127">7.3. Обработка устройств и модулей</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs128">7.4. Управление устройствами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs129">7.5. Конфигурация Сети</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs130">7.6. Настройка и использование System V Bootscript</a></li> 
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs131">7.7. Файлы запуска оболочки Bash</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs132">7.8. Создание файла /etc/inputrc</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs133">7.9. Создание файла /etc/shells</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs134">8.2. Создание файла /etc/fstab</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs135">8.3. Linux-4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs136">8.4. Использование GRUB для настройки процесса загрузки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs137">9.3. Перезагрузка системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs138">Приложение C. Зависимости</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs139">Приложение E. Правила конфигурации Udev</a></li>
+           <li class="p1"><a class="blue aS" href="http://rus-linux.net/nlib.php?name=/MyLDP/BOOKS/BLFS-ru/blfs-ru-index.html">Beyond Linux® From Scratch. Version 2011-12-30</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+             <h1 id="lfs46" class="darkblue">6. Установка основного системного программного обеспечения</h1>
+             <p>Не рекомендуется использовать оптимизацию. Она может ускорить работу программы, но при этом могут возникнуть проблемы при компиляции и запуске. Если пакет не удается   скомпилировать с включенной оптимизацией, необходимо её отключить, и выполнить повторную компиляцию. Даже если компиляция пакета была успешной, с включенной оптимизацией, существует риск что компиляция была выполнена неправильно, потому что могут быть сложные взаимодействия между кодом и инструментами сборки. Обращаем внимание, что аргументы <strong class="strong">-march</strong> и <strong class="strong">-mtune</strong> не использованы. Они могут вызвать проблемы с программами набора временных инструментов, таких как <strong class="strong">Binutils</strong>, <strong class="strong">GCC</strong> и <strong class="strong">Glibc</strong>. Потенциальные преимущества при использовании оптимизации компилятора не так высоки по сравнению с рисками.<br>
+                Порядок установки пакетов очень важен. Необходимо строго соблюдать последовательность сборки и установки пакетов, для гарантии того, что устанавливаемый пакет не будет иметь ссылку на каталог <strong class="strong">/tools</strong>. По этой же причине, не следует компилировать пакеты параллельно. Выполняя компиляцию параллельно, можно сэкономить время (особенно на многопроцессорных или многоядерных машинах), но это может привести к тому, что если программа имеет связи с каталогом <strong class="strong">/tools</strong> при выполнении она может перестать работать когда этот каталог будет удалён.<br>
+                Как правило, редакторы <strong class="strong">LFS</strong> препятствуют созданию и установке статических библиотек. Первоначальная цель использования большинства статических библиотек в современных <strong class="strong">Linux</strong> системах устарела. Кроме того, связывание статической библиотеки в программу может быть не самым лучшим решением. Если требуется обновление библиотеки, для устранения проблем безопасности, то все программы, которые используют статическую библиотеку, должны выполнить повторную компоновку (линковку), чтобы изменить ссылку на новую версию библиотеки. Поскольку использование статических библиотек не всегда бывает очевидным, программы (и процедуры, необходимые для выполнения повторной компоновки) могут быть неизвестными.<br>
+                В процедурах будет удалена или закрыта возможность установки большинства статических библиотек. Как правило, такое правило передается аргументом <strong class="strong">--disable-static</strong> в сценарий <strong class="strong">configure</strong>. В некоторых случаях, необходимы альтернативные пути решения. Особенно это относится к пакетам <strong class="strong">glibc</strong> и <strong class="strong">gcc</strong>, где наличие статических библиотек остается неотъемлемым для общего процесса сборки пакетов. 
+             </p>
+             <h2 id="lfs47">6.2. Подготовка виртуальных файловых систем ядра</h2>
+             <p>Различные файловые системы, экспортируемые ядром, используются для связи с ним. Они являются виртуальными, поскольку нет диска, на котором они бы использовались.  Содержимое такие файловых систем располагается в памяти.<br>
+                Создадим структуру каталогов, куда будет выполнено монтирование виртуальных файловых систем.<br><br>
+                <strong class="p11 blue">mkdir -pv $LFS/{dev,proc,sys,run}</strong><br><br>
+                Когда ядро выполняет загрузку системы, ему требуется наличие нескольких устройств, таких как <strong class="strong">console</strong> и <strong class="strong">null</strong>. Эти узлы должны быть созданы на диске, для того, чтобы они были доступны после того, как запустится <strong class="strong">udevd</strong> и дополнительно, когда <strong class="strong">Linux</strong> запустится с <strong class="strong">init=/bin/bash</strong>. Создадим такие устройства:<br><br>
+                <strong class="p11 blue">mknod -m 600 $LFS/dev/console c 5 1<br>
+                <strong class="p11">mknod -m 666 $LFS/dev/null c 1 3</strong></strong><br><br>
+                Рекомендуемый метод заполнения каталога (ссылки на устройства) <strong class="strong">/dev</strong> - примонтировать виртуальную файловую систему (такую, как <strong class="strong">tmpfs</strong>) в каталог <strong class="strong">/dev</strong>, и разрешить устройствам динамически создаваться на этих файловых системах по мере их обнаружения или возможности доступа к ним. Создание устройств обычно выполняется во время процесса загрузки программы <strong class="strong">Udev</strong>. Но поскольку в новой системе ещё отсутствует эта программа, следовательно устройства добавлены не будут. Необходимо вручную связать устройства из каталога <strong class="strong">/dev</strong> хост-системы. Привязка - это особый вид монтирования, который позволяет создавать зеркало каталога в указанной точке монтирования в другом местоположении:<br><br>
+                <strong class="p11 blue">mount -v --bind /dev $LFS/dev</strong><br><br>
+                Теперь, необходимо примонтировать оставшиеся виртуальные файловые системы:<br><br>
+                <strong class="p11 blue">mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620<br>
+                <strong class="p11">mount -vt proc proc $LFS/proc<br>
+                <strong class="p11">mount -vt sysfs sysfs $LFS/sys<br>
+                <strong class="p11">mount -vt tmpfs tmpfs $LFS/run</strong></strong></strong></strong><br><br>
+                Значение параметров монтирования для <strong class="strong">devpts</strong>:<br>
+                <strong class="strong">gid=5</strong> Это гарантирует, что все созданные <strong class="strong">devpts</strong> узлы устройств будут принадлежать группе с идентификатором 5 (<strong class="strong">GID 5</strong>). Этот идентификатор будет использоваться позднее для группы <strong class="strong">tty</strong>. Вместо имени группы, используется идентификатор, потому что в хост-системе, может использоваться иной идентификатор для группы <strong class="strong">tty</strong>.<br>
+                <strong class="strong">mode=0620</strong> Это гарантирует, что все созданные <strong class="strong">devpts</strong> узлы будут иметь режим 0620 (чтение пользователем, запись пользователем, запись группой). Одновременно с вышеуказанной командой такой подход гарантирует что <strong class="strong">devpts</strong> создаст узлы устройств в соответствии с требованиями <strong class="strong">grantpt ()</strong>, имея в виду вспомогательную библиотеку <strong class="strong">Glibc pt_chown</strong> ( по умолчанию не установлена) которая не требуется.<br>
+                В некоторых хост-системах, каталог <strong class="strong">/dev/shm</strong> является символической ссылкой на <strong class="strong">/run/shm</strong>. <strong class="strong">/run tmpfs</strong> был установлен выше, поэтому нужно создать только каталог.<br><br>
+                <strong class="p11 blue">if [ -h $LFS/dev/shm ]; then<br>
+                <strong class="p11">mkdir -pv $LFS/$(readlink $LFS/dev/shm)<br>
+                <strong class="p11">fi</strong></strong></strong>
+             </p>
+             <h2 id="lfs48">6.3. Управление пакетами</h2>
+             <p>Менеджер пакетов позволяет отслеживать установку файлов, делая процесс удаления и обновления пакетов существенно проще. Кроме файлов и библиотек, пакетный менеджер будет управлять установкой файлов конфигурации.<br>
+                Некоторые моменты, которые необходимо учесть при обновлении пакетов до новых версий, особенно если обновление происходит на запущенной системе:<br>
+                Если необходимо обновить пакет <strong class="strong">Glibc</strong> до новой версии безопаснее всего выполнить сборку всей системы <strong class="strong">LFS</strong> заново. Также, можно выполнить пересборку всех пакетов в порядке их зависимостей. Не такой подход не рекомендуется.<br>
+                Если пакет содержащий разделяемую (<strong class="strong">shared</strong>) библиотеку обновлён, и наименование библиотеки изменилось, тогда все пакеты, которые динамически скомпонованы к библиотеке нужно заново компилировать, с указанием на новую версию библиотеки.(нет никакой корреляции между версией пакета и имени библиотеки). Например, пакет <strong class="strong">foo-1.2.3</strong> который установил разделяемую библиотеку с наименованием <strong class="strong">libfoo.so.1</strong>. Допустим, обновили пакет до новой версии - <strong class="strong">foo-1.2.4</strong>, который установил новую версию разделяемой библиотеки <strong class="strong">libfoo.so.2</strong>. В данном случае, все пакеты, динамически слинкованные на библиотеку <strong class="strong">libfoo.so.1</strong> должны быть заново скомпилированы с указанием на новую версию библиотеки <strong class="strong">libfoo.so.2</strong>. Не следует удалять предыдущие версии библиотек до тех пор, пока все пакеты, которые на неё ссылаются не перекомпилированы.<br>
+                Ниже приведены некоторые общие методы управления пакетами. До принятия решения о менеджере пакетов, проведём некоторое исследование различных методов, особенно обращаем внимание на их недостатки:<br>
+                Установка в отдельные каталоги. Это упрощенная техника, для которой не требуются дополнительные программы или пакеты, для управления установкой. Каждый пакет устанавливается в отдельный каталог. Например пакет <strong class="strong">foo-1.1</strong> будет установлен в каталог <strong class="strong">/usr/pkg/foo-1.1</strong> и символическая ссылка будет создана с <strong class="strong">/usr/pkg/foo</strong> на каталог <strong class="strong">/usr/pkg/foo-1.1</strong>. При установке новой версии пакета <strong class="strong">foo-1.2</strong>, он будет установлен в каталог <strong class="strong">/usr/pkg/foo-1.2</strong> а предыдущая символическая ссылка будет заменена символической ссылкой на каталог с новой версией пакета.<br>
+                Переменные окружения, такие как <strong class="strong">PATH</strong>, <strong class="strong">LD_LIBRARY_PATH</strong>, <strong class="strong">MANPATH</strong>, <strong class="strong">INFOPATH</strong> и <strong class="strong">CPPFLAGS</strong> необходимо расширить, включив каталог <strong class="strong">/usr/pkg/foo</strong>. Для большого количества пакетов, такая техника становится неуправляемой.<br>
+                Управление пакетами с использованием символических ссылок. Это вариация предыдущей техники. Каждый пакет устанавливается аналогично, но вместо создания символической ссылки, каждому файлу создаётся символическая ссылка в иерархию каталогов <strong class="strong">/usr</strong>. Это исключает необходимость модификации значений переменных окружения. Такие ссылки могут быть созданы пользователям вручную, для автоматизации создания пакетов, однако, многие менеджеры пакетов были созданы с использованием именной такого метода. Наиболее популярные из них - <strong class="strong">Stow</strong>, <strong class="strong">Epkg</strong>, <strong class="strong">Graft</strong>, и <strong class="strong">Depot</strong>.<br>
+                Установка должна быть подделана, чтобы пакет считал что его установка производится в каталог <strong class="strong">/usr</strong>, однако, на самом деле, он будет установлен в иерархие каталогов <strong class="strong">/usr/pkg</strong>. Установка пакетов таким способом может быть нетривиальной задачей. Например, будет произведена установка пакета <strong class="strong">libfoo-1.1</strong>. Следующие инструкции не позволят установить пакет должным образом:<br><br>
+                <strong class="p11 blue">./configure --prefix=/usr/pkg/libfoo/1.1<br>
+                <strong class="p11">make<br>
+                <strong class="p11">make install</strong></strong></strong><br><br>
+                Установленный таким образом пакет будет работать, но те пакеты, которые имеют от него зависимости, могут не иметь ссылки на <strong class="strong">libfoo</strong> как и следовало ожидать. Если компилируется пакет, который ссылается на <strong class="strong">libfoo</strong>, можно заметить, что он связан с <strong class="strong">/usr/pkg/libfoo/1.1/lib/libfoo.so.1</strong> вместо <strong class="strong">/usr/lib/libfoo.so.1</strong> как и следовало ожидать. Правильный подход заключается в использовании переменной окружения <strong class="strong">DESTDIR</strong> чтобы подделать установку пакета. Такой метод работает следующим образом:<br><br>
+                <strong class="p11 blue">./configure --prefix=/usr<br>
+                <strong class="p11">make<br>
+                <strong class="p11">make DESTDIR=/usr/pkg/libfoo/1.1 install</strong></strong></strong><br><br>
+                Большинство пакетов поддерживают такой способ, но некоторые нет. Для несовместимых пакетов, понадобится вручную выполнить установку пакета, или еще проще устанавливать такие пакеты в каталог <strong class="strong">/opt</strong>.<br>
+                На основе временной метки. Файлу присваивается метка времени, перед установкой пакета. После установки, выполняется команда <strong class="strong">find</strong> с соответствующими параметрами, результат выполнения которой будет представлять из себя журнал со всеми файлами установленных после указанной метки времени. Пакетный менеджер, использующий такой подход имеет журнал установки.<br>
+                Этот метод имеет преимущество - простота, но имеет и несколько недостатков. В процессе установки, файлы, которые были установленны с другими метками времени, которые отличаются от текущего времени, не будут отслеживаться пакетным менеджером. Также, возможно устанавливать один пакет за раз. Журналы ненадежны, если два пакета установлены их двух разных терминалов.<br>
+                Отслеживание сценариев установки. Этот метод заключается в записи команд, выполняемых сценарием установки. Есть два подхода, как использовать данный метод:<br>
+                Переменная окружения <strong class="strong">LD_PRELOAD</strong> может быть указана на предварительно загруженную библиотеку перед установкой. В процессе установки эта библиотека отслеживает пакеты, которые будут установлены присоединяя себя к различным исполняемым файлам, таким как <strong class="strong">cp</strong>, <strong class="strong">install</strong>, <strong class="strong">mv</strong> для отслеживания системных вызовов, которые вносят изменения в файловую систему. Для работоспособности этого метода, все исполняемые файлы должны быть динамически связаны без использования битов <strong class="strong">suid</strong> или <strong class="strong">sgid</strong>. Предзагрузка библиотеки может вызвать нежелательные побочные эффекты в процессе установки. Поэтому, рекомендуется выполнить тесты, для того, чтобы гарантировать, что пакетный менеджер не испортил что-либо и отследил все необходимые файлы.<br>
+                Второй подход заключается в использовании программы <strong class="strong">strace</strong>, которая регистрирует все системные вызовы, во время выполнения сценариев установки.<br>
+                Создание архивов для пакетов. При этой схеме, установка будет подменена в отдельное дерево каталогов, как описано в разделе Управление пакетами с использованием символических ссылок. После установки, архив с пакетом создается используя установленные файлы. Этот архив теперь будет использоваться для установки пакета либо на локальном компьютере, либо может использоваться на других машинах.<br>
+                Этот подход используется большинством пакетных менеджеров в коммерческих дистрибутивах. Примеры пакетных менеджеров которые следуют этому подходу - <strong class="strong">RPM</strong> (который, кстати, требуется в базовой спецификации <strong class="strong">Linux Standard Base Specification</strong> (<strong class="strong">LSB</strong>), <strong class="strong">pkg-utils</strong>,  <strong class="strong">apt</strong> дистрибутива <strong class="strong">Debian</strong> и система портов <strong class="strong">Gentoo</strong>. Подсказка, описывающая, как принять этот стиль управления пакетами для систем <strong class="strong">LFS</strong>, находится <a class="special-link a link1" href="https://linuxfromscratch.org.ru/hints/downloads/files/fakeroot.txt">здесь</a>.<br>
+                Дистрибутив <strong class="strong">Slackware</strong> использует основанную на <strong class="strong">tar</strong> систему для архивации пакетов. Эта система намеренно не обрабатывает зависимости пакетов как это делают более сложные менеджеры пакетов. Подробнее об управлении пакетов в <strong class="strong">Slackware</strong> <a class="special-link1 a link1" href="http://www.slackbook.org/html/package-management.html">см. здесь</a>.<br>
+                Пользовательское управление пакетами.
+                Эта схема является уникальной для <strong class="strong">LFS</strong> была разработана Матиасом Бенкманом, и описание доступно по ссылке <strong class="strong">Hints Project</strong>. Суть схемы в том, что каждый пакет, будет установлен как отдельный пользователь в стандартном местоположении. Файлы, принадлежащие пакету легко идентифицируются, путём определения пользовательского идентификатора. Особенности и недостатки этого подхода слишком сложны для описания в этом разделе. Подробнее <a class="special-link2 a link1" href="https://linuxfromscratch.org.ru/hints/downloads/files/more_control_and_pkg_man.txt">см. здесь</a>.<br>
+                Одно из преимуществ системы <strong class="strong">LFS</strong> является то, что нет файлов, у которых есть строгая привязка к местоположению на диске. Можно запаковать корневой раздел (около 250MB в несжатом виде для базовой сборки <strong class="strong">LFS</strong>), например программой <strong class="strong">tar</strong>, скопировать по сети или записать на компакт-диск. А затем выполнить распаковку в требуемое место, и выполнить конфигурацию некоторых файлов, для правильного функционирования системы. Файлы, которые потерубется изменить включают в себя: <strong class="strong">/etc/hosts</strong>, <strong class="strong">/etc/fstab</strong>, <strong class="strong">/etc/passwd</strong>, <strong class="strong">/etc/group</strong>,<strong class="strong"> /etc/shadow</strong>, <strong class="strong">/etc/ld.so.conf</strong>, <strong class="strong">/etc/sysconfig/rc.site</strong>, <strong class="strong">/etc/sysconfig/network</strong>, и <strong class="strong">/etc/sysconfig/ifconfig.eth0</strong>.<br>
+                Может потребоваться дополнительная модификация ядра, в зависимости от разницы в аппаратной составляющей.<br>
+                Могут возникнуть проблемы при копировании между аналогичными, но не идентичными архитектурами. Например, набор инструкций системы <strong class="strong">Intel</strong> не идентичен <strong class="strong">AMD</strong>, и версии некоторых процессоров могут иметь инструкции, которые недоступны в более ранних версиях.
+             </p>
+             <h2 id="lfs49">6.4. Вход в окружение <strong class="strong">Chroot</strong></h2>
+             <p>Как пользователь <b class="p3">root</b> выполним следующую команду, для входа, с использованием созданного ранее набора временных инструментов, находящихся во временном каталоге <strong class="strong">tools</strong>:<br><br>
+                <strong class="p11 blue">chroot "$LFS" /tools/bin/env -i \<br>
+                <strong class="p11">HOME=/root \<br>
+                <strong class="p11">TERM="$TERM" \<br>
+                <strong class="p11">PS1='(lfs chroot) \u:\w\$ ' \<br>
+                <strong class="p11">PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \<br>
+                <strong class="p11">/tools/bin/bash --login +h</strong></strong></strong></strong></strong></strong><br><br>
+                Аргумент <strong class="strong">-i</strong> передаёт команде <strong class="strong">env</strong> значение, которое указывает полностью очистить все переменные окружения в окружении <strong class="strong">chroot</strong>. После чего, только переменные окружения <strong class="strong">HOME</strong>, <strong class="strong">TERM</strong>, <strong class="strong">PS1</strong> и <strong class="strong">PATH</strong> будут указаны заново. Параметр <strong class="strong">TERM=$TERM</strong> устанавливает значение переменной окружения за пределами <strong class="strong">chroot</strong> окружения. Эта переменная необходима таким программам как <strong class="strong">vim</strong> и <strong class="strong">less</strong> для корректной работы. Если необходимы другие переменные окружения, такие как <strong class="strong">CFLAGS</strong> или <strong class="strong">CXXFLAGS</strong>, это как раз то место, где их можно указать.<br>
+                Теперь нет необходимости использовать переменную окружения <strong class="strong">LFS</strong>, потому что вся работа будет ограничена файловой системой <strong class="strong">LFS</strong>. Так происходит, потому что оболочке <strong class="strong">Bash</strong> ранее сообщался в значении переменной <strong class="strong">$LFS</strong> путь до корня файловой системы, но на данный момент, она является корневым каталогом (<strong class="strong">/</strong>).<br>
+                Необходимо обратить внимание что в переменной окружения <strong class="strong">PATH</strong> путь <strong class="strong">/tools/bin</strong> записан в последнюю очередь. Это означает, что временный инструмент не будет более использоваться после установки его окончательной версии. Это происходит, когда оболочка не «запоминает» пути к исполняемым бинарным файлам — по этой причине, хэширование выключено, указанием параметра <strong class="strong">+h</strong> к программе <strong class="strong">bash</strong>.<br>
+                Когда оболочка запустится, <strong class="strong">bash</strong> выдаст приглашение командной строки вида "<strong class="strong">I have no name!</strong>". Это нормально, потому что файл <strong class="strong">/etc/passwd</strong> ещё не создан.<br>
+                Если был сделан выход из среды chroot по каким-либо причинам (перезагрузка, например), необходимо убедиться в том, что виртуальные файловые системы были заново примонтированы, как рассказано в "<a class="special-link3 a link1" href="#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a>". Далее входим в окружение <strong class="strong">chroot</strong> снова, чтобы продолжить установку.
+             </p>
+             <h2 id="lfs50">6.5. Создание каталогов</h2>
+             <p>Создадим стандартное дерево каталогов:<br><br>
+                <strong class="p11 blue">mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib/firmware,mnt,opt}<br>
+                <strong class="p11">mkdir -pv /{media/{floppy,cdrom},sbin,srv,var}<br>
+                <strong class="p11">install -dv -m 0750 /root<br>
+                <strong class="p11">install -dv -m 1777 /tmp /var/tmp<br>
+                <strong class="p11">mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}<br>
+                <strong class="p11">mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}<br>
+                <strong class="p11">mkdir -v  /usr/{,local/}share/{misc,terminfo,zoneinfo}<br>
+                <strong class="p11">mkdir -v  /usr/libexec<br>
+                <strong class="p11">mkdir -pv /usr/{,local/}share/man/man{1..8}<br>
+                <strong class="p11">case $(uname -m) in<br>
+                <strong class="p11">x86_64) mkdir -v /lib64 ;;<br>
+                <strong class="p11">esac<br>
+                <strong class="p11">mkdir -v /var/{log,mail,spool}<br>
+                <strong class="p11">ln -sv /run /var/run<br>
+                <strong class="p11">ln -sv /run/lock /var/lock<br>
+                <strong class="p11">mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                По умолчанию, созданные каталоги имеют права 755, но это нежелательно для всех каталогов. В командах приведенных выше, сделаны два изменения. Первое для каталога пользователя root, и второе для каталогов временных файлов.<br>
+                Первое изменение гарантирует, что не каждый может войти в каталог <strong class="strong">/root</strong> так же, как обычный пользователь будет работать со своим домашним каталогом. Следующее изменение гарантирует что любой пользователь может записывать в дерево каталогов <strong class="strong">/tmp</strong>, но не может удалять файлы других пользователей. Последнее запрещено так называемым «<strong class="strong">sticky bit</strong>» - старший бит (1) в бит-маске 1777.
+                Дерево каталогов основано на стандарте иерархий файловой системы (<strong class="strong">Filesystem Hierarchy Standard</strong>,<strong class="strong">FHS</strong>).
+             </p>
+             <h2 id="lfs51">6.6. Создание основных файлов и символических ссылок</h2>
+             <p>Некоторые программы используют жестко зашитые пути к другим программам, которые еще не установлены. Чтобы скорректировать этот недостаток, требуется создать ряд символических ссылок, которые будут заменены реальными файлами на протяжении установки программ.<br><br>
+                <strong class="p11 blue">ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin<br>
+                <strong class="p11">ln -sv /tools/bin/{env,install,perl} /usr/bin<br>
+                <strong class="p11">ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib<br>
+                <strong class="p11">ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib<br>
+                <strong class="p11">for lib in blkid lzma mount uuid<br>
+                <strong class="p11">do<br>
+                <strong class="p11">ln -sv /tools/lib/lib$lib.so* /usr/lib<br>
+                <strong class="p11">done<br>
+                <strong class="p11">ln -svf /tools/include/blkid /usr/include<br>
+                <strong class="p11">ln -svf /tools/include/libmount /usr/include<br>
+                <strong class="p11">ln -svf /tools/include/uuid /usr/include<br>
+                <strong class="p11">install -vdm755 /usr/lib/pkgconfig<br>
+                <strong class="p11">for pc in blkid mount uuid<br>
+                <strong class="p11">do<br>
+                <strong class="p11">sed 's@tools@usr@g' /tools/lib/pkgconfig/${pc}.pc \<br>
+                <strong class="p11">> /usr/lib/pkgconfig/${pc}.pc<br>
+                <strong class="p11">done<br>
+                <strong class="p11">ln -sv bash /bin/sh</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Описание ссылок<br>
+                <strong class="strong">/bin/bash</strong> Большинство <strong class="strong">bash</strong> сценариев указывают на <strong class="strong">/bin/bash</strong>.<br>
+                <strong class="strong">/bin/cat</strong> Этот путь жестко закодирован в сценарии конфигурирования <strong class="strong">Glibc</strong>.<br>
+                <strong class="strong">/bin/dd</strong> Путь к <strong class="strong">dd</strong> будет жестко закодирован в утилите <strong class="strong">/usr/bin/libtool</strong>.<br>
+                <strong class="strong">/bin/echo</strong> Используется для тестирования <strong class="strong">Glibc</strong>. Наборам тестов требуется <strong class="strong">/bin/echo</strong>.<br>
+                <strong class="strong">/usr/bin/install</strong> Путь к <strong class="strong">install</strong> будет жестко закодирован в файле <strong class="strong">/usr/lib/bash/Makefile.inc</strong>.<br>
+                <strong class="strong">/bin/ln</strong>  Путь к <strong class="strong">ln</strong> будет жестко закодирован в файле <strong class="strong">/usr/lib/perl5/5.28.0/&lt;target-triplet>/Config_heavy.pl</strong>.<br>
+                <strong class="strong">/bin/pwd</strong> Некоторые <strong class="strong">configure</strong> сценарии, в частности <strong class="strong">Glibc's</strong>, имеют жестко закодированный путь.<br>
+                <strong class="strong">/bin/rm</strong> Путь к <strong class="strong">rm</strong> будет жестко закодирован в файле <strong class="strong">/usr/lib/perl5/5.28.0/&lt;target-triplet>/Config_heavy.pl</strong>.<br>
+                <strong class="strong">/bin/stty</strong> Этот путь жестко закодирован в программе <strong class="strong">Expect</strong>, кроме того он необходим для выполнения набора тестов такими пакетами как <strong class="strong">Binutils</strong> и <strong class="strong">GCC</strong>.<br>
+                <strong class="strong">/usr/bin/perl</strong> Большинство <strong class="strong">Perl</strong> сценариев имеют жестко закодированный путь к программе <strong class="strong">perl</strong>.<br>
+                <strong class="strong">/usr/lib/libgcc_s.so{,.1}</strong> Эти cссылки требует <strong class="strong">Glib</strong> для правильной работы библиотеки <strong class="strong">pthreads</strong>.<br>
+                <strong class="strong">/usr/lib/libstdc++{,.6}</strong> Эти ссылки необходимы для некоторых тестов в <strong class="strong">Glibc</strong>, а также для поддержки <strong class="strong">C ++</strong> в <strong class="strong">GMP</strong>.<br>
+                <strong class="strong">/usr/lib/lib{blkid,lzma,mount,uuid}.{a,la,so*}</strong> Эти ссылки не позволяют утилитам <strong class="strong">systemd</strong> иметь ссылки на каталог <strong class="strong">/tools</strong>.<br>
+                <strong class="strong">/bin/sh</strong> Многие сценарии оболочки имеют жестко закодированный путь к <strong class="strong">/bin/sh</strong>.<br>
+                Исторически, <strong class="strong">Linux</strong> поддерживает список примонтированных файловых систем в файле <strong class="strong">/etc/mtab</strong>. Современные ядра <strong class="strong">Linux</strong> имеют поддержку такого списка внутри себя, и предоставляют его через виртуальный каталог <strong class="strong">/proc</strong>. Для осуществления поддержки тех утилит и программ, которым нужны ссылка на <strong class="strong">/etc/mtab</strong> необходимо создать следующую символическую ссылку:<br><br>
+                <strong class="p11 blue">ln -sv /proc/self/mounts /etc/mtab</strong><br><br>
+                Для осуществления возможности авторизации пользователем <b class="p3">root</b> от имени «<b class="p3">root</b>», должны быть соответствующие записи в в файлах <strong class="strong">/etc/passwd</strong> и <strong class="strong">/etc/group</strong>.<br>
+                Необходимо создать файл <strong class="strong">/etc/passwd</strong>:<br><br>
+                <strong class="p11 blue">cat > /etc/passwd &lt;&lt; "EOF"<br>
+                <strong class="p11">root:x:0:0:root:/root:/bin/bash<br>
+                <strong class="p11">bin:x:1:1:bin:/dev/null:/bin/false<br>
+                <strong class="p11">daemon:x:6:6:Daemon User:/dev/null:/bin/false<br>
+                <strong class="p11">messagebus:x:18:18:D-Bus Message Daemon User:/var/run/dbus:/bin/false<br>
+                <strong class="p11">nobody:x:99:99:Unprivileged User:/dev/null:/bin/false<br>
+                <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong><br><br>
+                Фактический пароль для <b class="p3">root</b> (символ «<strong class="strong">x</strong>» здесь используется только для заполнения) будет указан позднее.<br>
+                Необходимо создать файл <strong class="strong">/etc/group</strong>:<br><br>
+                <strong class="p11 blue">cat > /etc/group &lt;&lt; "EOF"<br>
+                <strong class="p11">root:x:0:<br>
+                <strong class="p11">bin:x:1:daemon<br>
+                <strong class="p11">sys:x:2:<br>
+                <strong class="p11">kmem:x:3:<br>
+                <strong class="p11">tape:x:4:<br>
+                <strong class="p11">tty:x:5:<br>
+                <strong class="p11">daemon:x:6:<br>
+                <strong class="p11">floppy:x:7:<br>
+                <strong class="p11">disk:x:8:<br>
+                <strong class="p11">lp:x:9:<br>
+                <strong class="p11">dialout:x:10:<br>
+                <strong class="p11">audio:x:11:<br>
+                <strong class="p11">video:x:12:<br>
+                <strong class="p11">utmp:x:13:<br>
+                <strong class="p11">usb:x:14:<br>
+                <strong class="p11">cdrom:x:15:<br>
+                <strong class="p11">adm:x:16:<br>
+                <strong class="p11">messagebus:x:18:<br>
+                <strong class="p11">systemd-journal:x:23:<br>
+                <strong class="p11">input:x:24:<br>
+                <strong class="p11">mail:x:34:<br>
+                <strong class="p11">nogroup:x:99:<br>
+                <strong class="p11">users:x:999:<br>
+                <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Созданные группы не являются частью какого-либо стандарта. Эти группы необходимы для конфигурации <strong class="strong">Udev</strong>, и частично общей конвенцией используемой рядом существующих дистрибутивов <strong class="strong">Linux</strong>. Кроме того, некоторые наборы тестов зависят от конкретных пользователей и групп. Специфкация <strong class="strong">LSB</strong> (<a class="special-link4 a link1" href="https://wiki.linuxfoundation.org/lsb/start">The Linux Standard Base</a>) рекомендует, чтобы кроме группы <b class="p3">root</b> с идентификатором группы (<strong class="strong">GID</strong>), равным 0, присутствовала группа <strong class="strong">bin</strong> с <strong class="strong">GID</strong>, равным 1. Все другие имена групп и идентификаторы <strong class="strong">GID</strong> могут свободно выбираться системным администратором, поскольку хорошо написанные программы не зависят от номеров <strong class="strong">GID</strong>, а используют только имя группы.<br>
+                Для того, чтобы убрать приглашение коммандной строки «<strong class="strong">I have no name!</strong>», необходимо запустить новую командную оболочку. Когда был установлен пакет <strong class="strong">Glibc</strong> и файл <strong class="strong">/etc/group</strong> был создан, имя пользователя и группы, теперь будут работать:<br><br>
+                <strong class="p11 blue">exec /tools/bin/bash --login +h</strong><br><br>
+                Аргумент <strong class="strong">+h</strong>. сообщает программе <strong class="strong">bash</strong> не использовать собственный механизм хеширования путей. Без этого аргумента, <strong class="strong">bash</strong> будет запоминать пути к двоичным файлам которые выполнялись. Для того, чтобы использовать новые скомплированные пакеты, по мере их установки, аргумент <strong class="strong">+h</strong> будет использован на всём протяжении.<br>
+                Программы <strong class="strong">login</strong>, <strong class="strong">agetty</strong>, и <strong class="strong">init</strong> (и другие) используют файлы с записями о событиях (<strong class="strong">log</strong> - файлов), например кто и когда авторизовался в системе. Однако, эти программы не смогут записывать файлы, до тех пор, пока их нет. Необходимо создать такие файлы, и назначить им правильные права:<br><br>
+                <strong class="p11 blue">touch /var/log/{btmp,lastlog,faillog,wtmp}<br>
+                <strong class="p11">chgrp -v utmp /var/log/lastlog<br>
+                <strong class="p11">chmod -v 664  /var/log/lastlog<br>
+                <strong class="p11">chmod -v 600  /var/log/btmp</strong></strong></strong></strong><br><br>
+                Файл <strong class="strong">/var/log/wtmp</strong> хранит записи когда каждый пользователь выполняет авторизацию в системе. Файл <strong class="strong">/var/log/faillog</strong> хранит записи о неудачных попытках входа в систему. Очень полезно при проверке угроз в системе безопасности, хакерских атаках, попыток взлома методом перебора. Прочитать содержимое можно с помощью команды <strong class="strong">faillog</strong>. Файл <strong class="strong">/var/log/btmp</strong> хранит записи неудачных попыток входа в систему. Здесь следует искать следы активности взломщиков.<br>
+                Файл <strong class="strong">/run/utmp</strong> хранит записи о тех пользователях, которые на данные момент авторизованы в системе. Он создётся динамически, в процессе выполнения сценариев загрузки.
+             </p>
+             <h2 id="lfs52">6.7. Заголовочные файлы <strong class="strong">API Linux-4.17.11</strong></h2>
+             <p>Заголовочные файлы <strong class="strong">Linux API</strong> (в <strong class="strong">linux-4.17.11.tar.xz</strong>) предоставляют <strong class="strong">API</strong> для использования его библиотекой <strong class="strong">C</strong> (<strong class="strong">Glibc</strong>).
+                Ядро <strong class="strong">Linux</strong> должно предоставить интерфейс <strong class="strong">API</strong> (программный интерфейс приложения, интерфейс прикладного программирования) для использования их системной библиотекой <strong class="strong">Си</strong> (Пакет <strong class="strong">Glibc</strong> в <strong class="strong">LFS</strong>). Это можно сделать путём извлечения необходимых заголовочных файлов которые содержатся в архиве с исходным кодом ядра.<br>
+                Убедимся, что нет устаревших файлов и зависимостей от предыдущих компиляций. Команда, указанная ниже, выполнит более интенсивную очистку дерева исходных текстов. Иногда она является необходимой и можно выполнять эту команду после каждого наложения заплаток.<br><br>
+                <strong class="p11 blue">make mrproper</strong><br><br>
+                Необходимо извлечь видимые пользователем заголовочные файлы ядра из дерева исходного кода. Они будут помещены в промежуточный локальный каталог и скопированы в необходимое место, потому что процесс распаковки удаляет любые существующие файлы в целевом каталоге. Также имеются некоторые скрытые файлы, используемые разработчиками ядра. Такие файлы не требуются в <strong class="strong">LFS</strong> и могут быть удалены из промежуточного каталога.<br><br>
+                <strong class="p11 blue">make INSTALL_HDR_PATH=dest headers_install<br>
+                <strong class="p11">find dest/include \( -name .install -o -name ..install.cmd \) -delete<br>
+                <strong class="p11">cp -rv dest/include/* /usr/include</strong></strong></strong><br><br>
+                Содержимое пакета <strong class="strong">Linux API Headers</strong>.<br>
+                Установленные каталоги:<br>
+                <strong class="strong">/usr/include/asm</strong>, <strong class="strong">/usr/include/asm-generic</strong>, <strong class="strong">/usr/include/drm</strong>, <strong class="strong">/usr/include/linux</strong>, <strong class="strong">/usr/include/misc</strong>, <strong class="strong">/usr/include/mtd</strong>, <strong class="strong">/usr/include/rdma</strong>, <strong class="strong">/usr/include/scsi</strong>, <strong class="strong">/usr/include/sound</strong>, <strong class="strong">/usr/include/video</strong>, и <strong class="strong">/usr/include/xen</strong><br>
+                Краткое описание установленных заголовочных файлов:<br>
+                <strong class="strong">/usr/include/asm/*.h</strong> Заголовочные файлы <strong class="strong">Linux API ASM</strong><br>
+                <strong class="strong">/usr/include/asm-generic/*.h</strong> Заголовочные файлы <strong class="strong">Linux API ASM</strong><br>
+                <strong class="strong">/usr/include/drm/*.h</strong> Заголовочные файлы <strong class="strong">Linux API DRM</strong><br>
+                <strong class="strong">/usr/include/linux/*.h</strong> Заголовочные файлы <strong class="strong">Linux API</strong><br>
+                <strong class="strong">/usr/include/mtd/*.h</strong> Заголовочные файлы <strong class="strong">Linux API MTD</strong><br>
+                <strong class="strong">/usr/include/rdma/*.h</strong> Заголовочные файлы <strong class="strong">Linux API RDMA</strong><br>
+                <strong class="strong">/usr/include/scsi/*.h</strong> Заголовочные файлы <strong class="strong">Linux API SCSI</strong><br>
+                <strong class="strong">/usr/include/sound/*.h</strong> Заголовочные файлы <strong class="strong">Linux API Sound</strong><br>
+                <strong class="strong">/usr/include/video/*.h</strong> Заголовочные файлы <strong class="strong">Linux API Video</strong><br>
+                <strong class="strong">/usr/include/xen/*.h</strong> Заголовочные файлы <strong class="strong">Linux API Xen</strong> 
+             </p>
+             <h2 id="lfs53">6.8. <strong class="strong">Man-pages-4.16</strong></h2>
+             <p>Пакет <strong class="strong">Man-pages</strong> содержит более чем 2200 справочных страниц.<br>
+                Установим пакет <strong class="strong">Man-pages</strong>:<br><br>
+                <strong class="p11 blue">make install</strong>
+             </p>
+             <h2 id="lfs54">6.9. <strong class="strong">Glibc-2.28</strong></h2>
+             <p>Пакет содержит стандартную библиотеку языка <strong class="strong">Си</strong> (<strong class="strong">GNU C Library</strong>). Эта библиотека предоставляет функции для выделения памяти, поиска каталогов, открытия и закрытия файлов, чтения и записи файлов, обработку строк, соответствия шаблонов (<strong class="strong">pattern matching</strong>), арифметические операции, и так далее.<br>
+                Система сборки <strong class="strong">Glibc</strong> самодостаточная и выполнит установку хорошо, даже несмотря на то, что служебные файлы и компоновщик по прежнему указывают на каталог <strong class="strong">/tools</strong>. Перенастроить эти файлы нельзя до установки окончательного варианта пакета <strong class="strong">Glibc</strong>, потому что тесты программы <strong class="strong">autoconf</strong> завершатся с ошибкой и победят цель достижения чистой сборки.<br>
+                Некоторые из программ пакета <strong class="strong">Glibc</strong> используют не совместимые со стандартом <strong class="strong">FHS</strong> каталоги и файлы, например каталог <strong class="strong">/var/db</strong>, предназначенный для хранения данных во время выполнения. Применяем патч (заплатку) чтобы исправить несовместимость со стандартом <strong class="strong">LSB:</strong><br><br>
+                <strong class="p11 blue">patch -Np1 -i ../glibc-2.28-fhs-1.patch</strong><br><br>
+                Для начала создаём символическую ссылку для совместимости и чтобы избежать наличия ссылок на каталог <strong class="strong">/tools</strong> в конечной установке пакета <strong class="strong">glibc</strong>:<br><br>
+                <strong class="p11 blue">ln -sfv /tools/lib/gcc /usr/lib</strong><br><br>
+                Определяем каталог <strong class="strong">GCC include</strong> и создаём символическую ссылку для соблюдения стандартов <strong class="strong">LSB</strong>. Кроме того, для x86_64 создаём символическую ссылку для совместимости и правильной работы динамического загрузчика:<br><br>
+                <strong class="p11 blue">case $(uname -m) in<br>
+                <strong class="p11">i?86) GCC_INCDIR=/usr/lib/gcc/$(uname -m)-pc-linux-gnu/8.2.0/include<br>
+                <strong class="p11">ln -sfv ld-linux.so.2 /lib/ld-lsb.so.3<br>
+                <strong class="p11">;;<br>
+                <strong class="p11">x86_64) GCC_INCDIR=/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/include<br>
+                <strong class="p11">ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64<br>
+                <strong class="p11">ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3<br>
+                <strong class="p11">;;<br>
+                <strong class="p11">esac</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Удаляем файл, который мог быть оставлен после предыдущей попытки сборки:<br><br>
+                <strong class="p11 blue">rm -f /usr/include/limits.h</strong><br><br>
+                В документации к пакету <strong class="strong">Glibc</strong> рекомендуется выполнять компиляцию в отдельном каталоге:<br><br>
+                <strong class="p11 blue">mkdir -v build<br>
+                <strong class="p11">cd build</strong></strong><br><br>
+                Подготовим <strong class="strong">Glibc</strong> к компиляции:<br><br>
+                <strong class="p11 blue">CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \<br>
+                <strong class="p11">../configure --prefix=/usr \<br>
+                <strong class="p11">--disable-werror \<br>
+                <strong class="p11">--enable-kernel=3.2 \<br>
+                <strong class="p11">--enable-stack-protector=strong \<br>
+                <strong class="p11">libc_cv_slibdir=/lib<br>
+                <strong class="p11">unset GCC_INCDIR</strong></strong></strong></strong></strong></strong></strong><br><br>
+                Значение опций, аргументов и параметров конфигурации:
+                <strong class="strong">CC="gcc -isystem $GCC_INCDIR -isystem /usr/include"</strong> Установка пути к <strong class="strong">gcc</strong> и каталога с системными заголовочными файлами для избежания проблем создания недопустимых путей в отладочных символах.<br>
+                <strong class="strong">--disable-werror</strong> Аргумент отключает опцию <strong class="strong">-Werror</strong> передаваемую в <strong class="strong">GCC</strong>. Это необходимо сделать для корректного выполнения набора тестов.<br>
+                <strong class="strong">--enable-stack-protector=strong</strong> Аргумент усиливает безопасность системы, добавляя дополнительный код для проверки на переполнение буфера, например при переполнении буфера в стеке (<strong class="strong">Stack smashing</strong>).<br>
+                <strong class="strong">libc_cv_slibdir=/lib</strong> Аргумент указывает корректную библиотеку для всех архитектур. Нет необходимости использовать <strong class="strong">lib64</strong>.<br>
+                Скомпилируем пакет:<br><br>
+                <strong class="p11 blue">make</strong><br><br>
+                Выполнение наборов тестов пакета <strong class="strong">Glibc</strong> особенно важно. Не пропускаем их выполнение ни при каких обстоятельствах.<br><br>
+                <strong class="p11 blue">make check</strong><br><br>
+                Можно наблюдать некоторые ошибки при тестировании. Выполнение набора тестов <strong class="strong">Glibc</strong> сильно зависит от хост-системы. Ниже приведен список наиболее распространённых проблем, наблюдаемых в некоторых версиях <strong class="strong">LFS</strong>:<br>
+                <strong class="strong">misc/tst-ttyname</strong> завершается с ошибкой в среде chroot <strong class="strong">LFS</strong>.<br>
+                <strong class="strong">inet/tst-idna_name_classify</strong> завершается с ошибкой в среде chroot <strong class="strong">LFS</strong>.<br>
+                <strong class="strong">posix/tst-getaddrinfo4 and posix/tst-getaddrinfo5</strong> на некоторых архитектурах может завершиться с ошибкой.<br>
+                <strong class="strong">nss/tst-nss-files-hosts-multi</strong> может завершиться с ошибкой по неизвестным причинам.<br>
+                Математические тесты иногда не проходят, когда они запускаются на относительно старых процессорах <strong class="strong">Intel</strong> или <strong class="strong">AMD</strong>.<br>
+                Хотя это и безобидное сообщение, но на этапе установки <strong class="strong">Glibc</strong> будет выдавать предупреждение об отсутствии файла <strong class="strong">/etc/ld.so.conf</strong>. Предотвращаем это предупреждение, выполнив команду:<br><br>
+                <strong class="p11 blue">touch /etc/ld.so.conf</strong><br><br>
+                Исправим сгенерированный <strong class="strong">Makefile</strong> чтобы пропустить ненужные проверки на корректность, которые могут завершиться неудачно в среде <strong class="strong">LFS</strong>:<br><br>
+                <strong class="p11 blue">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</strong><br><br>
+                Установим пакет:<br><br>
+                <strong class="p11 blue">make install</strong><br><br>
+                Установим конфигурационный файл и выполним команду <strong class="strong">time directory</strong> для программы <strong class="strong">nscd</strong>:<br><br>
+                <strong class="p11 blue">cp -v ../nscd/nscd.conf /etc/nscd.conf<br>
+                <strong class="p11">mkdir -pv /var/cache/nscd</strong></strong><br><br>
+                Установим локали для обеспечения реакции системы на изменение языков. Ни одна из локалей не требуется, но если некоторые из них не будут установлены, при выполнении тестов в следующих пакетах важные проверки могут быть пропущены.<br>
+                Отдельные локали можно установить с помощью программы <strong class="strong">localedef</strong>. Например, первая команда <strong class="strong">localedef</strong> ниже объединяет определение <strong class="strong">/usr/share/i18n/locales/cs_CZ</strong> без набора символов с помощью определения <strong class="strong">/usr/share/i18n/charmaps/UTF-8.gz charmap</strong> и добавляет результат в <strong class="strong">/usr/lib/locale/locale-archive</strong>.<br><br>
+                <strong class="p11 blue">mkdir -pv /usr/lib/locale<br>
+                <strong class="p11">localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8<br>
+                <strong class="p11">localedef -i de_DE -f ISO-8859-1 de_DE<br>
+                <strong class="p11">localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro<br>
+                <strong class="p11">localedef -i de_DE -f UTF-8 de_DE.UTF-8<br>
+                <strong class="p11">localedef -i en_GB -f UTF-8 en_GB.UTF-8<br>
+                <strong class="p11">localedef -i en_HK -f ISO-8859-1 en_HK<br>
+                <strong class="p11">localedef -i en_PH -f ISO-8859-1 en_PH<br>
+                <strong class="p11">localedef -i en_US -f ISO-8859-1 en_US<br>
+                <strong class="p11">localedef -i en_US -f UTF-8 en_US.UTF-8<br>
+                <strong class="p11">localedef -i es_MX -f ISO-8859-1 es_MX<br>
+                <strong class="p11">localedef -i fa_IR -f UTF-8 fa_IR<br>
+                <strong class="p11">localedef -i fr_FR -f ISO-8859-1 fr_FR<br>
+                <strong class="p11">localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro<br>
+                <strong class="p11">localedef -i fr_FR -f UTF-8 fr_FR.UTF-8<br>
+                <strong class="p11">localedef -i it_IT -f ISO-8859-1 it_IT<br>
+                <strong class="p11">localedef -i it_IT -f UTF-8 it_IT.UTF-8<br>
+                <strong class="p11">localedef -i ja_JP -f EUC-JP ja_JP<br>
+                <strong class="p11">localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R<br>
+                <strong class="p11">localedef -i ru_RU -f UTF-8 ru_RU.UTF-8<br>
+                <strong class="p11">localedef -i tr_TR -f UTF-8 tr_TR.UTF-8<br>
+                <strong class="p11">localedef -i zh_CN -f GB18030 zh_CN.GB18030</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Дополнительно, можно установить локаль необходимой страны, языка и набора символов<br>
+                Вместо всего вышеизложенного, можно выполнить установку всех локалей за раз, представленных в файле <strong class="strong">glibc-2.28/localedata/SUPPORTED</strong> (он содержит все локали, перечисленные выше, и многие другие):<br><br>
+                <strong class="p11 blue">make localedata/install-locales</strong><br><br>
+                Используем команду <strong class="strong">localedef</strong> чтобы создать и установить те локали, которые не представленны в файле <strong class="strong">glibc-2.28/localedata/SUPPORTED</strong> если они необходимы.<br>
+                Файл <strong class="strong">/etc/nsswitch.conf</strong> необходимо создать потому что настройки <strong class="strong">Glibc</strong> по умолчанию не будут правильно работать в сетевой (<strong class="strong">networked</strong>) среде.<br>
+                Создаём новый файл <strong class="strong">/etc/nsswitch.conf</strong>:<br><br>
+                <strong class="p11 blue">cat > /etc/nsswitch.conf &lt;&lt; "EOF"<br>
+                # Begin /etc/nsswitch.conf<br>
+                <strong class="p11">passwd: files<br>
+                <strong class="p11">group: files<br>
+                <strong class="p11">shadow: files<br>
+                <strong class="p11">hosts: files dns<br>
+                <strong class="p11">networks: files<br>
+                <strong class="p11">protocols: files<br>
+                <strong class="p11">services: files<br>
+                <strong class="p11">ethers: files<br>
+                <strong class="p11">rpc: files<br>
+                # End /etc/nsswitch.conf<br>
+                <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Установим и настроим данные о часовых поясах:<br><br>
+                <strong class="p11 blue">tar -xf ../../tzdata2018e.tar.gz<br>
+                <strong class="p11">ZONEINFO=/usr/share/zoneinfo<br>
+                <strong class="p11">mkdir -pv $ZONEINFO/{posix,right}<br>
+                <strong class="p11">for tz in etcetera southamerica northamerica europe africa antarctica \<br>
+                <strong class="p11">asia australasia backward pacificnew systemv; do<br>
+                <strong class="p11">zic -L /dev/null   -d $ZONEINFO       -y "sh yearistype.sh" ${tz}<br>
+                <strong class="p11">zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz}<br>
+                <strong class="p11">zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz}<br>
+                <strong class="p11">done<br>
+                <strong class="p11">cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO<br>
+                <strong class="p11">zic -d $ZONEINFO -p America/New_York<br>
+                <strong class="p11">unset ZONEINFO</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+                Значение <strong class="strong">zic</strong>-команд:<br>
+                <strong class="strong">zic -L /dev/null ...</strong> Создаёт <strong class="strong">POSIX</strong> временные зоны, без каких-либо секунд. Это условие для того, чтобы положить их в <strong class="strong">zoneinfo</strong> и <strong class="strong">zoneinfo/posix</strong>. Необходимо положить <strong class="strong">POSIX</strong> временные зоны в файл <strong class="strong">zoneinfo</strong>, иначе некоторые тесты будут завершаться с ошибками. На встраиваемых системах, где мало дискового пространства и нет необходимости обновлять данные о часовых поясах, можно сохранить около <strong class="strong">1.9 МБ</strong> не используя каталог <strong class="strong">posix</strong> но тогда, некоторые приложения могут работать с ошибками а тесты могут не проходить.<br>
+                <strong class="strong">zic -L leapseconds ...</strong> Создаёт правильные временные зоны, включая секунды. На встраиваемых системах, где мало дискового пространства и нет необходимости обновлять данные о часовых поясах и заботиться о правильном времени, можно сохранить около <strong class="strong">1.9 МБ</strong> не используя каталог опустив каталог <strong class="strong">right</strong>.<br>
+                <strong class="strong">zic ... -p ...</strong> Создаёт файл <strong class="strong">posixrules</strong>. Используем <strong class="strong">New York</strong>, потому что <strong class="strong">POSIX</strong> требует соблюдения правил летнего времени в соответствии с правилами США.<br>
+                Один из способов определить местный часовой пояс - запустить следующие сценарий:<br><br>
+                <strong class="p11 blue">tzselect</strong><br><br>
+                После ответов не вопросы о местоположении, сценарий выдаст наименование временной зоны (например <strong class="strong">America/Edmonton</strong>). Есть и другие часовые пояса, которые указанны в файле: <strong class="strong">/usr/share/zoneinfo</strong>, такие как <strong class="strong">Canada/Eastern</strong> или <strong class="strong">EST5EDT</strong> котрые не распознаются запущеным сценарием, но могут быть использованы.<br>
+                Создаём файл <strong class="strong">/etc/localtime</strong>:<br><br>
+                <strong class="p11 blue">cp -v /usr/share/zoneinfo/&lt;xxx> /etc/localtime</strong><br><br>
+                <strong class="strong">&lt;xxx></strong> наименованием выбранной временной зоны (например, <strong class="strong">Canada/Eastern</strong>).<br>
+                По умолчанию, динамический загрузкчик (<strong class="strong">/lib/ld-linux.so.2</strong>) выполняет поиск динамических библиотек в каталогах <strong class="strong">/lib</strong> и <strong class="strong">/usr/lib</strong> которые необходимы для запущенных программ. Однако, если есть каталоги, в которых содержаться динамические библиотеки, и эти каталоги отличаются от вышеуказанных, их необходимо добавить в файл <strong class="strong">/etc/ld.so.conf</strong> в том порядке, в котором необходимо, чтобы динамический загрузчик выполнял поиск. Есть ещё два известных каталога, где могу содержаться динамические библиотеки: <strong class="strong">/usr/local/lib</strong> и <strong class="strong">/opt/lib</strong>, поэтому, можно добавить эти каталоги в пути поиска библиотек динамического загрузчика.<br>
+                Создаём новый файл <strong class="strong">/etc/ld.so.conf</strong>:<br><br>
+                <strong class="p11 blue">cat > /etc/ld.so.conf &lt;&lt; "EOF"<br>
+                # Begin /etc/ld.so.conf<br>
+                <strong class="p11">/usr/local/lib<br>
+                <strong class="p11">/opt/lib<br>
+                <strong class="p11">EOF</strong></strong></strong></strong><br><br>
+                При желании динамический загрузчик может также выполнять поиск в каталоге включая содержимое найденных там файлов. Обычно файлы в этом каталоге включает одну строку, указывающую нужный путь библиотеки:<br><br>
+                <strong class="p11 blue">cat >> /etc/ld.so.conf &lt;&lt; "EOF"<br>
+                # Add an include directory<br>
+                <strong class="p11">include /etc/ld.so.conf.d/*.conf<br>
+                <strong class="p11">EOF<br>
+                <strong class="p11">mkdir -pv /etc/ld.so.conf.d</strong></strong></strong></strong><br><br>
+                Содержимое пакета <strong class="strong">Glibc</strong>.<br>
+                Установленные каталоги: <strong class="strong">/usr/include/arpa</strong>, <strong class="strong">/usr/include/bits</strong>, <strong class="strong">/usr/include/gnu</strong>, <strong class="strong">/usr/include/net</strong>, <strong class="strong">/usr/include/netash</strong>, <strong class="strong">/usr/include/netatalk</strong>, <strong class="strong">/usr/include/netax25</strong>, <strong class="strong">/usr/include/neteconet</strong>, <strong class="strong">/usr/include/netinet</strong>, <strong class="strong">/usr/include/netipx</strong>, <strong class="strong">/usr/include/netiucv</strong>, <strong class="strong">/usr/include/netpacket</strong>, <strong class="strong">/usr/include/netrom</strong>, <strong class="strong">/usr/include/netrose</strong>, <strong class="strong">/usr/include/nfs</strong>, <strong class="strong">/usr/include/protocols</strong>, <strong class="strong">/usr/include/rpc</strong>, <strong class="strong">/usr/include/rpcsvc</strong>, <strong class="strong">/usr/include/sys</strong>, <strong class="strong">/usr/lib/audit</strong>, <strong class="strong">/usr/lib/gconv</strong>, <strong class="strong">/usr/lib/locale</strong>, <strong class="strong">/usr/libexec/getconf</strong>, <strong class="strong">/usr/share/i18n</strong>, <strong class="strong">/usr/share/zoneinfo</strong>, <strong class="strong">/var/cache/nscd</strong>, и <strong class="strong">/var/lib/nss_db</strong><br>
+                Краткое описание установленных программ и библиотек:<br>
+                <strong class="strong">catchsegv</strong> Может использоваться для создания трассировки стека, когда программа завершается с ошибкой сегментации.<br>
+                <strong class="strong">gencat</strong> Создает каталоги сообщений.<br>
+                <strong class="strong">getconf</strong> Отображает значения конфигурации системы для специфичных переменных файловой системы.<br>
+                <strong class="strong">getent</strong> Получает записи из административной базы данных.<br>
+                <strong class="strong">iconv</strong> Выполняет преобразование набора символов.<br>
+                <strong class="strong">iconvconfig</strong> Создает ускоренную загрузку <strong class="strong">iconv</strong> модулей файлов конфигурации.<br>
+                <strong class="strong">ldconfig</strong> Настраивает привязки динамического компоновщика.<br>
+                <strong class="strong">ldd</strong> помогает определить список разделяемых библиотек (<strong class="strong">shared libraries</strong>), от которых зависит программа.<br>
+                <strong class="strong">lddlibc4</strong> Помогает <strong class="strong">ldd</strong> с объектными файлами.<br>
+                <strong class="strong">locale</strong> Отображает всевозможную информацию о текущей локали.<br>
+                <strong class="strong">localedef</strong> Компилирует спецификации локали.<br>
+                <strong class="strong">makedb</strong> Создает простую базу данных из текстового ввода.<br>
+                <strong class="strong">mtrace</strong> Читает и интерпретирует файл трассировки памяти и отображает сводку в удобочитаемом формате.<br>
+                <strong class="strong">nscd</strong> Служба (демон), которая предоставляет кэш для наиболее общих запросов службы имен.<br>
+                <strong class="strong">pldd</strong> Список динамических общих объектов, используемых запущенными процессами.<br>
+                <strong class="strong">sln</strong> Статически слиокнванные <strong class="strong">ln</strong> программы.<br>
+                <strong class="strong">sotruss</strong> Выполняет трассировку вызовов процедуры разделяемой библиотеки для указанной команды.<br>
+                <strong class="strong">sprof</strong> Считывает и отображает данные профилирования общих объектов.<br>
+                <strong class="strong">tzselect</strong> Выясняет у пользователя его текущее местоположение и выводит описание часового пояса на устройство стандартного вывода.<br>
+                <strong class="strong">xtrace</strong> Трассировка выполняемой программы, и выводит в реальном времени на устройство стандартного вывода выполняемые функции.<br>
+                <strong class="strong">zdump</strong> распечатывает текущее время для каждого часового пояса, указанного в командной строке.<br>
+                <strong class="strong">zic</strong> компилятор часовых поясов.<br>
+                <strong class="strong">ld-2.28.so</strong> Программа выполняет поиск и загружают динамические библиотеки, необходимые программам, а также подготавливают программы к запуску и запускают их.<br>
+                <strong class="strong">libBrokenLocale</strong> Используется внутри <strong class="strong">Glibc</strong> как грубый хак, чтобы обработать запущенную сломанную программу (например некоторые приложения <strong class="strong">Motif</strong>). Изучаем комментарии в файле <strong class="strong">glibc-2.28/locale/broken_cur_max.c</strong> для получения более подробной информации.<br>
+                <strong class="strong">libSegFault</strong> Обработчик сигнала ошибки сегментации, используемый <strong class="strong">catchsegv</strong>.<br>
+                <strong class="strong">libanl</strong> Асинхронная библиотека поиска имен.<br>
+                <strong class="strong">libc</strong> Стандартная библиотека языка <strong class="strong">Си</strong>.<br>
+                <strong class="strong">libcidn</strong> Используется внутри <strong class="strong">Glibc</strong> для обработки интернационализированых доменных имён в функции <strong class="strong">getaddrinfo()</strong>.<br>
+                <strong class="strong">libcrypt</strong> Криптографическая библиотека.<br>
+                <strong class="strong">libdl</strong> Интерфейс библиотеки динамической линковки.<br>
+                <strong class="strong">libg</strong> Заглушка-библиотека, не содержащая функций. Раньше была библиотеки выполнения для <strong class="strong">g++</strong>.<br>
+                <strong class="strong">libieee</strong> Связывание в этом модуле приводит к правилам обработки правил для математических функций определенные Институтом инженеров электротехники и электроники (<strong class="strong">IEEE</strong>). По умолчанию используется обработка ошибок <strong class="strong">POSIX.1</strong>.<br>
+                <strong class="strong">libm</strong> Математическая библиотека.<br>
+                <strong class="strong">libmcheck</strong> Включает проверку распределения памяти при линковке.<br>
+                <strong class="strong">libmemusage</strong> Используется программой memusage чтобы помочь собрать информацию об использовании памяти в программе.<br>
+                <strong class="strong">libnsl</strong> Библиотека сетевых сервисов.<br>
+                <strong class="strong">libnss</strong> Библиотеки коммутаторов имен, содержащие функции для разрешение имен хостов, имен пользователей, имен групп, псевдонимов, служб, протоколов и т.д.<br>
+                <strong class="strong">libpthread POSIX</strong> библиотека потоков.<br>
+                <strong class="strong">libresolv</strong> Содержит функции для создания, отправки и интерпретации пакетов на серверы доменных имен в Интернете.<br>
+                <strong class="strong">librpcsvc</strong> Содержит функции, предоставляющие разные службы <strong class="strong">RPC</strong>.<br>
+                <strong class="strong">librt</strong> Содержит функции, обеспечивающие большую часть указанных интерфейсов в <strong class="strong">POSIX.1b</strong> расширении.<br>
+                <strong class="strong">libthread_db</strong> Содержит функции, полезные для построения отладчиков для многопоточных программ.<br>
+                <strong class="strong">libutil</strong> Содержит кл для «стандартных» функций, используемых в большинстве различных утилит <strong class="strong">Unix</strong>.<br> 
+             </p>
+             <h2 id="lfs55">6.10. Перенастройка временного набора инструментов</h2>
+             <p>Когда все библиотеки <strong class="strong">Си</strong> установлены, необходимо перенастроить используемый сейчас временный набор инструментов, чтобы он выполнял линковку новых скомпилированых программ с установленными библиотеками.<br>
+                Выполним резервное копирование компоновщика <strong class="strong">/tools</strong>, и заменим его настроенным компоновщиком. Также будут созданы ссылки на их копии в каталоге <strong class="strong">/tools/$(uname -m)-pc-linux-gnu/bin</strong>:<br><br>
+                <strong class="p11 blue">mv -v /tools/bin/{ld,ld-old}<br>
+                <strong class="p11">mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}<br>
+                <strong class="p11">mv -v /tools/bin/{ld-new,ld}<br>
+                <strong class="p11">ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</strong></strong></strong></strong><br><br>
+                Необходимо изменить специальные файлы <strong class="strong">GCC</strong> так, чтобы они указывали на новый динамический компоновщик. После удаления всех экземпляров в каталоге «<strong class="strong">/tools</strong>» останутся только правильные пути к динамическому компоновщику. Также необходимо настроить некоторые файлы <strong class="strong">GCC</strong> для правильного поиска заголовочных файлов и файлов запуска <strong class="strong">Glibc</strong>. С помощью команды <strong class="strong">sed</strong> можно выполнить следующую команду:<br><br>
+                <strong class="p11 blue">gcc -dumpspecs | sed -e 's@/tools@@g' \<br>
+                <strong class="p11">-e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \<br>
+                <strong class="p11">-e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' > \<br>
+                <strong class="p11">`dirname $(gcc --print-libgcc-file-name)`/specs</strong></strong></strong></strong><br><br>
+                Выполним проверку сделанных изменений на предмет корректности работы.<br>
+                На этом этапе следует проверить и убедиться в том, что базовые функции (линковка и компиляция) перенастроенного временного набора инструментов работают так, как необходимо:<br><br>
+                <strong class="p11 blue">echo 'int main(){}' > dummy.c<br>
+                <strong class="p11">cc dummy.c -v -Wl,--verbose &> dummy.log<br>
+                <strong class="p11">readelf -l a.out | grep ': /lib'</strong></strong></strong><br><br>
+                В результате выполнения этой команды не должно быть ошибок, и вывод (в зависимости от платформы) должен соответствовать следующей строке:<br><br>
+                <strong class="p11 blue">[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</strong><br><br>
+                Для 64-битной системы каталог <strong class="strong">/lib</strong> это место, где располагается динамический компоновщик, но доступ к нему обеспечен через символическую ссылку <strong class="strong">/lib64</strong>.<br>
+                Для 32-битных систем интерпретатор должен быть <strong class="strong">/lib/ld-linux.so.2</strong>.<br>
+                Убедимся что настройка стартовых файлов запуска выполнена правильно:<br><br>
+                <strong class="p11 blue">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</strong><br><br>
+                Вывод должен соответствовать следующей строке:<br><br>
+                <strong class="p11 blue">/usr/lib/../lib/crt1.o succeeded<br>
+                <strong class="p11">/usr/lib/../lib/crti.o succeeded<br>
+                <strong class="p11">/usr/lib/../lib/crtn.o succeeded</strong></strong></strong><br><br>
+                Проверим, что компилятор выполняет поиск заголовочных файлов в нужных местах:<br><br>
+                <strong class="p11 blue">grep -B1 '^ /usr/include' dummy.log</strong><br><br>
+                Вывод должен соответствовать следующей строке:<br><br>
+                <strong class="blue">#include &lt;...> search starts here:<br>
+                <strong class="p11">/usr/include</strong></strong><br><br>
+                Проверим, что компоновщик использует правильные пути поиска:<br><br>
+                <strong class="p11 blue">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</strong><br><br>
+                Ссылки на пути с наличием у компонента суффикса <strong class="strong">'-linux-gnu'</strong> должны быть проигнорированы, и вывод должен соответствовать следующей строке:<br><br>
+                <strong class="p11 blue">SEARCH_DIR("/usr/lib")<br>
+                <strong class="p11">SEARCH_DIR("/lib")</strong></strong><br><br>
+                Проверим что используется нужная библиотека <strong class="strong">libc</strong>:<br><br>
+                <strong class="p11 blue">grep "/lib.*/libc.so.6 " dummy.log</strong><br><br>
+                Вывод должен соответствовать следующей строке:<br><br>
+                <strong class="p11 blue">attempt to open /lib/libc.so.6 succeeded</strong><br><br>
+                Проверим что <strong class="strong">GCC</strong> использует правильный динамический компоновщик:<br><br>
+                <strong class="p11 blue">grep found dummy.log</strong><br><br>
+                Вывод (в зависимости от платформы в наименовании динамического компоновщика) должен соответствовать следующей строке:<br><br>
+                <strong class="p11 blue">found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</strong><br><br>
+                Если вывод на выполнение команд не выводиться или команды не выполняются вовсе, то это признак того, что в предыдущих инструкциях была допущена серьезная ошибка. Исследуем предыдущие шаги и проверим правильность их выполнения. Постараемся найти ошибку в вводимых командах. Наиболее вероятно, что причина в проблемах - не правильная настройка специальных файлов при перенастройке временного набора инструментов. Все проблемы должны быть найдены и исправлены здесь, до выполнения следующих этапов.<br>
+                Если все работает правильно, выполним очистку тестовых файлов:<br><br>
+                <strong class="p11 blue">rm -v dummy.c a.out dummy.log</strong>
+             </p>
+         <div class="kartinka5"><a class="a steps cursorG1" href="Lfs1.html#lfs"><img src="Gentoo/steps.png" alt=""></a><a class="a steps cursorG" href="Lfs3.html#lfs"><img src="Gentoo/steps1.png" alt=""></a></div>
+       </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:ng.tumanov@mail.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="animated fadeIn full-opacity"  alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/camera.png" class="animated fadeIn full-opacity"  alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Цены на бензин перестали меня беспокоить в тот момент, когда я пересел на бентли." Роберт Дауни'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="Два Доллара"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+               </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="hvr-curl"><a><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="Создание каталогов"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="Создание каталогов"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="Заголовочные файлы"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="Заголовочные файлы"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="Однокласники"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="Мой Мир"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="instagram"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="Help"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->      
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt=""></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

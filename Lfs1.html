@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Сборка временной LFS</title>
+     <meta name="description" content="Сборка временной системы Linux From Scratch.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="Удаление ненужных файлов,Изменение прав">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Денег, которые я заработал, хватит мне до конца жизни, если я умру сегодня.</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="Удаление ненужных файлов"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Чудесно праздновать свой успех, но более важным является умение выносить уроки из своих провалов." Билл Гейтс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs">Linux From Scratch</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs1">2.2. Требования к хост-системе</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs2">Создание новых разделов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs3">Создание файловых систем на разделах</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs4">2.6. Настройка переменной окружения $LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs5">2.7. Монтирование нового раздела</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs6">3. Пакеты и патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs7">3.2. Все пакеты</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs8">3.3. Необходимые патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs9">4.2. Создание директории $LFS/tools</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs10">4.3. Добавление пользователя LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs11">4.4. Установка рабочего окружения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs12">5.3. Общие инструкции по компиляции</a></li>
+           <li class="p1"><a class="white aS" href="#lfs13">5.4. Binutils-2.31.1 - Проход 1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs14">5.5. GCC-8.1.0 - Проход 1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs15">5.6. Заголовочные файлы Linux-4.17.8</a></li>
+           <li class="p1"><a class="white aS" href="#lfs16">5.7. Glibc-2.27</a></li>
+           <li class="p1"><a class="white aS" href="#lfs17">5.8. Libstdc++ из пакета GCC-8.2.0</a></li>
+           <li class="p1"><a class="white aS" href="#lfs18">5.9. Binutils-2.31.1 - Проход 2</a></li>
+           <li class="p1"><a class="white aS" href="#lfs19">5.10. GCC-8.2.0 - Проход 2</a></li>
+           <li class="p1"><a class="white aS" href="#lfs20">5.11. Tcl-8.6.8</a></li>
+           <li class="p1"><a class="white aS" href="#lfs21">5.12. Expect-5.45.4</a></li>
+           <li class="p1"><a class="white aS" href="#lfs22">5.13. DejaGNU-1.6.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs23">5.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="white aS" href="#lfs24">5.15. Ncurses-6.1</a></li>   
+           <li class="p1"><a class="white aS" href="#lfs25">5.16. Bash-4.4.18</a></li>
+           <li class="p1"><a class="white aS" href="#lfs26">5.17. Bison-3.0.5</a></li>
+           <li class="p1"><a class="white aS" href="#lfs27">5.18. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="white aS" href="#lfs28">5.19. Coreutils-8.30</a></li>
+           <li class="p1"><a class="white aS" href="#lfs29">5.20. Diffutils-3.6</a></li>
+           <li class="p1"><a class="white aS" href="#lfs30">5.21. File-5.34</a></li>
+           <li class="p1"><a class="white aS" href="#lfs31">5.22. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="white aS" href="#lfs32">5.23. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs33">5.24. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs34">5.25. Grep-3.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs35">5.26. Gzip-1.9</a></li>
+           <li class="p1"><a class="white aS" href="#lfs36">5.27. Make-4.2.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs37">5.28. Patch-2.7.6</a></li>
+           <li class="p1"><a class="white aS" href="#lfs38">5.29. Perl-5.28.0</a></li>
+           <li class="p1"><a class="white aS" href="#lfs39">5.30. Sed-4.5</a></li>
+           <li class="p1"><a class="white aS" href="#lfs40">5.31. Tar-1.30</a></li>
+           <li class="p1"><a class="white aS" href="#lfs41">5.32. Texinfo-6.5</a></li>
+           <li class="p1"><a class="white aS" href="#lfs42">5.33. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs43">5.34. Xz-5.2.4</a></li>
+           <li class="p1"><a class="white aS" href="#lfs44">5.35. Удаление ненужных файлов</a></li>
+           <li class="p1"><a class="white aS" href="#lfs45">5.36. Изменение прав</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs46">6. Установка основного системного программного обеспечения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs48">6.3. Управление пакетами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs49">6.4. Вход в окружение Chroot</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs50">6.5. Создание каталогов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs51">6.6. Создание основных файлов и символических ссылок</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs52">6.7. Заголовочные файлы API Linux-4.17.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs53">6.8. Man-pages-4.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs54">6.9. Glibc-2.28</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs55">6.10. Перенастройка временного набора инструментов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs56">6.11. Zlib-1.2.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs57">6.12. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs58">6.13. Readline-7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs59">6.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs60">6.15. Bc-1.07.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs61">6.16. Binutils-2.31.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs62">6.17. GMP-6.1.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs63">6.18. MPFR-4.0.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs64">6.19. MPC-1.1.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs65">6.20. GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs66">6.21. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs67">6.22. Pkg-config-0.29.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs68">6.23. Ncurses-6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs69">6.24. Attr-2.4.48</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs70">6.25. Acl-2.2.53</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs71">6.26. Libcap-2.25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs72">6.27. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs73">6.28. Shadow-4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs74">6.29. Psmisc-23.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs75">6.30. Iana-Etc-2.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs76">6.31. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs77">6.32. Flex-2.6.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs78">6.33. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs79">6.34. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs80">6.35. Libtool-2.4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs81">6.36. GDBM-1.17</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs82">6.37. Gperf-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs83">6.38. Expat-2.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs84">6.39. Inetutils-1.9.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs85">6.40. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs86">6.41. XML::Parser-2.44</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs87">6.42. Intltool-0.51.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs88">6.43. Autoconf-2.69</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs89">6.44. Automake-1.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs90">6.45. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs91">6.46. Kmod-25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs92">6.47. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs93">6.48. Libelf 0.173</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs94">6.49. Libffi-3.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs95">6.50. OpenSSL-1.1.0h</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs96">6.51. Python-3.7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs97">6.52. Ninja-1.8.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs98">6.53. Meson-0.47.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs99">6.54. Procps-ng-3.3.15</li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs100">6.55. E2fsprogs-1.44.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs101">6.56. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs102">6.57. Check-0.12.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs103">6.58. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs104">6.59. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs105">6.60. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs106">6.61. Groff-1.22.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs107">6.62. GRUB-2.02</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs108">6.63. Less-530</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs109">6.64. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs110">6.65. IPRoute2-4.17.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs111">6.66. Kbd-2.0.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs112">6.67. Libpipeline-1.5.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs113">6.68. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs114">6.69. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs115">6.70. Sysklogd-1.5.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs116">6.71. Sysvinit-2.90</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs117">6.72. Eudev-3.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs118">6.73. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs119">6.74. Man-DB-2.8.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs120">6.75. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs121">6.76. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs122">6.77. Vim-8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs123">6.79. Повторная очистка от отладочных символов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs124">6.80. Выполнение очистки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs125">7. Конфигурация системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs126">7.2. LFS-Bootscripts-20180820</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs127">7.3. Обработка устройств и модулей</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs128">7.4. Управление устройствами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs129">7.5. Конфигурация Сети</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs130">7.6. Настройка и использование System V Bootscript</a></li> 
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs131">7.7. Файлы запуска оболочки Bash</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs132">7.8. Создание файла /etc/inputrc</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs133">7.9. Создание файла /etc/shells</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs134">8.2. Создание файла /etc/fstab</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs135">8.3. Linux-4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs136">8.4. Использование GRUB для настройки процесса загрузки</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs137">9.3. Перезагрузка системы</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs138">Приложение C. Зависимости</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs4.html#lfs139">Приложение E. Правила конфигурации Udev</a></li>
+           <li class="p1"><a class="blue aS" href="http://rus-linux.net/nlib.php?name=/MyLDP/BOOKS/BLFS-ru/blfs-ru-index.html">Beyond Linux® From Scratch. Version 2011-12-30</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+            <h1 id="lfs13" class="darkblue">5.4. <strong class="strong">Binutils-2.31.1</strong> - Проход 1</h1>
+            <p> Очень важно чтобы пакет <strong class="strong">BinUtils</strong> был скомпилирован первым потому, что пакеты <strong class="strong">Glibc</strong> и <strong class="strong">GCC</strong> в процессе конфигурирования выполняют проверки доступности компоновщика и ассемблера, чтобы определить какие функциональные возможности включить или выключить.<br>
+                В документации пакета <strong class="strong">Binutils</strong> рекомендуется выполнять сборку в отдельном каталоге:<br><br>
+                <strong class="p11 blue">mkdir -v build<br>
+                <strong class="p11">cd build</strong></strong><br><br>
+                Необходимо подготовить пакет <strong class="strong">Binutils</strong> к компиляции:<br><br>
+                <strong class="p11 blue">../configure --prefix=/tools \<br>
+                <strong class="p11">--with-sysroot=$LFS \<br>
+                <strong class="p11">--with-lib-path=/tools/lib \<br>
+                <strong class="p11">--target=$LFS_TGT \<br>
+                <strong class="p11">--disable-nls \<br>
+                <strong class="p11">--disable-werror</strong></strong></strong></strong></strong></strong><br><br>
+                Значение параметров конфигурации:<br>
+                <strong class="strong">--prefix=/tools</strong> Указывает сценарию configure подготовить установку программ пакета <strong class="strong">Binutils</strong> в каталог <strong class="strong">/tools</strong>.<br>
+                <strong class="strong">--with-sysroot=$LFS</strong> Для выполнения кросс-компиляции, значение передается в систему сборки для поиска в каталоге <strong class="strong">$LFS</strong> целевых системных библиотек по мере необходимости.<br>
+                <strong class="strong">--with-lib-path=/tools/lib</strong>  Указывает в каком каталоге должен находится компоновщик.<br>
+                <strong class="strong">--target=$LFS_TGT</strong> Поскольку название машины в значении переменной <strong class="strong">LFS_TGT</strong> может отличаться от значения, которое вернут сценарий <strong class="strong">config.guess</strong>, этот аргумент укажет сценарию configure настроить систему сборки пакета <strong class="strong">Binutils</strong> для создания кросс-линковщика.<br>
+                <strong class="strong">--disable-nls</strong> Отключает интернационализацию, поскольку <strong class="strong">i18n</strong> не требуется во временном наборе инструментов.<br>
+                <strong class="strong">--disable-werror</strong> Это предотвращает остановку сборки в том случае, если появляются предупреждения компилятора хост-системы.<br>
+                Скомпилируем пакет:<br><br>
+                <strong class="p11 blue">make</strong><br><br>
+                Если сборка происходит на 64-разрядной машине, необходимо создать символическую ссылку для нормальной работы временного набора инструментов.<br><br>
+                <strong class="p11 blue">case $(uname -m) in<br>
+                <strong class="p11">x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;<br>
+                <strong class="p11">esac</strong></strong></strong><br><br>
+                Установим пакет:<br><br>
+                <strong class="p11 blue">make install</strong>
+            </p>
+            <h2 id="lfs14">5.5. <strong class="strong">GCC-8.1.0</strong> - Проход 1</h2>
+            <p>Пакет содержит набор компиляторов <strong class="strong">GNU</strong>, для таких языков, как <strong class="strong">Си</strong> и <strong class="strong">Си++</strong>.<br>
+               Пакет <strong class="strong">GCC</strong> требует пакеты <strong class="strong">GMP</strong>, <strong class="strong">MPFR</strong> и <strong class="strong">MPC</strong>. Так как эти пакеты могут не быть установлены в хост-системе, они будут скомпилированы вместе с <strong class="strong">GCC</strong>. Распакуем каждый пакет в каталог с исходным кодом пакета <strong class="strong">GCC</strong> и переименуем их чтобы эти пакеты использовались в процессе сборки <strong class="strong">GCC</strong> и были скомпилированы автоматически.<br>
+               В этом разделе часто возникают недоразумения. Процедуры таки же же как и в любом другом разделе, и полностью соответствуют инструкции по сборке пакетов (<a class="special-link a link1" href="Lfs.html#lfs12">5.3. Общие инструкции по компиляции</a>). Сначала распакуем пакет <strong class="strong">GCC</strong> из архива, который находится в каталоге с другими архивами пакетов и патчами, затем перейдём в распакованный каталог. Только после этого необходимо следовать приведенным ниже инструкциям.<br><br>
+               <strong class="p11 blue">tar -xf ../mpfr-4.0.1.tar.xz<br>
+               <strong class="p11">mv -v mpfr-4.0.1 mpfr<br>
+               <strong class="p11">tar -xf ../gmp-6.1.2.tar.xz<br>
+               <strong class="p11">mv -v gmp-6.1.2 gmp<br>
+               <strong class="p11">tar -xf ../mpc-1.1.0.tar.gz<br>
+               <strong class="p11">mv -v mpc-1.1.0 mpc</strong></strong></strong></strong></strong></strong><br><br>
+               Следующая команда изменит место расположения динамического компоновщика чтобы использовать тот, который находится в каталоге <strong class="strong">/tools</strong>. Команда также удалит каталог <strong class="strong">/usr/include</strong> из путей поиска <strong class="strong">GCC</strong>.<br><br>
+               <strong class="p11 blue">for file in gcc/config/{linux,i386/linux{,64}}.h<br>
+               <strong class="p11">do<br>
+               <strong class="p11">cp -uv $file{,.orig}<br>
+               <strong class="p11">sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \<br>
+               <strong class="p11">-e 's@/usr@/tools@g' $file.orig > $file<br>
+               <strong class="p11">echo '<br>
+               #undef STANDARD_STARTFILE_PREFIX_1<br>
+               #undef STANDARD_STARTFILE_PREFIX_2<br>
+               #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"<br>
+               #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file<br>
+               <strong class="p11">touch $file.orig<br>
+               <strong class="p11">done</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Разберем содержимое команды:<br> 
+               Сначала копируем файлы <strong class="strong">gcc/config/linux.h</strong>, <strong class="strong">gcc/config/i386/linux.h</strong> и <strong class="strong">gcc/config/i368/linux64.h</strong> в файлы с таким же наименованием, но с добавлением суффикса «<strong class="strong">.orig</strong>». Затем первое выражение добавляет «<strong class="strong">/tools</strong>» к каждому экземпляру «<strong class="strong">/lib/ld</strong>», «<strong class="strong">/lib64/ld</strong>» или «<strong class="strong">/lib32/ld</strong>» в то время как второй заменяет жестко закодированные экземпляры «<strong class="strong">/usr</strong>». Потом добавляем нашу директиву <strong class="strong">define</strong> которая изменяет префикс начальных файлов на префикс конечных файлов. Обратите внимание что начальный символ «<strong class="strong">/</strong>» в «<strong class="strong">/tools/lib/</strong>» является обязательным. Потом используем команду <strong class="strong">touch</strong> для обновления даты и времени модификации скопированных файлов. При использовании в сочетании с <strong class="strong">cp -u</strong> предотвращает непредвиденные изменения исходных файлов, если команды случайно выполнили дважды.<br>
+               Для хост-системы x86_64 устанавливаем каталогом по умолчанию наименование 64-битных библиотек в «<strong class="strong">lib</strong>»:<br><br>
+               <strong class="p11 blue">case $(uname -m) in<br>
+               <strong class="p11">x86_64)<br>
+               <strong class="p11">sed -e '/m64=/s/lib64/lib/' \<br>
+               <strong class="p11">-i.orig gcc/config/i386/t-linux64<br>
+               <strong class="p11">;;<br>
+               <strong class="p11">esac</strong></strong></strong></strong></strong></strong><br><br>
+               В документации пакета <strong class="strong">GCC</strong> рекомендуется выполнять сборку в отдельном каталоге:<br><br>
+               <strong class="p11 blue">mkdir -v build<br>
+               <strong class="p11">cd build</strong></strong><br><br>
+               Подготавливаем пакет <strong class="strong">GCC</strong> к компиляции:<br><br>
+               <strong class="p11 blue">../configure \<br>
+               <strong class="p11">--target=$LFS_TGT \<br>
+               <strong class="p11">--prefix=/tools \<br>
+               <strong class="p11">--with-glibc-version=2.11 \<br>
+               <strong class="p11">--with-sysroot=$LFS \<br>
+               <strong class="p11">--with-newlib \<br>
+               <strong class="p11">--without-headers \<br>
+               <strong class="p11">--with-local-prefix=/tools \<br>
+               <strong class="p11">--with-native-system-header-dir=/tools/include \<br>
+               <strong class="p11">--disable-nls \<br>
+               <strong class="p11">--disable-shared \<br>
+               <strong class="p11">--disable-multilib \<br>
+               <strong class="p11">--disable-decimal-float \<br>
+               <strong class="p11">--disable-threads \<br>
+               <strong class="p11">--disable-libatomic \<br>
+               <strong class="p11">--disable-libgomp \<br>
+               <strong class="p11">--disable-libmpx \<br>
+               <strong class="p11">--disable-libquadmath \<br>
+               <strong class="p11">--disable-libssp \<br>
+               <strong class="p11">--disable-libvtv \<br>
+               <strong class="p11">--disable-libstdcxx \<br>
+               <strong class="p11">--enable-languages=c,c++</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значение параметров конфигурации:<br>
+               <strong class="strong">--with-newlib</strong> Так как рабочая библиотека <strong class="strong">C</strong> пока недоступна, необходимо убедиться в том, что константа <strong class="strong">inhibit_libc</strong> определена, когда выполняется сборка <strong class="strong">libgcc</strong>. Также это предотвратит компиляцию любого кода, которому необходима поддержка библиотеки <strong class="strong">libc</strong>.<br>
+               <strong class="strong">--without-headers</strong> Когда создается кросс-компилятор, пакету <strong class="strong">GCC</strong> необходимы стандартные заголовки, совместимые с целевой системой. Для требуемой задачи эти заголовочные файлы не нужны. Этот аргумент предотвращает поиск этих файлов пакетом <strong class="strong">GCC</strong>.<br>
+               <strong class="strong">--with-local-prefix=/tools</strong> Этот аргумент (локальный префикс) является местом в системе, где <strong class="strong">GCC</strong> будет искать локально установленные <strong class="strong">include</strong> файлы. По умолчанию этот путь <strong class="strong">/usr/local</strong>. Указание на каталог <strong class="strong">/tools</strong> поможет оставить каталог <strong class="strong">/usr/local</strong> хост-системы за пределами поиска файлов устанавливаемого пакета <strong class="strong">GCC</strong>.<br>
+               <strong class="strong">--with-native-system-header-dir=/tools/include</strong> По умолчанию, <strong class="strong">GCC</strong> выполняет поиск системных заголовочных файлов в каталоге <strong class="strong">/usr/include</strong>. В сочетании с аргументом <strong class="strong">sysroot</strong>, поиск системных заголовочных файлов будет производится в каталоге <strong class="strong">$LFS/tools/include</strong>.Однако заголовочные файлы , которые будут установлены в следующих двух разделах, будут располагаться в каталоге <strong class="strong">$LFS/tools/include</strong>. Этот аргумент позволит искать их по указанному в значении пути. Вторым проходом сборки <strong class="strong">GCC</strong>, этот же аргумент обеспечит отсутствие заголовочных файлов из хост-системы.<br>
+               <strong class="strong">--disable-shared</strong> Аргумент указывает <strong class="strong">GCC</strong>, что необходимо произвести статическую линковку внутренних библиотек. Ето необходимо сделать, чтобы избежать возможных проблем с хост-системой.<br>
+               <strong class="strong">--disable-decimal-float</strong>, <strong class="strong">--disable-threads</strong>, <strong class="strong">--disable-libatomic</strong>, <strong class="strong">--disable-libgomp</strong>, <strong class="strong">--disable-libmpx</strong>, <strong class="strong">--disable-libquadmath</strong>, <strong class="strong">--disable-libssp</strong>, <strong class="strong">--disable-libvtv</strong>, <strong class="strong">--disable-libstdcxx</strong> Этои аргументы отключают поддержку расширений для работы с десятичными числами и числами с плавающей запятой, потоками, библиотеками <strong class="strong">libatomic</strong>, <strong class="strong">libgomp</strong>, <strong class="strong">libmpx</strong>, <strong class="strong">libquadmath</strong>, <strong class="strong">libssp</strong>, <strong class="strong">libvtv</strong> и стандартной библиотеки <strong class="strong">C++</strong> соответственно. При компиляции этих функций, возникнет ошибка и для кросс-компилятора, эти функции не нужны, для того чтобы выполнить кросс-компиляцию временной библиотеки <strong class="strong">C</strong> (<strong class="strong">libc</strong>).<br>
+               <strong class="strong">--disable-multilib</strong> Для платформы x86_64, <strong class="strong">LFS</strong> пока не поддерживает конфигурацию <strong class="strong">multilib</strong>. Этот аргумент ни как не повлияет, если установка выполняется на платформе x86.<br>
+               <strong class="strong">--enable-languages=c,c++</strong> Этот параметр гарантирует, что будут созданы только компиляторы <strong class="strong">C</strong> и <strong class="strong">C ++</strong>. Это единственные языки, которые нужны сейчас.<br>
+               Скомпилируем пакет:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               На данном этапе необходимо выполнить наборы тестов для пакета, но сейчас пока рано, потому что инструменты для выполнения тестирования (<strong class="strong">Tcl</strong>, <strong class="strong">Expect</strong>, <strong class="strong">and DejaGNU</strong>) пока не на своём месте. Преимущества использования тестов на данный момент минимальны, поскольку программы из сборки первого прохода будут заменены на программы из сборки второго прохода.<br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong>
+            </p>
+            <h2 id="lfs15">5.6. Заголовочные файлы <strong class="strong">Linux-4.17.8</strong></h2>
+            <p>Заголовочные файлы <strong class="strong">Linux API</strong> (в <strong class="strong">linux-4.17.8.tar.xz</strong>) предоставляют <strong class="strong">API</strong> для использования его библиотекой <strong class="strong">C</strong> (<strong class="strong">Glibc</strong>).<br>
+               Ядро <strong class="strong">Linux</strong> должно предоставлять интерфейс (<strong class="strong">API</strong>) для его использования системной библиотекой <strong class="strong">C</strong> (<strong class="strong">Glibc</strong> в <strong class="strong">LFS</strong>).Это можно сделать, выделив различные заголовочные файлы <strong class="strong">C</strong> которые расположены в архиве исходных кодов пакета ядра.<br>
+               Необходимо убедиться, что в пакете нет устаревших файлов:<br><br>
+               <strong class="p11 blue">make mrproper</strong><br><br>
+               Теперь установим видимые пользователям заголовочные файлы из каталога исходных кодов пакета ядра. Они будут расположены в промежуточном каталоге и будут скопированы в указанное местоположение, потому что процесс извлечения удаляет все существующие файлы в целевом каталоге.<br><br>
+               <strong class="p11 blue">make INSTALL_HDR_PATH=dest headers_install<br>
+               <strong class="p11">cp -rv dest/include/* /tools/include</strong></strong>
+            </p>
+            <h2 id="lfs16">5.7. <strong class="strong">Glibc-2.27</strong></h2>
+            <p>Пакет содержит стандартную библиотеку языка <strong class="strong">Си</strong> (<strong class="strong">GNU C Library</strong>). Эта библиотека предоставляет функции для выделения памяти, поиска каталогов, открытия и закрытия файлов, чтения и записи файлов, обработку строк, соответствия шаблонов (<strong class="strong">pattern matching</strong>), арифметические операции, и так далее.<br>
+               В документации пакета <strong class="strong">Glibc</strong> рекомендуется выполнять сборку в отдельном каталоге:<br><br>
+               <strong class="p11 blue">mkdir -v build<br>
+               <strong class="p11">cd build</strong></strong><br><br>
+               Подготовка пакета <strong class="strong">Glibc</strong> к компиляции:<br><br>
+               <strong class="p11 blue">../configure \<br>
+               <strong class="p11">--prefix=/tools \<br>
+               <strong class="p11">--host=$LFS_TGT \<br>
+               <strong class="p11">--build=$(../scripts/config.guess) \<br>
+               <strong class="p11">--enable-kernel=3.2 \<br>
+               <strong class="p11">--with-headers=/tools/include \<br>
+               <strong class="p11">libc_cv_forced_unwind=yes \<br>
+               <strong class="p11">libc_cv_c_cleanup=yes</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значение параметров конфигурации:<br>
+               <strong class="strong">--host=$LFS_TGT</strong>, <strong class="strong">--build=$(../scripts/config.guess)</strong> Комбинация этих аргументов указывает системе сборки <strong class="strong">Glibc</strong> выполнять кросс-компиляцию пакета, используя кросс-компоновщик и кросс-компилятор из каталога <strong class="strong">/tools</strong>.<br>
+               <strong class="strong">--enable-kernel=3.2</strong> Аргумент позволяет выполнять компиляцию с поддержкой ядер начиная с версии 3.2 и более поздних. Поддержка более старых ядер не будет включена.<br>
+               <strong class="strong">--with-headers=/tools/include</strong> Аргумент позволяет выполнять компиляцию с указанием заголовочных файлов, установленных в каталог с временным набором инструментов, таким образом пакету будет известно, какие функции ядра используются, и будет выполнена оптимизация.<br>
+               <strong class="strong">libc_cv_forced_unwind=yes</strong> Компоновщик «<a class="special-link1 a link1" href="#lfs13">Binutils-2.31.1 - Проход 1</a>» был кросс-компилирован и не может использоваться, пока не будет установлен пакет <strong class="strong">Glibc</strong>. Это означает, что тест конфигурирования для функции <strong class="strong">force-unwind</strong> будет провален, поскольку он полагается на рабочий компоновщик. Значение аргумента <strong class="strong">libc_cv_forced_unwind=yes</strong> передается, чтобы сообщить, сценарию configure что поддержка функция <strong class="strong">force-unwind</strong> доступна без необходимости проведения тестирования.<br>
+               <strong class="strong">libc_cv_c_cleanup=yes</strong> Аналогично, передается значение аргумента <strong class="strong">libc_cv_c_cleanup=yes</strong> сценарию <strong class="strong">configure</strong> для того, чтобы тестирование не выполнялось и поддержка обработки очистки была сконфигурирована.<br>
+               На этапе конфигурирования могут появиться следующие предупреждения:<br>
+               <strong class="strong">configure: WARNING:<br> 
+               *** These auxiliary programs are missing or<br>
+               *** incompatible versions: msgfmt<br>
+               *** some features will be disabled.<br>
+               *** Check the INSTALL file for required versions.</strong></strong></strong></strong></strong><br>
+               Отсутствие или несовместимость программы <strong class="strong">msgfmt</strong> безвредно. Это программа является частью пакета <strong class="strong">Gettext</strong>, который должен быть предоставлен хост-системой.<br>
+               Пакет может не компилироваться при выполнении процедуры "параллельной сборки". Если это произойдет, повторим команду <strong class="strong">make</strong> с аргументом "<strong class="strong">-j1</strong>".<br>
+               Скомпилируем пакет:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong><br><br>
+               На этом этапе, необходимо остановиться и проверить что базовый функционал (компиляция и линовка) созданных инструментов работает так, как необходимо:<br><br>
+               <strong class="p11 blue">echo 'int main(){}' > dummy.c<br>
+               <strong class="p11">$LFS_TGT-gcc dummy.c<br>
+               <strong class="p11">readelf -l a.out | grep ': /tools'</strong></strong></strong><br><br>
+               Если все работает правильно, не должно быть ошибок, и вывод последней команды будет иметь вид:<br><br>
+               <strong class="p11 blue">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</strong><br><br>
+               На 32-битной машине наименование интерпретатора будет:<strong class="strong">/tools/lib/ld-linux.so.2</strong>.<br>
+               Если вывод не соответствует тому, как показано выше, или вообще вывода нет, значит,что-то не так. Изучите и повторите шаги выше, чтобы выяснить где проблема и устраните её. Важно, устранить проблему до того, как вы продолжите следующие шаги.<br>
+               Когда все будет хорошо, очистите тестовые файлы:<br><br>
+               <strong class="p11 blue">rm -v dummy.c a.out</strong>
+            </p>
+            <h2 id="lfs17">5.8. <strong class="strong">Libstdc++</strong> из пакета <strong class="strong">GCC-8.2.0</strong></h2>
+               <p><strong class="strong">Libstdc++</strong> является стандартной библиотекой языка <strong class="strong">Cи++</strong>. Она необходима для правильной работы компилятора <strong class="strong">g++</strong> (часть <strong class="strong">GCC</strong> написана на языке <strong class="strong">Си++</strong>). Сборку пришлось отложить на этапе <strong class="strong">gcc-pass1</strong> потому что присутствует зависимость с <strong class="strong">glibc</strong>, которая еще недоступна в каталоге <strong class="strong">/tools</strong>.<br>
+               <strong class="strong">Libstdc++</strong> является частью исходных кодов пакета <strong class="strong">GCC</strong>. Сначала необходимо распаковать архив с исходным кодом пакета <strong class="strong">GCC</strong> и перейти в каталог <strong class="strong">gcc-8.2.0</strong>.<br>
+               Создаём отдельный каталог для сборки <strong class="strong">Libstdc++</strong>:<br><br>
+               <strong class="p11 blue">mkdir -v build<br>
+               <strong class="p11">cd build</strong></strong><br><br>
+               Подготовим пакет <strong class="strong">Libstdc++</strong> к компиляции:<br><br>
+               <strong class="p11 blue">../libstdc++-v3/configure \<br>
+               <strong class="p11">--host=$LFS_TGT \<br>
+               <strong class="p11">--prefix=/tools \<br>
+               <strong class="p11">--disable-multilib \<br>
+               <strong class="p11">--disable-nls \<br>
+               <strong class="p11">--disable-libstdcxx-threads \<br>
+               <strong class="p11">--disable-libstdcxx-pch \<br>
+               <strong class="p11">--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/8.2.0</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значение параметров конфигурации:<br>
+               <strong class="strong">--host=...</strong> Указывает на использование кросс-компилятора который был установлен вместо компилятора в каталоге <strong class="strong">/usr/bin</strong>.<br>
+               <strong class="strong">--disable-libstdcxx-threads</strong> Поскольку сборка библиотеки <strong class="strong">Си</strong> для работы с потоками еще не создана, соответствующую библиотеку <strong class="strong">Си++</strong> скомпилировать тоже не получится.<br>
+               <strong class="strong">--disable-libstdcxx-pch</strong> Этот аргумент указывает на то, что не требуется установка предварительно скомпилированых заголовочных файлов, которые на данном этапе не требуются.<br>
+               <strong class="strong">--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/8.2.0</strong> Это каталог, где будет выполнятся поиск стандартных заголовочных файлов компилятором <strong class="strong">Си++</strong>. При обычной сборке, эта информация автоматически передается сценарию <strong class="strong">configure</strong> пакета <strong class="strong">Libstdc++</strong> из каталога верхнего уровня. В нашем случае, эта информация должны быть указана явно.<br>
+               Скомпилируем пакет <strong class="strong">Libstdc++</strong>:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               Установим бибоиотеку:<br><br>
+               <strong class="p11 blue">make install</strong>
+            </p>
+            <h2 id="lfs18">5.9. <strong class="strong">Binutils-2.31.1</strong> - Проход 2</h2>
+            <p>Пакет содержит компоновщик, ассемблер, и другие утилиты и инструменты для работы с объектными файлам. Программы в этом пакете необходимы для компиляции как большинства  пакетов системы <strong class="strong">LFS</strong>, так и многих пакетов за её пределами.<br>
+               Необходимо снова создать отдельный каталог:<br><br>
+               <strong class="p11 blue">mkdir -v build<br>
+               <strong class="p11">cd build</strong></strong><br><br>
+               Подготовка пакета <strong class="strong">Binutils</strong> к компиляции:<br><br>
+               <strong class="p11 blue">CC=$LFS_TGT-gcc \<br>
+               <strong class="p11">AR=$LFS_TGT-ar \<br>
+               <strong class="p11">RANLIB=$LFS_TGT-ranlib \<br>
+               <strong class="p11">../configure \<br>
+               <strong class="p11">--prefix=/tools \<br>
+               <strong class="p11">--disable-nls \<br>
+               <strong class="p11">--disable-werror \<br>
+               <strong class="p11">--with-lib-path=/tools/lib \<br>
+               <strong class="p11">--with-sysroot</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значения новых параметров конфигурации:<br>
+               <strong class="strong">CC=$LFS_TGT-gcc AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib</strong> Поскольку это нативная сборка пакета <strong class="strong">Binutils</strong>, указание этих переменных гарантирует что система сборки пакета будет использовать кросс-компилятор и связанные с ним инструменты, вместо инструментов хост-системы.<br>
+               <strong class="strong">--with-lib-path=/tools/lib</strong> Указание аргумента сообщает сценарию configure использовать каталог для поиска библиотек, указанный в значении аргумента во время процесса компиляции пакета <strong class="strong">Binutils</strong>, в результате чего каталог <strong class="strong">/tools/lib</strong> будет передан компоновщику. Это предотвратит использование компоновщика хост-системы.<br>
+               <strong class="strong">--with-sysroot</strong> Функция <strong class="strong">sysroot</strong> позволяет компоновщику находить общие объекты которые требуются для других общих объектов, явно включенных в команду компоновщика. Без указания этого аргумента, на некоторых хост-системах, компиляция пакетов может не выполнится.<br>
+               Скомпилируем пакет:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong><br><br>
+               Если пакет <strong class="strong">Binutils</strong> не получится скомпилировать, или сконфигурировать, это будет явный признак того, что что-то пошло не так с предыдущими установками пакетов <strong class="strong">Binutils</strong>, <strong class="strong">GCC</strong>, или <strong class="strong">Glibc</strong>.<br>
+               Подготовим компоновщик, для «перенастройки»:<br><br>
+               <strong class="p11 blue">make -C ld clean<br>
+               <strong class="p11">make -C ld LIB_PATH=/usr/lib:/lib<br>
+               <strong class="p11">cp -v ld/ld-new /tools/bin</strong></strong></strong><br><br>
+               Значение параметров команды <strong class="strong">make</strong>:<br>
+               <strong class="strong">-C ld clean</strong> Аргумент сообщает программе make удалить все скомпилированые файлы в подкаталоге <strong class="strong">ld</strong>.<br>
+               <strong class="strong">-C ld LIB_PATH=/usr/lib:/lib</strong> Этот аргумент сообщает выполнить пересборку всего содержимого в подкаталоге <strong class="strong">ld</strong>. Указание переменной <strong class="strong">LIB_PATH Makefile</strong> в командной строке позволяет переопределить значения по умолчанию для набора временных инструментов указанием правильного конечного пути. Значение этой переменной указывает компоновщику каталог для поиска библиотек. Эта подготовка требуется для выполнения процедур в следующем разделе.
+            </p>
+            <h2 id="lfs19">5.10. <strong class="strong">GCC-8.2.0</strong> - Проход 2</h2>
+            <p>Пакет содержит набор компиляторов <strong class="strong">GNU</strong>, для таких языков, как <strong class="strong">Си</strong> и <strong class="strong">Си++</strong>.<br>
+               В первом проходе сборки <strong class="strong">GCC</strong> были установлены некоторые внутренние заголовочные файлы. Обычно некоторые из них, например - <strong class="strong">limits.h</strong>, будет включен в систему как заголовочный файл <strong class="strong">limits.h</strong>, в нашем случае в каталог <strong class="strong">/tools/include/limits.h</strong>. Однако в первом проходе сборки файл <strong class="strong">/tools/include/limits.h</strong> не существует, таким образом внутренний заголовочный файл установленный <strong class="strong">GCC</strong> является частичным, автономный файл и не содержит функции системного заголовочного файла. Этого достаточно, для выполнения сборки временной библиотеки <strong class="strong">libc</strong>, но теперь, пакету <strong class="strong">GCC</strong> необходимы все внутренние заголовочные файлы. Создание полной версии внутренних заголовочных файлов используя идентичную команду, при которой система сборки <strong class="strong">GCC</strong> работает при обычных обстоятельствах:<br><br>
+               <strong class="p11 blue">cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \<br>
+               <strong class="p11">`dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h</strong></strong><br><br>
+               Снова, изменим местоположение динамического компоновщика пакета <strong class="strong">GCC</strong> по умолчанию используя тот, который установлен в каталоге <strong class="strong">/tools</strong>.<br><br>
+               <strong class="p11 blue">for file in gcc/config/{linux,i386/linux{,64}}.h<br>
+               <strong class="p11">do<br>
+               <strong class="p11">cp -uv $file{,.orig}<br>
+               <strong class="p11">sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \<br>
+               <strong class="p11">-e 's@/usr@/tools@g' $file.orig > $file<br>
+               <strong class="p11">echo '<br>
+               #undef STANDARD_STARTFILE_PREFIX_1<br>
+               #undef STANDARD_STARTFILE_PREFIX_2<br>
+               #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"<br>
+               #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file<br>
+               <strong class="p11">touch $file.orig<br>
+               <strong class="p11">done</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Для хост-системы x86_64 устанавливаем каталогом по умолчанию наименование 64-битных библиотек в «<strong class="strong">lib</strong>»:<br><br>
+               <strong class="p11 blue">case $(uname -m) in<br>
+               <strong class="p11">x86_64)<br>
+               <strong class="p11">sed -e '/m64=/s/lib64/lib/' \<br>
+               <strong class="p11">-i.orig gcc/config/i386/t-linux64<br>
+               <strong class="p11">;;<br>
+               <strong class="p11">esac</strong></strong></strong></strong></strong></strong><br><br>
+               Также, как и в первом проходе сборки <strong class="strong">GCC</strong> необходимы пакеты <strong class="strong">GMP</strong>, <strong class="strong">MPFR</strong> и <strong class="strong">MPC</strong>. распакуем архивы с исходными кодами этих пакетов и переместим их требуемые каталоги:<br><br>
+               <strong class="p11 blue">tar -xf ../mpfr-4.0.1.tar.xz<br>
+               <strong class="p11">mv -v mpfr-4.0.1 mpfr<br>
+               <strong class="p11">tar -xf ../gmp-6.1.2.tar.xz<br>
+               <strong class="p11">mv -v gmp-6.1.2 gmp<br>
+               <strong class="p11">tar -xf ../mpc-1.1.0.tar.gz<br>
+               <strong class="p11">mv -v mpc-1.1.0 mpc</strong></strong></strong></strong></strong></strong><br><br>
+               Создаём снова отдельный каталог для сборки:<br><br>
+               <strong class="p11 blue">mkdir -v build<br>
+               <strong class="p11">cd build</strong></strong><br><br>
+               Перед началом сборки <strong class="strong">GCC</strong>, очищаем все переменные окружения, которые переопределяют аргументы и флаги для оптимизации.<br>
+               Подготовим пакет <strong class="strong">GCC</strong> к компиляции:<br><br>
+               <strong class="p11 blue">CC=$LFS_TGT-gcc \<br>
+               <strong class="p11">CXX=$LFS_TGT-g++ \<br>
+               <strong class="p11">AR=$LFS_TGT-ar \<br>
+               <strong class="p11">RANLIB=$LFS_TGT-ranlib \<br>
+               <strong class="p11">../configure \<br>
+               <strong class="p11">--prefix=/tools \<br>
+               <strong class="p11">--with-local-prefix=/tools \<br>
+               <strong class="p11">--with-native-system-header-dir=/tools/include \<br>
+               <strong class="p11">--enable-languages=c,c++ \<br>
+               <strong class="p11">--disable-libstdcxx-pch \<br>
+               <strong class="p11">--disable-multilib \<br>
+               <strong class="p11">--disable-bootstrap \<br>
+               <strong class="p11">--disable-libgomp</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значения новых параметров конфигурации:<br>
+               <strong class="strong">--enable-languages=c,c++</strong> Этот аргумент гарантирует, что будут собраны оба компилятора <strong class="strong">C</strong> и <strong class="strong">C ++</strong>.<br>
+               <strong class="strong">--disable-libstdcxx-pch</strong> Не выполнят сборку предварительно скомпилированых заголовочных файлов (<strong class="strong">PCH</strong>) для <strong class="strong">libstdc++</strong>. Они занимают много места, и их использование не предусмотрено.<br>
+               <strong class="strong">--disable-bootstrap</strong> Для нативной сборки пакета <strong class="strong">GCC</strong> по умолчанию используется механизм сборки <strong class="strong">bootstrap</strong>. Он не просто компилирует <strong class="strong">GCC</strong>, а выполняет компиляцию в несколько проходов. Он использует программы, скомпилированые в первом проходе, чтобы выполнить повторную компиляцию на втором проходе, и затем снова в третий раз. Результат компиляции второго и третьего прохода сравниваются чтобы убедиться в безотказности. Также выполняется проверка на предмет корректности компиляции. Однако метод сборки <strong class="strong">LFS</strong> должен обеспечивать надежный компилятор без использования механизма сборки <strong class="strong">bootstrap</strong> каждый раз.<br>
+               Скомпилируем пакет:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong><br><br>
+               После установки, необходимо создать символические ссылки. Многие программы и файлы сценариев запускают <strong class="strong">cc</strong> вместо <strong class="strong">gcc</strong>, для обеспечения переносимости на все <strong class="strong">UNIX</strong> системы. Не у всех установлен именно компилятор <strong class="strong">GNU C</strong>. Запуск cc позволяет администратору выбирать, какой компилятор <strong class="strong">C</strong> устанавливать в систему, и мы создаем ссылку на него:<br><br>
+               <strong class="p11 blue">ln -sv gcc /tools/bin/cc</strong><br><br>
+               На этом этапе, необходимо остановиться и проверить что базовый функционал (компиляция и линовка) созданных инструментов работает так, как необходимо:<br><br>
+               <strong class="p11 blue">echo 'int main(){}' > dummy.c<br>
+               <strong class="p11">cc dummy.c<br>
+               <strong class="p11">readelf -l a.out | grep ': /tools'</strong></strong></strong><br><br>
+               Если все работает правильно, не должно быть ошибок, и вывод последней команды будет иметь вид:<br><br>
+               <strong class="p11 blue">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</strong><br><br>
+               Для 32-битной машины, каталог динамического компоновщика будет <strong class="strong">/tools/lib/ld-linux.so.2</strong>.<br>
+               Если вывод не соответствует тому, как показано выше, или вообще вывода нет, значит,что-то не так. Изучаем и повторяем шаги выше, чтобы выяснить где проблема. Важно, устранить проблему до следующих шагов. Во-первых, повторяем проверку работоспособности <strong class="strong">gcc</strong> вместо <strong class="strong">cc</strong>. Если все работает, тогда символическая ссылка <strong class="strong">/tools/bin/cc</strong> отсутствует. Далее, убедитмся что переменная окружения <strong class="strong">PATH</strong> указана корректно. Это можно проверить, запустив команду <strong class="strong">echo $PATH</strong> и проверить что каталог <strong class="strong">/tools/bin</strong> находиться в начале списка. Если переменная окружения некорректная, это может означать, что мы авторизованы не как пользователь <strong class="strong">lfs</strong> или что то пошло не так на более ранних этапах. Читаем раздел «<a class="special-link2 a link1" href="Lfs.html#lfs11">4.4. Установка рабочего окружения</a>».<br>
+               Если всё в порядке, удаляем тестовые файлы:<br>
+               <strong class="p11 blue">rm -v dummy.c a.out</strong>
+            </p>
+            <h2 id="lfs20">5.11. <strong class="strong">Tcl-8.6.8</strong></h2>
+            <p>Пакет содержит "командный язык инструментов" - скриптовый язык высокого уровня. Он необходим для выполнения тестов некоторых пакетов <strong class="strong">LFS</strong>, и будет установлен только во временный инструментарий.<br>
+               Этот пакет, и следующие два (<strong class="strong">Expect</strong> и <strong class="strong">DejaGNU</strong>) будут установлены для возможности запуска набора тестов для пакетов <strong class="strong">GCC</strong> и <strong class="strong">Binutils</strong> и других. Установка трех пакетов для тестирования может показаться чрезмерным, но очень обнадеживает, если важно знать что скомпилированые инструменты работают правильно. Выполнение тестов в этой главе не является обязательным, эти пакеты необходимы для выполнения набора тестов в главе <strong class="strong">Chapter 6</strong>.<br>
+               Используется минимальная версия пакета <strong class="strong">Tcl</strong> для запуска тестов <strong class="strong">LFS</strong>. Полный пакет доступен в <a class="special-link3 a link1" href="https://linuxfromscratch.org.ru/blfs/view/8.2/general/tcl.html">BLFS</a>.<br>
+               Подготовим пакет <strong class="strong">Tcl</strong> к компиляции:<br><br>
+               <strong class="p11 blue">cd unix<br>
+               <strong class="p11">./configure --prefix=/tools</strong></strong><br><br>
+               Выполним сборку пакета:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+               <strong class="p11 blue">TZ=UTC make test</strong><br><br>
+               Наборы тестов <strong class="strong">Tcl</strong> могут завершаться с ошибками при определённых условиях в хост-системе, которые до конца не понятны. Следовательно, сбои при выполнении тестов набора вполне ожидаемы, и они не считаются критичными. Установка аргумента <strong class="strong">TZ=UTC</strong> устанавливает часовой пояс для Всемирного координированного времени (<strong class="strong">UTC</strong>) только на время выполнения тестового набора. Это гарантирует, что тесты времени осуществляются правильно. Информацию о переменной окружения <strong class="strong">TZ</strong> можно посмотреть в главе <strong class="strong">Chapter 7</strong>.<br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong><br><br>
+               Сделаем установленную библиотеку доступной для записи, чтобы отладочные символы могли быть удалены позднее:<br><br>
+               <strong class="p11 blue">chmod -v u+w /tools/lib/libtcl8.6.so</strong><br><br>
+               Установм заголовочные файлы <strong class="strong">Tcl</strong>. Следующему пакету, <strong class="strong">Expect</strong>, они необходимы чтобы выполнить сборку.<br><br>
+               <strong class="p11 blue">make install-private-headers</strong><br><br>
+               Создадим необходимую символическую ссылку:<br><br>
+               <strong class="p11 blue">ln -sv tclsh8.6 /tools/bin/tclsh</strong><br><br>
+               Содержимое пакета <strong class="strong">Tcl</strong>:<br>
+               Установленные программы <strong class="strong">tclsh</strong> (<strong class="strong">link to tclsh8.6</strong>) <strong class="strong">and tclsh8.6</strong><br>
+               Установленные библиотеки <strong class="strong">libtcl8.6.so</strong>, <strong class="strong">libtclstub8.6.a</strong><br>
+               Краткое описание:<br>
+               <strong class="strong">tclsh8.6</strong> Командная оболочка <strong class="strong">Tcl</strong>
+               <strong class="strong">tclsh</strong> Ссылка на <strong class="strong">tclsh8.6</strong>
+               <strong class="strong">libtcl8.6.so</strong> Библиотека <strong class="strong">Tcl</strong>
+               <strong class="strong">libtclstub8.6.a</strong> Библиотека <strong class="strong">Tcl Stub</strong> 
+            </p>
+            <h2 id="lfs21">5.12. <strong class="strong">Expect-5.45.4</strong></h2>
+            <p>Пакет содержит инструменты для автоматизации и тестирования, и является расширением к скрипт-языку <strong class="strong">Tcl</strong>, для многих интерактивных приложений. Он будет установлен только во временный инструментарий.<br>
+                Для начала, необходимо указать сценарию конфигурирования пакета использовать <strong class="strong">/bin/stty</strong> вместо <strong class="strong">/usr/local/bin/stty</strong> который он может искать в хост-системе. Это гарантирует что инструменты тестирования останутся в нормальном состоянии до окончания сборки всего временного набора инструментов:<br><br>
+                <strong class="p11 blue">cp -v configure{,.orig}<br>
+                <strong class="p11">sed 's:/usr/local/bin:/bin:' configure.orig > configure</strong></strong><br><br>
+                Подготовим пакет <strong class="strong">Expect</strong> к компиляции:<br><br>
+                <strong class="p11 blue">./configure --prefix=/tools \<br>
+                <strong class="p11">--with-tcl=/tools/lib \<br>
+                <strong class="p11">--with-tclinclude=/tools/include</strong></strong></strong><br><br>
+                Значение параметров конфигурации:<br>
+                <strong class="strong">--with-tcl=/tools/lib</strong> Аргумент обеспечивает то что сценарий конфигурирования будет выполнять поиск установленного пакета <strong class="strong">Tcl</strong> во каталогах временного инструментария, вместо поиска в каталогах хост-системы.<br>
+                <strong class="strong">--with-tclinclude=/tools/include</strong> Значение аргумента явно указывает, где выполнять поиск внутренних заголовочных файлов пакета <strong class="strong">Tcl</strong>. Использование этой опции позволяет избежать условий, при которых сценарий <strong class="strong">configure</strong> может не выполнится, потому что не сможет автоматически найти заголовочные файлы <strong class="strong">Tcl</strong>.<br>
+                Выполнм сборку пакета:<br><br>
+                make</strong><br><br>
+                Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                <strong class="p11 blue">make test</strong><br><br>
+                Наборы тестов <strong class="strong">Tcl</strong> могут завершаться с ошибками, которые не возможно контролировать. Следовательно, сбои при выполнении тестов набора вполне ожидаемы, и они не считаются критичными.<br>
+                Установим пакет:<br><br>
+                <strong class="p11 blue">make SCRIPTS="" install</strong><br><br>
+                Значение параметров <strong class="strong">make</strong>:<br>
+                <strong class="strong">SCRIPTS=""</strong> Это предотвращает установку дополнительных сценариев <strong class="strong">Expect</strong>, которые не нужны.<br>
+                Содержимое пакета <strong class="strong">Expect</strong>:<br>
+                Установленная программа <strong class="strong">expect</strong> Общается с другими интерактивными программами в соответствии со сценарием<br>
+                Установленная библиотека <strong class="strong">libexpect-5.45.so</strong> Содержит функции, которые позволяют пакету <strong class="strong">Expect</strong> быть использованным как расширение к <strong class="strong">Tcl</strong> или использоваться напрямую, из <strong class="strong">Си</strong> или <strong class="strong">Си++</strong> (без <strong class="strong">Tcl</strong>)
+             </p>
+             <h2 id="lfs22">5.13. <strong class="strong">DejaGNU-1.6.1</strong></h2>
+             <p>Пакет <strong class="strong">DejaGNU</strong> содержит <strong class="strong">framework</strong> для тестирования других программ.<br>
+                Выполним подготовку пакета <strong class="strong">DejaGNU</strong> к компиляции:<br><br>
+                <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                Выполним сборку и установку пакета:<br><br>
+                <strong class="p11 blue">make install</strong><br><br>
+                Для выполнения тестов, выполните команду:<br><br>
+                <strong class="p11 blue">make check</strong><br><br>
+                Содержимое пакета <strong class="strong">DejaGNU</strong>: <strong class="strong">runtest</strong> Сценарий-обёртка, который находит правильную оболочку <strong class="strong">expect</strong> и затем, выполняет запуск <strong class="strong">DejaGNU</strong>. 
+             </p>
+             <h2 id="lfs23">5.14. <strong class="strong">M4-1.4.18</strong></h2>
+             <p>Пакет содержит общий макропроцессор текста - полезный инструмент для выполнения сборки других программ.<br> 
+                Сделаем некоторые исправления, требуемые <strong class="strong">glibc-2.28</strong>:<br><br>
+                <strong class="p11 blue">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c<br>
+                <strong class="p11">echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</strong></strong><br><br>
+                Выполним подготовку пакета <strong class="strong">M4</strong> к компиляции:<br><br>
+                <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                Скомпилируем пакет:<br><br>
+                <strong class="p11 blue">make</strong><br><br>
+                Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                <strong class="p11 blue">make check</strong><br><br>
+                Установим пакет:<br><br>
+                <strong class="p11 blue">make install</strong>
+             </p>
+             <h2 id="lfs24">5.15. <strong class="strong">Ncurses-6.1</strong></h2>
+             <p>Пакет содержит библиотеку, предназначенную для управления вводом-выводом на терминал, в числе прочего, библиотека позволяет задавать экранные координаты (в знакоместах) и цвет выводимых символов. Предоставляет программисту уровень абстракции, позволяющий не беспокоиться об аппаратных различиях терминалов и писать переносимый код. Он необходим для ряда пакетов.<br>
+                 Необходимо убедиться в том, что программа <strong class="strong">gawk</strong> обнаружится первой, в процессе конфигурирования:<br><br>
+                 <strong class="p11 blue">sed -i s/mawk// configure</strong><br><br>
+                 Подготовим пакет <strong class="strong">Ncurses</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools \<br>
+                 <strong class="p11">--with-shared \<br>
+                 <strong class="p11">--without-debug \<br>
+                 <strong class="p11">--without-ada \<br>
+                 <strong class="p11">--enable-widec \<br>
+                 <strong class="p11">--enable-overwrite</strong></strong></strong></strong></strong></strong><br><br>
+                 Значение параметров конфигурации:
+                 <strong class="strong">--without-ada</strong> Указание этого аргумента гарантирует что поддержка компилятора <strong class="strong">Ada</strong> не будет включена в сборку, который может присутствовать на хост-системе, но не будет доступен в chroot окружении.<br>
+                 <strong class="strong">--enable-overwrite</strong> Указание этого аргумента сообщает что необходимо установить заголовочные файлы в каталог <strong class="strong">/tools/include</strong>, вместо <strong class="strong">/tools/include/ncurses</strong>, чтобы быть уверенным в том, что остальные пакеты смогут легко найти заголовочные файлы пакета <strong class="strong">Ncurses</strong>.<br>
+                 <strong class="strong">--enable-widec</strong> Аргумент сообщает, что необходимо подключить <strong class="strong">wide-character</strong> библиотеки (например, <strong class="strong">libncursesw.so.6.1</strong>) вместо обычных библиотек (например, <strong class="strong">libncurses.so.6.1</strong>). Библиотеки <strong class="strong">wide-character</strong> могут использоваться как для многобайтовых, так и для традиционных 8-битных локалях, в то время как обычные библиотеки работают правильно только с 8-битными локалями. Библиотеки <strong class="strong">wide-character</strong> и обычные совместимы на уровне исходного кода, но не совместимы на бинарном уровне.<br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 В пакет включен набор тестов, но они могут быть запущены только после того, как пакет будет установлен. Тесты находятся в каталоге <strong class="strong">test/</strong>. Читаем файл <strong class="strong">README</strong> в этом каталоге для получения дополнительной информации.<br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make install</strong>
+              </p>
+              <h2 id="lfs25">5.16. <strong class="strong">Bash-4.4.18</strong></h2>
+              <p>Усовершенствованная и модернизированная вариация командной оболочки <strong class="strong">Bourne shell</strong>. Этот пакет выполняет требования стандарта <strong class="strong">LFS Core</strong> для обеспечения интерфейса <strong class="strong">Bourne Shell</strong> в системе. Он был выбран из числа других оболочек из-за широкого распространения, возможностей которые выходят далеко за пределы базовых функций программ-оболочек.<br>
+                 Подготовим пакет <strong class="strong">Bash</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools --without-bash-malloc</strong><br><br>
+                 Значение параметров конфигурации:<br>
+                 <strong class="strong">--without-bash-malloc</strong> Эта опция отключает использование функций выделения памяти <strong class="strong">Bash</strong> (<strong class="strong">malloc</strong>) которые, как известно, вызывают ошибки сегментации. При использовании этого аргумента, <strong class="strong">Bash</strong> будет использовать более надежные функции <strong class="strong">malloc</strong> из библиотеки <strong class="strong">Glibc</strong>.<br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                 <strong class="p11 blue">make tests</strong><br><br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make install</strong><br><br>
+                 Создаём символическую ссылку для программ, которые используют sh для работы с оболочкой:<br><br>
+                 <strong class="p11 blue">ln -sv bash /tools/bin/sh</strong>
+              </p>
+              <h2 id="lfs26">5.17. <strong class="strong">Bison-3.0.5</strong></h2>
+              <p>Пакет содержит <strong class="strong">GNU</strong> версию <strong class="strong">yacc</strong> (Ещё один компилятор компиляторов) необходимый для сборки некоторых пакетов <strong class="strong">LFS</strong> системы.<br>
+                 Подготовим пакет <strong class="strong">Bison</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Для выполнения тестов, выполним команду:<br><br>
+                 <strong class="p11 blue">make check</strong><br><br>
+                 Установите пакет:<br><br>
+                 <strong class="p11 blue">make install</strong>
+              </p>
+              <h2 id="lfs27">5.18. <strong class="strong">Bzip2-1.0.6</strong></h2>
+              <p>Пакет содержит программы для сжатия и распаковки файлов. Он необходим для распаковки многих пакетов <strong class="strong">LFS</strong>. Сжатие текстовых файлов при помощи программы <strong class="strong">bzip2</strong> даёт больший процент сжатия чем <strong class="strong">gzip</strong>.<br>
+                 Пакет <strong class="strong">Bzip2</strong> не содержит сценария конфигурации <strong class="strong">configure</strong>. Выполним компиляцию и тестирование:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make PREFIX=/tools install</strong>
+              </p>
+              <h2 id="lfs28">5.19. <strong class="strong">Coreutils-8.30</strong></h2>
+              <p><strong class="strong">Coreutils</strong> - пакет программного обеспечения <strong class="strong">GNU</strong>, содержащий большое количество основных утилит, таких как <strong class="strong">cat</strong>, <strong class="strong">ls</strong> и <strong class="strong">rm</strong>, необходимых для <strong class="strong">UNIX</strong>-подобных операционных систем.  Пакет включает несколько более ранних пакетов — <strong class="strong">textutils</strong>, <strong class="strong">shellutils</strong> и <strong class="strong">fileutils</strong> — и другие разнообразные утилиты.<br>
+                 Подготовим пакет <strong class="strong">Coreutils</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools --enable-install-program=hostname</strong><br><br>
+                 Значение параметров конфигурации:<br>
+                 <strong class="strong">--enable-install-program=hostname</strong> Аргумент включает в установку программу <strong class="strong">hostname</strong>. Эта программа по умолчанию выключена, но она необходима для выполнения набора тестов пакета <strong class="strong">Perl</strong>.<br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                 <strong class="p11 blue">make RUN_EXPENSIVE_TESTS=yes check</strong><br><br>
+                 <strong class="strong">The RUN_EXPENSIVE_TESTS=yes</strong> аргумент сообщает включить в набор ресурсозатратные (с точки зрения мощности процессора и использования памяти) тесты для некоторых платформ. Как правило, такие тесты не вызывают проблем в <strong class="strong">Linux</strong>.<br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make install</strong><br>
+              </p>
+              <h2 id="lfs29">5.20. <strong class="strong">Diffutils-3.6</strong></h2>
+              <p>Пакет содержит программы, которые отображают разницу в содержимом между файлами и каталогами. Эти программы могут быть использованы, для создания патчей, а также они используются в процедурах сборки для большинства пакетов.<br>
+                 Подготовим пакет <strong class="strong">Diffutils</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполните команду:<br><br>
+                 <strong class="p11 blue">make check</strong><br><br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make install</strong><br><br>
+              </p>
+              <h2 id="lfs30">5.21. <strong class="strong">File-5.34</strong></h2>
+              <p>Пакет содержит утилиты для определения типов файлов. Некоторым пакетам требуется, чтобы этот пакет был установлен.<br>
+                 Подготовим пакет <strong class="strong">File</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                 <strong class="p11 blue">make check</strong><br><br>
+                 Установим пакет:<br>
+                 <strong class="p11 blue">make install</strong><br>
+              </p>
+              <h2 id="lfs31">5.22. <strong class="strong">Findutils-4.6.0</strong></h2>
+              <p><strong class="strong">Findutils</strong> пакет содержит программы для поиска файлов. Программы предоставляют способы для рекурсивного поиска файлов по дереву каталогов, создания, обслуживания и поиска в базе данных (как правильно поиск выполняется быстрее, чем рекурсивный поиск, но менее надёжен, если база данных не в актуальном состоянии).<br> 
+                 Сделаем некоторые исправления, требуемые <strong class="strong">glibc-2.28</strong>:<br><br>
+                 <strong class="p11 blue">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' gl/lib/*.c<br>
+                 <strong class="p11">sed -i '/unistd/a #include &lt;sys/sysmacros.h>' gl/lib/mountlist.c<br>
+                 <strong class="p11">echo "#define _IO_IN_BACKUP 0x100" >> gl/lib/stdio-impl.h</strong></strong></strong><br><br>
+                 Подготовим пакет <strong class="strong">Findutils</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                 <strong class="p11 blue">make check</strong><br><br>
+                 Установите пакет:<br><br>
+                 <strong class="p11 blue">make install</strong>
+              </p>
+              <h2 id="lfs32">5.23. <strong class="strong">Gawk-4.2.1</strong></h2>
+              <p>Пакет содержит программы для манипуляции с текстовыми файлами. Это <strong class="strong">GNU</strong> версия <strong class="strong">awk</strong> (<strong class="strong">Aho-Weinberg-Kernighan</strong>). Он используется в процедурах сборки для большинства пакетов.<br>
+                 Подготовим пакет <strong class="strong">Gawk</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make</strong><br><br>
+                 Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                 <strong class="p11 blue">make check</strong><br><br>
+                 Установим пакет:<br><br>
+                 <strong class="p11 blue">make install</strong><br><br>
+              </p>
+              <h2 id="lfs33">5.24. <strong class="strong">Gettext-0.19.8.1</strong></h2>
+              <p>Пакет содержит утилиты и библиотеки для работы с локализацией и интернационализацией необходимые для некоторых пакетов. Что позволяет программам, которые скомпилированы с поддержкой <strong class="strong">NLS</strong> (Поддержка нативных языков), показывать сообщения в пользовательском нативном языке.<br>
+                 Для временного набора инструментов, необходимо скомпилировать и установить только три программы из пакета <strong class="strong">Gettext</strong>.<br>
+                 Подготовим пакет <strong class="strong">Gettext</strong> к компиляции:<br><br>
+                 <strong class="p11 blue">cd gettext-tools<br>
+                 <strong class="p11">EMACS="no" ./configure --prefix=/tools --disable-shared</strong></strong><br><br>
+                 Значения параметров конфигурации:<br>
+                 <strong class="strong">EMACS="no"</strong> Аргумент сообщает сценарию конфигурирования не определять куда установить файлы <strong class="strong">Emacs Lisp</strong>. Как известно, такая проверка может вызывать зваисание, на некоторых хост-системах.<br>
+                 <strong class="strong">--disable-shared</strong> Не требуется установка и компиляция общих библиотек пакета <strong class="strong">Gettext</strong>.<br>
+                 Скомпилируем пакет:<br><br>
+                 <strong class="p11 blue">make -C gnulib-lib<br>
+                 <strong class="p11">make -C intl pluralx.c<br>
+                 <strong class="p11">make -C src msgfmt<br>
+                 <strong class="p11">make -C src msgmerge<br>
+                 <strong class="p11">make -C src xgettext</strong></strong></strong></strong></strong><br><br>
+                 Поскольку было скомпилировано всего три программы, запустить набор тестов невозможно, без компиляции дополнительных библиотек пакета <strong class="strong">Gettext</strong>. Поэтому не рекомендуется запускать наборы тестов на этом этапе.<br>
+                 Установим <strong class="strong">msgfmt</strong>, <strong class="strong">msgmerge</strong> и <strong class="strong">xgettext</strong> программы:<br><br>
+                 <strong class="p11 blue">cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin</strong>
+              </p>
+              <h2 id="lfs34">5.25. <strong class="strong">Grep-3.1</strong></h2>
+              <p>Пакет содержит программу, которая находит на вводе строки, отвечающие заданному регулярному выражению, и выводит их, если вывод не отменён специальным ключом. Пакет используется в процедурах сборки для большинства пакетов.<br>
+                  Подготовим пакет <strong class="strong">Grep</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs35">5.26. <strong class="strong">Gzip-1.9</strong></h2>
+               <p>Пакет содержит программы для сжатия и распаковки файлов. Он необходим, чтобы выполнять распаковку большинства пакетов <strong class="strong">LFS</strong>.<br> 
+                  Сделаем некоторые исправления, требуемые <strong class="strong">glibc-2.28</strong>:<br><br>
+                  <strong class="p11 blue">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c<br>
+                  <strong class="p11">echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</strong></strong><br><br>
+                  Подготовим пакет <strong class="strong">Gzip</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов в этой главе. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs36">5.27. <strong class="strong">Make-4.2.1</strong></h2>
+               <p>Пакет содержит программы которые автоматизируют процесс преобразования файлов из одной формы в другую. Чаще всего это компиляция исходного кода в объектные файлы и последующая компоновка в исполняемые файлы или библиотеки. Он необходим для сборки пакетов <strong class="strong">LFS</strong>.<br>
+                  Необходимо обойти ошибку, вызванную <strong class="strong">glibc-2.27</strong>:<br><br>
+                  <strong class="p11 blue">sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</strong><br><br>
+                  Подготовим пакет <strong class="strong">Make</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools --without-guile</strong><br><br>
+                  Значения параметров конфигурации:<br>
+                  <strong class="strong">--without-guile</strong> Аргумент указывает программе <strong class="strong">Make-4.2.1</strong> не линковаться с библиотеками <strong class="strong">Guile</strong>, которые могут быть на хост-системе, но отсутствовать в среде <strong class="strong">chroot</strong>.<br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установм пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs37">5.28. <strong class="strong">Patch-2.7.6</strong></h2>
+               <p>Пакет содержит программу предназначенную для переноса правок (изменений) между разными версиями текстовых файлов. Информация о правке обычно содержится в отдельном файле, называемом "заплаткой" (<strong class="strong">patch</strong>), "правкой" или "файлом правки" (англ. <strong class="strong">patch file</strong>). Подобный файл, как правило, создается с помощью другой утилиты <strong class="strong">Unix — diff</strong>, позволяющей автоматически извлечь информацию о различиях в тексте файлов. Он необходим для выполнения сборки некоторых пакетов <strong class="strong">LFS</strong>.<br> 
+                  Подготовим пакет <strong class="strong">Patch</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs38">5.29. <strong class="strong">Perl-5.28.0</strong></h2>
+               <p>Высокоуровневый интерпретируемый динамический язык программирования общего назначения, он необходим для установки и выполнения тестов некоторых пакетов <strong class="strong">LFS</strong>.<br>
+                  Подготовим пакет <strong class="strong">Perl</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">sh Configure -des -Dprefix=/tools -Dlibs=-lm</strong><br><br>
+                  Выполним сборку пакета:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Хотя <strong class="strong">Perl</strong> поставляется с набором тестов, было бы лучше пока воздержаться от тестирования.<br>
+                  На данный момент, только некоторые из утилит и библиотек должны быть установлены:<br><br>
+                  <strong class="p11 blue">cp -v perl cpan/podlators/scripts/pod2man /tools/bin<br>
+                  <strong class="p11">mkdir -pv /tools/lib/perl5/5.28.0<br>
+                  <strong class="p11">cp -Rv lib/* /tools/lib/perl5/5.28.0</strong></strong></strong>
+               </p>
+               <h2 id="lfs39">5.30. <strong class="strong">Sed-4.5</strong></h2>
+               <p><strong class="strong">Sed</strong> - потоковый текстовый редактор (а также язык программирования), применяющий различные предопределённые текстовые преобразования к последовательному потоку текстовых данных. Он необходим для многих пакетов <strong class="strong">LFS</strong>, на этапе конфигурирования.<br> 
+                  Подготовим пакет <strong class="strong">Sed</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs40">5.31. <strong class="strong">Tar-1.30</strong></h2>
+               <p>Этот пакет обеспечивает возможности архивирования и извлечения почти всех пакетов, используемых в <strong class="strong">LFS</strong>.<br> 
+                  Подготовим пакет <strong class="strong">Tar</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs41">5.32. <strong class="strong">Texinfo-6.5</strong></h2>
+               <p>Этот пакет - система документирования и язык разметки, позволяющие создавать документы в разных форматах из одного исходного текста. Он используется в процедурах установки многих пакетов <strong class="strong">LFS</strong>.<br>
+                  Подготовим пакет к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  В процессе конфигурирования, могут быть отображены ошибки для <strong class="strong">TestXS_la-TestXS.lo..</strong>Эти ошибки не имеют никакого отношения к <strong class="strong">LFS</strong>, и их можно игнорировать.<br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs42">5.33. <strong class="strong">Util-linux-2.32.1</strong></h2>
+               <p>Пакет содержит стандартный набор служебных утилит командной строки, такие как - утилиты для работы с файловой системой, консолью, разделами, и сообщениями.<br>
+                  Подготовим пакет <strong class="strong">Util-linux к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools \<br>
+                  <strong class="p11">--without-python \<br>
+                  <strong class="p11">--disable-makeinstall-chown \<br>
+                  <strong class="p11">--without-systemdsystemunitdir \<br>
+                  <strong class="p11">--without-ncurses \<br>
+                  PKG_CONFIG=""</strong></strong></strong></strong></strong></strong><br><br>
+                  Значения параметров конфигурации:<br>
+                  <strong class="strong">--without-python</strong> Этот аргумент отключает использование <strong class="strong">Python</strong>, если он установлен на хост-системе. Это позволяет избежать попыток построить выполнить сборку ненужных привязок.<br>
+                  <strong class="strong">--disable-makeinstall-chown</strong> Этот аргумент отключает использование команды <strong class="strong">chown</strong> в процессе установки. В этом нет необходимости, когда установка будет производится в каталог <strong class="strong">/tools</strong>. Также, это позволит избежать установки от пользователя <b class="p3">root</b>.<br>
+                  <strong class="strong">--without-ncurses</strong> Этот аргумент отключает использование библиотеки <strong class="strong">ncurses</strong> в процессе сборки. В этом нет необходимости, когда установка будет производится в каталог <strong class="strong">/tools</strong>. Также, это позволит избежать проблем при установке на некоторых дистрибутивах.<br>
+                  <strong class="strong">--without-systemdsystemunitdir</strong> На системах, где используется <strong class="strong">systemd</strong>, пакет будет устанавливать специфичные для <strong class="strong">systemd</strong> файлы в несуществующие места в каталоге <strong class="strong">/tools</strong>. Этот аргумент отключает действия, которые не требуются.<br>
+                  <strong class="strong">PKG_CONFIG=""</strong> Установка этой переменной окружения отключает добавления функций, которые не требуются и могут быть доступны в хост-системе. Обратите внимание что место, где устанавливается значение этой переменной различается от инструкций в других главах книги <strong class="strong">LFS</strong>. Здесь показан ещё один способ, каким образом можно устанавливать значения переменным окружения при использовании сценария configure.<br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs43">5.34. <strong class="strong">Xz-5.2.4</strong></h2>
+               <p>Пакет содержит программы для сжатия и распаковки файлов. Он обеспечивает высокое сжатие и используется для распаковки пакетов форматов <strong class="strong">XZ</strong> и <strong class="strong">LZMA</strong>. Сжатие текстовых файлов при помощи программы <strong class="strong">Xz</strong> даёт больший процент сжатия чем <strong class="strong">gzip</strong> или <strong class="strong">bzip2</strong>.<br> 
+                  Подготовим пакет <strong class="strong">Xz</strong> к компиляции:<br><br>
+                  <strong class="p11 blue">./configure --prefix=/tools</strong><br><br>
+                  Скомпилируем пакет:<br><br>
+                  <strong class="p11 blue">make</strong><br><br>
+                  Выполнение тестов не является обязательным для набора временных инструментов. Чтобы запустить выполнение тестов, в любом случае, выполним команду:<br><br>
+                  <strong class="p11 blue">make check</strong><br><br>
+                  Установим пакет:<br><br>
+                  <strong class="p11 blue">make install</strong>
+               </p>
+               <h2 id="lfs44">5.35. Удаление ненужных файлов</h2>
+               <p>Исполняемые файлы и библиотеки, которые были скомпилированы, имеют файлы отладочных символов, общим размером около 70 Мегабайт. Их можно удалить:<br><br>
+                  <strong class="p11 blue">strip --strip-debug /tools/lib/*<br>
+                  <strong class="p11">/usr/bin/strip --strip-unneeded /tools/{,s}bin/*</strong></strong><br><br>
+                  Этот набор команд пропустит некоторые файлы, сообщив что не удается распознать формат. Большинство из них являются файлами сценариев а не библиотеками. Также, используется системная команда очистки бинарных файлов в каталоге <strong class="strong">/tools</strong>.<br>
+                  Будем осторожны, и не применяем аргумент <strong class="strong">--strip-unneeded</strong> к библиотекам. Статические библиотеки будут уничтожены и пакеты временного набора инструментов придется компилировать заново.<br>
+                  Можно удалить документацию:<br><br>
+                  <strong class="p11 blue">rm -rf /tools/{,share}/{info,man,doc}</strong><br><br>
+                  Удаление ненужных файлов:<br><br>
+                  <strong class="p11 blue">find /tools/{lib,libexec} -name \*.la -delete</strong>
+               </p>
+               <h2 id="lfs45">5.36. Изменение прав</h2>
+               <p>Далее команды должны выполняться от пользователя <b class="p3">root</b> и более не использовать временного пользователя <strong class="strong">lfs</strong>. Также, проверяем, что переменная окружения <strong class="strong">$LFS</strong> установлена пользователю <b class="p3">root</b>.<br>
+                  Сейчас, права на каталог <strong class="strong">$LFS/tools</strong> принадлежат пользователю <strong class="strong">lfs</strong>, который существует только в хост-системе. Если права на каталог оставить как есть, файлы будут иметь принадлежность к пользовательскому идентификатору но без соответствующей учетной записи. Это небезопасно, потому что в дальнейшем когда будут создаваться новые учетные записи, идентификатор может быть кому нибудь назначен, и права на этот каталог будут ему предоставлены, следовательно он сможет манипулировать всем содержимым каталога без каких либо ограничений.<br>
+                  Во избежание этой проблемы, позднее, можно добавить пользователя <strong class="strong">lfs</strong> в новую систему, когда будет создан файл <strong class="strong">/etc/passwd</strong>, назначим ему тоже имя и идентификатор группы как в хост-системе. Лучше всего изменить права на каталог <strong class="strong">$LFS/tools</strong>, и назначить их пользователю <b class="p3">root</b>, запустив команду:<br><br>
+                  <strong class="p11 blue">chown -R root:root $LFS/tools</strong><br><br>
+                  Несмотря на то, что каталог <strong class="strong">$LFS/tools</strong> может быть удалён, как только сборка системы <strong class="strong">LFS</strong> будет завершена, его можно сохранить для сборки другой системы <strong class="strong">LFS</strong>, выполнив резервное копирование каталога <strong class="strong">$LFS/tools</strong>.
+               </p>
+         <div class="kartinka5"><a class="a steps cursorG1" href="Lfs.html#lfs"><img src="Gentoo/steps.png" alt=""></a><a class="a steps cursorG" href="Lfs2.html#lfs"><img src="Gentoo/steps1.png" alt=""></a></div>
+       </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="animated fadeIn full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/camera.png" class="animated fadeIn full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Нужно отнимать деньги у тех, у кого они имеются, и прежде всего, конечно, у бедных. Да, у бедных денег маловато, но зато самих бедных так много!" Альфонс Алле ...и меньше возможностей их защитить.'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="Два Доллара"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="ПочтовыйЯщик"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="facebook"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="Вконтакте"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="twitter"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="Однокласники"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="Мой Мир"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="instagram"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="Help"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+ <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="wine linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

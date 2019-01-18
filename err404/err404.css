@@ -1,0 +1,42 @@
+body{width:100%;background:url("../Соцсети/bgF.gif")fixed;}
+@media handheld and (max-width:720px) {body{width:480px}}
+*{margin:0;padding:0;}
+#night{background:url("night.jpg")no-repeat 50% 0 fixed;height:1203px;width:100%;overflow:hidden;position:relative;}
+hgroup{margin-top:250px;font-family:'Century Gothic',Calibri,'Myriad Pro',Arial,Helvetica,sans-serif;text-align:center;}
+h1{color:rgb(1,71,255);font-size:60px;text-shadow:3px 3px 0 #3D606D;white-space:nowrap;}
+h2{color:#76D7FB;font-weight:normal;padding:25px 0;}   
+h3{color:#eee;font-size:15px;font-weight:normal;text-shadow:none;}
+.a1,.a1:visited{text-decoration:none;outline:none;border-bottom:1px dotted #9FE3FC;color:#9FE3FC;}
+.a1:hover{border-bottom:1px dashed transparent;}
+#BabaYga{width:400px;height:360px;margin-top:460px;background:url('BabaYga.png')no-repeat;position:fixed;z-index:100;}
+.steam1,.steam2{position:absolute;bottom:50px;left:120px;width:80px;height:80px;background:url('steam.png')no-repeat;opacity:0.8;}
+.steam2{background-position:left bottom;}
+.imgParallax{position:absolute;z-index:10;}
+#swamp{background:url("Болото.jpg")no-repeat 50% 0 fixed;height:1200px;width:100%;overflow:hidden;position:relative;}
+#fish {background:url("fish.png")no-repeat;height:183px;width:563px;top:1000px;left:2000px;}
+#elephant{background:url("elephant.gif")no-repeat;height:165px;width:207px;top:350px;right:100px;}
+.element{position:absolute;display:block;}
+/* ufo */
+.ufoWrap{display:table;height:40%;width:100%;position:absolute;}
+.center{background:transparent;height:100%;display:table-cell;vertical-align:middle;}
+.ufoInner{position:relative; animation: ufo 30s ease-in-out infinite;opacity:0;}
+@keyframes ufo{0%{transform:translate(10px,-80px) scale(0) rotate(0deg);opacity:0;}50%{transform:translate(10px,-80px) scale(2) rotate(7deg);opacity:1.0;}100%{transform:translate(10px,-80px) scale(4) rotate(-7deg);opacity:0;}}
+#ufo{width:325px;height:41px;margin:0 auto;border-radius:50%;background:#141618;position:relative;
+box-shadow:inset -15px -4px 16px rgba(60,29,94,0.2),inset 15px -4px 16px rgba(55,50,117,0.19),inset 0px -4px 18px #313234,0px -1px 0px #2b2e2a,0px -3px 0px #222;}
+#ufo:before{content:' ';display:block;width:320px;height:41px;position:relative;margin:0 auto;border-radius:50%;background:#555;box-shadow:inset 0px 2px 0px rgba(184,232,255,0.78);z-index:-1;top:-7px;}
+ul.blinkers{margin:0px;padding:0px;position:absolute;top:0px;width:100%;display:block;height:100%;}
+ul.blinkers li{list-style-type:none;background:#758c8a;width:5px;height:2px;position:absolute;border-radius:50%;box-shadow: 0px -1px 2px #000, 0px 3px 2px rgba(74,196,235,0.16);}
+ul.blinkers li:nth-child(1){top:23px;left:45px;opacity:0.5;width:5px;}ul.blinkers li:nth-child(2){left:119px;top:13px;}ul.blinkers li:nth-child(3){right:91px;top:15px;opacity:0.7}ul.blinkers li:nth-child(4){bottom:14px;right:33px;opacity:0.4;}
+.dome{width:101px;height:24px;background:#D3F0FF;position:relative;top:-55px;z-index:-2;margin:0 auto;border-radius:50%;left:4px;box-shadow:inset -11px 2px 4px #61A3DF,inset -10px -18px 9px #000,0px 57px 28px rgba(121,179,218,0.8);border-top:2px solid rgba(255,255,255,0.5);}
+.antigrav{width:133px;height:14px;margin:0 auto;background:#8ca6b9;position:relative;left:3px;border-radius:50%;top:-38px;overflow:hidden;box-shadow:0px -4px 0px #111, 0px -17px 17px rgba(155,227,250,0.13);
+/* this fixes the overflow:hidden in Chrome */
+-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);}
+.inner{width:133px;height:14px;margin:0 auto;background:#d6f9ff;position:relative;border-radius:50%;top:-7px;border:1px solid #3a6075;z-index:1;box-shadow:0px 1px 1px rgba(14, 32, 42, 0.3);}
+.rings{width:133px;height:14px;margin:0 auto;background:#7298ad;position:relative;border-radius:50%;top:-5px;border:1px solid #3a6075;overflow:hidden;box-shadow:inset 0px -1px 0px #BED3DF, 0px 1px 0px rgba(140,166,185,0.77);}
+.rings ul{margin:0px;padding:0px;position:relative;width:100%;top:-13px;}
+.rings ul li{float:left;background:#4a7185;display:block;width:1px;height:19px;margin-right:1px;}
+.rings ul li:nth-child(3n+3){box-shadow:0px 0px 0px #fff;animation-name:rings;animation-duration:.2s;animation-iteration-count:infinite;animation-timing-function:linear;}
+@keyframes rings{0%{box-shadow:0px 0px 0px rgba(255,255,255,0.8);}100%{box-shadow: 10px 0px 5px rgba(255,255,255,0.8);}}
+.come{display:table;width:100%;position:fixed;bottom:50px;text-align:center;}
+#forest{background:url("forest.jpg")no-repeat 50% 0 fixed;height:1203px;width:100%;position:relative;}
+.noscript{width:70%;margin:0 15%;position:fixed;z-index:11;display:flex;justify-content:center;}.noscript h2{font-size:50px;color:rgb(255,255,255);}.socseti1{display:inline-block;}.p3{color:rgb(232,43,10);}

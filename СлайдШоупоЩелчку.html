@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+     <meta charset="utf-8">
+     <title>Слайд шоу по щелчку</title>
+     <meta name="description" content="Показан код HTML и CSS одного из вариантов слайд шоу по щелчку">
+     <meta name=’keywords’ content="слайд шоу из фотографий,создание слайд шоу,слайдшоу,как сделать слайд шоу,макет,показ слайдов,показ слайдов по щелчку">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <?php include "LastModified.php";?> 
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="СлайдШоу/СлайдШоупоЩелчку.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Работа не волк, в лес не убежит. А клиент убежит, если вовремя не выполнить заказ!</b> 
+          </h2>
+       </div>
+         <section id="Oldhouse">
+            <img id="ball" src="СлайдШоу/ball.png" alt="создание слайд шоу">
+            <img id="orange-ball" src="СлайдШоу/ball-orange.png" alt="слайдшоу">
+            <img id="blue-ball" src="СлайдШоу/ball-blue.png"  alt="как сделать слайд шоу">
+            <img id="pink-ball" src="СлайдШоу/ball-pink.png" alt="показ слайдов">
+         </section>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="создание слайд шоу"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 dhvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside hvr-curl">
+           <li class="music"><a><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="показ слайдов по щелчку"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Кто борется, может проиграть; кто не борется, уже проиграл."</p></div>
+    </header>
+    <section class="group section3">
+    <div class="section11">
+      <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+      </div>
+    </div><!--
+    --><div class="section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p> <p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div>
+         </div>
+      </div>
+	 <div id="page-wrap">
+         <div id="curtain" class="sl-slider-wrapper kartinka121">
+            <div class="sl-slider">            
+             <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+			  <div class="sl-slide-inner">
+			    <div class="bg-img1"></div> 
+              </div>
+             </div>
+             <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+              <div class="sl-slide-inner">
+                <!--<a href="http://www.deviantart.com">-->
+                <div><img src="СлайдШоу/Домик.gif" alt="создание слайд шоу"></div>
+                <img class="doggy" src="СлайдШоу/doggy.gif" alt="как сделать слайд шоу"><!--</a>-->
+              </div>
+             </div>     
+            </div><!-- /sl-slider -->
+         </div><!--curtain-->
+          <nav id="nav-dots" class="nav-dots">
+             <span class="nav-dot-current current-wrapper button-3"><p>Сим! Сим! Закройся</p></span>
+             <span class="current-wrapper button-4"><p>Сим! Сим! Откройся</p></span>
+          </nav>
+        </div>
+         <h1 class="music1"><a id="hc14" class="send-link special-link a link1" href="#slider">Слайд шоу по щелчку</a></h1>
+        <div class="qitem qitemCss">
+          <img src="СлайдШоу/CSS.jpg" alt="Слайд Шоу" title="" width="800" height="750"/>
+         <span class="caption">
+         <p><strong class="p11 blue">.demo input { display: none; }</strong> /* "<strong class="strong">input</strong>" позволяет создавать разные элементы интерфейса и обеспечить взаимодействие с пользователем.
+            Он позволяет задавать следующий элемент формы:  переключатель (<strong class="strong">radio</strong>).<br> 
+            "<strong class="strong">display: none;</strong>" временно удаляет элемент из документа.<br> 
+            Изменить значение и сделать вновь видимым элемент можно с помощью скриптов, 
+            обращаясь к свойствам через объектную модель.<br> 
+            В этом случае происходит переформатирование данных на странице с учетом вновь добавленного. элемента.*/<br>
+            <strong class="p11 blue">.demo label { transition: 3s; }</strong>/* "<strong class="strong">label</strong>" устанавливает связь между определенной меткой, в качестве которой обычно выступает текст, 
+            и элементом формы например &lt;<strong class="strong">input</strong>><br>
+            Такая связь необходима, чтобы изменять значения элементов формы при нажатии курсором мыши на текст.<br> 
+            "<strong class="strong">transition</strong>" устанавливает эффект перехода между двумя состояниями элемента */<br>
+            <strong class="p11 blue">.demo label,</strong><br>
+            <strong class="p11 blue">.demo #vkl1:checked ~ [for="vkl1"],</strong> /* Псевдокласс <strong class="strong">:checked</strong> применяется к элементам интерфейса, 
+            таким как переключатели (<strong class="strong">checkbox</strong>) и флажки (<strong class="strong">radio</strong>), когда они находятся в положение «включено».<br> 
+            Переключение элементов в такое состояние происходит с помощью атрибута <strong class="strong">checked</strong> тега &lt;<strong class="strong">input</strong>> */<br>
+            <strong class="p11 blue">.demo #vkl2:checked ~ [for="vkl2"],</strong><br>
+            <strong class="p11 blue">.demo #vkl3:checked ~ [for="vkl3"],</strong><br> 
+            <strong class="p11 blue">.demo #vkl4:checked ~ [for="vkl4"],</strong><br>
+            <strong class="p11 blue">.demo #vkl5:checked ~ [for="vkl5"] {</strong><br>
+            <strong class="p11 blue">position: absolute;</strong><br>
+            <strong class="p11 blue">visibility: hidden; opacity: 0;</strong> /* "<strong class="strong">visibility</strong>" предназначен для отображения или скрытия элемента, включая рамку вокруг него и фон.<br>
+            "<strong class="strong">hidden</strong>" элемент становится полностью прозрачным.<br>
+            "<strong class="strong">opacity</strong>" Определяет уровень прозрачности элемента */<br>
+            <strong class="p11 blue">}</strong><br>
+            <strong class="p11 blue">.demo #vkl1:checked ~ [for="vkl2"],</strong><br>
+            <strong class="p11 blue">.demo #vkl2:checked ~ [for="vkl3"],</strong><br>
+            <strong class="p11 blue">.demo #vkl3:checked ~ [for="vkl4"],</strong><br>
+            <strong class="p11 blue">.demo #vkl4:checked ~ [for="vkl5"],</strong><br>
+            <strong class="p11 blue">.demo #vkl5:checked ~ [for="vkl1"] {visibility: visible; opacity: 1;}</strong> /* "<strong class="strong">visible</strong>" отображает элемент как видимый. */<br>
+            <strong class="p11 blue">#slider{height:383px;width:680px;overflow:hidden;position:relative;margin:20px auto 0;border:5px ridge rgb(204,50,255);}<br>
+            <strong class="p11">.sliderTxt:hover::after{content:attr(data-title);position:absolute;padding:5px;left:39%;<br>
+            top:35%;background:#9FE3FC;border:1px solid rgb(0,0,100);border-radius:5px;color:rgb(0,0,100);z-index:11;}</strong></strong>
+         </p>
+         </span>
+         </div>
+         <div class="qitem qitemHtml">
+          <img src="СлайдШоу/html.jpg" alt="Слайд Шоу" title="" width="800" height="390">
+         <span class="caption">
+         <p>&lt;!--Слайд шоу--><br>        
+            <strong class="p11 blue">&lt;div id="slider"></strong> &lt;!--Контейнер для слайдера--><br>
+            <strong class="p11 blue">&lt;div class="demo"></strong><br>
+            <strong class="p11 blue">&lt;input type="radio" name="odin" id="vkl1"></strong><br>
+            <strong class="p11 blue">&lt;input type="radio" name="odin" id="vkl2"></strong><br>
+            <strong class="p11 blue">&lt;input type="radio" name="odin" id="vkl3"></strong><br>
+            <strong class="p11 blue">&lt;input type="radio" name="odin" id="vkl4"></strong><br>
+            <strong class="p11 blue">&lt;input type="radio" name="odin" id="vkl5" checked="checked"></strong><br>
+            <strong class="p11 blue">&lt;label for="vkl1" class="sliderTxt" data-title="Щёлкаем мышкой"></strong><br> 
+            <strong class="p11 blue">&lt;img src="СлайдШоу/Gentoo.jpg" alt="создание слайд шоу">&lt;/label></strong><br>
+            <strong class="p11 blue">&lt;label for="vkl2" class="sliderTxt" data-title="Щёлкаем мышкой"></strong><br>
+            <strong class="p11 blue">&lt;img src="СлайдШоу/opensuse.png" alt="слайдшоу">&lt;/label></strong><br>
+            <strong class="p11 blue">&lt;label for="vkl3" class="sliderTxt" data-title="Щёлкаем мышкой"></strong><br>
+            <strong class="p11 blue">&lt;img src="СлайдШоу/Redhat.png" alt="как сделать слайд шоу">&lt;/label></strong><br>
+            <strong class="p11 blue">&lt;label for="vkl4" class="sliderTxt" data-title="Щёлкаем мышкой"></strong><br>
+            <strong class="p11 blue">&lt;img src="СлайдШоу/CentOS.png" alt="показ слайдов">&lt;/label></strong><br>
+            <strong class="p11 blue">&lt;label for="vkl5" class="sliderTxt" data-title="Щёлкаем мышкой"></strong><br>
+            <strong class="p11 blue">&lt;img src="СлайдШоу/arch.jpg" alt="показ слайдов по щелчку">&lt;/label></strong><br>
+            <strong class="p11 blue">&lt;/div></strong><br>
+            <strong class="p11 blue">&lt;/div></strong><br>&lt;!-- Конец слайд шоу -->
+         </p>
+         </span>
+         </div>
+         </div><!--
+      --><div class="section11 kartinka3">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+       </div>
+       </div>
+                                    <!--Слайд шоу--> 
+    <div class="Hp">
+     <div id="slider"> <!--Контейнер для слайдера-->
+       <div class="demo">
+        <input type="radio" name="odin" id="vkl1">
+        <input type="radio" name="odin" id="vkl2">
+        <input type="radio" name="odin" id="vkl3">
+        <input type="radio" name="odin" id="vkl4">
+        <input type="radio" name="odin" id="vkl5">
+        <input type="radio" name="odin" id="vkl6">
+        <input type="radio" name="odin" id="vkl7">
+        <input type="radio" name="odin" id="vkl8" checked="checked">
+        <label for="vkl1" class="sliderTxt" data-title="Щёлкаем мышкой"> 
+         <img src="СлайдШоу/Gentoo.jpg" alt="создание слайд шоу"></label>
+        <label for="vkl2" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/opensuse.png" alt="слайдшоу"></label>
+        <label for="vkl3" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/Redhat.png" alt="как сделать слайд шоу"></label>
+        <label for="vkl4" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/CentOS.png" alt="показ слайдов"></label>
+        <label for="vkl5" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/fedora.jpg" alt="макет"></label>
+        <label for="vkl6" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/arch.jpg" alt="макет"></label>
+        <label for="vkl7" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/Debian.png" alt="показ слайдов по щелчку"></label>
+        <label for="vkl8" class="sliderTxt" data-title="Щёлкаем мышкой">
+         <img src="СлайдШоу/Ubuntu.jpg" alt="показ слайдов по щелчку"></label>
+       </div>
+     </div>
+    </div>
+                    <div id="php" class="kartinka5 music4">
+                        <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php">
+                          <span class="four arrow">Оставить отзыв</span>
+                        </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+               </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas> 
+     <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+     </div>
+     <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+     </div>
+     <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Богат не тот кто имеет много денег, а тот, кому их хватает."'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="как сделать слайд шоу"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt=""></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+     </div>
+      <nav class="navigation1">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="создание слайд шоу"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside hvr-curl">
+           <li class="music"><a><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+      <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="слайд шоу из фотографий"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="создание слайд шоу"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="слайдшоу"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="как сделать слайд шоу"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="макет"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="показ слайдов"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="слайдшоу"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="создание слайд шоу"></div></a>
+         </div>
+       </div>
+       <div id="adot0"></div>
+       <div id="adot1" class="adot1"><hr class="hr1"></div>
+       <div id="adot2" class="adot2"><hr class="hr2"></div>
+       <div id="adot3" class="adot3"><hr class="hr3"></div>
+       <div id="adot4" class="adot4"><hr class="hr4"></div>
+       <div id="adot5" class="adot5"><hr class="hr5"></div>
+       <div id="adot6" class="adot6"><hr class="hr6"></div>
+       <div id="adot7" class="adot7"><hr class="hr7"></div>
+       <div id="adot8" class="adot8"><hr class="hr8"></div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                    <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                    <!--Stickers-->
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>            
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>            
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>            
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+		            <!--Css & Html-->
+        <script src="СлайдШоу/jquery.easing.1.3.js"></script>
+        <script>
+    $(document).ready(function() {
+    //Custom settings
+	var style_in = 'easeOutBounce';
+	var style_out = 'jswing';
+	var speed_in = 1000;
+	var speed_out = 300;	
+    //Calculation for corners
+	var neg = Math.round($('.qitem').width() / 2) * (-1);	
+	var pos = neg * (-1);	
+	var out = pos * 2;
+	 $('.qitem').each(function () {
+	    url = $(this).find('a').attr('href');
+		img = $(this).find('img').attr('src');
+		alt = $(this).find('img').attr('img');
+		$('img', this).remove();
+		$(this).append('<div class="topLeft"></div><div class="topRight"></div><div class="bottomLeft"></div><div class="bottomRight"></div>');
+		$(this).children('div').css('background-image','url('+ img + ')');
+
+		$(this).find('div.topLeft').css({top:0, left:0, width:pos , height:pos});	
+		$(this).find('div.topRight').css({top:0, left:pos, width:pos , height:pos});	
+		$(this).find('div.bottomLeft').css({bottom:0, left:0, width:pos , height:pos});	
+		$(this).find('div.bottomRight').css({bottom:0, left:pos, width:pos , height:pos});	
+    }).hover(function () {
+	
+		$(this).find('div.topLeft').stop(false, true).animate({top:neg, left:neg}, {duration:speed_out, easing:style_out});	
+		$(this).find('div.topRight').stop(false, true).animate({top:neg, left:out}, {duration:speed_out, easing:style_out});	
+		$(this).find('div.bottomLeft').stop(false, true).animate({bottom:neg, left:neg}, {duration:speed_out, easing:style_out});	
+		$(this).find('div.bottomRight').stop(false, true).animate({bottom:neg, left:out}, {duration:speed_out, easing:style_out});	
+	},
+	function () {
+
+		$(this).find('div.topLeft').stop(false, true).animate({top:0, left:0}, {duration:speed_in, easing:style_in});	
+		$(this).find('div.topRight').stop(false, true).animate({top:0, left:pos}, {duration:speed_in, easing:style_in});	
+		$(this).find('div.bottomLeft').stop(false, true).animate({bottom:0, left:0}, {duration:speed_in, easing:style_in});	
+		$(this).find('div.bottomRight').stop(false, true).animate({bottom:0, left:pos}, {duration:speed_in, easing:style_in});	
+	}).click (function () {
+	});
+    });
+        </script>
+                    <!--Curtain-->
+        <script type="text/javascript" src="Curtain/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript" src="Curtain/modernizr.custom.79639.js"></script>
+		<script type="text/javascript" src="Curtain/jquery.slitslider.js"></script>
+		<script type="text/javascript">	
+		$(function() {
+            var Page = (function() {
+            var $nav = $( '#nav-dots > span' ),
+						slitslider = $( '#curtain' ).slitslider( {
+							onBeforeChange : function( slide, pos ) {
+                $nav.removeClass( 'nav-dot-current' );
+				$nav.eq( pos ).addClass( 'nav-dot-current' );
+            }
+						} ),
+            init = function() {
+            initEvents();
+			},
+						initEvents = function() {
+            $nav.each( function( i ) {
+            $( this ).on( 'click', function( event ) {
+            var $dot = $( this );
+            if( !slitslider.isActive() ) {
+            $nav.removeClass( 'nav-dot-current' );
+			$dot.addClass( 'nav-dot-current' );
+			}
+			slitslider.jump( i + 1 );
+									return false;
+			} );
+			} );
+            };
+            return { init : init };
+            })();
+            Page.init();
+            /** Notes: 
+			* example how to add items:*/
+            /*var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
+			// call the plugin's add method
+			ss.add($items);*/
+			});
+        </script>
+                     <!--Сим! Сим! Откройся--> 
+        <script type="text/javascript" src="Curtain/clickspark.js"></script>
+        <script>
+            $(document).ready(function () {
+            $('.button-3').clickSpark({
+                particleImagePath: 'Curtain/particle-3.png',
+                particleCount: 35,
+                particleSpeed: 10,
+                particleSize: 15,
+                particleRotationSpeed: 20,
+                animationType: 'explosion',
+                callback: ''
+            });
+            $('.button-4').clickSpark({
+                particleImagePath: 'Curtain/particle-4.png',
+                particleCount: 35,
+                particleSpeed: 10,
+                particleSize: 15,
+                particleRotationSpeed: 20,
+                animationType: 'explosion',
+                callback: ''
+            });
+            });
+        </script>
+                    <!--Circulate-->
+        <script type='text/javascript' src='СлайдШоу/jquery.circulate.js'></script>
+        <script type='text/javascript' src='СлайдШоу/circulate.js'></script>
+                    <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+                    <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                  <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                            <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="слайд шоу из фотографий"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div></div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+                            <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--КурсорJS-->
+        <script type='text/javascript' src="СлайдШоу/КурсорJS.js"></script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                            <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+     </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

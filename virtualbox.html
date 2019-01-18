@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка VirtualBox</title>
+     <meta name="description" content="Установка и настройка VirtualBox. Установка Gentoo на VirtualBox. Установка рабочего стола Xfce.">
+     <meta name="keywords" content="VirtualBox,Xfce,Команды VirtualBox,общие папки">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+     <style>
+       .Pointer{position:relative;margin:170px -80px 0 0;z-index:11;}.grass{background:url(Qemu/grass.png) 50% 0 no-repeat;height:352px;width:69.5%;position:absolute;margin-top:155px;}
+       .scene{width:640px;height:509px;-webkit-perspective:3000px;-moz-perspective:3000px;perspective:3000px;margin-bottom:-11px;}
+       .movie{width:640px;height:509px;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transform:translateZ(-320px);-moz-transform:translateZ(-320px);transform:translateZ(-320px);-webkit-transition:-webkit-transform 350ms;-moz-transition:-moz-transform 350ms;transition:transform 350ms;}
+       .movie:hover{-webkit-transform:rotateY(-78deg) translateZ(150px);-moz-transform:rotateY(-78deg) translateZ(150px);transform:rotateY(-78deg) translateZ(150px);}
+       .movie .poster{position:absolute;width:640px;height:509px;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateZ(190.5px);-moz-transform:translateZ(190.5px);transform:translateZ(190.5px);background-size:cover;background-repeat:no-repeat;background-image:url(Qemu/virtualbox.png);}
+       .movie .info{position:absolute;width:381px;height:509px;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:rotateY(90deg) translateZ(450px);-moz-transform:rotateY(90deg) translateZ(450px);transform:rotateY(90deg) translateZ(450px);}
+       .info{height:509px;background-size:contain;background-repeat:no-repeat;background-image:url(Qemu/straus.jpg);}.windows{background:url(Qemu/Windows.png) 80% 35% no-repeat;}
+       .xfce{background:url(Qemu/Xfce.png) 50% 100% no-repeat;}
+     </style>
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Реклама похоронного бюро: «Если наши клиенты воскреснут, то вновь обратятся к нам!»</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="home"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt=""></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Правда только состоятельным людям под силу, остальным, она не по карману."</p></div>
+    </header>
+    <section class="section3">
+      <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+           <li class="p1"><a class="white aS" href="#VB">Установка VirtualBox</a></li>
+           <li class="p1"><a class="white aS" href="#VB1">Установка Gentoo на VirtualBox</a></li>
+           <li class="p1"><a class="white aS" href="#VB2">Команды VirtualBox</a></li>
+           <li class="p1"><a class="white aS" href="#VB3">Установка рабочего стола Xfce</a></li>
+           <li class="p1"><a class="blue aS" href="Qemu.html#q">Установка QEMU</a></li>
+           <li class="p1"><a class="blue aS" href="Wine.html#w">Установка Wine</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+     </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+            <div class="kartinka5"><div class="grass"></div>
+                 <div><a href="Qemu.html#q">
+                      <div><img class="Pointer" src="Qemu/pointer.png" alt="общие папки">
+                      <div class="scene socseti1">
+						<div class="movie">
+							<div class="poster"></div>
+							<div class="info"></div>
+						</div>
+					  </div></div></a>
+                 </div>
+            </div>
+        <h1 id="VB" class="music1"><a class="send-link special-link a" href="https://wiki.gentoo.org/wiki/VirtualBox">Установка VirtualBox
+          <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+          </span></a>
+        </h1>
+          <p class="music1">В ядре устанавливаем следующие параметры:<br><br>
+             <strong class="p11 blue">[*] Enable loadable module support ---><br> 
+             <strong class="p11">[ ] Trim unused exported kernel symbolsid<br>
+             <strong class="p11">[*] Virtualization ---></strong></strong></strong><br><br>
+             Устанавливаем <strong class="strong">VirtualBox</strong>:<br><br>
+             <strong class="p11 blue">emerge --ask app-emulation/virtualbox</strong><br><br>
+             Согласно сообщению <strong class="strong">ebuild</strong> после установки <strong class="strong">VirtualBox</strong>, <strong class="strong">sys-apps/usermode-utilities</strong> и <strong class="strong">net-misc/bridge-utils</strong> могут быть установлены для расширенной конфигурации сети.<br> 
+             Устанавливаем их только в том случае, если требуется расширенная сеть:<br><br>
+             <strong class="p11 blue">emerge --ask sys-apps/usermode-utilities<br>
+             <strong class="p11">emerge --ask net-misc/bridge-utils</strong></strong><br><br>
+             Вводим пользователя в группу <strong class="strong">vboxusers</strong>:<br><br>
+             <strong class="p11 blue">gpasswd -a &lt;user> vboxusers</strong><br><br>
+             Загружаем необходимые модули драйвера в ядро:<br><br> 
+             <strong class="p11 blue">emerge --ask app-emulation/virtualbox-modules<br>
+             <strong class="p11">modprobe vboxdrv</strong></strong><br><br>
+             Дополнительные модули:<br><br>
+             <strong class="p11 blue">modprobe vboxnetadp<br>
+             <strong class="p11">modprobe vboxnetflt<br>
+             <strong class="p11">modprobe vboxpci</strong></strong></strong><br><br> 
+             Можно автоматически загружать модули.<br> 
+             Создаём новый файл <strong class="strong">virtualbox.conf</strong> в каталоге <strong class="strong">/etc/modules-load.d</strong> и в нём список загружаемых модулей ядра разделенных символами новой строки:<br><br>
+             <strong class="p11 blue">vim /etc/modules-load.d/virtualbox.conf<br>
+             <strong class="p11">vboxdrv<br>
+             <strong class="p11">vboxnetadp<br>
+             <strong class="p11">vboxnetflt<br>
+             <strong class="p11">vboxpci</strong></strong></strong></strong></strong><br><br>
+             <strong class="gray">В <strong class="strong">Systemd</strong> модули можно загрузить сразу, запустив:</strong><br><br>
+             <strong class="p11 darkgrey">systemctl start systemd-modules-load</strong><br><br>
+             <a class="special-link1 a link1" href="https://www.virtualbox.org/manual/ch08.html">Создаем новую виртуальную машину</a>:<br><br>
+             <strong class="p11 blue">vboxmanage createvm --name Gentoo --ostype Gentoo_64 --register</strong><br><br>
+             <strong class="strong">ostype</strong> — тип системы, полный список всех типов можно узнать командой:<br><br> 
+             <strong class="p11 blue">vboxmanage list ostypes</strong><br><br>
+             Устанавливаем параметры ВМ:<br><br>
+             <strong class="p11 blue">vboxmanage modifyvm Gentoo --ostype Gentoo_64 --cpus 1 --memory 2048 --vram 16 --audio none --usb off --acpi on --boot1 disk --nic1 nat</strong><br><br>
+             Создаем жесткий диск размером 20 Гб:<br><br> 
+             <strong class="p11 blue">vboxmanage createhd --filename /home/nikolay/.VirtualBox/Machines/Gentoo/Gentoo.vdi --size 20000</strong><br><br> 
+             Добавим <strong class="strong">SATA</strong> контроллер к виртуальной машине:<br><br>
+             <strong class="p11 blue">vboxmanage storagectl Gentoo --name SATA --add sata</strong><br><br>
+             Присоединим жесткий диск <strong class="strong">Gentoo.vdi</strong> к контроллеру <strong class="strong">SATA</strong>:<br><br>
+             <strong class="p11 blue">vboxmanage storageattach Gentoo --storagectl SATA --port 0 --device 0 --type hdd --medium /home/nikolay/.VirtualBox/Machines/Gentoo/Gentoo.vdi</strong><br><br>
+             Добавим контроллер <strong class="strong">IDE</strong> для подключения образа установочного диска:<br><br>
+             <strong class="p11 blue">vboxmanage storagectl Gentoo --name ide-controller --add ide</strong><br><br>
+             Присоединим сам образ:<br><br>
+             <strong class="p11 blue">vboxmanage storageattach Gentoo --storagectl ide-controller --port 0 --device 1 --type dvddrive --medium /home/nikolay/Qemu/Virtualbox/sysresccd-X.X.X_zfs_X.X.X.iso</strong><br><br>
+             говорим машине грузиться с <strong class="strong">dvd</strong> диска:<br><br>
+             <strong class="p11 blue">vboxmanage modifyvm Gentoo --boot1 dvd</strong><br><br>
+             Запускаем машину:<br><br>
+             <strong class="p11 blue">vboxmanage startvm Gentoo</strong>
+          </p>
+          <h2 id="VB1" class="music1"><a class="send-link special-link2 a" href="Gentoo.html#sg1">Установка Gentoo на VirtualBox
+             <span class="icon-wrapper">
+                <span class="icon-1"></span><span class="icon-2"></span>
+             </span></a>
+          </h2>
+          <p class="windows">При запуске <strong class="strong">Gentoo</strong> в качестве гостевой системы включаем следующие параметры ядра в гостевой системе (либо встроенные, либо как модули), чтобы получить надлежащую поддержку для оборудования, эмулируемого <strong class="strong">VirtualBox</strong>:<br><br>
+          <strong class="p11 blue">&lt;*> Bus options (PCI etc.) ---><br>
+          <strong class="p11">[*] Mark VGA/VBE/EFI FB as generic system framebuffer<br>
+          <strong class="p11">&lt;*> Device Drivers ---><br>
+          <strong class="p11">&lt;*> Serial ATA and Parallel ATA drivers (libata) ---><br>
+          <strong class="p11">[*] AHCI SATA support<br>
+          <strong class="p11">[*] ATA SFF support (for legacy IDE and PATA)<br>
+          <strong class="p11">[*] ATA BMDMA support<br>
+          <strong class="p11">[*] Intel ESB, ICH, PIIX3, PIIX4 PATA/SATA support<br>
+          <strong class="p11">&lt;*> Network device support ---><br>
+          <strong class="p11">&lt;*> Ethernet driver support ---><br>
+          <strong class="p11">[*] Intel devices<br>
+          <strong class="p11">[*]   Intel(R) PRO/1000 Gigabit Ethernet support<br>
+          <strong class="p11">&lt;*> Input device support ---><br>
+          <strong class="p11">&lt;*> Keyboards ---><br>
+          <strong class="p11">[*] AT keyboard<br>
+          <strong class="p11">&lt;*> Mice ---><br>
+          <strong class="p11">[*] PS/2 mouse<br>
+          <strong class="p11">&lt;*> Graphics support ---><br>
+          <strong class="p11">&lt;*> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) ---><br>
+          <strong class="p11">[*] Enable legacy fbdev support for your modesetting driver<br>
+          <strong class="p11">&lt;*> Virtio GPU driver<br>
+          <strong class="p11">&lt;*> Frame buffer Devices ---><br>
+          <strong class="p11">&lt;*> Support for frame buffer devices ---><br>
+          <strong class="p11">[*] Enable Firmware EDID<br>
+          <strong class="p11">[*] Simple framebuffer support<br>
+          <strong class="p11">&lt;*> Console display driver support ---><br>
+          <strong class="p11">[*] Framebuffer Console support
+          <strong class="p11">[*]   Map the console to the primary display device<br>
+          <strong class="p11">&lt;*> Sound card support ---><br>
+          <strong class="p11">&lt;*> Advanced Linux Sound Architecture ---><br>
+          <strong class="p11">&lt;*> PCI sound devices ---><br>
+          <strong class="p11">[*] Intel/SiS/nVidia/AMD/ALi AC97 Controller<br>
+          <strong class="p11">&lt;*> USB support ---><br>
+          <strong class="p11">[*] xHCI HCD (USB 3.0) support<br>
+          <strong class="p11">[*] EHCI HCD (USB 2.0) support</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+          Устанавливаем гостевые дополнения в гостевой системе <strong class="strong">Gentoo</strong>:<br><br>
+          <strong class="p11 blue">emerge --ask app-emulation/virtualbox-guest-additions</strong><br><br>
+          Чтобы включить общий буфер обмена, режим перетаскивание, изменить размер изображения, убедимся, что пользователь, выполняющий сеанс <strong class="strong">X</strong> (в гостевой системе <strong class="strong">Gentoo</strong>), принадлежит группе <strong class="strong">vboxguest</strong>:<br><br>
+          <strong class="p11 blue">gpasswd -a &lt;user> vboxguest</strong><br><br>
+          Изменения не вступят в силу до тех пор, пока пользователь не выйдет, а затем снова войдет в систему.<br>
+          После установки необходимо изменить порядок загрузки с <strong class="strong">dvd</strong> на <strong class="strong">hdd</strong><br><br>
+          <strong class="p11 blue">vboxmanage modifyvm "Gentoo" --boot1 disk</strong>
+       </p>   
+       <h2 id="VB2">Команды VirtualBox</h2>
+       <p class="music1">Для просмотра списока существующих виртуальных машин, нужно выполнить:<br><br>
+          <strong class="p11 blue">vboxmanage list vms</strong><br><br>
+          Запустить без графического окна, в фоне, только для удаленного подключения, нужно указать опцию <strong class="strong">type</strong> как <strong class="strong">headless</strong>:<br><br>
+          <strong class="p11 blue">vboxmanage startvm Gentoo --type headless</strong><br><br>
+          Для остановки машины существуют команды.<br>
+          Простое выключение:<br><br>
+          <strong class="p11 blue">vboxmanage controlvm "Gentoo" poweroff</strong><br><br>
+          Сброс, аналогично кнопке компьютера <strong class="strong">Reset</strong>:<br><br>
+          <strong class="p11 blue">vboxmanage controlvm "Gentoo" reset</strong><br><br>
+          Сохранение состояния и выключение:<br><br>
+          <strong class="p11 blue">vboxmanage controlvm "Gentoo" savestate</strong><br><br>
+          машина сохранит состояние и выключится.<br>
+          Посмотреть список запущенных виртуальных машин:<br><br>
+          <strong class="p11 blue">vboxmanage Gentoo runningvms</strong><br><br>
+          <strong class="strong">modifyvm</strong> изменяет свойства зарегистрированных виртуальных машин.<br><br>
+          <strong class="p11 blue">vboxmanage modifyvm "Gentoo" --hwvirtex on|of</strong> Включение или выключение расширений аппаратной виртуализации.<br>
+          <strong class="p11 blue">vboxmanage modifyvm "Gentoo" --audio none|null|oss</strong> Позволяет настроить поддержку звука.<br>
+          <strong class="p11 blue">vboxmanage modifyvm "Gentoo" --clipboard disabled|hosttoguest|guesttohost|bidirectional</strong> Позволяет настроить поведение буфера обмена ВМ и хоста.<br>
+          <strong class="p11 blue">vboxmanage modifyvm "Gentoo" --usb on|off</strong> Включает или отключает виртуальный <strong class="strong">USB</strong> контроллер.<br>
+          <strong class="p11 blue">vboxmanage sharedfolder  add &lt;uuid|vmname> --name &lt;Имя папки> --hostpath &lt;/путь/к/папке> [--transient] [--readonly] [--automount]</strong> Позволяет создать общую папку.Для этого, в гостевых системах должны быть установлены гостевые дополнения.<br>
+          <strong class="p11 blue">vboxmanage sharedfolder remove &lt;uuid|vmname> --name &lt;Имя папки></strong> Удаляет общую папку.<br><br>
+          Для установки гостевых дополнений, скачиваем образ диска "<a class="special-link3 a link1" href="http://download.virtualbox.org/virtualbox/">Дополнений</a>" (для версии 5.2.22 файл <strong class="strong">VBoxGuestAdditions_5.2.22.iso</strong>), например, в папку <strong class="strong">~/Virtualbox/</strong>.<br> 
+          Копируем скрипт <strong class="strong">VBoxLinuxAdditions.run</strong> в эту папку:<br><br>
+          <strong class="p11 blue">cp /mnt/VBoxLinuxAdditions.run ~/Virtualbox/</strong><br><br>
+          Запускаем скрипт:<br><br>
+          <strong class="p11 blue">bash ~/Virtualbox/VBoxLinuxAdditions.run</strong><br><br>
+          Для проверки установки можно использовать команду:<br><br>
+          <strong class="p11 blue">modinfo vboxguest<br>
+          <strong class="p11">filename: /lib/modules/4.14.83-gentoo/misc/vboxguest.ko<br>
+          <strong class="p11">version: 5.2.22 r126460<br>
+          <strong class="p11">license: GPL<br>
+          <strong class="p11">description: Oracle VM VirtualBox Guest Additions for Linux Module<br>
+          <strong class="p11">author: Oracle Corporation<br>
+          <strong class="p11">srcversion: C39AE856C297EBE66C33DE5<br>
+          <strong class="p11">alias: pci:v000080EEd0000CAFEsv00000000sd00000000bc*sc*i*<br>
+          <strong class="p11">depends:<br>        
+          <strong class="p11">retpoline: Y<br>
+          <strong class="p11">name: vboxguest<br>
+          <strong class="p11">vermagic: 4.14.83-gentoo SMP mod_unload</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+          Запускаем <strong class="strong">VirtualBox</strong> и монтируем общую папку:<br><br>
+          <strong class="p11 blue">mount -t vboxsf &lt;Имя иапки> &lt;/Путь/к/папке></strong><br><br>
+          Для активации поддержки <strong class="strong">USB</strong> на <strong class="strong">VirtualBox</strong> следует открыть:<br><br>
+          <strong class="p11 blue">vim /etc/udev/rules.d/60-vboxdrv.rules</strong><br><br>
+          и активировать там соответствующие настройки:<br><br> 
+          <strong class="p11 blue">KERNEL=="vboxdrv", NAME="vboxdrv", OWNER="root", GROUP="root", MODE="0600" #these two lines give access permission to vboxusers to properly work with usb nodes, this could be security risk 
+            (bnc#664520) !! SUBSYSTEM=="usb_device", ATTR{devnum}=="?*", ATTR{busnum}=="?*",SYMLINK+="vboxusb/$attr{busnum}/$attr{devnum}", GROUP="vboxusers" SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{devnum}=="?*", ATTR{busnum}=="?*",SYMLINK+="vboxusb/$attr{busnum}/$attr{devnum}", GROUP="vboxusers"</strong><br><br>
+          Чтобы настройки вступили в силу нужно перезагрузиться.
+        </p>
+       <h2 id="VB3" class="music1"><a class="send-link special-link4 a" href="https://wiki.gentoo.org/wiki/Xfce/ru ">Установка рабочего стола Xfce
+          <span class="icon-wrapper">
+                <span class="icon-1"></span><span class="icon-2"></span>
+          </span></a>
+       </h2>
+       <p class="music1 xfce"><a class="special-link5 a link1" href="Gentoo.html#Pr">Устанавливаем базовый профиль</a>:<br><br>
+          <strong class="p11 blue">eselect profile set default/linux/amd64/17.1/desktop (stable)</strong><br><br>
+          Удаляем <strong class="strong">USE</strong>-флаг <strong class="strong">qt4</strong>, добавляем переменную <strong class="strong">XFCE_PLUGINS</strong> и изменяем <strong class="strong">VIDEO</strong>:<br><br>
+          <strong class="p11 blue">vim /etc/portage/make.conf<br>
+          <strong class="p11">USE="...-qt4..."<br>
+          <strong class="p11">XFCE_PLUGINS="brightness clock trash"<br>
+          <strong class="p11">VIDEO="virtualbox"</strong></strong></strong></strong><br><br>
+          При установке <strong class="strong">xfce-extra/xfce4-notifyd</strong> пакет <strong class="strong">virtual/notification-daemon</strong> установит зависимый пакет из среды <strong class="strong">GNOME x11-misc/notification-daemon</strong>.<br> 
+          Чтобы это устранить, необходимо установить <strong class="strong">xfce-base/xfce4-meta</strong> вместе с <strong class="strong">xfce-extra/xfce4-notifyd</strong>, и затем исключить последний из файла <strong class="strong">world</strong>:<br><br> 
+          <strong class="p11 blue">emerge --ask xfce-base/xfce4-meta xfce-extra/xfce4-notifyd<br>
+          <strong class="p11">emerge --ask --deselect=y xfce-extra/xfce4-notifyd</strong></strong><br><br>
+          Не забываем запустить <strong class="strong">D-Buss</strong>:<br><br>
+          <strong class="p11 blue">/etc/init.d/dbus start<br>
+          <strong class="p11">rc-update add dbus default</strong></strong><br><br>
+          <a class="special-link6 a link1" href="Gentoo3.html#sddm">Устанавливаем и запускаем дисплей менеджер SDDM</a>.<br><br>
+       </p>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+              <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    	    <h2 class="name gray">Станислав. Георгиевск. 25.06.18</h2>
+				    		<p class="text-testimonial Romantique white">После уже  месяца без успешной уcтановки Gentoo не виртуальную машину. Зашёл на к вам надеюсь с помощью вашего сайта у меня получиться.
+				    		</p>
+				    		<h2 class="name gray">Станислав. Георгиевск. 01.07.18</h2>
+                            <p class="text-testimonial Romantique white">Не могу выразить слов благодарности, спасибо вам за помощь  только благодаря вам я смог осилить установку.
+                            </p>
+                            <p class="text-testimonial gray">Николай: <b class="Romantique white">Удачи Вам!</b></p>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/camera.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Самое замечательное из искусств - искусство делать деньги." Энди Уорхол'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="Два Доллара"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="home"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl"><a><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on Gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="Однокласники"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="Мой Мир"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="instagram"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="Help"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript><!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt=""></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

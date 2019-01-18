@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+     <meta name="description" content="Установка и использование PHP на Gentoo Linux.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="php,mysql,массивы">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+     <link rel="stylesheet" href="php.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Автомобиль благотворно повлиял на состояние нравов: конокрадство почти прекратилось.</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl music"><a><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="базы данных"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Трагедия жизни в том, что мы слишком быстро стареем, а мудрыми становимся слишком поздно." Бенджамин Франклин</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+          <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+            <li class="p1"><a class="white aS" href="#php1">Включение поддержки PHP</a></li>
+            <li class="p1"><a class="white aS" href="#php2">Руководство по PHP</a></li>
+            <li class="p1"><a class="white aS" href="#php3">Операторы</a></li>
+            <li class="p1"><a class="white aS" href="#php4">Массивы</a></li>
+            <li class="p1"><a class="white aS" href="#php5">Простые многомерные массивы</a></li>
+            <li class="p1"><a class="white aS" href="#php6">Ассоциативные массивы в PHP</a></li>
+            <li class="p1"><a class="white aS" href="#php7">Синтаксис регулярных выражений</a></li>
+            <li class="p1"><a class="white aS" href="#php8">Конструкция if</a></li>
+            <li class="p1"><a class="white aS" href="#php9">Циклы</a></li>
+            <li class="p1"><a class="white aS" href="#php10">Конструкция return</a></li>
+            <li class="p1"><a class="white aS" href="#php11">Конструкция включений require</a></li>
+            <li class="p1"><a class="white aS" href="#php12">Конструкция include</a></li>
+            <li class="p1"><a class="white aS" href="#php13">Конструкции однократного включения require_once и include_once</a></li>
+            <li class="p1"><a class="white aS" href="#php14">Альтернативный синтаксис управляющих структур</a></li>
+            <li class="p1"><a class="white aS" href="#php15">Аргументы функции</a></li>
+            <li class="p1"><a class="white aS" href="#php16">Переменные извне PHP</a></li>
+            <li class="p1"><a class="white aS" href="#php17">Переменные окружения CGI</a></li>
+            <li class="p1"><a class="white aS" href="#php18">Заголовки HTTP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php1">Класс (class)</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php2">Свойства</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php3">Объекты (Object)</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php4">Директива new</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php5">Доступ к классам и объектам</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php6">Инициализация объектов</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php7">Преобразование в объект</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php8">Наследование</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php9">Конструктор</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php10">Деструктор</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php11">Объявление типов</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php12">Ключевое слово static</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php13">Позднее статическое связывание</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php14">Ограничения self::</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php15">Использование позднего статического связывания</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php16">Пример отличия "self::", "static::" и "parent::"</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php17">Финальные методы</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php18">Пространства имён</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php19">Исключения</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php20">Функции PHP для работы с MySQL</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php21">Хэш-функции</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php22">HTTP Cookies</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php23">Cтраницы отзывов на сайте без базы данных</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php24">Подключение к базе данных MySql</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php25">Случайные числа на PHP</a></li>
+            <li class="p1"><a class="blue aS" href="PHP1.html#php26">Создаём программу добавления почты</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!--
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+        <div id="container">
+              <h2 class="strip white phph2">"Встану рано утром, погляжу на рожу - больше пить не буду! Но и меньше тоже."</h2>
+              <div id="frame">
+              <div class="strip">
+	          <div class="a"></div>
+              <div class="b"></div>
+              <div class="c"></div>
+              <div class="d"></div>
+              <div class="e"></div>
+              <div class="f"></div>
+              <div class="g"></div>
+              <div class="h"></div>
+              <div class="i"></div>
+              <div class="j"></div>
+              <div class="k"></div>
+              <div class="l"></div>
+              <div class="m"></div>
+              <div class="n"></div>
+              <div class="o"></div>
+              <div class="p"></div>
+              <div class="q"></div>
+              <div class="r"></div>
+              <div class="s"></div>
+              <div class="t"></div>
+              <div class="u"></div>
+              <div class="v"></div>
+              <div class="w"></div>
+              <div class="x"></div>
+              </div>
+              </div>
+       </div>        
+       <h2 id="php1" class="music1"><a class="send-link special-link a" href="https://wiki.gentoo.org/wiki/PHP/ru">Включение поддержки PHP
+        <span class="icon-wrapper">
+           <span class="icon-1"></span><span class="icon-2"></span>
+        </span></a>  
+       </h2><div class="kartinka2 php"><img src="php.png" alt="php"></div>
+       <p>В <strong class="strong">make.conf</strong> добавляем:<br><br>
+          <strong class="blue p11">PHP_TARGETS="php7-1 7-3"</strong><br><br>
+          Флаги <strong class="strong">Use="...php threads"</strong> были добавлены ранее.<br>
+          Устанавливаем <strong class="strong">PHP</strong>:<br><br>
+          <strong class="blue p11">emerge --ask dev-lang/php</strong><br><br>
+          В файле <strong class="strong">/etc/conf.d/apache2</strong> добавляем соответствующий модулль:<br><br>
+          <strong class="blue p11">APACHE2_OPTS="... -D PHP"</strong><br><br>
+          Убеждаемся, что файл <strong class="strong">/etc/apache2/modules.d/70_mod_php.conf</strong> существует и содержит следующее:<br><br>
+          <strong class="blue p11">&lt;IfDefine PHP><br>
+	      # Симлинк mod_php.so контролируется eselect-php.<br>
+          # Тем не менее, имя модуля изменяется с php5_module на php7_module,<br>
+	      # поэтому мы не можем слепо загрузить все, как есть.<br>
+	      # Вместо этого мы позволяем eselect-php управлять небольшим<br>
+	      # конфигурационным файлом, который загрузит необходимые модули.<br>
+	      # Это относительно ServerRoot (смотрите httpd.conf).<br>
+	      <strong class="p11">Include "/var/lib/eselect-php/mod_php.conf"</strong><br>
+          # Сообщите apache, что mod_php должен обрабатывать файлы PHP.<br>
+          # ЗАМЕТКА: Избегайте AddHandler/AddType в целях безопасности (bug<br>
+	      # #538822). Пожалуйста, прочитайте соответствующую новость!<br>
+	      <strong class="p11">&lt;FilesMatch "\.(php|php[57]|phtml)$"></strong><br>
+		  <strong class="p11">SetHandler application/x-httpd-php</strong><br>
+	      <strong class="p11">&lt;/FilesMatch></strong><br>
+          # PHP исходный код, который подразумевает отображение его как<br>
+	      # исходный код с подсветкой синтаксиса.<br>
+	      <strong class="p11">&lt;FilesMatch "\.phps$"></strong><br>
+		  <strong class="p11">SetHandler application/x-httpd-php-source</strong><br>
+	      <strong class="p11">&lt;/FilesMatch></strong><br>
+          irectoryIndex index.php index.phtml<br>
+          <strong class="p11">&lt;/IfDefine></strong></strong><br><br>
+          Если он не существует, создаём его.<br>
+          Чтобы проверить, работает ли модуль <strong class="strong">PHP</strong>, создаём тестовую страницу:<br><br>
+          <strong class="blue p11">vim /var/www/localhost/htdocs/index.php<br>
+          <strong class="p11">&lt;html></strong><br>
+          <strong class="p11">&lt;body></strong><br>
+          <strong class="p11">&lt;?php phpinfo(); ?></strong><br>
+          <strong class="p11">&lt;/body></strong><br>
+          <strong class="p11">&lt;/html></strong></strong><br><br>
+          Удаляем или переименовываем файл <strong class="strong">/var/www/localhost/htdocs/index.html</strong> и открываем тестовую страницу: <a class="special-link1 a link1" target="_blank" href="http://localhost/">localhost</a>.
+          Должна отобразиться таблица с настройками <strong class="strong">PHP</strong>.<br>
+          Чтобы изменить версию <strong class="strong">PHP</strong>, нужно вывести список доступных:<br><br>
+          <strong class="blue p11">eselect php list apache2<br>
+          [1] php7.1 *<br>
+          [2] php7.3</strong><br><br>
+          Изменяем на необходимую версию:<br><br>
+          <strong class="blue p11">eselect php set apache2 2</strong><br><br>
+          Включение <strong class="strong">PHP-FPM</strong> через <strong class="strong">mod_proxy_fcgi</strong> в <strong class="strong">Apache 2.4</strong> и выше<br>
+          Настраиваем директиву <strong class="strong">listen</strong> для использования сокета.<br>
+          Создаём каталог для файла сокета:<br><br> 
+          <strong class="blue p11">mkdir /var/run/php-fpm</strong><br><br>
+          Затем создаём файл <strong class="strong">php-fpm.conf</strong><br><br> 
+          <strong class="blue p11">vim /var/run/php-fpm/php-fpm.conf</strong><br><br>
+          следующей конфигурации:<br><br>
+          <strong class="blue">; Set permissions for unix socket, if one is used. In Linux, read/write<br>
+          ; permissions must be set in order to allow connections from a web server. Many<br>
+          ; BSD-derived systems allow connections regardless of permissions.<br>
+          ; Default Values: user and group are set as the running user<br>
+          ; mode is set to 0666<br>
+          <strong class="p11">listen.owner = nobody</strong><br>
+          <strong class="p11">listen.group = nobody</strong><br>
+          ; listen.mode = 0666<br>
+          ; The address on which to accept FastCGI requests.<br>
+          ; Valid syntaxes are:<br>
+          ; 'ip.add.re.ss:port' - to listen on a TCP socket to a specific address on<br>
+          ; a specific port;<br>
+          ; 'port' - to listen on a TCP socket to all addresses on a<br>
+          ; specific port;<br>
+          ; '/path/to/unix/socket' - to listen on a unix socket.<br>
+          ; Note: This value is mandatory.<br>
+          ; listen = 127.0.0.1:9000<br>
+          <strong class="p11">listen = /var/run/php-fpm/www.sock</strong></strong><br><br>
+          Подключаем модули <strong class="strong">PHP</strong> и <strong class="strong">PROXY</strong>:<br><br>
+          <strong class="blue p11">vim /etc/conf.d/apache2</strong><br>
+          <strong class="blue p11">APACHE2_OPTS="... -D PHP -D PROXY"</strong>
+     </p>
+     <h1 id="php2" class="music1"><a class="send-link special-link2 a" href="https://www.php.net/manual/ru/index.php">Руководство по PHP
+        <span class="icon-wrapper">
+           <span class="icon-1"></span><span class="icon-2"></span>
+        </span></a>  
+     </h1>
+     <p>Значительным отличием <strong class="strong">PHP</strong> от какого-либо кода, выполняющегося на стороне клиента, например, <strong class="strong">JavaScript</strong>, является то, что <strong class="strong">PHP</strong>-скрипты выполняются на стороне сервера. Можно сконфигурировать свой сервер таким образом, чтобы <strong class="strong">HTML</strong>-файлы обрабатывались процессором <strong class="strong">PHP</strong>, так что клиенты даже не смогут узнать, получают ли они обычный <strong class="strong">HTML</strong>-файл или результат выполнения скрипта.<br>
+       Проверять коды <strong class="strong">PHP</strong> можно в командной строке:<br><br>
+       <strong class="strong p11">$</strong> <strong class="blue">php файл.php</strong><br><br>
+       Обозначение <strong class="strong">PHP</strong>-кода:<br><br>
+       <strong class="blue p11">&lt;? ?></strong><br>
+       <strong class="blue p11">&lt;?php ?></strong><br>
+       <strong class="blue p11">&lt;script language="php"> &lt;/script></strong><br><br>
+       Некоторые <strong class="strong">PHP</strong>-серверы настроены на использование только одного варианта из выше перечисленых тегов.<br>
+       С помощью файла (в таком случае подключение можно осуществлять и на странице с <strong class="strong">*.html</strong> расширением):<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+	   <strong class="blue p11">include "main.php";</strong><br>
+       <strong class="blue p11">?></strong><br><br> 
+       Но для работы этого способа в файл <strong class="strong">.htaccess</strong>, который находится в корне сайта, в самый верх, необходимо добавить строки:<br><br>
+       <strong class="blue p11">RemoveHandler .html .htm</strong><br>
+       <strong class="blue p11">AddType application/x-httpd-php .php .htm .html .phtml</strong><br><br>
+       Когда пользователь запрашивает страницу <strong class="strong">.html</strong>, её текст обрабатывается интерпретатором языка <strong class="strong">PHP</strong>.<br>
+       Эта программа сканирует страницу, находит на ней  все <strong class="strong">PHP</strong>-команды, выполняет их  и помещает на их место полученный <strong class="strong">HTML</strong>-код.<br>
+       Доступ к данным из <strong class="strong">HTML</strong> формы, осуществляется через:<br><br>
+       <strong class="blue p11">echo $_POST['userName'];</strong> или<br>
+       <strong class="blue p11">echo $_REQUEST['useNname'];</strong><br><br>
+       <strong class="strong">$_POST</strong> - Переменные <strong class="strong">HTTP POST</strong>.<br>
+       Ассоциативный массив данных, переданных скрипту через <strong class="strong">HTTP</strong> методом <strong class="strong">POST</strong> при использовании <strong class="strong">application/x-www-form-urlencoded</strong> или <strong class="strong">multipart/form-data</strong> в заголовке <strong class="strong">Content-Type</strong> запроса <strong class="strong">HTTP</strong>.<br>
+       <strong class="strong">$_REQUEST</strong> - Переменные <strong class="strong">HTTP</strong>-запроса.<br>
+       Ассоциативный массив (<strong class="strong">array</strong>), который по умолчанию содержит данные переменных <strong class="strong">$_GET</strong>, <strong class="strong">$_POST</strong> и <strong class="strong">$_COOKIE</strong>.<br>
+       Это 'суперглобальные' или автоматические глобальные переменные. Они доступны во всех контекстах скрипта. Нет необходимости выполнять <strong class="strong">global $variable;</strong> для доступа к ним внутри метода или функции.<br>
+       На некоторых <strong class="strong">PHP</strong> серверах функция автоматического создания переменной из формы бывает выключена, но существует обходной вариант.<br>
+       Если в форме присутствует поле с именем, например, <strong class="strong">userName</strong>, добавляем в начало программы, получающей значение из этого поля, следующий код:<br><br>
+       <strong class="blue p11">$userName=$_REQUEST["userName"];</strong><br><br>
+       Повторяем это выражение для каждой переменной, значение которой необходимо извлеч из формы.<br>
+       Имена всех переменных в <strong class="strong">PHP</strong> должны начинаться со знака <strong class="strong">$</strong> - так интерпретатору значительно легче "понять" и отличить их, например, в строках.<br>
+       Имена переменных чувствительны к регистру букв: например, <strong class="strong">$var</strong> - не то же самое, что <strong class="strong">$Var</strong> или <strong class="strong">$VAR</strong>.<br>
+       Переменная - это область оперативной памяти, доступ к которой осуществляется по имени. Все данные, с которыми работает программа, хранятся в виде переменных (исключение - константа, которая, впрочем, может содержать только число или строку). При присвоении переменная копируется один в один, какую бы сложную структуру она ни имела.<br>
+       В большинстве языков любая переменная созданная на основном уровне, доступна из любой функции.<br> 
+       На <strong class="strong">PHP</strong> придётся явно указывать, что глобальная переменная должна быть доступна и внутри функции (в одном операторе <strong class="strong">global</strong> можно указывать несколько переменных, разделяя их запятой). Если этого не сделать, то на уровне функции будет создана новая локальная переменная с таким же именем и без значения.<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$a="I have a value";<br>
+       <strong class="p11">$b="I have a value";<br>
+       <strong class="p11">myFunction();<br>
+       <strong class="p11">function myFunction() {</strong></strong></strong></strong></strong><br>
+       // сделать <strong class="strong">$a</strong> глобальной, а <strong class="strong">$b</strong> нет<br>
+       <strong class="blue p11">global $a;<br>
+       <strong class="p11">echo "inside the function,<br>
+       <strong class="p11">\$a is '$a' and<br>
+       <strong class="p11">\$b is '$b' and";</strong></strong></strong></strong> // если <strong class="strong">PHP</strong> встречает знак <strong class="strong">$</strong> внутри текста, заключённого в кавычки, он по умолчанию считает, что имеет дело с переменной. Для того, чтобы сообщить интерпретатору о том, что на экране должен появиться данный знак, перед ним необходимо поставить обратную косую черту <strong class="strong">\</strong>.<br>
+       <strong class="blue p11">}<br>
+       <strong class="p11">?><br> 
+       <strong class="p11">inside the function,<br>
+       <strong class="p11">$a is 'I have a value' and<br>
+       <strong class="p11">$b is '' and</strong></strong></strong></strong></strong><br><br>
+       В <strong class="strong">PHP</strong>, начиная с версии 4, существует понятие ссылок - жёстких и символических.<br>
+       Ссылки в <strong class="strong">PHP</strong> - это средство доступа к содержимому одной переменной под разными именами. В <strong class="strong">PHP</strong> имя переменной и её содержимое - это разные вещи, поэтому одно содержимое может иметь разные имена. Ближайшая аналогия - имена файлов <strong class="strong">Unix</strong> и файлы - имена переменных являются элементами каталогов, а содержимое переменных это сами файлы. Ссылки в <strong class="strong">PHP</strong> - аналог жёстких ссылок (<strong class="strong">hardlinks</strong>) в файловых системах <strong class="strong">Unix</strong>.<br>
+       Чтобы создать жёсткую ссылку, нужно использовать оператор <strong class="strong">&</strong> (амперсанд). Например:<br><br>
+       <strong class="blue p11">$a=10;<br>
+       <strong class="p11">$b = &$a;</strong></strong> // теперь <strong class="strong">$b</strong> - то же самое, что и <strong class="strong">$a</strong><br>
+       <strong class="blue p11">$b=0;</strong> // на самом деле <strong class="strong">$a=0</strong><br>
+       <strong class="blue p11">echo "b=$b, a=$a";</strong> // Выводит: <strong class="strong">"b=0, a=0"</strong><br><br>
+       Ссылаться можно не только на переменные, но и на элементы массива (этим жёсткие ссылки выгодно отличаются от символических). Например:<br><br>
+       <strong class="blue p11">$A=array('a' => 'aaa', 'b' => 'bbb');<br>
+       <strong class="p11">$b=&$A['b'];</strong></strong> // теперь <strong class="strong">$b</strong> - то же, что и элемент с индексом <strong class="strong">'b'</strong> массива<br>
+       <strong class="blue p11">$b=0;</strong> // на самом деле <strong class="strong">$A['b']=0;</strong><br>
+       <strong class="blue p11">echo $A['b'];</strong> // Выводит <strong class="strong">0</strong><br><br>
+       Элемент массива, для которого планируется создать символическую ссылку, может и не существовать. Как в следующем случае:<br><br>
+       <strong class="blue p11">$A=array('a' => 'aaa', 'b' => 'bbb');<br>
+       <strong class="blue p11">$b=&$A['c'];</strong></strong> // теперь <strong class="strong">$b</strong> - то же, что и элемент с индексом <strong class="strong">'c'</strong> массива<br>
+       <strong class="blue p11">echo "Элемент с индексом 'c': (".$A['c'].")";</strong><br><br>
+       В результате выполнения рассмотренного скрипта, хотя ссылке <strong class="strong">$b</strong> и не было ничего присвоено, в массиве <strong class="strong">$A</strong> создастся новый элемент с ключом <strong class="strong">c</strong> и значением - пустой строкой (можно это определить по результату работы <strong class="strong">echo</strong>). То есть, жёсткая ссылка на самом деле не может ссылаться на несуществующий объект, а если делается такая попытка, то объект создаётся.<br>
+       Если убрать строку, в которой создаётся жёсткая ссылка, то будет выведено сообщение о том, что элемент с ключом <strong class="strong">c</strong> не определён в массиве <strong class="strong">$A</strong>.<br>
+       Жёсткие ссылки удобно применять при передаче параметров пользовательской функции и возврате значения из неё.<br>
+       Символическая ссылка - это всего лишь строковая переменная, хранящая имя другой переменной (переменная переменная). Чтобы добраться до значения переменной, на которую ссылается символическая ссылка, необходимо применить дополнительный знак <strong class="strong">$</strong> перед именем ссылки, например:<br><br>
+       <strong class="blue p11">$a=10;<br>
+       <strong class="p11">$b=20;<br>
+       <strong class="p11">$c=30;<br>
+       <strong class="p11">$p="a";</strong></strong></strong></strong> // или <strong class="strong">$p="b"</strong> или <strong class="strong">$p="c"</strong> (присваиваем <strong class="strong">$p</strong> имя другой переменной)<br>
+       <strong class="blue p11">echo $$p;</strong> // выводит переменную, на которую ссылается <strong class="strong">$p</strong>, т. е. <strong class="strong">$a</strong><br>
+       <strong class="blue p11">$$p=100;</strong> // присваивает <strong class="strong">$a</strong> значение <strong class="strong">100</strong><br><br>
+       Для того, чтобы использовать обычную строковую переменную как ссылку, нужно перед ней поставить ещё один символ <strong class="strong">$</strong>.Это говорит интерпретатору, что надо взять не значение самой <strong class="strong">$p</strong>, а значение переменной, имя которой хранится в переменной <strong class="strong">$p</strong>.<br>          
+       При удалении ссылки, просто разрывается связь имени и содержимого переменной. Это не означает, что содержимое переменной будет разрушено. Например:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$a = 1;<br>
+       <strong class="p11">$b =& $a;<br>
+       <strong class="p11">unset($a);<br> 
+       <strong class="p11">?></strong></strong></strong></strong></strong><br><br>
+       Этот код не сбросит <strong class="strong">$b</strong>, а только <strong class="strong">$a</strong>.<br>
+       Жёсткая ссылка - не абсолютно точный синоним объекта, на который она ссылается.<br>
+       Жёсткая ссылка и переменная (объект), на которую она ссылается, совершенно равноправны, изменение одной влечёт изменение другой. Оператор <strong class="strong">Unset()</strong> разрывает связь между объектом и ссылкой, но объект удаляется только тогда, когда на него никто уже не ссылается.<br>
+       Приведение типов в <strong class="strong">PHP</strong>, имя требуемого типа записывается в круглых скобках перед приводимой переменной:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       <strong class="blue p11">$foo = 10;</strong> // <strong class="strong">$foo</strong> - это целое число<br>
+       <strong class="blue p11">$bar = (boolean) $foo;</strong> // <strong class="strong">$bar</strong> - это булев тип<br>
+       <strong class="blue p11">?></strong><br><br>
+       Допускаются следующие приведения типов:<br>
+       <strong class="strong">(int)</strong>, <strong class="strong">(integer)</strong> - приведение к <strong class="strong">integer</strong>, <strong class="strong">int</strong> - это число из множества <strong class="strong">ℤ = {..., -2, -1, 0, 1, 2, ...}</strong>;<br>
+       <strong class="strong">(bool)</strong>, <strong class="strong">(boolean)</strong> - приведение к <strong class="strong">boolean</strong>;<br>
+       <strong class="strong">(float)</strong>, <strong class="strong">(double)</strong>, <strong class="strong">(real)</strong> - приведение к <strong class="strong">float</strong>;<br>
+       <strong class="strong">(string)</strong> - приведение к <strong class="strong">string</strong>;<br>
+       <strong class="strong">(array)</strong> - приведение к <strong class="strong">array</strong>;<br>
+       <strong class="strong">(object)</strong> - приведение к <strong class="strong">object</strong>;<br>
+       <strong class="strong">(unset)</strong> - приведение к <strong class="strong">NULL</strong>.
+    </p>   
+    <h2 id="php3">Операторы</h2> 
+    <p>Операторы инкремента/декремента влияют только на числа и строки. Массивы, объекты, булевы значения и ресурсы не будут изменены.<br> 
+    Декремент <strong class="strong">NULL</strong> также не даст никакого эффекта, однако инкремент даст значение <strong class="strong">1</strong>.<br>  
+       <strong class="strong">++$a</strong> Префиксный инкремент увеличивает <strong class="strong">$a</strong> на единицу и возвращает значение <strong class="strong">$a</strong>.<br>
+       <strong class="strong">$a++</strong> Постфиксный инкремент возвращает значение <strong class="strong">$a</strong>, а затем увеличивает <strong class="strong">$a</strong> на единицу.<br>
+       <strong class="strong">--$a</strong> Префиксный декремент уменьшает <strong class="strong">$a</strong> на единицу и возвращает значение <strong class="strong">$a</strong>.<br>
+       <strong class="strong">$a--</strong> Постфиксный декремент возвращает значение <strong class="strong">$a</strong>, а затем уменьшает <strong class="strong">$a</strong> на единицу.<br>
+       Префиксные операторы инкремента и декремента, которые указываются до переменной, возвращают значение переменной уже после изменения:<br><br>
+       <strong class="blue p11">$a=10;<br>
+       <strong class="p11">$b=--$a;<br>
+       <strong class="p11">echo "a=$a, b=$b";</strong></strong></strong> // Выводит <strong class="strong">a=9, b=9</strong><br><br>
+       Постфиксные операторы инкремента и декремента эти операторы увеличивают или уменьшают значение переменной, а в выражении возвращают значение переменной <strong class="strong">$a</strong> до изменения:<br><br>
+       <strong class="blue p11">$a=10;<br>
+       <strong class="p11">$b=$a++;<br>
+       <strong class="p11">echo "a=$a, b=$b";</strong></strong></strong> // Выводит <strong class="strong">a=11, b=10</strong><br><br>
+       <strong class="strong">PHP</strong> поддерживает оператор исполнения: обратные кавычки (<strong class="strong">``</strong>). Это не одиночные кавычки. <strong class="strong">PHP</strong> пытается выполнить строку, заключённую в обратные кавычки, как консольную команду, и возвращает полученный вывод (т.е. он не просто выдаётся на выходе а, например, может быть присвоен переменной). Использование обратных кавычек аналогично использованию функции <strong class="strong">shell_exec()</strong>.<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$output = `ls -al`;<br>
+       <strong class="p11">echo "&lt;pre>$output&lt;/pre>";<br>
+       <strong class="p11">?></strong></strong></strong></strong><br><br>
+       <strong class="strong">PHP</strong> поддерживает оператор управления ошибками: знак <strong class="strong">@</strong>. В случае, если он предшествует какому-либо выражению в <strong class="strong">PHP</strong>-коде, любые сообщения об ошибках, генерируемые этим выражением, будут проигнорированы.<br>
+       В случае, если установлена опция <strong class="strong">track_errors</strong>, все генерируемые сообщения об ошибках будут сохраняться в переменной <strong class="strong">$php_errormsg</strong>. Эта переменная будет перезаписываться при возникновении каждой новой ошибки, поэтому в случае необходимости проверять её нужно сразу же:<br><br>
+       <strong class="blue p11">&lt;php</strong><br>
+       // Преднамеренная ошибка при работе с файлами<br>
+       <strong class="blue p11">$my_file = @file ('non_existent_file') or</strong><br>
+       <strong class="blue p11">die ("Failed opening file: error was '$php_errormsg'");</strong><br>
+       // работает для любых выражений, а не только для функций<br>
+       <strong class="blue p11">$value = @$cache[$key];</strong><br> 
+       // В случае если ключа <strong class="strong">$key</strong> нет, сообщение об ошибке не будет отображено<br>
+       <strong class="blue p11">?></strong><br><br>
+       Оператор <strong class="strong">@</strong> работает только с выражениями. Есть простое правило: если произвольная языковая конструкция возвращает значение, значит можно использовать предшествующий ей оператор <strong class="strong">@</strong>. Например, можно использовать <strong class="strong">@</strong> перед именем переменной, произвольной функцией или вызовом <strong class="strong">include()</strong>, константой и так далее. В то же время можно использовать этот оператор перед определением функции или класса, условными конструкциями, такими как <strong class="strong">if</strong> или <strong class="strong">foreach</strong>.<br>
+       Оператор <strong class="strong">@</strong> не подавляет вывод ошибок, возникающих на стадии синтаксического разбора скрипта.<br>
+       Оператор <strong class="strong">@</strong> подавляет вывод сообщений даже о критических ошибках прерывающих работу скрипта. Помимо всего прочего, это означает, что если использовался <strong class="strong">@</strong> для подавления ошибок, возникающих при работе какой-либо функции, в случае если она недоступна или написана неправильно, дальнейшая работа скрипта будет остановлена без каких-либо уведомлений.<br>
+       В версиях <strong class="strong">PHP 5.6</strong> и выше список аргументов может содержать многоточие <strong class="strong">...</strong>, чтобы показать, что функция принимает переменное количество аргументов. Аргументы в этом случае будут переданы в виде массива.<br>
+       Пример использование <strong class="strong">...</strong> для доступа к аргументам:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function sum(...$numbers) {<br>
+       <strong class="p11">$acc = 0;<br>
+       <strong class="p11">foreach ($numbers as $n) {<br>
+       <strong class="p11">$acc += $n;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">return $acc;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo sum(1, 2, 3, 4);<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Результат выполнения данного примера: <strong class="strong">10</strong><br>
+       Чтобы использовать одинарную кавычку внутри строки, как и во многих других языках, её необходимо предварить символом обратной косой черты (<strong class="strong">\</strong>), т. е. экранировать её.<br>
+       Если интерпретатор встречает знак доллара (<strong class="strong">$</strong>), он захватывает так много символов, сколько возможно, чтобы сформировать правильное имя переменной. Если необходимо точно определить конец имени, необходимо заключить имя переменной в фигурные скобки.<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$beer = 'Heineken';</strong></strong><br>
+       <strong class="blue p11">echo "$beer's taste is great";</strong> // работает, "<strong class="strong">'</strong>" это неверный символ для имени переменной<br>
+       <strong class="blue p11">echo "He drank some $beers";</strong> // не работает, '<strong class="strong">s</strong>' это верный символ для имени переменной<br>
+       <strong class="blue p11">echo "He drank some ${beer}s";</strong> // работает<br>
+       <strong class="blue p11">echo "He drank some {$beer}s";</strong> // работает<br>
+       <strong class="blue p11">?></strong><br><br>
+       Использование в <strong class="strong">PHP</strong> оператора "<strong class="strong">+</strong>" для конкатенации строк некорректно.<br>
+       Первый - оператор конкатенации ('<strong class="strong">.</strong>'), который возвращает объединение левого и правого аргумента.<br>
+       Второй - оператор присвоения с конкатенацией, который присоединяет правый аргумент к левому.<br>
+       Пример:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$a = "Hello ";</strong></strong><br>
+       <strong class="blue p11">$b = $a . "World!";</strong> // <strong class="strong">$b</strong> содержит строку <strong class="strong">"Hello World!"</strong> - Это конкатенация<br>
+       <strong class="blue p11">$a = "Hello ";<br>
+       <strong class="p11">$a .= "World!";</strong></strong> // <strong class="strong">$a</strong> содержит строку <strong class="strong">"Hello World!"</strong> - Это присвоение с конкатенацией<br>
+       <strong class="blue p11">?></strong><br><br> 
+       Для сравнения строк не рекомендуется использовать операторы сравнения <strong class="strong">==</strong> и <strong class="strong">!=</strong>, поскольку они требуют преобразования типов.<br> 
+       В <strong class="strong">PHP</strong> операнды сравниваются, как строки, только в том случае, если оба они - строки. В противном случае они сравниваются как числа. При этом любая строка, которую <strong class="strong">PHP</strong> не удаётся перевести в число (в том числе и пустая строка), будет восприниматься как <strong class="strong">0</strong>.<br>
+       Чтобы избежать путаницы и преобразования типов, рекомендуется пользоваться оператором эквивалентности при сравнении строк. Оператор эквивалентности позволяет всегда корректно сравнивать строки, поскольку сравнивает величины и по значению, и по типу:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$x="Строка";<br>
+       <strong class="p11">$y="Строка";<br>
+       <strong class="p11">$z="Строчка";<br>
+       <strong class="p11">if ($x === $z) echo "&lt;p>Строка X равна строке Z&lt;/p>";<br>
+       <strong class="p11">if ($x === $y) echo "&lt;p>Строка X равна строке Y&lt;/p>";<br>
+       <strong class="p11">if ($x !== $z) echo "&lt;p>Строка X НЕ равна строке Z&lt;/p>";</strong></strong></strong></strong></strong></strong></strong><br>
+       // Выводит:<br>
+       // Строка <strong class="strong">X</strong> равна строке <strong class="strong">Y</strong><br>
+       // Строка <strong class="strong">X</strong> НЕ равна строке <strong class="strong">Z</strong><br>
+       <strong class="blue p11">?></strong><br><br>
+       Когда <strong class="strong">PHP</strong> - процессор обнаруживший точку с запятой "<strong class="strong">;</strong>",он считает, что кода который должен быть выполнен, нет вообще.<br>
+       Использование фигурных скобок показывает, что несколько строк кода должны восприниматься как одна структура и эта структура является частью текущей логической структуры.<br>
+    </p>
+    <h2 id="php4">Массивы</h2>
+    <p>Отличие массива от переменных, состоит в том, что он может иметь несколько значений.<br>
+       Для разделения этих значений используется индекс, заключенный в квадратные скобки.<br>
+       Каждый из элементов имеет одно и тоже имя, но собственный цифровой индекс, чтобы их можно было различить.<br>
+       Во многих языках программирования необходимо явно описывать переменные массивы, но в <strong class="strong">PHP</strong> просто присваивается переменной значение с индексом в квадратных скобках и массив создан.<br><br>
+       <strong class="blue p11">$camelPop[1]="Somalia";<br>
+       <strong class="p11">$camelPop[2]="Sudan";</strong><br>
+       <strong class="p11">$camelPop[3]="Mauritania";</strong><br>
+       <strong class="p11">$camelPop[4]="Pakistan";</strong><br>
+       <strong class="p11">$camelPop[5]="India";</strong><br>
+       <strong class="p11">for ($i-1; $i &lt;= 5; $i++){</strong><br>
+       <strong class="p11">echo "$i: $camelPop[$i]&lt;br>";</strong><br>
+       <strong class="p11">}</strong></strong><br><br>
+       Некоторые веб-серверы (такие, на которых опции сообщения об ошибках присвоено знечение <strong class="strong">E_ALL</strong>) могут выдать предупреждение. В этом случае можно явно создать пустой массив с помощью функции <strong class="strong">array()</strong>, описанной ниже, а затем присваивать ему значения.<br>
+       Очень часто точно известно, какие именно значения необхолимо поместить в массив. В <strong class="strong">PHP</strong> можно использовать функцию <strong class="strong">array()</strong>, при этом индексы элементов массива создаются автоматически.<br>
+       Знать, сколько именно содержит элементов массив, не обязательно. <strong class="strong">PHP</strong> содержит функцию <strong class="strong">count()</strong>, которая может определить их количество.<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$camelPop =array("Somalia","Sudan","Mauritania","Pakistan","India");</strong><br>
+       <strong class="p11">for ($i=0; $i&lt; count($camelPop); $i++){</strong><br>
+       <strong class="p11">echo "$i:$camelPop[$i]&lt;br>";</strong><br>
+       <strong class="p11">}</strong><br>
+       <strong class="p11">?></strong><br><br>
+       <strong class="p11">0:Somalia</strong><br>
+       <strong class="p11">1:Sudan</strong><br>
+       <strong class="p11">2:Mauritania</strong><br>
+       <strong class="p11">3:Pakistan</strong><br>
+       <strong class="p11">4:India</strong></strong><br><br>
+       Большинство языков программирования, в том числе и <strong class="strong">PHP</strong>, начинают счёт не с единицы, а с нуля.<br>
+       Цикл <strong class="strong">foreach</strong>: первый параметр конструкции <strong class="strong">foreach</strong> - это массив. Ключевое слово <strong class="strong">as</strong> указывает на имя переменной, в которой будет содержать каждое значение по очереди. Цикл <strong class="strong">foreach</strong> пройдёт через массив столько раз, сколько это необходимо. 
+       На каждом витке цикла функция поместит в переменную текущий элемент массива.<br><br>
+       <strong class="blue p11">$camelPop =array("Somalia","Sudan","Mauritania","Pakistan","India");<br>
+       <strong class="p11">foreach ($camelPop as $value){</strong><br>
+       <strong class="p11">echo "$value&lt;br>";</strong><br>
+       <strong class="p11">}</strong></strong><br><br>
+       Основное отличие между циклами <strong class="strong">foreach</strong> и <strong class="strong">for</strong> - это отсутствие ключевой переменной (в примере <strong class="strong">$i</strong>).<br> 
+       Цикл <strong class="strong">foreach</strong> может быть полезен, когда необходимо пройтись через каждое значение массива.<br>
+       Ассоциативный массив использует строковые индексы.<br><br>
+       <strong class="blue p11">$stateCap["Alaska"]="Juneau";<br>
+       <strong class="p11">$stateCap["Indiana"]="Indianapolis";</strong><br>
+       <strong class="p11">$stateCap["Michigan"]="Lansing";</strong></strong><br><br>
+       Индексы должны быть заключены в кавычки.<br>
+       Создание ассоциативных массивов требует другого синтаксиса, в отличие от обычных массивов. Когда создаётся обычный массив, функция <strong class="strong">array()</strong> требует данные, но не требует перечисления индексов.<br>
+       В ассоциативном массиве необходимо предоставление как данных, так и индексов.<br> 
+       Формат для таких присвоений содержит оператор присвоения <strong class="strong">=></strong> , который указывает на то, что элемент содержит какое либо значение.<br><br>
+       <strong class="blue p11">$stateCap=array("Alaska"=>"Juneau","Indiana"=>"Indianapolis","Michigan"=>"Lansing");<br>
+       <strong class="p11">echo "Indiana: ";</strong><br>
+       <strong class="p11">echo $stateCap["Indiana"];</strong></strong><br><br>
+       В цикле <strong class="strong">foreach</strong> для ассоциативных массивов используется немного другой синтаксис.<br>
+       При работе с обычными массивами в цикле используется только одна переменная, так как индекс легко вычисляется.<br>
+       В ассоциативных массивах каждый элемент в массиве имеет уникальный индекс и значение.<br>
+       Ассоциативная форма цикла <strong class="strong">foreach</strong> учитывает это и содержит две переменные. В первой переменной содержится индекс, во второй - значение, соответствующее этому индексу.<br><br>
+       <strong class="blue p11">$stateCap=array("Alaska"=>"Juneau","Indiana"=>"Indianapolis","Michigan"=>"Lansing");<br>
+       <strong class="p11">foreach ($stateCap as $contry=>$capital){</strong><br>
+       <strong class="p11">echo "$contry:$capital&lt;br>\n";</strong><br>
+       <strong class="p11">}</strong></strong><br><br>
+       В отличие от обычных массивов, ассоциативный массив не даёт никаких гарантий относительно того, в каком порядке цикл <strong class="strong">foreach</strong> будет возвращать элементы массива.<br>
+       Если обычные массивы похожи на список, ассоциативные массивы похожи на пары имён и значений, то многомерный тип массива похож на таблицу с данными.<br><br>
+    </p>
+     <center>
+     <table class="blue">
+       <tr><th style="border:1px ridge;"></th><th style="border:1px ridge;padding:5px;">Индианаполис</th><th style="border:1px ridge;padding:5px;">Нью Йорк</th><th style="border:1px ridge;padding:5px;">Токио</th><th style="border:1px ridge;padding:5px;">Лондон</th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">Индианаполис</th><th style="border:1px ridge;">0</th><th style="border:1px ridge;">648</th><th style="border:1px ridge;">6476</th><th style="border:1px ridge;">4000</th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">Нью Йорк</th><th style="border:1px ridge;">648</th><th style="border:1px ridge;">0</th><th style="border:1px ridge;">6760</th><th style="border:1px ridge;">3470</th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">Токио</th><th style="border:1px ridge;">6476</th><th style="border:1px ridge;">6760</th><th style="border:1px ridge;">0</th><th style="border:1px ridge;">5956</th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">Лондон</th><th style="border:1px ridge;">4000</th><th style="border:1px ridge;">3470</th><th style="border:1px ridge;">5956</th><th style="border:1px ridge;">0</th></tr>
+     </table>
+     </center><br>
+    <p>Для упрощения понимания в дальнейшем, присваиваем городам численные значения:<br>
+       Индианаполис=0<br>
+       Нью Йорк=1<br>
+       Токио=2<br>
+       Лондон=3<br>
+       Определяем расстояния между городами (см. табл. выше):<br><br>
+       <strong class="blue p11">$city=array (<br>
+       <strong class="p11">"Indianapolis",</strong><br>
+       <strong class="p11">"New York",</strong><br>
+       <strong class="p11">"Tokyo",</strong><br>
+       <strong class="p11">"london"</strong><br>
+       <strong class="p11">);</strong><br>
+       <strong class="p11">$distance=array (</strong><br>
+       <strong class="p11">array(0,648,6476,4000),</strong><br>
+       <strong class="p11">array(648,0,6760,3470),</strong><br>
+       <strong class="p11">array(6476,6760,0,5956),</strong><br>
+       <strong class="p11">array(4000,3470,5956,0)</strong><br>
+       <strong class="p11">);</strong><br>
+       <strong class="p11">$result=$distance[$cityA] [$cityB];</strong><br>
+       <strong class="p11">echo "$city[$cityA] and $city[$cityB]";</strong><br>
+       <strong class="p11">echo "is $result miles";</strong></strong><br><br>
+       Первый массив <strong class="strong">$city</strong> - массив строковых значений, он содержит список названий городов, численные значения которых соответствуют присвоеным выше.<br>
+       Массив <strong class="strong">$distance</strong> содержит внутренние массивы.<br>
+       Каждый из внутренних массивов соответствует расстоянию от определённого города. Например, поскольку Индианополис - это 0, первый (нулевой) внутренний масив содержит расстояние между Индианополисом и другими городами и т.д.<br>
+       Чтобы найти информацию в таблице, необходимо знать строку и столбец. Двумерный массив требует двух индексов - один для строки и один для столбца.<br>
+       Чтобы найти расстояние между Токио (город номер 2) и Нью Йорком (город номер 1), необходимо обратиться <strong class="strong">$distance[2] [1]</strong>.<br>
+       Это значение сохраняется в переменной <strong class="strong">$result</strong>.<br>
+       Бывает необходимо работать с файлом как с массивом данных в памяти.<br><br>
+       <strong class="blue">&lt;?php<br>
+       <strong class="p11">$fp = file("comments.txt");</strong><br>
+       <strong class="p11">$output = "";</strong><br>
+       <strong class="p11">foreach ($fp as $dl){</strong><br>
+       <strong class="p11">$dl=str_replace("r", "t",$dl);</strong><br>
+       <strong class="p11">$dl=str_replace("l", "w",$dl);</strong><br>
+       <strong class="p11">$output .=rtrim($dl, "&lt;br>\n");}</strong><br>
+       <strong class="p11">echo $output;</strong><br>
+       ?></strong><br><br>
+       Команда <strong class="strong">file()</strong> открывает файл для чтения и возвращает массив, в котором каждому элементу соответствует одна строка файла.<br>
+       Цикл <strong class="strong">foreach</strong>, в данном случае, используется для просмотра каждой строки и её изменения.<br>
+       Внутри цикла <strong class="strong">foreach</strong> просто заменить, например, все буквы "<strong class="strong">r</strong>" и "<strong class="strong">l</strong>" на "<strong class="strong">t</strong>" и "<strong class="strong">w</strong>" с помощью функции <strong class="strong">str_replace()</strong>, она заменяет все вхождения строки поиска на строку замены в строке или массиве, в котором производится поиск и замена.<br>
+       После этого полученная строка добавляется в переменную <strong class="strong">$output</strong>.<br> 
+       <strong class="strong">rtrim()</strong> удаляет пробелы (или другие символы) из конца строки.<br>
+       Команда <strong class="strong">file()</strong> загружает весь файл в память. Использование её для очень больших файлов может сильно снизить производительность.<br>
+       При использовании <strong class="strong">fgets()</strong> необходимо хранить в памяти только одну строку файла, поэтому этот метод можно использовать для работы с файлами любого размера.<br> 
+       Существуют обходные способы работы с файлами, которые не требуют создания указателя на файл. Команда <strong class="strong">readfile("comments.txt")</strong> принимает в качестве аргумента имя файла, запрашивает содержимое этого файла и отображает его на странице как простой <strong class="strong">HTML</strong> код.<br>
+       <strong class="strong">PHP</strong> содержит несколько команд, которые помогают управлять директориями.<br>
+       Ниже приведена программа, генерирующая список всех файлов <strong class="strong">gif</strong> и <strong class="strong">jpg</strong>, содержащихся в заданной директории.<br>
+       Технология, используемая для отображения файлов изображения, может использоваться для получения определённых наборов файлов из любой директории.<br><br>
+       <strong class="blue">&lt;php</strong><br>
+       // сохраняем целевую директорию в переменной <strong class="strong">$dirName</strong>.<br>
+       <strong class="blue p11">$dirName = "../htdocs";<br>
+       <strong class="p11">$dp = opendir($dirName);</strong><br>
+       <strong class="p11">chdir($dirName);</strong></strong><br>
+       // добавить все файлы, находящиеся в директории, в массив <strong class="strong">$theFiles</strong><br>
+       <strong class="blue p11">while ($currentFile !== false) {<br>
+       <strong class="p11">$currentFile = readdir($dp);</strong><br>
+       <strong class="p11">$theFiles[ ] = $currentFile;}</strong></strong><br>
+       // извлеч все файлы <strong class="strong">gif</strong> и <strong class="strong">jpg</strong><br>
+       <strong class="blue p11">$imageFiles = preg_grep("/gif$|jpg$/",$theFiles);<br>
+       <strong class="p11">$output="";</strong><br>
+       <strong class="p11">foreach ($imageFiles as $currentFile){</strong><br>
+       <strong class="p11">$output .=&lt;&lt;&lt;TOSHA</strong><br>
+       <strong class="p11">&lt;img src = $currentFile</strong><br>
+       <strong class="p11">height=32 width=28></strong><br>
+       TOSHA;}</strong><br>
+       // сохранить список в локальную файловую систему<br>
+       <strong class="blue p11">$fp =fopen("imageIndex.html","w");</strong> // '<strong class="strong">w</strong>' открывает файл только для записи; помещает указатель в начало файла и обрезает файл до нулевой длины. Если файл не существует - пробует его создать.<br>
+       <strong class="blue p11">fwrite ($fp,$output);<br>
+       <strong class="p11">fclose($fp);</strong><br>
+       <strong class="p11">echo "&lt;a href=imageIndex.html>image index&lt;/a>";<br>
+       ?></strong></strong><br><br>
+       <strong class="strong">chdir()</strong> изменяет текущий каталог <strong class="strong">PHP</strong> на указанный.<br>
+       <strong class="strong">preg_grep()</strong> возвращает массив, состоящий из элементов входящего массива, которые соответствуют заданному шаблону. В данном случае выбираются все файлы, которые имеют расширение <strong class="strong">gif</strong> или <strong class="strong">jpg</strong> и копируются в другой массив, с названием <strong class="strong">$imageFiles</strong>.
+    </p>
+    <h2 id="php5">Простые многомерные массивы</h2>
+    <p>Обобщенный синтаксис элементов многомерного простого массива:<br>
+       <strong class="strong">$имя[индекс1][индекс2]..[индексN];</strong><br>
+       Пример простого многомерного массива:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Многомерный простой массив:<br>
+       <strong class="blue p11">$arr[0][0]="Овощи";<br>
+       <strong class="p11">$arr[0][1]="Фрукты";<br>
+       <strong class="p11">$arr[1][0]="Абрикос";<br>
+       <strong class="p11">$arr[1][1]="Апельсин";<br>
+       <strong class="p11">$arr[1][2]="Банан";<br>
+       <strong class="p11">$arr[2][0]="Огурец";<br>
+       <strong class="p11">$arr[2][1]="Помидор";<br>
+       <strong class="p11">$arr[2][2]="Тыква";</strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Выводим элементы массива:<br>
+       <strong class="blue p11">echo "&lt;h3>".$arr[0][0].":&lt;/h3>";<br>
+       <strong class="p11">for ($q=0; $q&lt;=2; $q++) {<br>
+       <strong class="p11">echo $arr[2][$q]."&lt;br>";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo "&lt;h3>".$arr[0][1].":&lt;/h3>";<br>
+       <strong class="p11">for ($w=0; $w&lt;=2; $w++) {<br>
+       <strong class="p11">echo $arr[1][$w]."&lt;br>";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php6">Ассоциативные массивы в <strong class="strong">PHP</strong></h2>
+    <p>В <strong class="strong">PHP</strong> индексом массива может быть не только число, но и строка. Причём на такую строку не накладываются никакие ограничения: она может содержать пробелы, длина такой строки может быть любой.<br>
+       Ассоциативные массивы особенно удобны в ситуациях, когда элементы массива удобнее связывать со словами, а не с числами.<br>
+       Массивы, индексами которых являются строки, называются ассоциативными массивами.<br>
+       Одномерные ассоциативные массивы содержат только один ключ (элемент), соответствующий конкретному индексу ассоциативного массива. Пример:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Ассоциативный массив<br>
+       <strong class="blue p11">$names["Иванов"]="Иван";<br>
+       <strong class="p11">$names["Сидоров"]="Николай";<br>
+       <strong class="p11">$names["Петров"]="Петр";</strong></strong></strong><br>
+       // В данном примере: фамилии - ключи ассоциативного массива,<br>
+       // а имена - элементы массива names<br>
+       <strong class="blue p11">?></strong><br><br>
+       Доступ к элементам одномерных ассоциативных массивов осуществляется так же, как и к элементам обыкновенных массивов, и называется доступом по ключу:<br><br>
+       <strong class="blue p11">echo $names["Иванов"];</strong><br><br>
+       Многомерные ассоциативные массивы могут содержать несколько ключей, соответствующих конкретному индексу ассоциативного массива.<br> 
+       Пример многомерного ассоциативного массива:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Многомерный массив<br>
+       <strong class="blue p11">$A["Ivanov"] = array("name"=>"Иванов И.И.", "age"=>"25", "email"=>"ivanov@mail.ru");<br>
+       <strong class="p11">$A["Petrov"] = array("name"=>"Петров П.П.", "age"=>"34", "email"=>"petrov@mail.ru");<br>
+       <strong class="p11">$A["Sidorov"] = array("name"=>"Сидоров С.С.", "age"=>"47", "email"=>"sidorov@mail.ru");<br>
+       <strong class="p11">?></strong></strong></strong></strong><br><br>
+       Доступ к элементам многомерного ассоциативного массива осуществляется следующим образом:<br><br>
+       <strong class="blue p11">echo $A["Ivanov"]["name"];</strong> // Выводит Иванов И.И.<br>
+       <strong class="blue p11">echo $A["Petrov"]["email"];</strong> // Выводит petrov@mail.ru<br><br>
+       Функция <strong class="strong">array()</strong> используется специально для создания массивов. При этом она позволяет создавать пустые массивы. Вот методы использования функции <strong class="strong">array()</strong>:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Создает пустой массив:<br>
+       <strong class="blue p11">$arr = array();</strong><br>
+       // Создает список с тремя элементами. Индексы начинаются с нуля:<br>
+       <strong class="blue p11">$arr2 = array("Иванов","Петров","Сидоров");</strong><br>
+       // Создает ассоциативный массив с тремя элементами:<br>
+       <strong class="blue p11">$arr3 = array("Иванов"=>"Иван", "Петров"=>"Петр", "Сидоров"=>"Сидор");</strong><br>
+       // Создает многомерный ассоциативный массив:<br>
+       <strong class="blue p11">$arr4 = array("name"=>"Иванов", "age"=>"24", "email"=>"ivanov@mail.ru");<br>
+       <strong class="p11">$arr4 = array("name"=>"Петров", "age"=>"34", "email"=>"petrov@mail.ru");<br>
+       <strong class="p11">$arr4 = array("name"=>"Сидоров", "age"=>"47", "email"=>"sidorov@mail.ru");<br>
+       <strong class="p11">?></strong></strong></strong></strong><br><br>
+       Ассоциативные многомерные массивы можно создавать и классическим способом, хотя это не так удобно:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Многомерный ассоциативный массив<br>
+       <strong class="blue p11">$A["Ivanov"]["name"]="Иванов И.И.";<br>
+       <strong class="p11">$A["Ivanov"]["age"]="25";<br>
+       <strong class="p11">$A["Ivanov"]["email"]="ivanov@mail.ru";<br>
+       <strong class="p11">$A["Petrov"]["name"]="Петров П.П.";<br>
+       <strong class="p11">$A["Petrov"]["age"]="34";<br>
+       <strong class="p11">$A["Petrov"]["email"]="petrov@mail.ru";<br>
+       <strong class="p11">$A["Sidorov"]["name"]="Сидоров С.С.";<br>
+       <strong class="p11">$A["Sidorov"]["age"]="47";<br>
+       <strong class="p11">$A["Sidorov"]["email"]="sidorov@mail.ru";</strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Получаем доступ к ключам многомерного ассоциативного массива<br>
+       <strong class="blue p11">echo $A["Ivanov"]["name"]."&lt;br>";</strong> // Выводит Иванов И.И.<br>
+       <strong class="blue p11">echo $A["Sidorov"]["age"]."&lt;br>";</strong> // Выводит 47<br>
+       <strong class="blue p11">echo $A["Petrov"]["email"]."&lt;br>";</strong> // Выводит petrov@mail.ru<br>
+       <strong class="blue p11">?></strong>
+    </p>
+    <h2 id="php7">Синтаксис регулярных выражений</h2>
+    <p>Регулярные выражения, это формальный язык поиска и осуществления манипуляций с подстроками в тексте, основанный на использовании метасимволов. Для поиска используется строка-образец (англ. <strong class="strong">pattern</strong>, по-русски её часто называют «шаблоном», «маской»), состоящая из символов и метасимволов и задающая правило поиска.<br>  
+       Любой шаблон должен быть ограничен символами-ограничителями. В качестве таких символов можно использовать любой не буквенно-цифровой символ кроме '<strong class="strong">\</strong>'.<br>
+       Не рекомендуется использовать в качестве ограничителей и другие специальные символы, в виду того, что их использование внутри шаблона станет неудобным.<br> Предпочтительнее всего использовать символ <strong class="strong">/</strong>, потому что он не выполняет никаких специальных функций.<br>
+       Символ, используемый как ограничитель шаблона внутри шаблона должен экранироваться.<br>
+       Пример: '<strong class="strong">/pattern/i</strong>' - соответствует строке, в которой есть слово <strong class="strong">pattern</strong>.<br> 
+       <strong class="strong">i</strong> - это модификатор, он означает регистронезависимое сравнение.<br>
+       Спецсимволы:<br>
+       <strong class="strong">\</strong> - символ экранирования.<br>
+       Пример: '<strong class="strong">/qwe\/rty/</strong>' - соответствует строке, в которой есть <strong class="strong">qwe/try</strong>. Символ <strong class="strong">/</strong> заэкранирован, после чего он перестал выполнять в данном месте своё специальное значение (он являлся ограничителем шаблона).<br>
+       <strong class="strong">^</strong> - символ начала данных.<br>
+       <strong class="strong">$</strong> - символ конца данных.<br>
+       Пример: '<strong class="strong">/^pattern$/</strong>' - Соответствует строке, точно совпадающей с словом <strong class="strong">pattern</strong>. Т.е. с буквы <strong class="strong">p</strong> строка начинается и после <strong class="strong">n</strong> заканчивается.<br>
+       <strong class="strong">.</strong> - любой символ, кроме перевода строки. Но есть модификатор, при использовании которого перевод строки тоже относится к "любым" символам.<br>
+       Пример: '<strong class="strong">/pat.ern/</strong>' - Соответствует и строке, содержащей <strong class="strong">pattern</strong>, или <strong class="strong">patdern</strong>, или <strong class="strong">pat3ern</strong>...<br>
+       <strong class="strong">[ ]</strong> - внутри этих скобок перечисляются символы, любой один символ из которых может стоять на данном месте. Это называется символьным классом. Спецсимволы, написанные в <strong class="strong">[ ]</strong> ведут себя немного по-другому.<br>
+       Пример: '<strong class="strong">/pat[aoe]rn/</strong>' - под соответствие попадут только строки, содержащие <strong class="strong">patarn</strong>, <strong class="strong">patorn</strong> или <strong class="strong">patern</strong>.<br>
+       <strong class="strong">|</strong> - Или.<br>
+       <strong class="strong">()</strong> - подмаска.<br>
+       <strong class="strong">?</strong> - одно или ноль вхождений предшествующего символа или подмаски.<br>
+       <strong class="strong">*</strong> - любое количество вхождений предшествующего символа или подмаски. В том числе и ноль.<br>
+       <strong class="strong">+</strong> - одно или более вхождений.<br>
+       Пример: '<strong class="strong">/as+(es|du)?.*r/</strong>' - Буква <strong class="strong">а</strong>, потом одна или больше букв <strong class="strong">s</strong>, после этого сочетание <strong class="strong">es</strong> или <strong class="strong">du</strong> может быть один раз, а может и ни разу, потом любое количество любых символов и буква <strong class="strong">r</strong>.<br>
+       Ещё одно значения символа <strong class="strong">?</strong>. В примере части '<strong class="strong">.*r</strong>' будет соответствовать, например, подстрока <strong class="strong">asdrfsrsfdr</strong>. До последней буквы <strong class="strong">r</strong> в неё попало ещё две. Это можно выключить. Т.е. шаблон станет соответствовать только подстроке <strong class="strong">asdr</strong>, до первого <strong class="strong">r</strong>. Для этого надо до того места поставить модификатор <strong class="strong">(?U)</strong>. Это ещё одно применение символам <strong class="strong">?</strong> и <strong class="strong">()</strong>.<br>
+       <strong class="strong">{a,b}</strong> - количество вхождений предшествующего символа или подмаски от <strong class="strong">а</strong> до <strong class="strong">b</strong>. Если <strong class="strong">b</strong> не указан, считается, что верхней границы нет. Например, <strong class="strong">*</strong> - то же самое, что <strong class="strong">{0,}</strong>. <strong class="strong">?</strong> - то же, что <strong class="strong">{0,1}</strong>. <strong class="strong">{5,7}</strong> - <strong class="strong">5,6</strong> или <strong class="strong">7</strong> повторений.<br>
+       Спецсимволы внутри символьного класса:<br>
+       <strong class="strong">^</strong> - отрицание.<br>
+       Пример: <strong class="strong">[^da]</strong> - соответствует любому символу кроме <strong class="strong">d</strong> и <strong class="strong">a</strong>.<br>
+       Пример: <strong class="strong">[^^]</strong> - соответствует любому символу кроме <strong class="strong">^</strong>.<br>
+       Пример: <strong class="strong">[d^a]</strong> - соответствует любому символу из перечисленных трёх. <strong class="strong">[\^da]</strong> - то же самое.<br>
+       В последнем примере, символ стоит не в начале перечисления и свою метафункцию теряет. И экранировать его тоже тут не надо.<br>
+       <strong class="strong">-</strong> - внутри символьного класса означает символьный интервал.<br>
+       Пример: <strong class="strong">[0-9a-e]</strong> - соответствует любому символу от <strong class="strong">0</strong> до <strong class="strong">9</strong> и от <strong class="strong">a</strong> до <strong class="strong">e</strong>. Если в символьном классе надо перечислить сам символ дефиса, то следует либо заэранировать его, либо разместить перед <strong class="strong">]</strong>.<br>
+       Осторожно в символьном классе надо использовать символ <strong class="strong">\</strong>. Если его поставить перед <strong class="strong">]</strong>, она окажется заэкранирована. Также окажется заэкранированным любой символ, который может быть заэкранирован. Иначе символ <strong class="strong">\</strong> является обычным символом.<br>
+       Символ <strong class="strong">$</strong> тоже является обычным символом внутри символьного класса. И скобки тоже.<br>
+       Символ <strong class="strong">\</strong>. Одна из его функций - снятие специального значения с спецсимволов. А другая, наоборот придание специальных функций обычным символам.<br>
+       <strong class="strong">\cx</strong> - <strong class="strong">ctrl + x</strong>. На месте <strong class="strong">x</strong> может быть любой символ.<br>
+       <strong class="strong">\e</strong> - <strong class="strong">escape</strong>.<br>
+       <strong class="strong">\f</strong> - разрыв страницы.<br>
+       <strong class="strong">\n</strong>, <strong class="strong">\r</strong>, <strong class="strong">\t</strong> - перевод строки, возврат каретки и табуляция.<br>
+       <strong class="strong">\d</strong> - любой символ, означающий десятичную цифру.<br>
+       <strong class="strong">\D</strong> - любой символ, не означающий десятичную цифру.<br>
+       <strong class="strong">\s</strong> - любой пробельный символ.<br>
+       <strong class="strong">\S</strong> - не пробельный.<br>
+       <strong class="strong">\w</strong> - любая цифра, буква или знак подчеркивания.<br>
+       <strong class="strong">\W</strong> - любой символ, но не <strong class="strong">\w</strong>.<br>
+       <strong class="strong">\b</strong> - граница слова. Можно использовать вместо <strong class="strong">\w\W</strong> или <strong class="strong">\W\w</strong> или <strong class="strong">^\w</strong> или <strong class="strong">\w$</strong><br>
+       <strong class="strong">\B</strong> - не граница слова.<br>
+       Две последние конструкции не соответствуют никаким реальным символам.<br>
+       <strong class="strong">\xHH</strong> - символ с шестнадцатиричным кодом <strong class="strong">HH</strong>. <strong class="strong">x</strong> - это именно буква икс.<br>
+       <strong class="strong">\DDD</strong> - символ с восьмиричным кодом <strong class="strong">DDD</strong>. Или ссылка на подмаску.
+    </p>
+    <h2 id="php8">Конструкция <strong class="strong">if</strong></h2>
+    <p><strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if</strong></strong> (логическое выражение) оператор;<br>
+       <strong class="blue p11">?></strong><br>
+       Согласно выражениям <strong class="strong">PHP</strong>, конструкция <strong class="strong">if</strong> содержит логическое выражение. Если логическое выражение истинно (<strong class="strong">true</strong>), то оператор, следующий за конструкцией <strong class="strong">if</strong> будет исполнен, а если логическое выражение ложно (<strong class="strong">false</strong>), то следующий за <strong class="strong">if</strong> оператор исполнен не будет.<br>
+       Часто необходим блок операторов, который будет выполняться при определённом условном критерии, тогда эти операторы необходимо поместить в фигурные скобки <strong class="strong">{...}</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if ($a > $b) {<br>
+       <strong class="p11">echo "a больше b";<br>
+       <strong class="p11">$b = $a;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong><br><br>
+       В случае, если условие конструкции <strong class="strong">if</strong> не выполнено, нельзя обойтись без конструкции <strong class="strong">else</strong>.<br>
+       Синтаксис конструкции <strong class="strong">if-else</strong> такой:<br>
+       <strong class="strong">if</strong> (логическое_выражение)<br>
+       <strong class="strong">инструкция_1;</strong><br>
+       <strong class="strong">else</strong><br>
+       <strong class="strong">инструкция_2;</strong><br>
+       Если логическое_выражение истинно, то выполняется <strong class="strong">инструкция_1</strong>, а иначе — <strong class="strong">инструкция_2</strong>. Как и в любом другом языке, конструкция <strong class="strong">else</strong> может опускаться, в этом случае при получении должного значения просто ничего не делается.<br>
+       Если <strong class="strong">инструкция_1</strong> или <strong class="strong">инструкция_2</strong> должны состоять из нескольких команд, то они, как всегда, заключаются в фигурные скобки. Например:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if ($a > $b) {<br>
+       <strong class="p11">echo "a больше, чем b";<br>
+       <strong class="p11">} else {
+       <strong class="p11">echo "a НЕ больше, чем b";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Конструкция <strong class="strong">elseif</strong>, сочетание <strong class="strong">if</strong> и <strong class="strong">else</strong>. Аналогично <strong class="strong">else</strong>, она расширяет оператор <strong class="strong">if</strong> для выполнения различных выражений в случае, когда условие начального оператора <strong class="strong">if</strong> эквивалентно <strong class="strong">FALSE</strong>. Однако, в отличие от <strong class="strong">else</strong>, выполнение альтернативного выражения произойдёт только тогда, когда условие оператора <strong class="strong">elseif</strong> будет являться равным <strong class="strong">TRUE</strong>. К примеру, следующий код может выводить <strong class="strong">a</strong> больше, чем <strong class="strong">b</strong>, <strong class="strong">a</strong> равно <strong class="strong">b</strong> или <strong class="strong">a</strong> меньше, чем <strong class="strong">b</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if ($a > $b) {<br>
+       <strong class="p11">echo "a больше, чем b";<br>
+       <strong class="p11">} elseif ($a == $b) {<br>
+       <strong class="p11">echo "a равен b";<br>
+       <strong class="p11">} else {<br>
+       <strong class="p11">echo "a меньше, чем b";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Может быть несколько <strong class="strong">elseif</strong> в одном выражении <strong class="strong">if</strong>. Первое выражение <strong class="strong">elseif</strong> (если оно есть) равное <strong class="strong">TRUE</strong> будет выполнено.<br> 
+       В <strong class="strong">PHP</strong> также можно написать '<strong class="strong">else if</strong>' (в два слова), и тогда поведение будет идентичным '<strong class="strong">elseif</strong>' (в одно слово). Синтаксически значение немного отличается, но в конечном итоге оба выражения приведут к одному и тому же результату.<br>
+       Выражение <strong class="strong">elseif</strong> выполнится, если предшествующее выражение <strong class="strong">if</strong> и предшествующие выражения <strong class="strong">elseif</strong> эквивалентны <strong class="strong">FALSE</strong>, а текущий <strong class="strong">elseif</strong> равен <strong class="strong">TRUE</strong>.<br>
+       <strong class="strong">elseif</strong> и <strong class="strong">else if</strong> будут равнозначны только при использовании фигурных скобок, как в примерах выше. Если используются синтаксис с двоеточием для определения условий <strong class="strong">if/elseif</strong>, необходимо разделять <strong class="strong">else if</strong> на два слова, иначе это вызовет фатальную ошибку в <strong class="strong">PHP</strong>.<br>
+       Часто вместо нескольких расположенных подряд инструкций <strong class="strong">if-else</strong> целесообразно воспользоваться специальной конструкцией выбора <strong class="strong">switch-case</strong>.<br> 
+       Данная конструкция предназначена для выбора действий, в зависимости от значения указанного выражения. Конструкция <strong class="strong">switch-case</strong> чем-то напоминает конструкцию <strong class="strong">if-else</strong>, который, по сути, является ее аналогом. Конструкцию выбора можно использовать, если предполагаемых вариантов много, например, более 5, и для каждого варианта нужно выполнить специфические действия. В таком случае, использование конструкции <strong class="strong">if-else</strong> становится действительно неудобным.<br>
+       Синтаксис конструкции <strong class="strong">switch-case</strong> такой:<br><br>
+       <strong class="blue p11">switch(выражение) {<br>
+       <strong class="p11">case значение1: команды1; [break;]<br>
+       <strong class="p11">case значение2: команды2; [break;]<br>
+       <strong class="p11">. . .<br>
+       <strong class="p11">case значениеN: командыN; [break;]<br>
+       <strong class="p11">[default: команды_по_умолчанию; [break]]<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong><br><br>
+       Принцип работы конструкции <strong class="strong">switch-case</strong> такой:<br>
+       Вычисляется значение выражения;<br>
+       Просматривается набор значений. Пусть значение 1 равно значению выражения, вычисленного на первом шаге. Если не указана конструкция (оператор) <strong class="strong">break</strong>, то будут выполнены команды <strong class="strong">i</strong>, <strong class="strong">i+1</strong>, <strong class="strong">i+2</strong>, <strong class="strong">...</strong>, <strong class="strong">N</strong>. В противном случае (есть <strong class="strong">break</strong>) будет выполнена только команда с номером <strong class="strong">i</strong>.<br>
+       Если ни одно значение из набора не совпало со значением выражения, тогда выполняется блок <strong class="strong">default</strong>, если он указан.
+    </p>
+    <h2 id="php9">Циклы</h2>
+    <p>Циклы позволяют повторять определённое (и даже неопределённое - когда работа цикла зависит от условия) количество раз различные операторы. Данные операторы называются телом цикла. Проход цикла называется итерацией.<br>
+       Цикл с предусловием <strong class="strong">while</strong> работает по следующим принципам:<br>
+       Вычисляется значение логического выражения.<br>
+       Если значение истинно, выполняется тело цикла, в противном случае - переходим на следующий за циклом оператор.<br>
+       Синтаксис цикла с предусловием:<br>
+       <strong class="strong">while</strong> (логическое_выражение)<br>
+       инструкция;<br>
+       В данном случае телом цикла является инструкция. Обычно тело цикла состоит из большого числа операторов. Пример цикла с предусловием <strong class="strong">while</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$x=0;<br>
+       <strong class="p11">while ($x++&lt;10) echo $x;</strong></strong></strong><br>
+       // Выводит 12345678910<br>
+       <strong class="blue p11">?></strong><br><br>
+       Сначала проверяется условие, а только потом увеличивается значение переменной. Если поставить операцию инкремента перед переменной <strong class="strong">(++$x<10)</strong>, то сначала будет выполнено увеличение переменной, а только затем - сравнение. В результате получим строку 123456789.<br> 
+       Цикл с постусловием <strong class="strong">do while</strong>.<br>
+       В отличие от цикла <strong class="strong">while</strong>, этот цикл проверяет значение выражения не до, а после каждого прохода (итерации). Таким образом, тело цикла выполняется хотя бы один раз. Синтаксис цикла с постусловием такой:<br><br>
+       <strong class="blue p11">do<br>
+       <strong class="p11">{<br>
+       <strong class="p11">тело_цикла;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">while (логическое_выражение);</strong></strong></strong></strong></strong><br><br>
+       После очередной итерации проверяется, истинно ли логическое_выражение, и, если это так, управление передаётся вновь на начало цикла, в противном случае цикл обрывается.<br>
+       Пример скрипта, показывающего работу цикла с постусловием <strong class="strong">do-while</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$x = 1;<br>
+       <strong class="p11">do {<br>
+       <strong class="p11">echo $x;<br>
+       <strong class="p11">} while ($x++&lt;10);<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong><br><br>
+       Рассмотренный сценарий выводит: 12345678910<br>
+       Цикл со счётчиком <strong class="strong">for</strong> используется для выполнения тела цикла определённое число раз. С помощью цикла <strong class="strong">for</strong> можно создавать конструкции, которые будут выполнять действия совсем не такие тривиальные, как простая переборка значения счётчика.<br>
+       Синтаксис цикла <strong class="strong">for</strong> такой:<br>
+       <strong class="strong">for</strong> (инициализирующие_команды; условие_цикла; команды_после_итерации) {тело_цикла;}<br>
+       Цикл <strong class="strong">for</strong> начинает свою работу с выполнения инициализирующих_команд. Данные команды выполняются только один раз. После этого проверяется условие_цикла, если оно истинно (<strong class="strong">true</strong>), то выполняется тело_цикла. После того, как будет выполнен последний оператор тела, выполняются команды_после_итерации. Затем снова проверяется условие_цикла. Если оно истинно (<strong class="strong">true</strong>), выполняется тело_цикла и команды_после_итерации, и.т.д.<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">for ($x=0; $x&lt;10; $x++) echo $x;<br>
+       <strong class="p11">?></strong></strong></strong><br><br>
+       Данный сценарий выводит: 0123456789<br>
+       Есть вариант вывода строки 12345678910:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">for ($x=0; $x++&lt;10;) echo $x;</strong></strong><br>
+       <strong class="blue p11">?></strong><br><br>
+       В данном примере обеспечено увеличение счётчика при проверке логического выражения. В таком случае не нужны были команды, выполняющиеся после итерации.<br>
+       Если необходимо указать несколько команд, их можно разделить запятыми, пример:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">for ($x=0, $y=0; $x&lt;10; $x++, $y++) echo $x;</strong></strong><br>
+       // Выводит: 0123456789<br>
+       <strong class="blue p11">?></strong><br><br>
+       Еще один, более практичный пример использования нескольких команд в цикле <strong class="strong">for</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">for($i=0,$j=0,$k="Точки"; $i&lt;10; $j++,$i+=$j) {$k=$k."."; echo $k,';', $j,';', $i,';';}</strong></strong><br>
+       // Выводит: Точки.;0;0;Точки..;1;1;Точки...;2;3;Точки....;3;6;<br>
+       <strong class="blue p11">?></strong><br><br> 
+       Специальный тип цикла - <strong class="strong">foreach</strong> предназначен специально для перебора массивов.<br>
+       Синтаксис цикла <strong class="strong">foreach</strong> выглядит следующим образом:<br>
+       <strong class="strong">foreach</strong> (массив <strong class="strong">as</strong> $ключ=>$значение)<br>
+       команды;<br>
+       Здесь команды циклически выполняются для каждого элемента массива, при этом очередная пара ключ=>значение оказывается в переменных $ключ и $значение. Пример работы цикла <strong class="strong">foreach</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$names["Иванов"] = "Андрей";<br>
+       <strong class="p11">$names["Петров"] = "Борис";<br>
+       <strong class="p11">$names["Волков"] = "Сергей";<br>
+       <strong class="p11">$names["Макаров"] = "Федор";<br>
+       <strong class="p11">foreach ($names as $key => $value) {<br>
+       <strong class="p11">echo "&lt;b>$value $key&lt;/b>";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Рассмотренный сценарий выводит:<br>
+       Андрей Иванов<br>
+       Борис Петров<br>
+       Сергей Волков<br>
+       Федор Макаров<br>
+       У цикла <strong class="strong">foreach</strong> имеется и другая форма записи, которую следует применять, когда не интересует значение ключа очередного элемента. Выглядит она так:<br>
+       <strong class="strong">foreach</strong> (массив <strong class="strong">as</strong> $значение)<br>
+       команды;<br>
+       В этом случае доступно лишь значение очередного элемента массива, но не его ключ. Это может быть полезно, например, для работы с массивами-списками:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$names[ ] = "Андрей";<br>
+       <strong class="p11">$names[ ] = "Борис";<br>
+       <strong class="p11">$names[ ] = "Сергей";<br>
+       <strong class="p11">$names[ ] = "Федор";<br>
+       <strong class="p11">foreach ($names as $value) {<br>
+       <strong class="p11">echo "&lt;b>$value&lt;/b>";<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Цикл <strong class="strong">foreach</strong> оперирует не исходным массивом, а его копией. Это означает, что любые изменения, которые вносятся в массив, не могут быть "видны" из тела цикла. Что позволяет, например, в качестве массива использовать не только переменную, но и результат работы какой-нибудь функции, возвращающей массив (в этом случае функция будет вызвана всего один раз - до начала цикла, а затем работа будет производиться с копией возвращённого значения).<br>
+       Очень часто для того, чтобы упростить логику какого-нибудь сложного цикла, удобно иметь возможность его прервать в ходе очередной итерации (к примеру, при выполнении какого-нибудь особенного условия). Для этого и существует конструкция <strong class="strong">break</strong>, которая осуществляет немедленный выход из цикла. Она может задаваться с одним необязательным параметром - числом, которое указывает, из какого вложенного цикла должен быть произведён выход. По умолчанию используется 1, т. е. выход из текущего цикла, но иногда применяются и другие значения. Синтаксис конструкции <strong class="strong">break</strong>:<br>
+       <strong class="strong">break;</strong> По умолчанию<br>
+       <strong class="strong">break(номер_цикла);</strong> Для вложенных циклов (указывается номер прерываемого цикла). Примеры:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$x=0;<br>
+       <strong class="p11">while ($x++&lt;10) {<br>
+       <strong class="p11">if ($x==3) break;<br>
+       <strong class="p11">echo "&lt;b>Итерация $x&lt;/b>";<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong><br>
+       // Когда <strong class="strong">$x</strong> равен <strong class="strong">3</strong>, цикл прерывается<br>
+       <strong class="blue p11">?></strong><br><br>
+       Рассмотренный сценарий выводит:<br>
+       Итерация 1<br>
+       Итерация 2<br>
+       Если необходимо прервать работу определённого (вложенного) цикла, то нужно передать конструкции <strong class="strong">break</strong> параметр - номер_цикла, например, <strong class="strong">break(1)</strong>. Нумерация циклов выглядит следующим образом:<br><br>
+       <strong class="blue p11">for (...)</strong> // Третий цикл<br>
+       <strong class="blue p11">{<br>
+       <strong class="p11">for (...)</strong></strong> // Второй цикл<br>
+       <strong class="blue p11">{<br>
+       <strong class="p11">for (...)</strong></strong> // Первый цикл<br>
+       <strong class="blue p11">{<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}<br>
+       <strong class="p11">}</strong></strong></strong></strong><br><br>
+       Конструкция <strong class="strong">continue</strong> так же, как и <strong class="strong">break</strong>, работает только "в паре" с циклическими конструкциями. Она немедленно завершает текущую итерацию цикла и переходит к новой (конечно, если выполняется условие цикла для цикла с предусловием). Точно так же, как и для <strong class="strong">break</strong>, для <strong class="strong">continue</strong> можно указать уровень вложенности цикла, который будет продолжен по возврату управления.<br>
+       В основном <strong class="strong">continue</strong> позволяет сэкономить количество фигурных скобок в коде и увеличить его удобочитаемость. Это чаще всего бывает нужно в циклах-фильтрах, когда требуется перебрать некоторое количество объектов и выбрать из них только те, которые удовлетворяют определенным условиям. Пример использования конструкции <strong class="strong">continue</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">$x=0;<br>
+       <strong class="p11">while ($x++&lt;5) {<br>
+       <strong class="p11">if ($x==3) continue;<br>
+       <strong class="p11">echo "&lt;b>Итерация $x&lt;/b>&lt;br>";<br>
+       <strong class="p11">}</strong></strong></strong></strong></strong></strong><br>
+       // Цикл прервется только на третьей итерации<br>
+       <strong class="blue p11">?></strong><br><br>
+       Рассмотренный скрипт выводит:<br>
+       Итерация 1<br>
+       Итерация 2<br>
+       Итерация 4<br>
+       Итерация 5<br>
+       При использовании операторов <strong class="strong">break</strong> и <strong class="strong">continue</strong>, первый из них прерывает работу всего цикла, а второй - только текущей итерации.<br>
+       Функция называется рекурсивной, если она вызывает саму себя.<br>
+       Пример функции с использованием рекурсии:<br><br>
+       <strong class="blue p11">&lt;?PHP</strong><br>
+       // <strong class="strong">$pre</strong> и <strong class="strong">$pre_pre</strong> - предыдущий и предпредыдущий элемент.<br>
+       // <strong class="strong">$n</strong> номер элемента, который мы ищем, но реально смысл в этой переменной несколько другой.<br>
+       // Она хранит в себе количество элементов, которое осталось посчитать.<br>
+       // Считать сумму начинаем с 3го элемента.<br> 
+       <strong class="blue p11">function fib($n, $pre = 1, $pre_pre = 0)<br>
+       <strong class="p11">{<br>    
+       <strong class="p11">if ($n == 1) return 1;<br>
+       <strong class="p11">if ($n &lt; 1) return false;<br>
+       <strong class="p11">if ($n == 2)</strong></strong></strong></strong></strong> // начинали с 3го, поэтому выходим, когда осталось посчитать два.<br>
+       <strong class="blue p11">return $pre;<br>
+       <strong class="p11">return fib($n - 1, $pre + $pre_pre, $pre);<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo fib(5);<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php10">Конструкция <strong class="strong">return</strong></h2>
+    <p>Конструкция <strong class="strong">return</strong> возвращает значения, преимущественно из пользовательских функций, как параметры функционального запроса. При вызове <strong class="strong">return</strong> исполнение пользовательской функции прерывается, а конструкция <strong class="strong">return</strong> возвращает определённые значения.<br>
+       Если конструкция <strong class="strong">return</strong> будет вызвана из глобальной области определения (вне пользовательских функций), то скрипт также завершит свою работу, а <strong class="strong">return</strong> также возвратит определённые значения.<br>
+       Возвращаемые значения могут быть любого типа, в том числе это могут быть списки и объекты. Возврат приводит к завершению выполнения функции и передаче управления обратно к той строке кода, в которой данная функция была вызвана.<br>
+       Пример использования конструкции <strong class="strong">return</strong> для возврата значений типа <strong class="strong">integer</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function retfunct()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">return 7;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">echo retfunct();</strong></strong></strong></strong></strong></strong> // выводит '7'<br>
+       <strong class="blue p11">?></strong><br><br>
+       Пример возврата конструкцией <strong class="strong">return</strong> массивов:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function numbers()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">return array (0, 1, 2);<br>
+       <strong class="p11">}<br>
+       <strong class="p11">list ($zero, $one, $two) = numbers();<br>
+       <strong class="p11">echo $zero;<br>
+       <strong class="p11">echo $one;<br>
+       <strong class="p11">echo $two;</strong></strong></strong></strong></strong></strong></strong></strong></strong><br>
+       // Выводит '012'<br>
+       <strong class="blue p11">?></strong><br><br>
+       Для того, чтобы функция возвращала результат по ссылке, необходимо использовать оператор <strong class="strong">&</strong> и при описании функции, и при присвоении переменной возвращаемого значения:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function &returns_reference()<br>
+       <strong class="p11">{<br>
+       <strong class="p11">return $someref;<br>
+       <strong class="p11">}<br>
+       <strong class="p11">$newref =& returns_reference();<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php11">Конструкция включений <strong class="strong">require</strong></h2>
+    <p>Конструкции включений позволяют собирать <strong class="strong">PHP</strong> программу (скрипт) из нескольких отдельных файлов.<br>
+       Конструкция <strong class="strong">require</strong> позволяет включать файлы в сценарий <strong class="strong">PHP</strong> до исполнения сценария <strong class="strong">PHP</strong>. Общий синтаксис <strong class="strong">require</strong> такой:<br>
+       <strong class="strong">require</strong> имя_файла;<br>
+       При запуске (именно при запуске, а не при исполнении!) программы интерпретатор просто заменит инструкцию на содержимое файла имя_файла (этот файл может также содержать сценарий на <strong class="strong">PHP</strong>, обрамленный, как обычно, тэгами <strong class="strong">&lt;?</strong> и <strong class="strong">?></strong>). Причём сделает он это непосредственно перед запуском программы (в отличие от <strong class="strong">include</strong>). Это бывает довольно удобно для включения в вывод сценария различных шаблонных страниц <strong class="strong">HTML</strong>-кодом. Пример:<br><br> 
+       Файл <strong class="strong">header.html</strong>:<br><br>
+       <strong class="blue p11">&lt;html><br>
+       <strong class="p11">&lt;head>&lt;title>It is a title&lt;/title>&lt;/head><br>
+       <strong class="p11">&lt;body bgcolor=green></strong></strong></strong><br><br>
+       Файл <strong class="strong">footer.html</strong>:<br><br>
+       <strong class="blue p11">&copy; Linuxtosha Company, 2021.<br>
+       <strong class="p11">&lt;/body><br>
+       <strong class="p11">&lt;/html></strong></strong></strong><br><br>
+       Файл <strong class="strong">script.php</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">require "header.html";</strong></strong><br>
+       // Сценарий выводит само тело документа<br>
+       <strong class="blue p11">require "footer.html";<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Таким образом, конструкция <strong class="strong">require</strong> позволяет собирать сценарии <strong class="strong">PHP</strong> из нескольких отдельных файлов, которые могут быть как <strong class="strong">html</strong>-страницами, так и <strong class="strong">php</strong>-скриптами.<br>
+       Конструкция <strong class="strong">require</strong> поддерживает включения удалённых файлов (начиная с версии <strong class="strong">PHP 4.3.0</strong>). Например:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Следующий пример не работает, поскольку пытается включить локальный файл<br>
+       <strong class="blue p11">require 'file.php?foo=1&bar=2';</strong><br>
+       // Следующий пример работает<br>
+       <strong class="blue p11">require 'http://www.example.com/file.php?foo=1&bar=2';<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Конструкция <strong class="strong">require</strong> позволяет включать удаленные файлы, если такая возможность включена в конфигурационном файле <strong class="strong">PHP</strong>.
+    </p>
+    <h2 id="php12">Конструкция <strong class="strong">include</strong></h2>
+    <p>Конструкция <strong class="strong">include</strong> также предназначена для включения файлов в код сценария <strong class="strong">PHP</strong>.<br>
+       В отличие от конструкции <strong class="strong">require</strong> конструкция <strong class="strong">include</strong> позволяет включать файлы в код <strong class="strong">PHP</strong> скрипта во время выполнения сценария. Синтаксис конструкции <strong class="strong">include</strong> выглядит следующим образом:<br>
+       <strong class="strong">include</strong> имя_файла;<br>
+       Принципиальная разница между конструкциями <strong class="strong">require</strong> и <strong class="strong">include</strong> на конкретном примере:<br> 
+       Создадим 10 файлов с именами <strong class="strong">1.txt</strong>, <strong class="strong">2.txt</strong> и так далее до <strong class="strong">10.txt</strong>, содержимое этих файлов - просто десятичные цифры 1, 2 ...… 10 (по одной цифре в каждом файле). Создадим такой сценарий <strong class="strong">PHP</strong>:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Создаем цикл, в теле которого конструкция <strong class="strong">include</strong><br>
+       <strong class="blue p11">for($i=1; $i&lt;=10; $i++) {<br>
+       <strong class="p11">include "$i.txt";<br>
+       <strong class="p11">}</strong></strong></strong><br>
+       // Включили десять файлов: <strong class="strong">1.txt</strong>, <strong class="strong">2.txt</strong>, <strong class="strong">3.txt</strong> ... <strong class="strong">10.txt</strong><br>
+       // Результат - вывод 12345678910<br>
+       <strong class="blue p11">?></strong><br><br>
+       В результате получим вывод, состоящий из 10 цифр: "12345678910". Из этого можно сделать вывод, что каждый из файлов был включён по одному разу прямо во время выполнения цикла! Если поставить вместо <strong class="strong">include require</strong>, то сценарий сгенерирует критическую ошибку (<strong class="strong">fatal error</strong>).<br>
+       <strong class="strong">PHP</strong> преобразует сценарий во внутреннее представление, анализируя строки сценария по очереди, пока не доходит до конструкции <strong class="strong">include</strong>. Дойдя до <strong class="strong">include</strong>, <strong class="strong">PHP</strong> прекращает транслировать сценарий и переключается на указанный в <strong class="strong">include</strong> файл. Таким образом из-за подобного поведения транслятора, быстродействие сценария снижается, особенно при большом количестве включаемых с помощью <strong class="strong">include</strong> файлов. С <strong class="strong">require</strong> таких проблем нет, поскольку файлы с помощью <strong class="strong">require</strong> включаются до выполнения сценария, то есть на момент трансляции файл уже включён в сценарий.<br>
+       Таким образом, целесообразнее использовать конструкцию <strong class="strong">require</strong> там, где не требуется динамическое включение файлов в сценарий, а конструкцию <strong class="strong">include</strong> использовать только с целью динамического включения файлов в код <strong class="strong">PHP</strong> скрипта.<br>
+       Конструкция <strong class="strong">include</strong> поддерживает включения удалённых файлов (начиная с версии <strong class="strong">PHP 4.3.0</strong>). Например:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       // Следующий пример не работает, поскольку пытается включить локальный файл<br>
+       <strong class="blue p11">include 'file.php?foo=1&bar=2';</strong><br>
+       // Следующий пример работает<br>
+       <strong class="blue p11">include 'http://www.example.com/file.php?foo=1&bar=2';<br>
+       <strong class="p11">?></strong></strong><br><br>
+       Конструкция <strong class="strong">include</strong> позволяет включать удалённые файлы, если такая возможность включена в конфигурационном файле <strong class="strong">PHP</strong>. 
+    <h2 id="php13">Конструкции однократного включения <strong class="strong">require_once</strong> и <strong class="strong">include_once</strong></h2>
+    <p>В больших <strong class="strong">PHP</strong> сценариях инструкции <strong class="strong">require</strong> и <strong class="strong">include</strong> применяются очень часто. Поэтому становится довольно сложно контролировать, как бы случайно не включить один и тот же файл несколько раз, что чаще всего приводит к ошибке, которую сложно обнаружить.<br>
+       В <strong class="strong">PHP</strong> предусмотрено решение данной проблемы. Используя конструкции однократного включения <strong class="strong">require_once</strong> и <strong class="strong">include_once</strong>, можно быть уверенным, что один файл не будет включен дважды. Работают конструкции однократного включения <strong class="strong">require_once</strong> и <strong class="strong">include_once</strong> так же, как и <strong class="strong">require</strong> и <strong class="strong">include</strong> соответственно. Разница в их работе лишь в том, что перед включением файла интерпрететор проверяет, включён ли указанный файл ранее или нет. Если да, то файл не будет включён вновь.<br>
+       Конструкции однократных включений также <strong class="strong">require_once</strong> и <strong class="strong">include_ince</strong> также позволяют включать удалённые файлы, если такая возможность включена в конфигурационном файле <strong class="strong">PHP</strong>.<br> 
+       <strong class="strong">PHP</strong> позволяет работать с объектами <strong class="strong">URL</strong>, как с обычными файлами. Упаковщики, доступные по умолчанию, служат для работы с удалёнными файлами с использованием протокола <strong class="strong">ftp</strong> или <strong class="strong">http</strong>.<br>
+       Если "<strong class="strong">URL fopen</strong>-оболочки" включены в <strong class="strong">PHP</strong> (как в конфигурации по умолчанию), можно специфицировать файл, подключаемый с использованием <strong class="strong">URL</strong> (через <strong class="strong">HTTP</strong>), вместо локального пути. Если целевой сервер интерпретирует целевой файл как <strong class="strong">PHP</strong>-код, переменные могут передаваться в подключаемый файл с использованием <strong class="strong">URL</strong>-строки запроса, как в <strong class="strong">HTTP GET</strong>. Строго говоря, это не то же самое, что подключение файла и наследование им области видимости переменных родительского файла; ведь скрипт работает на удалённом сервере, а результат затем подключается в локальный скрипт.<br>
+       Для того, чтобы удалённое включение файлов было доступно, необходимо в конфигурационном файле (<strong class="strong">php.ini</strong>) установить <strong class="strong">allow_url_fopen=1</strong>.
+    </p>
+    <h2 id="php14">Альтернативный синтаксис управляющих структур</h2> 
+    <p><strong class="strong">PHP</strong> предлагает альтернативный синтаксис для некоторых его управляющих структур, а именно: <strong class="strong">if</strong>, <strong class="strong">while</strong>, <strong class="strong">for</strong>, <strong class="strong">foreach</strong> и <strong class="strong">switch</strong>. В каждом случае основной формой альтернативного синтаксиса является изменение открывающей фигурной скобки на двоеточие (<strong class="strong">:</strong>), а закрывающей скобки на <strong class="strong">endif</strong>;, <strong class="strong">endwhile</strong>;, <strong class="strong">endfor</strong>;, <strong class="strong">endforeach</strong>; или <strong class="strong">endswitch</strong>; соответственно:<br><br>
+       <strong class="blue p11">&lt;?php if ($a == 5): ?></strong><br>
+       <strong class="strong">a</strong> равно 5<br><br>
+       <strong class="blue p11">&lt;?php endif; ?></strong><br><br>
+       В приведённом выше примере, блок <strong class="strong">HTML</strong> "<strong class="strong">a</strong> равно <strong class="strong">5</strong>" вложен внутрь структуры <strong class="strong">if</strong>, написанной с альтернативным синтаксисом. Блок <strong class="strong">HTML</strong> будет показан только если переменная <strong class="strong">$a</strong> равна <strong class="strong">5</strong>.<br>
+       Альтернативный синтаксис также применяется и к <strong class="strong">else</strong> и <strong class="strong">elseif</strong>. Ниже приведена структура <strong class="strong">if</strong> с <strong class="strong">elseif</strong> и <strong class="strong">else</strong> в альтернативном формате:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">if ($a == 5):<br>
+       <strong class="p11">echo "a равно 5";<br>
+       <strong class="p11">echo "...";<br>
+       <strong class="p11">elseif ($a == 6):<br>
+       <strong class="p11">echo "a равно 6";<br>
+       <strong class="p11">echo "!!!";<br>
+       <strong class="p11">else:<br>
+       <strong class="p11">echo "a не равно ни 5 ни 6";<br>
+       <strong class="p11">endif;<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+       Смешивание синтаксиса в одном и том же блоке управления не поддерживается.
+    </p>
+    <h2 id="php15">Аргументы функции</h2>
+    <p>Функция может принимать информацию в виде списка аргументов, который является списком разделённых запятыми выражений. Аргументы вычисляются слева направо.<br>
+       <strong class="strong">PHP</strong> поддерживает передачу аргументов по значению (по умолчанию), передачу аргументов по ссылке, и значения по умолчанию. Списки аргументов переменной длины также поддерживаются, см. также описания функций <strong class="strong">func_num_args()</strong>, <strong class="strong">func_get_arg()</strong> и <strong class="strong">func_get_args()</strong> для более детальной информации.<br>
+       Пример передача массива в функцию:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">function takes_array($input)<br>
+       <strong class="p11">{<br>
+       <strong class="p11">echo "$input[0] + $input[1] = ", $input[0]+$input[1];<br>
+       <strong class="p11">}<br>
+       <strong class="p11">?></strong></strong></strong></strong></strong></strong>
+    </p>
+    <h2 id="php16">Переменные извне <strong class="strong">PHP</strong></h2> 
+    <p><strong class="strong">HTML</strong>-формы (<strong class="strong">POST</strong> и <strong class="strong">GET</strong>)<br> 
+       Когда происходит отправка данных формы <strong class="strong">PHP</strong>-скрипту, информация из этой формы автоматически становится доступной ему. Существует несколько способов получения этой информации.<br>
+       Пример простая <strong class="strong">HTML</strong>-форма:<br><br>
+       <strong class="blue p11">&lt;form action="foo.php" method="post"><br>
+       <strong class="p11">Имя: &lt;input type="text" name="username" />&lt;br /><br>
+       <strong class="p11">Email: &lt;input type="text" name="email" />&lt;br /><br>
+       <strong class="p11">&lt;input type="submit" name="submit" value="Отправь меня!" /><br>
+       <strong class="p11">&lt;/form></strong></strong></strong></strong></strong><br><br>
+       С версии <strong class="strong">PHP 5.4.0</strong>, есть только два способа получить доступ к данным из форм <strong class="strong">HTML</strong>.<br>
+       Пример доступ к данным из простой <strong class="strong">HTML</strong>-формы, отправленной через <strong class="strong">POST</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">echo $_POST['username'];<br>
+       <strong class="p11">echo $_REQUEST['username'];<br>
+       <strong class="p11">?></strong></strong></strong></strong><br><br>
+       <strong class="strong">GET</strong>-форма используется аналогично, за исключением того, что все переменные и их значения передаются прямо через адрес, например, <a class="special-link3 a link1" target="_blank" href="https://www.php.net/manual/ru/language.variables.external.php">https://www.php.net/manual/ru/language.variables.external.php</a>.<br> 
+       Способ посылки параметров сценарию (когда данные помещаются в командную строку <strong class="strong">URL</strong>) называется методом <strong class="strong">GET</strong>.<br>
+       Устанавливает соединение с <strong class="strong">Web</strong>-сервером по адресу сервер:порт и посылает ему что-то вроде следующего:<br>
+       <strong class="strong">GET somestring HTTP/1.0\n<br>
+       ...другая информация...<br>
+       \n\n</strong></strong></strong><br>
+       Здесь <strong class="strong">\n</strong> означает символ перевода строки, а <strong class="strong">\n\n</strong> - два обязательных символа новой строки, которые являются маркером окончания запроса (точнее, окончания заголовков запроса). Пока не пошлём этот маркер, сервер не будет обрабатывать запрос.<br>
+       После <strong class="strong">GET</strong>-строки могут следовать и другие строки с информацией, разделённые символом перевода строки. Их обычно формирует браузер. Такие строки называются заголовками (<strong class="strong">headers</strong>), и их может быть сколько угодно. Протокол <strong class="strong">HTTP</strong> как раз и задаёт правила формирования и интерпретации этих заголовков. Он представляет собой ни что иное, как просто набор заголовков, которыми обмениваются сервер и браузер.<br>
+       Не все заголовки обрабатываются сервером - некоторые просто пересылаются запускаемому сценарию с помощью переменных окружения.<br> 
+       Переменные окружения представляют собой именованные значения параметров, которые операционная система (точнее, процесс-родитель) передаёт запущенной программе. Программа может с помощью специальных функций получить значение любой установленной переменной окружения, указав её имя. Именно так и должен поступать <strong class="strong">CGI</strong>-сценарий, когда захочет узнать значение того или иного заголовка запроса.<br>
+       <strong class="strong">PHP</strong> поддерживает загрузку файлов методом <strong class="strong">HTTP PUT</strong>, который используется в некоторых клиентах для загрузки файлов на сервер. Запросы <strong class="strong">PUT</strong> намного проще, чем загрузка файла с использованием <strong class="strong">POST</strong>-запросами и выглядят примерно так:<br>
+       <strong class="strong">PUT /path/filename.html HTTP/1.1</strong><br>
+       Такой вызов означает, что удалённый клиент хотел бы сохранить файл под именем <strong class="strong">/path/filename.html</strong> в дереве каталогов веб-сервера.<br> 
+       Очевидно, что возможность клиента автоматически перезаписывать файлы веб-сервера при помощи <strong class="strong">Apache</strong> или <strong class="strong">PHP</strong> не является хорошим решением. Поэтому для того, чтобы обрабатывать такие запросы, необходимо указать веб-серверу <strong class="strong">PHP</strong>-скрипт, к которому есть доверие на их обработку. В веб-сервере <strong class="strong">Apache</strong> это можно сделать, используя директиву <strong class="strong">Script</strong>. Как правило, эта директива расположена внутри блока <strong class="strong">&lt;Directory></strong> или же внутри блока <strong class="strong">&lt;VirtualHost></strong>. Сама запись выглядит следующим образом:<br>
+       <strong class="strong">Script PUT /put.php</strong><br>
+       Это указывает веб-серверу <strong class="strong">Apache</strong> на необходимость перенаправлять все <strong class="strong">PUT</strong>-запросы, контекст которых совпадает с контекстом, в котором разместили эту строку, в файл <strong class="strong">put.php</strong>. Предполагается, что файлы с расширением <strong class="strong">.php</strong> обрабатываются, как <strong class="strong">PHP</strong>-скрипты, и что сам <strong class="strong">PHP</strong> установлен и работает. Ресурсом назначения для всех <strong class="strong">PUT</strong>-запросов на этот скрипт должен быть сам скрипт, а не имя файла, которое должен иметь загружаемый файл.<br>
+       Внутри файла <strong class="strong">put.php</strong> можно поместить что-нибудь похожее на следующий пример. Он скопирует содержимое загруженного файла в файл <strong class="strong">myputfile.ext</strong> на сервер. Возможно, понадобится осуществить несколько проверок и/или аутентифицировать пользователя перед выполнением копирования этого файла.<br>
+       Пример сохранение файлов, отправленных через <strong class="strong">HTTP PUT</strong>:<br><br>
+       <strong class="blue p11">&lt;?php</strong><br>
+       /* <strong class="strong">PUT</strong> данные приходят в потоке ввода <strong class="strong">stdin</strong> */<br>
+       <strong class="blue p11">$putdata = fopen("php://input", "r");</strong><br>
+       /* Открываем файл на запись */<br>
+       <strong class="blue p11">$fp = fopen("myputfile.ext", "w");</strong><br>
+       /* Читаем 1 KB данных за один раз и пишем в файл */<br>
+       <strong class="blue p11">while ($data = fread($putdata, 1024))<br>
+       <strong class="p11">fwrite($fp, $data);</strong></strong><br>
+       /* Закрываем потоки */<br>
+       <strong class="blue p11">fclose($fp);<br>
+       <strong class="p11">fclose($putdata);<br>
+       <strong class="p11">?></strong></strong></strong>
+    </p>
+    <h2 id="php17">Переменные окружения <strong class="strong">CGI</strong></h2>
+    <p>Непосредственно перед запуском сценария сервер передаёт ему некие переменные окружения с информацией. В определённых переменных содержатся некоторые заголовки, но, не все (получить все заголовки нельзя). Переменные окружения в языке <strong class="strong">PHP</strong> можно использовать как самые обыкновенные переменные.<br>   
+       Переменные окружения делятся на четыре большие группы:<br>
+       Формируемые сервером переменные;<br>
+       Специальные переменные сервера <strong class="strong">Apache</strong>;<br>
+       Переменные <strong class="strong">HTTP</strong>-полей запроса;<br>
+       Переменные <strong class="strong">SSL</strong>-соединения (защищённого соединения).
+    </p>
+    <h2 id="php18">Заголовки <strong class="strong">HTTP</strong></h2>
+    <p>Заголовки <strong class="strong">HTTP</strong> используются для "общения" браузера и <strong class="strong">web</strong>-сервера, например, когда браузер запрашивает какой-либо документ, он посылает заголовок <strong class="strong">GET</strong>, а когда сервер возвращает тип документа, то он делает это ни как-нибудь, а в заголовке <strong class="strong">Content-type</strong>.<br>
+       В <strong class="strong">PHP</strong> есть встроенные функции для работы с заголовками <strong class="strong">HTTP</strong>.<br>
+       Для передачи заголовков <strong class="strong">HTTP</strong> предназначена функция <strong class="strong">header()</strong>:<br><br>
+       <strong class="blue p11">&lt;?php<br>
+       <strong class="p11">header("Content-type: text/plain");<br>
+       <strong class="p11">?></strong></strong></strong><br><br>
+       Всего определено 5 категорий кодов ответа <strong class="strong">HTTP</strong>. Каждая из этих категорий может содержать 100 кодов возврата.<br>
+       Коды диапазона 100...199 являются информационными. С их помощью возвращается различная информация, относящаяся к запросу.<br>
+       Диапазон 200...299 является диапазоном успешных операций. Коды, относящиеся к этому диапазону, сообщают об удачном завершении той или иной операции. К этому диапазону относятся также коды, сообщающие, что запрашиваемый файл пуст (<strong class="strong">no content</strong>), и сообщающие, что запрос был принят.<br>
+       Диапазон кодов ответа 300...399 являются кодами перенаправления (<strong class="strong">redirect</strong>).<br>
+       Коды диапазона 400...499 являются ошибками клиента. Например, пользователь может запросить несуществующий документ. К этому же диапазону относятся и ошибки "<strong class="strong">Forbidden</strong>" и "<strong class="strong">Unauthorized</strong>". И первая, и вторая сообщают, что у клиента нет доступа к определённому ресурсу. В первом случае доступ просто запрещён, а во втором случае клиент не является авторизированным.<br>
+       Коды ответа 500...599 являются кодами ошибок сервера. Данные ошибки возникают при внутренней ошибке сервера или же при неправильном его конфигурировании. Во втором случае сервер просто не может правильно возвратить ответ на запрос. Этот тип ошибок встречается обычно, когда ошибку совершает сценарий (скрипт), расположенный на сервере.
+    </p>
+    <div class="kartinka5"><a class="a steps cursorG" href="PHP1.html"><img src="Gentoo/steps1.png" alt="PHP продолжение"></a></div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="" width="100%" height="100%"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+         </div>
+         </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+                    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>      
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+       <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Копить деньги - вещь полезная, особенно если это уже сделали ваши родители." Уинстон Черчилль'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="массивы"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside hvr-curl">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="hvr-curl music"><a><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="ядро gentoo"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="ядро"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="ядро linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="код ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="обновление ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="исходные коды ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="код ядра linux"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="ядро gentoo"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                    <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		           <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                   <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                  <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="ядро linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+         </div>
+         <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+      </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
+

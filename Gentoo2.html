@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Русификация Gentoo</title>
+     <meta name="description" content="Параметры системы Gentoo Linux, установка fstab, установка Grub2, русификация Gentoo, подключение к интернету PPP, установка и настройка Iptables.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="fstab,параметры сети,pppoe,grub,установка grub,русификация,подключить интернет,подключение к интернету,iptables,eclean,ss">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Советы человека, не рискующего собственной шкурой, слушать не стоит!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="grub"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul> 
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="iptables"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Интеллект — это способность избегать выполнения работы, но так, чтобы она при этом была сделана." Линус Торвальдс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg1">Установка Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg2">Разбивка диска</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg3">Монтирование</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg4">Изменение корневого каталога chroot</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg5">Настройка Portage</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg6">Настройка переменной USE</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo1.html#sg7">Установка исходных кодов ядра</a></li>
+            <li class="p1"><a class="white aS" href="#sg8">Создание fstab</a></li>
+            <li class="p1"><a class="white aS" href="#sg9">Параметры сети</a></li>
+            <li class="p1"><a class="white aS" href="#sg10">Установка Grub 2</a></li>
+            <li class="p1"><a class="white aS" href="#sg11">Окончание установки Gentoo</a></li>
+            <li class="p1"><a class="white aS" href="#sg12">Руссификация Gentoo</a></li>
+            <li class="p1"><a class="white aS" href="#sg13">Подключение к интернету PPP</a></li>
+            <li class="p1"><a class="white aS" href="#sg14">Iptables</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg15">Установка рабочего стола Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg16">Установка с Wayland</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg17">X server для старой видео карты nvidia</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg18">Установка Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg19">Systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg20">Установка рабочего стола Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg21">Xorg — сервер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg22">Установка Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg23">Sudo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg24">Тор браузер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg25">Загрузка Gentoo без загрузчика</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg26">Broadcom Corporation и Intel Corporation WiMAX/WiFi Link 5150, настройка wi-fi</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg27">Установка wpa_supplicant</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg28">Установка сканера LIDE110</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg29">Подключение беспроводного принтера HP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg30">NTFS в Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg31">Файловая система exFAT</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg32">Non-Volatile Memory Express</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg33">Полный перенос операционной системы на другой жёсткий диск</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sb-container">Полезные ссылки</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h2 id="sg8">Создание <strong class="strong">fstab</strong></h2>
+         <p>Открытие:<br><br>
+         <strong class="p11 blue">nano /etc/fstab</strong><br><br>  
+         </p>  
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">/dev/sda2</strong></p></li>                
+                <li><p><strong class="p11 blue">/dev/sda3</strong></p></li>                                                                                                                                         
+                <li><p><strong class="p11 blue">/dev/sda4</strong></p></li>                                                                                                                         
+                <li><p><strong class="p11 blue">/dev/sda5</strong></p></li>                    
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">/boot/efi</strong></p></li>
+                <li><p><strong class="p11 p11 blue">none</strong></p></li> 
+                <li><p><strong class="p11 blue">/</strong></p></li> 
+                <li><p><strong class="p11 blue">/home</strong></p></li>  
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">vfat</strong></p></li> 
+                <li><p><strong class="p11 blue">swap</strong></p></li>  
+                <li><p><strong class="p11 blue">ext4</strong></p></li> 
+                <li><p><strong class="p11 blue">btrfs</strong></p></li> 
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">noauto,noatime</strong></p></li> 
+                <li><p><strong class="p11 blue">sw</strong></p></li>
+                <li><p><strong class="p11 blue">defaults,noatime</strong></p></li> 
+                <li><p><strong class="p11 blue">defaults,noatime</strong></p></li> 
+               </ul>
+               <ul class="fstab">
+                <li><p><strong class="p11 blue">0 2</strong></p></li>  
+                <li><p><strong class="p11 blue">0 0</strong></p></li> 
+                <li><p><strong class="p11 blue">0 1</strong></p></li> 
+                <li><p><strong class="p11 blue">0 0</strong></p></li> 
+               </ul>
+         <h2 id="sg9">Параметры сети</h2>
+         <p>Установка имени узла:<br><br>
+            <strong class="p11 blue">nano /etc/conf.d/hostname</strong><br><br>
+            (присвойте переменной <strong class="strong">hostname</strong> имя своего узла)<br><br>
+            <strong class="p11 blue">hostname="tux"</strong><br><br>
+            
+            Установка <strong class="strong">dhcpcd</strong>:<br><br>
+            <strong class="p11 blue">emerge dhcpcd</strong><br><br>
+            Для подключения сети загружаем пакет <strong id="net" class="strong">net-dialup/ppp</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask net-dialup/ppp</strong><br><br>
+         </p>
+         <h2>Параметры системы</h2>
+         <p>Пароль <b class="p3">root</b>:<br><br>                                                                                                                                                                       
+            <strong class="p11 blue">passwd</strong><br>                                                                                                                                                                 
+            <strong class="p11 blue">Password</strong>: (введите пароль)<br>                                                                                                                                                       
+            <strong class="p11 blue">Re-enter password</strong>: (повторно введите пароль)<br><br>                                                                                                                        
+            Для настройки параметров часов открываем <strong class="strong">/etc/conf.d/hwclock</strong><br><br>                                                                                            
+            <strong class="p11 blue">nano /etc/conf.d/hwclock</strong><br><br>                                                                                                                                        
+            Если аппаратные часы системы настроены не на часовой пояс <strong class="strong">UTC</strong> (Гринвич),<br>
+            в файл необходимо добавить строку<br><br> 
+            <strong class="p11 blue">clock="local"</strong>.<br><br>
+            В противном случае будет сдвиг часового пояса.<br>                                                                                                                  
+            Установка системной службы журналирования:<br><br>                                                                                                                        
+            <strong class="p11 blue">emerge syslog-ng</strong><br><br> 
+            Для <strong class="strong">syslog-ng</strong> рекомендуется установить <strong class="strong">app-admin/logrotate</strong>:<br><br>
+            <strong class="p11 blue">emerge app-admin/logrotate</strong><br>
+            <strong class="p11 blue">rc-update add syslog-ng default</strong>
+         </p>
+         <h2 id="sg10">Установка <strong class="strong">GRUB 2</strong></h2>
+         <p>Проверяем, включен ли режим <strong class="strong">UEFI</strong>, посмотрев содержимое каталога <strong class="strong">efivars</strong>:<br><br>
+            <strong class="p11 blue">ls /sys/firmware/efi/efivars</strong><br><br>
+            Отсутствие такого каталога, говорит что система загружена в режиме <strong class="strong">BIOS</strong> или <strong class="strong">CSM</strong>.<br>
+            При использовании <strong class="strong">UEFI</strong>, если в <strong class="strong">make.conf</strong> ранее  не установлено, добавляем:<br><br>
+            <strong class="p11 blue">echo GRUB_PLATFORMS="efi-64" >> /etc/portage/make.conf</strong><br><br>
+            Загружаем <strong class="strong">Grub</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask sys-boot/grub</strong><br><br>
+            Устанавливаем файлы <strong class="strong">GRUB</strong> в <strong class="strong">/boot/grub</strong>:<br>
+            <strong class="gray">Когда используется <strong class="strong">BIOS</strong>:<br><br>
+            <strong class="p11 darkgrey">grub-install /dev/sda</strong></strong><br><br>
+            <strong class="gray">Если нужно установить <strong class="strong">BIOS</strong> - версию загрузчика из-под системы, загруженной в режиме <strong class="strong">UEFI</strong>, требуется принудительно задать программе установки нужную сборку <strong class="strong">GRUB</strong>:</strong><br><br>
+            <strong class="p11 darkgrey">grub-install --target=i386-pc /dev/sda</strong><br><br>
+            Когда используется <strong class="strong">UEFI</strong>:<br><br>
+            <strong class="p11 blue">grub-install --target=x86_64-efi --efi-directory=/boot/efi</strong><br><br>
+            Генерируем конфигурацию <strong class="strong">GRUB</strong>:<br><br>
+            <strong class="p11 blue">grub-mkconfig -o /boot/grub/grub.cfg</strong><br><br>
+            В выводе команды хотя бы одно ядро <strong class="strong">Linux</strong> должно быть найдено.<br>
+            Для настройки конфигурации <strong class="strong">Grub</strong>, используется файл <strong class="strong">/etc/default/grub</strong>.
+         </p>
+         <h1 id="sg11" class="darkblue">Окончание установки <strong class="strong">Gentoo</strong></h1>
+         <p><strong class="p11 blue">exit</strong><br><br>
+            перезагружаем компьютер:<br><br>
+            <strong class="p11 blue">reboot</strong><br><br>
+            Удаляем загрузочный носитель.<br>
+            Добавление учетной записи для повседневной работы:<br>
+            <strong class="strong">Login</strong>: User <strong class="strong">Password</strong>: (ваш пароль <strong class="strong">user</strong>)<br><br>
+            <strong class="p11 blue">useradd -m -G users,wheel,audio,video -s /bin/bash username</strong><br><br>
+            <strong class="p11 blue">passwd username</strong><br>
+            <strong class="p11 blue">Password</strong>: (введите пароль для <strong class="strong">username</strong>)<br>
+            <strong class="p11 blue">Re-enter password</strong>: (повторно введите пароль для подтверждения)<br><br>
+            Удаляем <strong class="strong">tar</strong>-архив со <strong class="strong">stage3</strong><br><br>
+            <strong class="p11 blue">rm /stage3-*.tar.bz2*</strong><br><br>
+            Настраиваем сеть.<br>
+            Просмотр существующих сетевых интерфейсов:<br><br>                                                                                                                           
+            <strong class="blue p11">ls /sys/class/net</strong><br>
+            <strong class="blue p11">enp3s0 lo</strong><br><br>
+            Открытие <strong class="strong">/etc/conf.d/net</strong> для автоматического получения адреса <strong class="strong">IP</strong> для <strong class="strong">enp0s3</strong>:<br><br>
+            <strong class="p11 blue">nano /etc/conf.d/net</strong><br>
+            <strong class="p11 blue">config_enp3s0="dhcp"</strong><br><br>
+            Автоматический запуск сетевого подключения при загрузке.<br>
+            Добавление <strong class="strong">net.enp3s0</strong> в уровень запуска <strong class="strong">default</strong>:<br><br>
+            <strong class="p11 blue">cd /etc/init.d<br>
+            <strong class="p11">ln -s net.lo net.enp3s0</strong><br>
+            <strong class="p11">rc-update add net.enp3s0 default</strong><br>
+            <strong class="p11">/etc/init.d/net.enp3s0 restart</strong></strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>
+            настройка проводного и беспроводного адаптеров на одной машине:<br>
+            для проводной сети с простой конфигурацией <strong class="strong">DHCP</strong><br><br>
+            <strong class="p11 darkgrey">nano /etc/systemd/network/50-dhcp.network</strong><br><br>
+            <strong class="p11 darkgrey">[Match]</strong><br>
+            <strong class="p11 darkgrey">Name=enp3s0</strong><br><br>
+            <strong class="p11 darkgrey">[Network]</strong><br>
+            <strong class="p11 darkgrey">DHCP=yes</strong><br><br>
+            <strong class="p11 darkgrey">[DHCP]</strong><br>
+            <strong class="p11 darkgrey">RouteMetric=10</strong><br><br>
+            для беспроводной сети<br><br>
+            <strong class="p11 darkgrey">nano /etc/systemd/network/60-dhcp.wireless</strong><br><br>
+            <strong class="p11 darkgrey">[Match]</strong><br>
+            <strong class="p11 darkgrey">Name=wlan0</strong><br><br>
+            <strong class="p11 darkgrey">[Network]</strong><br>
+            <strong class="p11 darkgrey">DHCP=yes</strong><br><br>
+            <strong class="p11 darkgrey">[DHCP]</strong><br>
+            <strong class="p11 darkgrey">RouteMetric=20</strong><br><br>
+            Cлужба <strong class="strong">dhcpcd.service</strong> запускает клиент для всех сетевых интерфейсов:<br><br>
+            <strong class="p11 darkgrey">systemctl enable dhcpcd.service</strong><br>
+            <strong class="p11 darkgrey">systemctl start dhcpcd.service</strong></strong><br><br>
+            <strong class="gray">Включаем в автозапуск и запускаем следующие службы:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl enable systemd-networkd.service</strong><br>
+            <strong class="p11 darkgrey">systemctl start systemd-networkd.service</strong><br><br>
+            <strong class="gray">Чтобы <strong class="strong">systemd</strong> управлял настройками <strong class="strong">DNS</strong>, заменим <strong class="strong">resolv.conf</strong> на символическую ссылку и запустим <strong class="strong">systemd-resolved</strong>:</strong><br><br>
+            <strong class="p11 darkgrey">ln -snf /run/systemd/resolve/resolv.conf /etc/resolv.conf</strong><br>
+            <strong class="p11 darkgrey">systemctl enable systemd-resolved.service</strong><br>
+            <strong class="p11 darkgrey">systemctl start systemd-resolved.service</strong><br><br>
+            Загружаем (при необходимости) файловый редактор "<strong class="strong">vim</strong>":<br><br>
+            <strong class="p11 blue">emerge vim</strong><br><br>
+            Утилиты необходимые для работы с  файловыми системами<br><br>
+            <strong class="strong">VFAT</strong>: <strong class="blue">emerge sys-fs/dosfstools</strong><br>
+            <strong class="strong">NTFS</strong>: <strong class="blue">emerge sys-fs/ntfs3g</strong><br>
+            <strong id="btrfs" class="strong">Btrfs</strong>: <strong class="blue">emerge sys-fs/btrfs-progs</strong><br><br>
+            <a class="special-link a link1" href="https://wiki.gentoo.org/wiki/Btrfs">Немного о <strong class="strong">Btrfs</strong></a><strong class="gray">:<br>
+            <strong class="strong">Btrfs</strong> имеет ряд функций, общих с <a class="special-link1 a link1" href="Zfs.html">ZFS</a>.<br>
+            Имеются и другие функции:<br>
+            Можно сконвертировать файловые системы <strong class="strong">ext2</strong>, <strong class="strong">ext3</strong> и <strong class="strong">ext4</strong> в <strong class="strong">Btrfs</strong> с помощью утилиты <strong class="strong">btrfs-convert</strong>, убедившись, что отмонтирован раздел:<br><br>
+            <strong class="p11 darkgrey">umount &lt;mounted_device></strong><br><br>
+            Проверяем целостность файловой системы с помощью утилиты <strong class="strong">fsck</strong>:<br><br>
+            <strong class="p11 darkgrey">fsck.ext4 -f &lt;unmounted_device></strong><br><br>
+            Конвертируем отформатированное <strong class="strong">ext*</strong> устройство в <strong class="strong">Btrfs</strong>:<br><br> 
+            <strong class="p11 darkgrey">btrfs-convert &lt;unmounted_device></strong><br><br>
+            Не забываем отредактировать файл <strong class="strong">/etc/fstab</strong> и изменить значение в колонке файловая система с <strong class="strong">ext4</strong> на <strong class="strong">Btrfs</strong><br> 
+            Полезная функция <strong class="strong">Btrfs</strong> это онлайн дефрагментация:<br><br>
+            <strong class="p11 darkgrey">btrfs filesystem defragment -r -v /home</strong><br><br>
+            <strong class="strong">Btrfs</strong> поддерживает прозрачное сжатие с помощью алгоритмов <strong class="strong">zlib</strong>, <strong class="strong">lzo</strong> и <strong class="strong">zstd</strong>:<br><br> 
+            <strong class="p11 darkgrey">btrfs filesystem defragment -r -v -clzo /home</strong><br><br>
+            Можно использовать алгоритм сжатия <strong class="strong">zlib</strong> вместо <strong class="strong">lzo</strong>, <strong class="strong">zlib</strong> более медленный, но имеетющий более высокую степень сжатия:<br><br>
+            <strong class="p11 darkgrey">btrfs filesystem defragment -r -v -czlib /home</strong></strong><br><br>
+            Обновление дерева <strong class="strong">Portage</strong>:<br><br>                                                                                                                                                    
+            <strong class="p11 blue">emerge --sync</strong><br><br>
+            Обновление новой версии <strong class="strong">Portage</strong>:<br><br> 
+            <strong class="p11 blue">emerge --oneshot portage</strong><br><br>
+            Обновление пакетов:<br><br>
+            <strong class="p11 blue">emerge -auvDN world</strong><br><br>
+            Не всегда имеется возможность дождаться полной установки и компиляции всех пакетов.<br>
+            Можно выполнить команду:<br><br>
+            <strong class="p11 blue">emerge -auvDN world; poweroff</strong><br><br>
+            После окончания обновления, компьютер выключится сам.<br>
+            При этом сообщения от <strong class="strong">Portage</strong> теряются. Они могут содержать важную информацию от разработчиков <strong class="strong">Gentoo</strong>.<br>
+            Данную информацию, можно найти в файле:<br><br>
+            <strong class="p11 blue">less /var/log/portage/elog/summary.log</strong><br><br>
+            Чтобы перейти в нижнею часть сообщения, нажимаем на клавиатуре клавишу "<strong class="strong">End</strong>", в верхнею часть, нажимаем "<strong class="strong">Home</strong>", переход по строкам, стрелками <strong class="strong">вниз - вверх</strong>. Для ыхода из <strong class="strong">less</strong>, нажимаем клавишу "<strong class="strong">Q</strong>".<br> 
+            Так же установка флага <strong class="strong">-f</strong> позволяет загрузить пакеты без компиляции. В дальнейшем, можно откомпилировать загруженные пакеты в удобное время даже, при отсутствии интернета.<br>
+            Некоторые <strong class="strong">ebuild</strong> требуют определённые комбинации <strong class="strong">USE</strong> -флагов.<br><br>
+        </p>    
+            <table class="darkblue">
+               <tr><th>Пример:</th> <th>Описание:</th></tr>
+               <tr><td class="p11 blue">REQUIRED_USE="foo? ( bar )"</td> <td>Если <strong class="strong">foo</strong> установлен, то <strong class="strong">bar</strong> должен быть установлен.</td></tr> 
+               <tr><td class="p11 blue">REQUIRED_USE="foo? ( !bar )"</td> <td>Если <strong class="strong">foo</strong> установлен, то <strong class="strong">bar</strong> не должен быть установлен.</td></tr> 
+               <tr><td class="p11 blue">REQUIRED_USE="foo? ( || ( bar baz ) )"</td> <td>Если <strong class="strong">foo</strong> установлен, то <strong class="strong">bar</strong> или <strong class="strong">baz</strong> должен быть установлен.</td></tr> 
+               <tr><td class="p11 blue">REQUIRED_USE="^^ ( foo bar baz )"</td> <td>Только один из <strong class="strong">foo</strong>, <strong class="strong">bar</strong> или <strong class="strong">baz</strong> должен быть установлен.</td></tr> 
+               <tr><td class="p11 blue">REQUIRED_USE="|| ( foo bar baz )"</td> <td>Хотя бы один из <strong class="strong">foo</strong>, <strong class="strong">bar</strong> или <strong class="strong">baz</strong> должен быть установлен (но можно больше).</td></tr> 
+               <tr><td class="p11 blue">REQUIRED_USE="?? ( foo bar baz )"</td> <td>Установка необязательна, но только один из <strong class="strong">foo</strong>, <strong class="strong">bar</strong> или <strong class="strong">baz</strong> может быть установлен.</td></tr> 
+            </table><br>
+         <p class="cockroach">При возникновении проблемы "<b class="p3">!!!Problem with sandbox binary. Disabling..."</b>, устанавливаем <strong class="strong">sandbox</strong> с переменной:<br><br> 
+            <strong class="p11 blue">CFLAGS_x86="-m64" emerge sys-apps/sandbox</strong><br><br> 
+            Обработка изменений конфигурационных файлов:<br><br>
+            <strong class="p11 blue">etc-update</strong><br><br>
+            Набираем номер конфигурационного файла, будет показано сравнение старого и нового конфига.<br>                                                                                               
+            <strong class="strong">- - -</strong> и <strong class="strong">+ + +</strong> соответственно означает что будет удалено, а что добавлено.<br> 
+            После ознакомления нажимаем <strong class="strong">q</strong> для выхода и система предлагает нам несколько вариантов.<br>                                                                                         
+            Набираем то что нам подходит:<br> 
+            <strong class="strong">1)</strong> - заменит полностью старый конфиг новым,<br> 
+            <strong class="strong">2)</strong> - удалит новый конфиг и оставит старый,<br> 
+            <strong class="strong">3)</strong> - попытается слить 2 конфига в один,<br>
+            <strong class="strong">4)</strong> - ещё раз покажет различия,<br>
+            <strong class="strong">5)</strong> - сохранить обновление в качестве примера конфигурации.<br>
+            Определяем <strong class="strong">UUID</strong>:<br><br>
+            <strong class="p11 blue">blkid</strong><br><br>
+            В <strong class="strong">/etc/fstab</strong> заменяем <strong class="strong">/dev/sdaX</strong> на соответсвующий <strong class="strong">UUID=XXXX...</strong>.<br>
+            Если, при системе инициализации <strong class="strong">OpenRC</strong>, во время загрузки появляется уведомление типа<br>
+            <b class="p3">*</b> <strong class="strong">/etc/init.d/ ... User Runscript, pleas convert to openrc-run</strong>, необходимо выполнить следующее:<br><br>
+            <strong class="p11 blue">cd /etc/init.d/<br>
+            <strong class="p11">sed -i "s/runscript/openrc-run/" *</strong></strong><br><br>
+            <b class="p3">При этом нужно быть очень внимательным, так как исправить что либо будет очень сложно!</b><br>
+            Для очистки репозитория от неиспользуемых архивов исходного кода и бинарных пакетов используем утилиту <a class="special-link2 a link1" href="https://wiki.gentoo.org/wiki/Eclean/ru">eclean</a>, входяшею в <strong class="strong">app-portage/gentoolkit</strong>.<br> 
+            Устанавливаем <strong class="strong">gentoolkit</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask app-portage/gentoolkit</strong><br><br>
+            Очищаем директорию архивов исходных файлов:<br><br>
+            <strong class="p11 blue">eclean distfiles</strong><br><br>
+            Краткий вариант:<br><br>
+            <strong class="p11 blue">eclean-dist</strong><br><br>
+            Очитка директории бинарных пакетов:<br><br>
+            <strong class="p11 blue">eclean packages</strong><br><br>
+            Краткий вариант:<br><br>
+            <strong class="p11 blue">eclean-pkg</strong><br><br>
+            Для освобождения большего места на диске добавляем опцию <strong class="strong">--deep</strong>: каждый архив исходных файлов или же бинарный пакет, который не соответствует какому-либо "установленному в данный момент" пакету (версия не имеет значения), будет удалён. В данном случае пользователи не защищены от необходимости повторного скачивания, в случае, если они должны понизить версию пакета или переустановить удалённый ранее пакет.<br>
+            В качестве альтернативы можно использовать сразу две опции: <strong class="strong">--deep</strong> и <strong class="strong">--package-names</strong>. Каждый архив исходных кодов или бинарный пакет, не связанный с сейчас установленным пакетом (версия не имеет значение) будет удалён. С такими опциями также потребуется снова скачать исходные файлы, когда необходимо снова установить ранее удалённый пакет, но, в этом случае, останутся исходные файлы для возможности понижения версии пакета.<br>
+            Обновляем <a class="special-link3 a link1" href="https://wiki.gentoo.org/wiki/Upgrading_GCC/ru">GCC</a>:<br><br>
+            <strong class="p11 blue">emerge --ask --oneshot sys-devel/gcc</strong><br><br>
+            Проссматриваем установленные профили:<br><br>
+            <strong class="p11 blue">gcc-config --list-profiles<br>
+            [1] x86_64-pc-linux-gnu-7.3.0 *<br>
+            [2] x86_64-pc-linux-gnu-8.2.0</strong><br><br> 
+            Выбираем необходимый профиль:<br><br>
+            <strong class="p11 blue">gcc-config 2<br>
+            <strong class="p11">source /etc/profile</strong></strong><br><br> 
+            и пересоберём <strong class="strong">libtool</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask --oneshot --usepkg=n sys-devel/libtool</strong><br><br>
+            Проверяем номер текущей версии, а затем удаляем старую версию:<br><br>
+            <strong class="p11 blue">gcc --version</strong><br>
+            <strong class="p11 blue">emerge --ask --depclean =sys-devel/gcc-7.3.0</strong><br><br>
+            Проверяем целостность системы, запустив:<br><br>
+            <strong class="p11 blue">revdep-rebuild</strong><br><br>
+            Все установленные пакеты, без их зависимостей, находятся в файле: <strong class="strong">/var/lib/portage/world</strong><br>
+            Очистка <strong class="strong">python</strong>.<br>
+            При возникновении ошибки:<br><br>
+            <strong class="p11 blue">Invalid impl in /etc/python-exec/python-exec.conf: python3.6</strong><br><br>
+            Очищаем <strong class="strong">python</strong>:<br><br>
+            <strong class="p11 blue">eselect python cleanup<br>
+            <strong class="p11">eselect python list<br>
+            [1] python2.7<br>
+            [2] python3.9 (fallback)<br>
+            [3] python3.8 (fallback)</strong></strong></strong></strong></strong><br><br>
+            Затем обновляем его:<br><br>
+            <strong class="p11 blue">eselect python update<br> 
+            Switching to python3.9<br>
+            <strong class="p11">eselect python list<br>
+            [1] python3.9<br>
+            [2] python2.7<br>
+            [3] python3.8 (fallback)</strong></strong></strong></strong></strong></strong>
+         </p>
+         <h2 id="sg12" class="music1"><a class="send-link special-link4 a" href="https://wiki.gentoo.org/wiki/Localization/Guide/ru">Русификация Gentoo
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1"><strong class="strong">USE</strong>-флаги <strong class="strong">LINGUAS="ru en" L10N="ru en"</strong> и "<strong class="strong">USE=nls unicode</strong>" уже установлены ранее.<br><br>
+            <strong class="p11 blue">vim /etc/rc.conf</strong> Устанавливаем:<br><br>
+            <strong class="p11 blue">unicode="YES"</strong><br><br>
+            В ядре проверяем, а если нет, то включаем:<br><br>
+            <strong class="p11 blue">vim /usr/src/linux/.config</strong><br>
+            <strong class="p11 blue">CONFIG_NLS_DEFAULT="utf8"</strong><br>
+            <strong class="p11 blue">CONFIG_NLS_UTF8=y</strong><br>
+            <strong class="p11 blue">CONFIG_NLS_CODEPAGE_437=y</strong><br>
+            <strong class="p11 blue">CONFIG_NLS_ISO8859_1=y</strong><br><br>
+            В <strong class="strong">make.conf</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">LINGUAS="ru en"<br>
+            <strong class="p11">L10N="ru en"</strong></strong><br><br>
+            Конфигурация локалей:<br>                                                                                                                                                     
+            Открываем <strong class="strong">/etc/locale.gen</strong><br><br>                                                                                                                                                       
+            <strong class="p11 blue">vim /etc/locale.gen</strong><br><br>                                                                                                                                    
+            Определяем  локали:<br><br>                                                                                                                                                              
+            <strong class="p11 blue">en_US ISO-8859-1</strong><br>                                                                                                                                            
+            <strong class="p11 blue">en_US.UTF-8 UTF-8</strong><br>                                                                                                                                                                          
+            <strong class="p11 blue">ru_RU.KOI8-R KOI8-R</strong><br>
+            <strong class="p11 blue">ru_RU.UTF-8 UTF-8</strong><br>
+            <strong class="p11 blue">ru_RU.CP1251 CP1251</strong><br><br>
+            запускаем:<br><br>                                                                                                                                                                          
+            <strong class="p11 blue">locale-gen</strong><br><br>
+            Эта программа сгенерирует все локали, которые определены в файле <strong class="strong">/etc/locale.gen</strong>.<br> 
+            Проссматриваем доступные локали:<br><br>
+            <strong class="p11 blue">eselect locale list</strong><br><br>
+            Устанавливаем необходимую локаль (<strong class="strong">ru_RU.UTF-8</strong>):<br><br>
+            <strong class="p11 blue">eselect locale set 8</strong><br><br>
+            Перезагружаем окружение оболочки:<br><br>                                                                                                                                      
+            <strong class="p11 blue">env-update && source /etc/profile</strong><br><br>
+            Устанавливаем шрифты:<br><br>
+            <strong class="p11 blue">emerge terminus-font intlfonts freefonts cronyx-fonts corefonts kbd</strong><br><br>
+            Переменные окружения:<br>
+            В файле <strong class="strong">/etc/env.d/02locale</strong> прописываем:<br><br>
+            <strong class="p11 blue">LC_ALL="ru_RU.utf8"</strong><br>
+            <strong class="p11 blue">LANG="ru_RU.utf8"</strong><br><br>
+            перечитываем конфигурацию:<br><br>
+            <strong class="p11 blue">env-update && source /etc/profile</strong><br><br>
+            <a class="special-link5 a link1" href="https://wiki.gentoo.org/wiki/Keyboard_layout_switching/ru">
+            Выбор раскладки клавиатуры:</a><br><br>
+            <strong class="p11 blue">vim /etc/conf.d/keymaps</strong> устанавливаем:<br>
+            <strong class="p11 blue">keymap="-u ru"</strong><br>
+            <strong class="p11 blue">windowkeys="YES"</strong><br>
+            <strong class="p11 blue">extended_keymaps=""</strong><br>
+            <strong class="p11 blue">dumpkeys_charset="koi8-r"</strong><br>
+            <strong class="p11 blue">fix_euro="NO"</strong><br><br>
+            Добавляем <strong class="strong">/etc/init.d/keymaps</strong> в уровень запуска <strong class="strong">boot</strong>:<br><br>
+            <strong class="p11 blue">rc-update add keymaps boot</strong><br><br>
+            Перезапускаем раскладку клавиатуры для применения изменений:<br><br>
+            <strong class="p11 blue">rc-service keymaps restart</strong><br><br>
+            Консольные шрифты можно посмотреть:<br><br>
+            <strong class="p11 blue">ls /usr/share/consolefonts/</strong><br><br>
+            Задаём консольный шрифт:<br><br>
+            <strong class="p11 blue">vim /etc/conf.d/consolefont</strong> устанавливаем например:<br>
+            <strong class="p11 blue">consolefont="Cyr_a8x16"</strong><br><br>
+            после чего добавляем в уровень запуска <strong class="strong">boot</strong>:<br><br>
+            <strong class="p11 blue">rc-update add consolefont boot</strong><br>
+            <strong class="p11 blue">* service consolefont added to runlevel boot</strong><br><br>
+            Принудительный просмотр русских манов:<br><br>
+            <strong class="p11 blue">$ man -L ru &lt;man page></strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong> поверяем список доступных локалей:<br><br>
+            <strong class="p11 darkgrey">localectl list-locales</strong><br><br>
+            устанавливаем требуемую локаль:<br><br>
+            <strong class="p11 darkgrey">localectl set-locale LANG=ru_RU.utf8</strong><br><br>
+            проверяем результат:<br><br> 
+            <strong class="p11 darkgrey">localectl | grep "System Locale"</strong><br>
+            <strong class="p11 darkgrey">System Locale: LANG=ru_RU.utf8</strong><br><br>
+            проверяем доступные раскладки для консоли:<br><br>
+            <strong class="p11 darkgrey">localectl list-keymaps</strong><br><br>
+            устанавливаем необходимую раскладку для консоли, например:<br><br>
+            <strong class="p11 darkgrey">localectl set-keymap us</strong><br><br>
+            проверяем, что раскладка для консоли была установлена:<br><br>
+            <strong class="p11 darkgrey">localectl | grep "VC Keymap"</strong><br>
+            <strong class="p11 darkgrey">VC Keymap: us </strong><br><br>
+            Консольные шрифты находятся в каталоге <strong class="strong">/usr/share/consolefonts/</strong>.<br>
+            Выбираем понравившийся шрифт и добавляем его в <strong class="strong">/etc/vconsole.conf</strong>, например:<br><br>
+            <strong class="p11 darkgrey">vim /etc/vconsole.conf</strong><br>
+            <strong class="p11 darkgrey">KEYMAP=us</strong><br>
+            <strong class="p11 darkgrey">FONT=Cyr_a8x16</strong><br><br>
+            Добавляем консольные шрифты в автозапуск:<br><br>
+            <strong class="p11 darkgrey">systemctl enable systemd-vconsole-setup.service</strong><br><br>
+            Раскладки доступные для сервера <strong class="strong">X11</strong> можно проверить:<br><br>
+            <strong class="p11 darkgrey">localectl list-x11-keymap-layouts</strong><br><br>
+            устанавливаем необходимые раскладки для <strong class="strong">X11</strong>:<br><br>
+            <strong class="p11 darkgrey">localectl set-x11-keymap "us ru"</strong><br><br>
+            проверяем, установленые раскладки для <strong class="strong">X11</strong>:<br><br>
+            <strong class="p11 darkgrey">localectl | grep "X11 Layout"</strong><br>
+            <strong class="p11 darkgrey">X11 Layout: us ru</strong><br><br>
+            Модель, вариант и опции устанавливаем так:<br><br>
+            <strong class="p11 darkgrey">localectl set-x11-keymap &lt;LAYOUT> &lt;MODEL> &lt;VARIANT> &lt;OPTIONS></strong><br><br>
+            например:<br><br>
+            <strong class="p11 darkgrey">localectl set-x11-keymap us,ru "" "" grp:alt_shift_toggle</strong></strong>
+         </p>
+         <h2 id="sg13" class="music1"><a class="send-link special-link6 a" href="https://wiki.gentoo.org/wiki/PPP">Подключение к интернету PPP
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1"><a class="special-link7 a link1" href="#net">
+            Пакет <strong class="strong">net-dialup/ppp</strong> загружен ранее.</a><br>
+            В <strong class="strong">/etc/rc.conf</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">vim /etc/rc.conf</strong><br><br>
+            <strong class="p11 blue">rc_depend_strict="YES"</strong><br><br>
+            В ядре подключаем:<br><br>
+            <strong class="p11 blue">Device Drivers --></strong><br>
+            <strong class="p11 blue">[*] Network device support --></strong><br>
+            <strong class="p11 blue">&lt;*> PPP (point-to-point protocol) support</strong><br>
+            <strong class="p11 blue">&lt;>  PPP BSD-Compress compression (NEW)</strong><br>
+            <strong class="p11 blue">&lt;*> PPP Deflate compression (NEW)</strong><br>
+            <strong class="p11 blue">[*]    PPP filtering (NEW)</strong><br>
+            <strong class="p11 blue">&lt;*> PPP MPPE compression (encryption) (EXPERIMENTAL) (NEW)</strong><br>
+            <strong class="p11 blue">[ ]    PPP multilink support (EXPERIMENTAL) (NEW)</strong><br>
+            <strong class="p11 blue">&lt;*> PPP over Ethernet (EXPERIMENTAL)</strong><br>
+            <strong class="p11 blue">&lt;*> PPP support for async serial ports (NEW)</strong><br>
+            <strong class="p11 blue">&lt;*> PPP support for sync tty ports (NEW)</strong><br><br>
+            Компилируем ядро.<br>      
+            Добавляем в файл <strong class="strong">/etc/conf.d/net</strong>:<br><br>
+            <strong class="p11 blue">vim /etc/conf.d/net</strong><br><br>
+            <strong class="p11 blue">config_enp3s0="dhcp"</strong><br>
+            <strong class="p11 blue">config_ppp0="ppp"</strong><br>
+            <strong class="p11 blue">link_ppp0="enp3s0"   #(Specify your ethernet interface)</strong><br>
+            <strong class="p11 blue">plugins_ppp0="pppoe"</strong><br>
+            <strong class="p11 blue">username_ppp0='1234' #</strong>(логин сети)<br>
+            <strong class="p11 blue">password_ppp0='5678' #</strong>(пароль сети)<br>
+            <strong class="p11 blue">pppd_ppp0="</strong><br>
+            <strong class="p11 blue">noauth</strong><br>
+            <strong class="p11 blue">defaultroute</strong><br>
+            <strong class="p11 blue">usepeerdns</strong><br>
+            <strong class="p11 blue">holdoff 3</strong><br>
+            <strong class="p11 blue">child-timeout 60</strong><br>
+            <strong class="p11 blue">lcp-echo-interval 15</strong><br>
+            <strong class="p11 blue">lcp-echo-failure 3</strong><br>
+            <strong class="p11 blue">noaccomp noccp nobsdcomp nodeflate nopcomp novj novjccomp"</strong><br>
+            <strong class="p11 blue">rc_net_ppp0_need="net.enp3s0"</strong><br><br>
+            Добавляем символическую ссылку в <strong class="strong">/etc/init.d</strong>:<br><br>
+            <strong class="p11 blue">ln -s /etc/init.d/net.lo /etc/init.d/net.ppp0</strong><br><br>
+            Запускаем <strong class="strong">PPPoE</strong><br><br>
+            <strong class="p11 blue">/etc/init.d/net.ppp0 start</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>
+            Создаём файл настроек соединения:<br><br>
+            <strong class="p11 darkgrey">vim /etc/ppp/peers/provider</strong><br><br>
+            следующего содержания:<br><br>
+            <strong class="p11 darkgrey">plugin rp-pppoe.so</strong><br>
+            <strong class="p11"># rp_pppoe_ac 'имя концентратора доступа'</strong><br>
+            <strong class="p11"># rp_pppoe_service 'имя службы PPPoE'</strong><br>
+            <strong class="p11"># сетевой интерфейс</strong><br>
+            <strong class="p11 darkgrey">enp3s0</strong><br>
+            <strong class="p11 darkgrey">name "логин провайдера"</strong><br>
+            <strong class="p11 darkgrey">usepeerdns</strong><br>
+            <strong class="p11 darkgrey">persist</strong><br>
+            <strong class="p11"># раскомментируйте, если вам нужен автодозвон "по требованию"</strong><br>
+            <strong class="p11">#demand</strong><br>
+            <strong class="p11">#idle 180</strong><br>
+            <strong class="p11 darkgrey">defaultroute</strong><br>
+            <strong class="p11 darkgrey">hide-password</strong><br>
+            <strong class="p11 darkgrey">noauth</strong><br><br>
+            Добавляем запись с паролем соединения в <strong class="strong">/etc/ppp/pap-secrets</strong> или <strong class="strong">/etc/ppp/chap-secrets</strong>, в зависимости от типа аутентификации, используемого вашим провайдером.<br> 
+            Если не уверены, можно добавить запись в оба файла, <strong class="strong">pppd</strong> выберет нужный самостоятельно.<br><br>
+            <strong class="p11 darkgrey">логин провайдера * пароль провайдера</strong><br><br>
+            Пробуем установить соединение:<br><br>
+            <strong class="p11 darkgrey">pppd call provider</strong><br><br> 
+            или<br><br>
+            <strong class="p11 darkgrey">pon provider</strong> (в данном случае просто <strong class="strong">pon</strong>)<br><br>
+            где <strong class="strong">provider</strong> — имя файла настроек, созданного в <strong class="strong">/etc/ppp/peers</strong>.<br>
+            Чтобы убедиться, что соединение <strong class="strong">PPPoE</strong> установлено, проверяем вывод <strong class="strong">pppd</strong> в системном логе:<br><br>
+            <strong class="p11 darkgrey">journalctl -b --no-pager | grep pppd</strong><br><br>
+            Файл настроек <strong class="strong">/etc/ppp/peers/provider</strong> используется по умолчанию.<br> 
+            Если при вызове <strong class="strong">pppd</strong> было указано другое имя файла, вместо явного указания имени файла можно просто добавить символическую ссылку на этот файл:<br><br>
+            <strong class="p11 darkgrey">ln -s /etc/ppp/peers/имя_соединения /etc/ppp/peers/provider</strong><br><br>
+            Теперь можно устанавливать соединение одной командой:<br><br>
+            <strong class="p11 darkgrey">pon</strong><br><br>
+            Чтобы разорвать соединение, выполняем:<br><br>
+            <strong class="p11 darkgrey">poff</strong> имя_соединения</strong>
+         </p>
+        <h2 id="sg14" class="music1"><a class="send-link special-link8 a" href="https://wiki.gentoo.org/wiki/Iptables">Iptables
+        <span class="icon-wrapper">
+           <span class="icon-1"></span><span class="icon-2"></span>
+        </span></a>  
+        </h2>
+         <p class="music1">Для клиентских компьютеров в ядре должны быть активированы основные параметры:<br><br>
+            <strong class="p11 blue">[*] Networking support ---></strong><br>
+            <strong class="p11 blue">Networking options ---></strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">[*] TCP/IP networking</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;*>   Virtual (secure) IP: tunneling</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;*> IP: IPsec transport mode (obsolete in kernel 5.4)</strong><br>
+            <strong class="p11 blue">&lt;*> IP: IPsec tunnel mode (obsolete in kernel 5.4)</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;*> INET: socket monitoring interface</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;*> The IPv6 protocol ---></strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">[*] Network packet filtering framework (Netfilter) ---></strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;M> Netfilter LOG over NFNETLINK interface</strong><br>
+            <strong class="p11 blue">&lt;*> Netfilter connection tracking support</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">-*- Netfilter Xtables support (required for ip_tables)</strong><br>
+            <strong class="p11 blue">*** Xtables combined modules ***</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">*** Xtables matches ***</strong><br>
+            <strong class="p11 blue">&lt;*> "conntrack" connection tracking match support</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">IP: Netfilter Configuration ---></strong><br>
+            <strong class="p11 blue">&lt;*> IPv4 connection tracking support (required for NAT)</strong><br>
+            <strong class="p11 blue">&lt;*> IP tables support (required for filtering/masq/NAT)</strong><br>
+            <strong class="p11 blue">&lt;*> Packet filtering</strong><br>
+            <strong class="p11 blue">&lt;*> REJECT target support</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">IPv6: Netfilter Configuration ---></strong><br>
+            <strong class="p11 blue">&lt;*> IPv6 connection tracking support</strong><br>
+            <strong class="p11 blue">&lt;*> IP6 tables support (required for filtering)</strong><br>
+            <strong class="p11 blue">&lt; > "ipv6header" IPv6 Extension Headers Match</strong><br>
+            <strong class="p11 blue">&lt;*> Packet filtering</strong><br>
+            <strong class="p11 blue">&lt;*> REJECT target support</strong><br><br>
+            Для <strong class="strong">Router</strong> следующие параметры:<br><br>
+            <strong class="p11 blue">[*] Networking support ---></strong><br>
+            <strong class="p11 blue">Networking options ---></strong><br>
+            <strong class="p11 blue">[*] TCP/IP networking</strong><br>
+            <strong class="p11 blue">[*] IP: multicasting</strong><br>
+            <strong class="p11 blue">[*] IP: advanced router</strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">[*] IP: ARP daemon support</strong><br>
+            <strong class="p11 blue">[*] IP: TCP syncookie support</strong><br>
+            <strong class="p11 blue">&lt;M> IP: AH transformation</strong><br>
+            <strong class="p11 blue">&lt;M> IP: ESP transformation</strong><br>
+            <strong class="p11 blue">&lt;M> IP: IPComp transformation</strong><br>
+            <strong class="p11 blue">&lt;M> IP: IPsec transport mode</strong><br>
+            <strong class="p11 blue">&lt;M> IP: IPsec tunnel mode</strong><br>
+            <strong class="p11 blue">&lt;M> IP: IPsec BEET mode</strong><br>
+            <strong class="p11 blue">&lt;*> Large Receive Offload (ipv4/tcp)</strong><br>
+            <strong class="p11 blue">&lt;*> INET: socket monitoring interface</strong><br>
+            <strong class="p11 blue">&lt;M> UDP: socket monitoring interface</strong><br>
+            <strong class="p11 blue">[ ] TCP: advanced congestion control ---></strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">&lt;M> The IPv6 protocol ---></strong><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">[*] Network packet filtering framework (Netfilter) ---></strong><br>
+            <strong class="p11 blue">[*] Advanced netfilter configuration</strong><br>
+            <strong class="p11 blue">Core Netfilter Configuration ---></strong><br>
+            <strong class="p11 blue">&lt;M> "addrtype" address type match support</strong><br>
+            <strong class="p11 blue">&lt;M> "comment" match support</strong><br>
+            <strong class="p11 blue">&lt;M> "hl" hoplimit/TTL match support</strong><br>
+            <strong class="p11 blue">&lt;M> "limit" match support</strong><br>
+            <strong class="p11 blue">&lt;M> "multiport" Multiple port match support</strong><br>
+            <strong class="p11 blue">&lt;M> "recent" match support</strong><br><br>
+            Установка <strong class="strong">Iptables</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask net-firewall/iptables</strong><br><br>
+            Программа <a class="special-link9 a link1" href="https://nmap.org/man/ru/index.html">nmap</a>, которую обычно используют взломщики:<br><br>
+            <strong class="p11 blue">emerge --ask net-analyzer/nmap</strong><br><br>
+            Подсистема <strong class="strong">iptables</strong> и <strong class="strong">Netfilter</strong> встроена в ядро <strong class="strong">Linux</strong>.<br> 
+            Все сетевые пакеты, которые проходят через компьютер, отправляются компьютером или предназначены компьютеру, ядро направляет через фильтр <strong class="strong">iptables</strong>. Там эти пакеты поддаются проверкам и затем для каждой проверки, если она пройдена выполняется указанное в ней действие. Например, пакет передается дальше ядру для отправки целевой программе, или отбрасывается.<br>
+            Все пакеты делятся на три типа: входящие, исходящие и проходящие.<br> 
+            Все пакеты делятся на три цепочки:<br>
+            <strong class="strong">input</strong> - обрабатывает входящие пакеты и подключения. Например, если какой-либо внешний пользователь пытается подключиться к компьютеру по <strong class="strong">ssh</strong> или любой веб-сайт отправит свой контент по запросу браузера. Все эти пакеты попадут в эту цепочку;<br>
+            <strong class="strong">forward</strong> - эта цепочка применяется для проходящих соединений. Сюда попадают пакеты, которые отправлены на ваш компьютер, но не предназначены ему, они просто пересылаются по сети к своей цели. Такое наблюдается на маршрутизаторах или, например, если компьютер раздает <strong class="strong">wifi</strong>;<br>
+            <strong class="strong">output</strong> - эта цепочка используется для исходящих пакетов и соединений. Сюда попадают пакеты, которые были созданы при попытке выполнить <strong class="strong">ping</strong>  или когда вы запускаете браузер и пытаетесь открыть любой сайт.<br>
+            Для каждого типа пакетов можно установить набор правил, которые по очереди будут проверяться на соответствие с пакетом и если пакет соответствует, то применять к нему указанное в правиле действие. Правила образуют цепочку, поэтому <strong class="strong">input</strong>, <strong class="strong">output</strong> и <strong class="strong">forward</strong> называют цепочками, цепочками правил. Действий может быть несколько:<br>
+            <strong class="strong">ACCEPT</strong> - разрешить прохождение пакета дальше по цепочке правил;<br>
+            <strong class="strong">DROP</strong> - удалить пакет;<br>
+            <strong class="strong">REJECT</strong> - отклонить пакет, отправителю будет отправлено сообщение, что пакет был отклонен;<br>
+            <strong class="strong">LOG</strong> - сделать запись о пакете в лог файл;<br>
+            <strong class="strong">QUEUE</strong> - отправить пакет пользовательскому приложению.<br>
+            Правила могут проверять любые соответствия, например, по <strong class="strong">ip</strong>, по порту получателя или отправителя, заголовкам пакета и многому другому. Если пакет не подходит ни одному из правил, то к нему применяется действие по умолчанию, обычно <strong class="strong">ACCEPT</strong>.<br>
+            Кроме перечисленных выше, есть еще две дополнительные цепочки правил:<br>
+            <strong class="strong">prerouting</strong> - в эту цепочку пакет попадает перед обработкой <strong class="strong">iptables</strong>, система еще не знает куда он будет отправлен, в <strong class="strong">input</strong>, <strong class="strong">output</strong> или <strong class="strong">forward</strong>;<br>
+            <strong class="strong">postrouting</strong> - сюда попадают все проходящие пакеты, которые уже прошли цепочку <strong class="strong">forward</strong>.<br>
+            Над цепочками правил в <strong class="strong">iptables</strong> есть еще один уровень абстракции, и это таблицы. В системе есть несколько таблиц, и все они имеют стандартный набор цепочек <strong class="strong">input</strong>, <strong class="strong">forward</strong> и <strong class="strong">output</strong>. Таблицы предназначены для выполнения разных действий над пакетами, например для модификации или фильтрации. Фильтрация пакетов <strong class="strong">iptables</strong> осуществляется в таблице <strong class="strong">filter</strong>:<br>
+            <strong class="strong">raw</strong> - предназначена для работы с сырыми пакетами, пока они еще не прошли обработку;<br>
+            <strong class="strong">mangle</strong> - предназначена для модификации пакетов;<br>
+            <strong class="strong">nat</strong> - обеспечивает работу <strong class="strong">nat</strong>, если вы хотите использовать компьютер в качестве маршрутизатора;<br>
+            <strong class="strong">filter</strong> - основная таблица для фильтрации пакетов, используется по умолчанию.<br>
+            Обычно команда имеет такой общий вид:<br>
+            <strong class="strong">iptables [-t имя-таблицы] команда [шаблон] [-j действие]</strong><br>
+            имя-таблицы указывает таблицу, с которой нужно работать, этот параметр можно упустить, команда - нужное действие, например, создать или удалить правило, а дополнительные параметры описывают действие и правило, которое нужно выполнить.<br>
+            Список команд:<br>
+            <strong class="strong">-A</strong> имя-цепочки правило (добавить правило в конец цепочки; ключ <strong class="strong">--set-counters</strong> позволяет установить счётчики пакетов и байтов) <br>
+            <strong class="strong">-I</strong> имя-цепочки номер правило (вставить правило в цепочку перед правилом с указанным номером, нумерация с 1; ключ <strong class="strong">--set-counters</strong> позволяет установить счётчики пакетов и байтов)<br> 
+            <strong class="strong">-R</strong> имя-цепочки номер правило (заменить; ключ <strong class="strong">--set-counters</strong> позволяет установить счётчики пакетов и байтов)<br> 
+            <strong class="strong">-D</strong> имя-цепочки номер (удалить правило с указанным номером, нумерация с 1)<br> 
+            <strong class="strong">-D</strong> имя-цепочки правило (удалить правило по текстуальному совпадению)<br> 
+            <strong class="strong">-C</strong> имя-цепочки пакет (тестировать прохождение пакета; исходящий адрес, адрес назначения, протокол, интерфейс, порты задаются соответствующими ключами)<br> 
+            <strong class="strong">-L</strong> [имя-цепочки] (показать список правил; дополнительные ключи:<br> 
+            <strong class="p11 strong">-v</strong> (вывести дополнительную информацию, в частности, счётчики)<br> 
+            <strong class="p11 strong">--exact</strong> (показывать счётчики без округления до <strong class="strong">KB</strong>, <strong class="strong">MB</strong> и т.д.)<br> 
+            <strong class="p11 strong">--numeric</strong> (показывать адреса и номера портов в виде чисел)<br> 
+            <strong class="p11 strong">--line-numbers</strong> (выводить номера правил)<br> 
+            <strong class="strong">-F</strong> имя-цепочки (удалить все правила из цепочки)<br> 
+            <strong class="strong">-Z</strong> имя-цепочки (обнулить счетчики)<br> 
+            <strong class="strong">-N</strong> имя-цепочки (создать цепочку)<br> 
+            <strong class="strong">-X</strong> имя-цепочки (удалить пустую цепочку, на которую нет ссылок)<br> 
+            <strong class="strong">-P</strong> имя-цепочки действие (изменить действие по умолчанию: <strong class="strong">ACCEPT</strong>, <strong class="strong">DROP</strong>, <strong class="strong">QUEUE</strong>, <strong class="strong">RETURN</strong>)<br> 
+            <strong class="strong">-E</strong> старое-имя-цепочки новое-имя-цепочки (переименовать цепочку)<br>
+            Дополнительные опции для правил:<br>
+            <strong class="strong">-p</strong> - указать протокол, один из <strong class="strong">tcp</strong>, <strong class="strong">udp</strong>, <strong class="strong">udplite</strong>, <strong class="strong">icmp</strong>, <strong class="strong">icmpv6</strong>, <strong class="strong">esp</strong>, <strong class="strong">ah</strong>, <strong class="strong">sctp</strong>, <strong class="strong">mh</strong>;<br>
+            <strong class="strong">-s</strong> - указать <strong class="strong">ip</strong> адрес устройства-отправителя пакета;<br>
+            <strong class="strong">-d</strong> - указать <strong class="strong">ip</strong> адрес получателя;<br>
+            <strong class="strong">-i</strong> - входной сетевой интерфейс;<br>
+            <strong class="strong">-m</strong>, <strong class="strong">--match</strong> - указывает соответствие для использования, то есть модуль расширения, который проверяет конкретное свойство. Набор совпадений составляет условие, при котором вызывается цель. <strong class="strong">Match</strong> сначала оцениваются, как указано в командной строке, и работают в режиме короткого замыкания, т.е. если одно расширение дает ложное значение, оценка прекращается.<br> 
+            <strong class="strong">-o</strong> - исходящий сетевой интерфейс;<br>
+            <strong class="strong">-j</strong> - выбрать действие, если правило подошло.<br>
+            Просмотр правил <strong class="strong">iptables</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -L -n</strong><br>
+            <strong class="p11 blue">$ iptables -S</strong><br><br>
+            Можно указать нужную цепочку, чтобы вывести правила только для нее:<br><br>
+            <strong class="p11 blue">$ iptables -L INPUT</strong><br><br>
+            Нельзя просто так отключить <strong class="strong">iptables</strong> остановив сервис обновления правил <strong class="strong">iptables</strong> или даже удалив набор утилит для настройки. Подсистема работает на уровне ядра и не зависит от того, что там установлено. Поэтому если сделать что-то не так, нужно будет очистить правила:<br><br>
+            <strong class="p11 blue">$ iptables -F</strong><br><br>
+            Только для определенной цепочки:<br><br>
+            <strong class="p11 blue">$ iptables -F Input</strong><br><br>
+            Если для пакета не подходит ни одно правило, то для него применяется действие по умолчанию. Его можно задать с помощью опции <strong class="strong">-p</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -p INPUT ACCEPT</strong><br>
+            <strong class="p11 blue">$ iptables -p OUTPUT ACCEPT</strong><br>
+            <strong class="p11 blue">$ iptables -p FORWARD DROP</strong><br><br>
+            В этом примере разрешаются цепочки <strong class="strong">INPUT</strong> и <strong class="strong">OUTPUT</strong>, но запрещается <strong class="strong">FORWARD</strong>.<br>
+            Для блокировки пакетов можно использовать действие <strong class="strong">DROP</strong>, фильтровать пакеты, которые нужно заблокировать можно по множеству критериев, например, протоколу, <strong class="strong">ip</strong> адресу, маске сети, порту и многому другому.<br>
+            Команда, которая позволяет добавить правило <strong class="strong">iptables</strong> для блокировки всех входящих пакетов от <strong class="strong">10.10.10.10</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -A INPUT -s 10.10.10.10 -j DROP</strong><br><br>
+            Блокировка исходящих пакетов на этот же адрес:<br><br>
+            <strong class="p11 blue">$ iptables -A OUTPUT -s 10.10.10.10 -j DROP</strong><br><br>
+            Блокировка диапазона <strong class="strong">ip</strong> выполняется подобным образом. Для этого нужно использовать маску сети <strong class="strong">10.10.10.0/24</strong>. Это будут все адреса начиная от <strong class="strong">10.10.10.0</strong> до <strong class="strong">10.10.10.255</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -A INPUT -s 10.10.10.0/24 -j DROP</strong><br><br>
+            Или расширенный вариант маски:<br><br>
+            <strong class="p11 blue">$ iptables -A INPUT -s 10.10.10.0/255.255.255.0 -j DROP</strong><br><br>
+            Также можно заблокировать все входящие соединения <strong class="strong">ssh</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -A INPUT -p tcp --dport ssh -s 10.10.10.10 -j DROP</strong><br><br>
+            Для удаления правил <strong class="strong">iptables</strong> используется опцию <strong class="strong">D</strong>.<br>
+            Так можно удалить правило <strong class="strong">iptables</strong>:<br><br>
+            <strong class="p11 blue">$ iptables -A OUTPUT -s 10.10.10.10 -j DROP</strong><br><br>
+            Запрет <strong class="strong">ICMP</strong>- сообщений, которые могут выдать дополнительную информацию о хосте или быть использованы для выполнения различных злонамеренных действий (например, модификации таблицы маршрутизации).<br>
+            Таблица со списком возможных типов <strong class="strong">ICMP</strong>-сообщений:<br>
+            <strong class="strong">0 — echo reply</strong> (<strong class="strong">echo</strong>-ответ, пинг)<br>
+            <strong class="strong">3 — destination unreachable</strong> (адресат недосягаем)<br>
+            <strong class="strong">4 — source quench</strong> (подавление источника, просьба посылать пакеты медленнее)<br>
+            <strong class="strong">5 — redirect</strong> (редирект)<br>
+            <strong class="strong">8 — echo request</strong> (<strong class="strong">echo</strong>-запрос, пинг)<br>
+            <strong class="strong">9 — router advertisement</strong> (объявление маршрутизатора)<br>
+            <strong class="strong">10 — router solicitation</strong> (ходатайство маршрутизатора)<br>
+            <strong class="strong">11 — time-to-live exceeded</strong> (истечение срока жизни пакета)<br>
+            <strong class="strong">12 — IP header bad</strong> (неправильный <strong class="strong">IP</strong> заголовок пакета)<br>
+            <strong class="strong">13 — timestamp request</strong> (запрос значения счетчика времени)<br>
+            <strong class="strong">14 — timestamp reply</strong> (ответ на запрос значения счетчика времени)<br>
+            <strong class="strong">15 — information request</strong> (запрос информации)<br>
+            <strong class="strong">16 — information reply</strong> (ответ на запрос информации)<br>
+            <strong class="strong">17 — address mask request</strong> (запрос маски сети)<br>
+            <strong class="strong">18 — address mask reply</strong> (ответ на запрос маски сети)<br>
+            Ответ на некоторые <strong class="strong">ICMP</strong>-сообщения может привести к разглашению некоторой информации о хосте, в то время как другие — привести к модификации таблицы маршрутизации, поэтому их необходимо запретить.<br>
+            Обычно выход во внешний мир разрешают <strong class="strong">ICMP</strong>-сообщениям <strong class="strong">0</strong>, <strong class="strong">3</strong>, <strong class="strong">4</strong>, <strong class="strong">11</strong> и <strong class="strong">12</strong>, в то время как на вход принимают только <strong class="strong">3</strong>, <strong class="strong">8</strong> и <strong class="strong">12</strong>.<br><br>
+            Брутфорс.<br>
+            Разведав информацию об открытых портах и ОС, взломщик предпринимает попытки проникновения в систему, которые могут быть основаны на эксплуатации дыр в сервисах, либо на подборе паролей.<br> 
+            Предотвратить возможность взлома сервисов брандмауэр не поможет, однако затормозить процесс перебора паролей — легко.<br> 
+            Для этого применяются возможности по ограничению количества пакетов, пришедших на машину с одного <strong class="strong">IP</strong>-адреса.<br> 
+            Вот как это можно сделать с помощью <strong class="strong">iptables</strong>:<br>
+            # Цепочка для проверки соединений<br><br>
+            <strong class="p11 blue"># iptables -N brute_check</strong><br><br>
+            # Блокировка адреса, если за 60 секунд он инициировал более 2-х соединений<br><br>
+            <strong class="p11 blue"># iptables -A brute_check -m recent --update --seconds 60 --hitcount 2 -j DROP</strong><br><br>
+            # Если нет — разрешаем соединение и заносим адрес в список<br><br>
+            <strong class="p11 blue"># iptables -A brute_check -m recent --set -j ACCEPT</strong><br><br>
+            # Очищаем цепочку <strong class="strong">INPUT</strong><br><br>
+            <strong class="p11 blue"># iptables -F INPUT</strong><br><br>
+            # Отправляем в цепочку <strong class="strong">brute_check</strong> всех, кто пытается подключиться к 22-му порту<br><br>
+            <strong class="p11 blue"># iptables -A INPUT -m conntrack --ctstate NEW -p tcp --dport 22 -j brute_check</strong><br>
+            <strong class="p11 blue"># iptables -P INPUT DROP</strong><br><br>
+            При такой конструкции <strong class="strong">Iptables</strong> блокирует все соединения по <strong class="strong">IP</strong>, а не только 22 порт. Лучше защищать от брутфорса так:<br><br>
+            <strong class="p11 blue">iptables -A brute_check -p tcp --syn --dport 22 -m recent --name radiator --set</strong><br>
+            <strong class="p11 blue">iptables -A brute_check -p tcp --syn --dport 22 -m recent --name radiator --update --seconds 120 --hitcount 2 -j DROP</strong><br>
+            <strong class="p11 blue">iptables -A INPUT -j brute_check</strong><br><br>
+            Спуфинг.<br>
+            Спуфинг (подмена адреса отправителя пакета) может быть использован для осуществления <strong class="strong">DoS</strong>-атак или обхода брандмауэра.<br> 
+            В первом случае спуфинг дает огромное преимущество атакующему, так как существенно затрудняет реакцию на атаку (пакеты, приходящие с совершенно разными адресами отправителя, не так просто классифицировать и заблокировать) и затягивает процесс закрытия новых соединений (обычно поддельный адрес недостижим, поэтому закрытие соединения происходит лишь по истечению таймаута).<br> 
+            Спуфинг, осуществляемый для обхода системы защиты, менее опасен и в большинстве случаев поддается контролю.<br>
+            Достаточно часто, блокируя внешние сетевые сервисы хоста, системные администраторы оставляют их открытыми для определенного диапазона адресов (например, для подключения со своей домашней машины).<br> 
+            Вычислив один из этих адресов, взломщик может сформировать пакет, указав этот адрес в качестве обратного, и таким образом «проскользнуть » через брандмауэр. Далее он может угадать номера последовательности <strong class="strong">TCP</strong>-пакетов и сделать так, чтобы доверяющий обратному адресу сервис выполнил нужное ему действие. Это очень трудная в реализации атака, которая, тем не менее, может быть выполнена грамотным специалистом, а если речь идет о протоколе <strong class="strong">UDP</strong>, то это под силу и кулхацкеру.<br>
+            Для защиты от подобных атак достаточно не открывать порты незащищенных сервисов во внешний мир, а в случае резкой необходимости использовать защитные системы самих сервисов (например, сертификаты <strong class="strong">ssh</strong>) или механизм «стука в порты».<br>
+            Ситуация становится более сложной, когда дело касается сетевого моста, разделяющего внутреннюю и внешнюю сети (или две локальных сети).<br> 
+            Доверительные отношения внутри локальной сети — обычное дело. Сервисы доступны всем, никакой аутентификации, шифрования и т.д. — просто лакомый кусочек для взломщика.<br> 
+            Находясь во внешней сети, он может узнать сетевую маску внутренней сети и сформировать пакеты с соответствующим ей обратным адресом, что приведет к получению доступа ко всем ресурсам локалки. Это действительно опасная ситуация, но ее легко предотвратить с помощью правильной настройки брандмауэра или ОС.<br>
+            Для этого достаточно запретить прохождение пакетов, обратные адреса которых соответствуют используемым во внутренней сети, с внешнего интерфейса:<br><br>
+            <strong class="p11 blue">iptables -A INPUT -i $outif -s 192.168.1.0/24 -j DENY</strong><br><br>
+            В качестве альтернативы или дополнительной меры защиты нужно использовать специальные директивы <strong class="strong">ipfw</strong> и <strong class="strong">pf</strong> и настройки ядра <strong class="strong">Linux</strong>:<br><br>
+            <strong class="p11 blue">echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter</strong><br><br>
+            Эти три команды приводят к одинаковым результатам. Все пакеты, обратные адреса которых соответствуют маске сети другого интерфейса, отбрасываются.<br>
+            Удаленное управления брандмауэром, получившего имя «стук в порты» (<strong class="strong">port knoking</strong>).<br> 
+            Суть его заключается в том, чтобы заставить файервол выполнять определенные действия после подключения к заданному порту.<br> 
+            Ниже приведен пример правил, открывающих порт <strong class="strong">SSH</strong> на 10 секунд после «стука» в 27520-ый порт
+            <strong class="strong">iptables</strong> и <strong class="strong">port knocking</strong>.<br>
+            # Цепочка для проверки соединений на защищаемый порт<br><br>
+            <strong class="p11 blue">iptables -N knock</strong><br><br>
+            # Разрешаем соединение, если стук был в течение последних 10 секунд<br><br>
+            <strong class="p11 blue">iptables -A knock -m recent --rcheck --seconds 10 -j ACCEPT</strong><br><br>
+            # Очищаем <strong class="strong">INPUT</strong><br><br>
+            <strong class="p11 blue">iptables -F INPUT</strong><br><br>
+            # Разрешаем все, что относится к уже установленным соединениям<br><br>
+            <strong class="p11 blue">iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</strong><br><br>
+            # Все попытки открыть соединение с 22-м портом отправляем на проверку в цепочку <strong class="strong">knock</strong><br><br>
+            <strong class="p11 blue">iptables -A INPUT -m conntrack --ctstate NEW -p tcp --dport 22 -j knock</strong><br><br>
+            # Правило добавляет адрес стучащегося в список. Если та же машина в течение 10 секунд после стука обратится к 22-му порту, соединение будет установлено.<br>
+            # Заносим адрес стучащегося в 27520-й порт в список<br><br>
+            <strong class="p11 blue">iptables -A INPUT -m conntrack --ctstate NEW -p tcp --dport 27520 -m recent --set</strong><br><br>
+            # При стуке в соседние порты удаляем адрес из списка<br><br>
+            <strong class="p11 blue">iptables -A INPUT -m conntrack --ctstate NEW -p tcp -m multiport --dport 27519,27521 -m recent --remove</strong><br><br>
+            # Запрещаем все<br><br>
+            <strong class="p11 blue">iptables -P INPUT DROP</strong><br><br>
+            <strong class="strong">iptables</strong> распространяется в пакете <strong class="strong">xtables-addons</strong> (<strong class="strong">patch-o-matic</strong>) и носит имя <strong class="strong">TARPIT</strong>. Это действие (такое же, как <strong class="strong">ACCEPT</strong> или <strong class="strong">DENY</strong>), которое «подвешивает» соединение, не позволяя атакующей стороне его закрыть.<br> 
+            Соединение, пакеты которого попадают в <strong class="strong">TARPIT</strong>, будет благополучно установлено, однако размер окна будет равен нулю, благодаря чему удаленная машина не сможет отправлять данные, расходуя свои ресурсы, а соединение будет закрыто только по истечению таймаута.<br> 
+            <strong class="strong">TARPIT</strong> можно использовать в экстренных случаях для защиты от <strong class="strong">DoS</strong>:<br><br>
+            <strong class="p11 blue">iptables -A INPUT -p tcp -m tcp -dport 80 -j TARPIT</strong><br><br>
+            Или же для введения атакующего в заблуждение и борьбы против сканеров портов (только обычное <strong class="strong">TCP</strong>-сканирование, '<strong class="strong">-sT</strong>'):<br><br>
+            <strong class="p11 blue">iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT</strong><br>
+            <strong class="p11 blue">iptables -A INPUT -p tcp -m tcp --dport 25 -j ACCEPT</strong><br>
+            <strong class="p11 blue">iptables -A INPUT -p tcp -m tcp -j TARPIT</strong><br><br>
+            Эти правила создают видимость системы, в которой открыты все порты, однако при попытке подключения к любому из них (кроме 80 и 25) соединения будут «подвисать».<br> 
+            Того же результата, но без «провисших» соединений, можно добиться с помощью действия <strong class="strong">DELUDE</strong>, которое правильно отвечает на все попытки инициации соединения, но посылает <strong class="strong">RST</strong>-пакет в ответ на все остальные пакеты.<br> 
+            Для еще большего запутывания атакующего можно использовать действие <strong class="strong">CHAOS</strong>, которое случайным образом активирует одно из двух описанных выше действий.<br>
+            Выяснение, какие порты прослушиваются на машине:<br><br>
+            <strong class="p11 blue">netstat -tuwpln</strong><br><br>
+            Команда <strong class="strong">netstat</strong> признана устаревшей и на смену ей пришла более быстрая и удобная в использовании команда <strong class="strong">ss</strong>.<br>
+            Если запустить <strong class="strong">ss</strong> без аргументов командной строки или опций, она выведет полный список работающих соединений.<br>
+            Команда <strong class="strong">ss</strong> (без опций) показывает очень много данных (подробности по всем соединениям, установленным по <strong class="strong">TCP</strong>, <strong class="strong">UDP</strong> и с помощью сокетов <strong class="strong">Unix</strong>), можно отправить вывод этой команды в файл для того, чтобы проанализировать его позже:<br><br>
+            <strong class="p11 blue">ss > ss_output</strong><br><br>
+            Флаги для команды <strong class="strong">ss</strong>:<br>
+            <strong class="strong">-h</strong>, <strong class="strong">--help</strong> Вывести справку.<br> 
+            <strong class="strong">-V</strong>, <strong class="strong">--version</strong> Вывести версию программы.<br> 
+            <strong class="strong">-n</strong>, <strong class="strong">--numeric</strong> Не раскрывать имена служб.<br> 
+            <strong class="strong">-r</strong>, <strong class="strong">--resolve</strong> Не раскрывать номера адресов/портов.<br> 
+            <strong class="strong">-a</strong>, <strong class="strong">--all</strong> Показывать все сокеты.<br> 
+            <strong class="strong">-l</strong>, <strong class="strong">--listening</strong> Показывать слушающие сокеты.<br> 
+            <strong class="strong">-o</strong>, <strong class="strong">--options</strong> Показывать информацию таймера.<br> 
+            <strong class="strong">-e</strong>, <strong class="strong">--extended</strong> Показывать детальные сведения о сокете.<br> 
+            <strong class="strong">-m</strong>, <strong class="strong">--memory</strong> Показывать использование памяти сокетом.<br> 
+            <strong class="strong">-p</strong>, <strong class="strong">--processes</strong> Показывать процесс, использующий сокет.<br> 
+            <strong class="strong">-i</strong>, <strong class="strong">--info</strong> Показывать внутреннюю информацию <strong class="strong">TCP</strong>.<br> 
+            <strong class="strong">-s</strong>, <strong class="strong">--summary</strong> Выводить сводку. Эта опция не обрабатывает список сокетов, а получает сведения из других источников. Полезно при огромном количестве сокетов, что делает обработку файла <strong class="strong">/proc/net/tcp</strong> слишком долгим.<br> 
+            <strong class="strong">-4</strong>, <strong class="strong">--ipv4</strong> Показывать только сокеты <strong class="strong">IP</strong> версии 4 (аналогично <strong class="strong">-f inet</strong>).<br> 
+            <strong class="strong">-6</strong>, <strong class="strong">--ipv6</strong> Показывать только сокеты <strong class="strong">IP</strong> версии 6 (аналогично <strong class="strong">-f inet6</strong>).<br> 
+            <strong class="strong">-0</strong>, <strong class="strong">--packet</strong> Показывать пакетные сокеты.<br> 
+            <strong class="strong">-t</strong>, <strong class="strong">--tcp</strong> Показывать только сокеты <strong class="strong">TCP</strong>.<br> 
+            <strong class="strong">-u</strong>, <strong class="strong">--udp</strong> Показывать только сокеты <strong class="strong">UDP</strong>.<br> 
+            <strong class="strong">-d</strong>, <strong class="strong">--dccp</strong> Показывать только сокеты <strong class="strong">DCCP</strong>.<br> 
+            <strong class="strong">-w</strong>, <strong class="strong">--raw</strong> Показывать только сокеты <strong class="strong">RAW</strong>.<br> 
+            <strong class="strong">-x</strong>, <strong class="strong">--unix</strong> Показывать только сокеты <strong class="strong">Unix</strong>.<br> 
+            <strong class="strong">-f ТИП</strong>, <strong class="strong">--family=ТИП</strong> Показывать только сокеты указанного ТИПА. Поддерживаются следующие типы: <strong class="strong">unix</strong>, <strong class="strong">inet</strong>, <strong class="strong">inet6</strong>, <strong class="strong">link</strong>, <strong class="strong">netlink</strong>.<br> 
+            <strong class="strong">-A ЗАПРОС</strong>, <strong class="strong">--query=ЗАПРОС</strong> Список таблиц сокетов, разделенных запятыми. Поддерживаются следующие идентификаторы: <strong class="strong">all</strong>, <strong class="strong">inet</strong>, <strong class="strong">tcp</strong>, <strong class="strong">udp</strong>, <strong class="strong">raw</strong>, <strong class="strong">unix</strong>, <strong class="strong">packet</strong>, <strong class="strong">netlink</strong>, <strong class="strong">unix_dgram</strong>, <strong class="strong">unix_stream</strong>, <strong class="strong">packet_raw</strong>, <strong class="strong">packet_dgram</strong>.<br> 
+            <strong class="strong">-D ФАЙЛ</strong> Не показывать ничего, вывести необработанные данные о сокетах <strong class="strong">TCP</strong> в ФАЙЛ с учетом фильтров. Если ФАЙЛ указан как <strong class="strong">-</strong>, вывести на стандартный вывод.<br> 
+            <strong class="strong">-F ФАЙЛ</strong>, <strong class="strong">--filter=ФАЙЛ</strong> Прочитать фильтр из ФАЙЛА. Каждая строка ФАЙЛА интерпретируется как отдельная опция командной строки. Если ФАЙЛ указан как <strong class="strong">-</strong>, получить содержимое из стандартного ввода.<br> 
+            <strong class="strong">FILTER := [ state ФЛАГ_TCP ] [ ВЫРАЖЕНИЕ ]</strong> Обратитесь к официальной документации (пакет <strong class="strong">iproute-doc</strong> в <strong class="strong">Debian</strong>) для описания фильтров.<br>
+            Фильтрация сокетов с использованием состояний <strong class="strong">TCP</strong>, например:<br><br>
+            <strong class="p11 blue">ss -4 state FILTER-NAME-HERE</strong><br><br>
+            Где <strong class="strong">FILTER-NAME-HERE</strong> может быть любым из приведённых ниже:<br>
+            <strong class="strong">established</strong><br>
+            <strong class="strong">syn-sent</strong><br>
+            <strong class="strong">syn-recv</strong><br>
+            <strong class="strong">fin-wait-1</strong><br>
+            <strong class="strong">fin-wait-2</strong><br>
+            <strong class="strong">time-wait</strong><br>
+            <strong class="strong">closed</strong><br>
+            <strong class="strong">close-wait</strong><br>
+            <strong class="strong">last-ack</strong><br>
+            <strong class="strong">listen</strong><br>
+            <strong class="strong">closing</strong><br>
+            <strong class="strong">all</strong> : все вышеперечисленные состояния;<br>
+            <strong class="strong">connected</strong> : все состояния, за исключением прослушивания и закрытия;<br>
+            <strong class="strong">synchronized</strong> : все подключенные состояния, за исключением <strong class="strong">syn-sent</strong>;<br>
+            <strong class="strong">bucket</strong> : показывать состояния, которые поддерживаются как мини-сокеты, т.е. время ожидания и <strong class="strong">syn-recv</strong>;<br>
+            <strong class="strong">big</strong> : Противоположно состоянию <strong class="strong">bucket</strong>.<br>
+            Формировать правила брандмауэра можно в скрипте.<br>
+            Нет необходимости запускать скрипт после каждой загрузки.<br>
+            Пример скрипта <strong class="strong">Iptables</strong>:<br><br>
+            <strong class="p11 blue">#!/bin/bash</strong><br><br>
+            <strong class="p11 blue">IPTB="/sbin/iptables"</strong><br>
+            <strong class="p11 blue">GENTOOSYNC="160.116.15.34 89.238.71.6"</strong><br>
+            <strong class="p11 blue">SKYPEPORTLIST="3478 3479 3480 3481"</strong><br>
+            # Очищаем цепочки таблиц <strong class="strong">filter</strong><br>
+            <strong class="p11 blue">$IPTB -F</strong><br>
+            <strong class="p11 blue">$IPTB -X</strong><br>
+            <strong class="p11 blue">$IPTB -Z</strong><br>
+            # Политики по умолчанию для <strong class="strong">filter</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -P INPUT DROP</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -P FORWARD DROP</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -P OUTPUT DROP</strong><br>
+            # Разрешение форвардинга для <strong class="strong">QEMU</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -o tap0 -j ACCEPT</strong><br>
+            # Политики для внутренних интерфейсов<br>
+            <strong class="p11 blue">$IPTB -A INPUT -i lo -j ACCEPT</strong><br>
+            # Все входящие установленные и связанные соединения пропускаем<br>
+            <strong class="p11 blue">$IPTB -t filter -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</strong><br>
+            # Разрешим прохождение служебных пакетов типа <strong class="strong">ping</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p icmp -j ACCEPT</strong><br>
+            # Открытие портов для различных служб<br>
+            <strong class="p11 blue">$IPTB -A INPUT -p icmp --icmp-type 3 -j ACCEPT</strong><br>
+            <strong class="p11 blue">$IPTB -A INPUT -p icmp --icmp-type 11 -j ACCEPT</strong><br>
+            <strong class="p11 blue">$IPTB -A INPUT -p icmp --icmp-type 12 -j ACCEPT</strong><br>
+            <strong class="p11 blue">$IPTB -A INPUT -p tcp --syn --dport 113 -j REJECT --reject-with tcp-reset</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT</strong> <strong class="strong"># SSH</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT</strong> <strong class="strong"># DNS (53 UDP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT</strong> <strong class="strong"># DNS (53 TCP )</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 68 -j ACCEPT</strong> <strong class="strong"># dhcpcd</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT</strong> <strong class="strong"># HTTP client (80 TCP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 110 -j ACCEPT</strong> <strong class="strong"># POP3 (110 TCP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 137 -j ACCEPT</strong> <strong class="strong"># nmbd Samba</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 138 -j ACCEPT</strong> <strong class="strong"># nmbd Samba</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 139 -j ACCEPT</strong> <strong class="strong"># smbd Samba</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT</strong> <strong class="strong"># HTTPS client (443 TCP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 445 -j ACCEPT</strong> <strong class="strong"># smbd Samba</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 465 -j ACCEPT</strong> <strong class="strong">#</strong> Почта исходящие<br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 631 -j ACCEPT</strong> <strong class="strong"># CUPS CLIENT (631 TCP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A INPUT -p tcp -s 10.0.0.0/24 --dport 631 -j ACCEPT</strong> <strong class="strong"># CUPS SERVER (631 TCP)</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 993 -j ACCEPT</strong>  <strong class="strong"># IMAP</strong> Почта входящие<br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 995 -j ACCEPT</strong> <strong class="strong"># POP3</strong> Почта входящие<br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 1194 -j ACCEPT</strong> <strong class="strong"># OpenVPN</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 3389 -j ACCEPT</strong> <strong class="strong"> # qTox</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 5355 -j ACCEPT</strong> <strong class="strong"> # systemd-resol</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 5900 -j ACCEPT</strong> <strong class="strong"> # Spisy</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 6881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 7881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport 8881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 9050 -j ACCEPT</strong> <strong class="strong"> # Tor</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --dport 33445 -j ACCEPT</strong> <strong class="strong"> # qTox</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp --destination-port 33446:46353 -j ACCEPT</strong> <strong class="strong"># KeePass</strong><br>
+            <strong class="p11 blue">for NFSSERV in $NFSSERVERS</strong><br>
+            <strong class="p11 blue">do</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A INPUT -f -s $NFSSERV</strong> # Разрешили фрагментированные пакеты<br>
+            <strong class="p11 blue">$IPTB -t filter -A INPUT -s $NFSSERV -j ACCEPT</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -d $NFSSERV -j ACCEPT</strong><br>
+            <strong class="p11 blue">done</strong><br>
+            # <strong class="strong">UDP ports for Skype</strong><br>
+            <strong class="p11 blue">for PORTADDR in $SKYPEPORTLIST</strong><br>
+            <strong class="p11 blue">do</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p udp --dport $PORTADDR -j ACCEPT</strong><br>
+            <strong class="p11 blue">done</strong><br>
+            # <strong class="strong">Gentoo emerge --sync (873 TCP)</strong><br>
+            <strong class="p11 blue">for GSYNC in $GENTOOSYNC</strong><br>
+            <strong class="p11 blue">do</strong><br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -p tcp -d $GSYNC --dport 873 -j ACCEPT</strong><br>
+            <strong class="p11 blue">done</strong><br>
+            # Все установленные и связанные соединения пропускаем<br>
+            <strong class="p11 blue">$IPTB -t filter -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</strong><br>
+            <strong class="p11 blue">ip6tables -F</strong><br>
+            <strong class="p11 blue">ip6tables -X</strong><br>
+            <strong class="p11 blue">ip6tables -Z</strong><br>
+            <strong class="p11 blue">ip6tables -P INPUT DROP</strong><br>
+            <strong class="p11 blue">ip6tables -P FORWARD DROP</strong><br>
+            <strong class="p11 blue">ip6tables -P OUTPUT DROP</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -i lo -j ACCEPT</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -m conntrack --ctstate INVALID -j DROP</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -s fe80::/10 -p ipv6-icmp -j ACCEPT</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -p udp -m conntrack --ctstate NEW -j REJECT --reject-with icmp6-port-unreachable</strong><br>
+            <strong class="p11 blue">ip6tables -A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j REJECT --reject-with tcp-reset</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 58 -j ACCEPT</strong> <strong class="strong"># dhcpcd</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p tcp --dport 139 -j ACCEPT</strong> <strong class="strong"># smbd Samba</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p tcp --dport 445 -j ACCEPT</strong> <strong class="strong"># smbd Samba</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 1194 -j ACCEPT</strong> <strong class="strong"># OpenVPN</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p tcp --dport 5355 -j ACCEPT</strong> <strong class="strong"> # systemd-resol</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p tcp --dport 6881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 6881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 7881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 8881 -j ACCEPT</strong> <strong class="strong"># ktorrent</strong><br>
+            <strong class="p11 blue">ip6tables -t filter -A OUTPUT -p udp --dport 33445 -j ACCEPT</strong> <strong class="strong"># qTox</strong><br><br>
+            Все настройки <strong class="strong">iptables</strong> с помощью команд или после запуска скрипта сохранятся только до перезагрузки. После перезагрузки компьютера все изменения будут стерты. По этому для сохранения правила <strong class="strong">iptables</strong>, нужно выполнить команду:<br>
+            Для <strong class="strong">IPv4</strong><br><br>
+            <strong class="p11 blue">$ rc-service iptables save</strong><br><br>
+            Правила сохраняются обычно в <strong class="strong">/var/lib/iptables/rules-save</strong> и  <strong class="strong">/var/lib/ip6tables/rules-save</strong><br>
+            Запуск <strong class="strong">iptables</strong>:<br><br>
+            <strong class="p11 blue">$ rc-service iptables start</strong><br><br>
+            Добавляем <strong class="strong">iptables</strong> в автозагрузку:<br><br>
+            <strong class="p11 blue">$ rc-update add iptables default</strong><br><br>
+            Для <strong class="strong">IPv6</strong><br><br>
+            <strong class="p11 blue">$ rc-service ip6tables save</strong><br>
+            <strong class="p11 blue">$ rc-service ip6tables start</strong><br>
+            <strong class="p11 blue">$ rc-update add ip6tables default</strong><br><br>
+            <strong class="gray">Для запуска в <strong class="strong">systemd</strong> создаём юнит</strong><br><br>
+            </p>
+           <table class="darkgrey">
+            <tr><th><strong class="p11 strong">iptables</strong></th> <th><strong class="p11 strong">ip6tables</strong></th></tr>
+            <tr><td class="p11 darkgrey paddingtop">vim /etc/systemd/system/firewall.service</td> <td class="p11 darkgrey paddingtop">vim /etc/systemd/system/firewall6.service</td></tr>
+            <tr><td class="gray paddingtop p11">следующего содержания:</td></tr>
+            <tr><td class=" paddingtop p11">[Unit]</td> <td class="paddingtop">[Unit]</td></tr>
+            <tr><td class="p11 paddingtop">Description=iptables</td> <td class="p11 paddingtop">Description=ip6tables</td></tr>
+            <tr><td class="p11">DefaultDependencies=false</td> <td class="p11">DefaultDependencies=false</td></tr>
+            <tr><td class="paddingtop p11">[Service]</td> <td class="paddingtop">[Service]</td></tr>
+            <tr><td class="p11 paddingtop">Type=oneshot</td> <td class="p11 paddingtop">Type=oneshot</td></tr>
+            <tr><td class="p11">RemainAfterExit=yes</td> <td class="p11">RemainAfterExit=yes</td></tr>
+            <tr><td class="p11">ExecStart=/sbin/iptables-restore /var/lib/iptables/rules-save</td> <td class="p11">ExecStart=/sbin/ip6tables-restore /var/lib/ip6tables/rules-save</td></tr>
+            <tr><td class="paddingtop p11">[Install]</td> <td class="paddingtop">[Install]</td></tr>
+            <tr><td class="p11 paddingtop">WantedBy=sysinit.target</td> <td class="p11 paddingtop">WantedBy=sysinit.target</td></tr>
+            <tr><td class="gray paddingtop p11" colspan="2">Перезагружаем <strong class="strong">systemd</strong> для поиска новых или измененных юнитов:</td></tr>
+            <tr><td class="p11 paddingtop">systemctl daemon-reload</td></tr>
+            <tr><td class="gray paddingtop p11">Сохранение правил:</td></tr>  
+            <tr><td class="p11 paddingtop">systemctl start iptables-store</td> <td class="p11 paddingtop">systemctl start ip6tables-store</td></tr>
+            <tr><td class="gray paddingtop p11">Включаем юнит в автозагрузку:</td></tr>
+            <tr><td class="p11 paddingtop">systemctl enable firewall.service</td> <td class="p11 paddingtop">systemctl enable firewall6.service</td></tr>
+            <tr><td class="gray paddingtop p11">Запускаем юнит:</td></tr>
+            <tr><td class="p11 paddingtop">systemctl start firewall.service</td> <td class="p11 paddingtop">systemctl start firewall6.service</td></tr>
+           </table><br><br>
+           <div class="kartinka5"><a class="a steps cursorG1" href="Gentoo1.html#sg7"><img src="Gentoo/steps.png" alt="подключение к интернету"></a><a class="a steps cursorG" href="Gentoo3.html#sg15"><img src="Gentoo/steps1.png" alt="подключение к интернету"></a></div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+               <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Я деньги не люблю! Просто я люблю то, что на них можно купить!" Ильф и Петров'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="подключение к интернету"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="grub"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="установка grub"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="fstab"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="параметры сети"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="pppoe"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="grub"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="установка grub"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="подключить интернет"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="подключение к интернету"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script type="text/javascript" src="turboTicker.js"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                   <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                 <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="параметры сети"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

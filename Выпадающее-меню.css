@@ -1,0 +1,45 @@
+@media only screen 
+  and (min-width:375px) 
+  and (max-width:667px)
+  and (-webkit-min-device-pixel-ratio:2) {.dropdown1,.dropdown-inside{font:0.5em;}}
+.navigation{margin-top:0.1875em}.navigation1{margin-bottom:-0.125em;}.navigation,.navigation1{display:flex;justify-content:center;}
+.dropdown li{position:relative;} 
+.dropdown1,.dropdown-inside{list-style-type:none;font:bold 0.75em "Verdana",Helvetica,Arial,sans-serif;text-transform:uppercase;text-align:center;}
+.dropdown-inside{position:absolute;left:-9999px;top:100%;}
+.dropdown,.dropdown-top{display:inline;float:left;}
+.dropdown-top a{background:#395870;background:linear-gradient(#49708f,#293f50);color:rgb(255,255,255);padding:0.35em 0.1875em;text-decoration:none;display:block;border:0.1em solid rgb(0,0,0);}
+.dropdown-top:hover .dropdown-inside{display:block;left:0;background:#314b60;-webkit-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);-moz-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);}
+a:hover{background:#314b60;-webkit-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);-moz-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);}
+.radiusF a{border-radius:0.3125em 0 0 0.3125em;}.radiusL a{border-radius:0 0.3125em 0.3125em 0;}
+nav a span{border:0.0625em dashed #fff;border-radius:0.3125em;display:inline-block;padding:0.5625em 0.75em;}
+li a:active{position:relative;top:0.125em;-webkit-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);-moz-box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);box-shadow:inset 0 0 0.625em 0.0625em rgba(0,0,0,.3);}
+.home img,.homebottom img{position:absolute;bottom:0.01em;}.home span{padding:0.5625em 0.75em 0.5625em 4.125em;}.homebottom span{padding:0.625em 0.75em 0.5625em 4.125em;}
+.hvr-curl-bottom-right{z-index:100;display:inline-block;vertical-align:middle;-webkit-transform:perspective(0.0625em) translateZ(0);transform:perspective(0.0625em) translateZ(0);box-shadow:0 0 0.0625em transparent;position:relative;}
+.hvr-curl-bottom-right:before{pointer-events:none;position:absolute;content:'';height:0;width:0;bottom:0;right:0;background:linear-gradient(315deg,rgb(86,14,133) 45%,rgb(204,50,255) 50%,rgb(255,17,156) 80%);box-shadow:-0.0625em -0.0625em 0.0625em rgba(86,14,133,.4);-webkit-transition-duration:0.5s;-moz-transition-duration:0.5s;-ms-transition-duration:0.5s;-o-transition-duration:0.5s;transition-duration:0.5s;-webkit-transition-property:width,height;-moz-transition-property:width,height;-ms-transition-property:width,height;-o-transition-property:width,height;transition-property:width,height}
+.hvr-curl-bottom-right:hover:before,.hvr-curl-bottom-right:focus:before,.hvr-curl-bottom-right:active:before{width:1.25em;height:1.25em;}
+.hvr-curl{z-index:100;}/*.bitcoinZ{z-index:200;}
+/*dog*/
+.dog{background:url("dog.gif")no-repeat;width:63px;height:47px;z-index:400;}
+.Dog:nth-child(1) ~.dog{-webkit-transition:all.33s linear;-moz-transition:all.33s linear;-o-transition:all.33s linear;-ms-transition:all.33s linear;transition:all.33s linear;}
+.Dog:nth-child(2):hover ~.dog{-webkit-transform:translate(2.8em);-moz-transform:translate(2.8em);-o-transform:translate(2.8em);-ms-transform:translate(2.8em);transform:translate(2.8em);
+-webkit-transition:all.15s linear;-moz-transition:all.15s linear;-o-transition:all.15s linear;-ms-transition:all.15s linear;transition:all.15s linear;}
+.Dog:nth-child(3):hover ~.dog{-webkit-transform:translate(7.8em);-moz-transform:translate(7.8em);-o-transform:translate(7.8em);-ms-transform:translate(7.8em);transform:translate(7.8em);
+-webkit-transition:all.55s linear;-moz-transition:all.55s linear;-o-transition:all.55s linear;-ms-transition:all.55s linear;transition:all.55s linear;}
+.Dog:nth-child(4):hover ~.dog{-webkit-transform:translate(11.6em);-moz-transform:translate(11.6em);-o-transform:translate(11.6em);-ms-transform:translate(11.6em);transform:translate(11.6em);
+-webkit-transition:all.73s linear;-moz-transition:all.73s linear;-o-transition:all.73s linear;-ms-transition:all.73s linear;transition:all.73s linear;}
+.Dog:nth-child(5):hover ~.dog{-webkit-transform:translate(16.5em);-moz-transform:translate(16.5em);-o-transform:translate(16.5em);-ms-transform:translate(16.5em);transform:translate(16.5em);
+-webkit-transition:all.94s linear;-moz-transition:all.94s linear;-o-transition:all.94s linear;-ms-transition:all.94s linear;transition:all.94s linear;}
+.Dog:nth-child(6):hover ~.dog{-webkit-transform:translate(23.4em);-moz-transform:translate(23.4em);-o-transform:translate(23.4em);-ms-transform:translate(23.4em);transform:translate(23.4em);
+-webkit-transition:all 1.24s linear;-moz-transition:all 1.24s linear;-o-transition:all 1.24s linear;-ms-transition:all 1.24s linear;transition:all 1.24s linear;}
+.Dog:nth-child(7):hover ~.dog{-webkit-transform:translate(26.5em);-moz-transform:translate(26.5em);-o-transform:translate(26.5em);-ms-transform:translate(26.5em);transform:translate(26.5em);
+-webkit-transition:all 1.37s linear;-moz-transition:all 1.37s linear;-o-transition:all 1.37s linear;-ms-transition:all 1.37s linear;transition:all 1.37s linear;}
+.Dog:nth-child(8):hover ~.dog{-webkit-transform:translate(35.6em);-moz-transform:translate(35.6em);-o-transform:translate(35.6em);-ms-transform:translate(35.6em);transform:translate(35.6em);
+-webkit-transition:all 1.75s linear;-moz-transition:all 1.75s linear;-o-transition:all 1.75s linear;-ms-transition:all. 1.75s linear;transition:all 1.75s linear;}
+.Dog:nth-child(9):hover ~.dog{-webkit-transform:translate(40em);-moz-transform:translate(40em);-o-transform:translate(40em);-ms-transform:translate(40em);transform:translate(40em);
+-webkit-transition:all 1.94s linear;-moz-transition:all 1.94s linear;-o-transition:all 1.94s linear;-ms-transition:all 1.94s linear;transition:all 1.94s linear;}
+.Dog:nth-child(10):hover ~.dog{-webkit-transform:translate(49.4em);-moz-transform:translate(49.4em);-o-transform:translate(49.4em);-ms-transform:translate(49.4em);transform:translate(49.4em);
+-webkit-transition:all 2.18s linear;-moz-transition:all 2.18s linear;-o-transition:all 2.18s linear;-ms-transition:all 2.18s linear;transition:all 2.18s linear;}
+.Dog:nth-child(11):hover ~.dog{-webkit-transform:translate(58.75em);-moz-transform:translate(58.75em);-o-transform:translate(58.75em);-ms-transform:translate(58.75em);transform:translate(58.75em);
+-webkit-transition:all 2.5s linear;-moz-transition:all 2.5s linear;-o-transition:all 2.5s linear;-ms-transition:all 2.5s linear;transition:all 2.5s linear;}
+
+

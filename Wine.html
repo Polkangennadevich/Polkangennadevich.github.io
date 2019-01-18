@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка Wine</title>
+     <meta name="description" content="Установка и настройка Wine на операционной системе Gentoo Linux.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="префиксы, wine linux, wine установка программ, установка wine 64, налогоплатильщик юл">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Wine/wine.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">"Я предприниматель. Я сделал свои деньги, обеспечивая популярный спрос. Если я нарушаю закон, мои клиенты так же виноваты, как и я." Аль Капоне</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="префиксы"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="hvr-curl"><a><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="wine установка программ"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Нет смысла нанимать толковых людей, а затем указывать, что им делать. Мы нанимаем людей, чтобы они говорили, что делать нам." Стив Джобс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+           <li class="p1"><a class="white aS" href="#w">Установка Wine</a></li>
+           <li class="p1"><a class="white aS" href="#w1">Немного теории</a></li>
+           <li class="p1"><a class="white aS" href="#w2">Префиксы</a></li>
+           <li class="p1"><a class="white aS" href="#w3">Запуск программы в Wine</a></li>
+           <li class="p1"><a class="blue aS" href="Qemu.html#q">Установка QEMU</a></li>
+           <li class="p1"><a class="blue aS" href="virtualbox.html#VB">Установка VirtualBox</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+              <a href="https://ru.wikipedia.org/wiki/Wine">
+        <div class="kartinka2">
+        <div class="wine">
+         <div class="lens">
+          <span>
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+            <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+          <span>    
+            <div><img src="Wine/Лист.png" alt="wine linux"></div>
+          </span>
+        </div>
+        </div><img src="Wine/wine.png" alt="префиксы">   
+        </div></a><br>
+          <p>Поскольку эмуляции каких-либо устройств при работе <strong class="strong">Wine</strong> не происходит, 
+             скорость совместимых с <strong class="strong">Wine</strong> программ не ниже, чем непосредственно в <b class="p3">Windows</b>, а иногда и выше.<br>
+             Это прельщает. Предполагалось что всё заработает сразу запустив из под <strong class="strong">Wine</strong> различный софт.<br>
+             С некоторыми программами так и было, но не со всеми.<br> 
+             Например с "Налогоплатильщик ЮЛ"  пришлось попрыгать, перечитать кучу руководств и информации, обратиться к разработчикам, но так до конца и не решив проблемму.
+          </p>
+         <h1 id="w" class="music1"><a class="send-link special-link a" href="https://www.winehq.org/">Установка Wine<span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h1>
+          <p class="music1"><strong class="strong">Wine</strong> легко устанавливается  на <strong class="strong">Gentoo</strong> двумя способами.<br>
+             Первый <a class="special-link1 a link1" href="https://www.winehq.org/announce/1.8.3">из исходных кодов</a> смотри:<br> 
+             <a class="special-link2 a link1" href="Полезные-советы.html#p5">Полезные советы &gt;Установка пакетов программ из исходных кодов</a>.<br>
+             Для загрузки или обновления <strong class="strong">wine-gecko, wine-mono</strong> и.т.д. идём:
+             <a class="special-link3 a link1" href="http://dl.winehq.org/wine/">Wine Download Server</a><br>
+             Для более удобного способа установить библиотеки <strong class="strong">DLL</strong>, необходимые для работы <strong class="strong">Wine</strong> устанавливаем скрипт <strong class="strong">Winetricks</strong> командой:<br><br>
+             <strong class="p11 blue">wget</strong> <a class="special-link4 a link1" href="https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks">https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks</a><br><br>
+             Делаем его исполняемым:<br><br>
+             <strong class="p11 blue">sudo chmod +x ~/winetricks</strong><br><br>
+             <a class="special-link5 a link1" href="https://wiki.gentoo.org/wiki/Wine">Второй способ:</a><br>
+             Локально устанавливаем <strong class="strong">USE</strong> флаги.<br>
+             Поддержка движка <strong class="strong">Gecko</strong> при использовании <strong class="strong">IExplore</strong><br> 
+             Поддержка <strong class="strong">.NET</strong> с использованием <strong class="strong">Mono</strong> дополнения <strong class="strong">Wine</strong><br> 
+             <strong class="strong">run-exes</strong> чтобы открыть и запустить <strong class="strong">.EXE</strong> и <strong class="strong">.MSI</strong> файлы<br><br> 
+             <strong class="p11 blue">vim /etc/portage/package.use</strong><br>
+             <strong class="p11 blue">app-emulation/wine gecko mono run-exes</strong><br><br>
+             Глобально добавлена ​​поддержка для файлов <strong class="strong">XML</strong><br><br>
+             <strong class="p11 blue">vim /etc/portage/make.conf</strong><br>
+             <strong class="p11 blue">USE="...xml..."</strong><br><br>
+             В файл <strong class="strong">/etc/portage/package.accept_keywords</strong> добавляем<br><br>
+             <strong class="p11 blue">app-emulation/wine ~amd64</strong><br><br>
+             Устанавливаем <strong class="strong">Wine</strong><br><br>
+             <strong class="p11 blue">emerge --ask app-emulation/wine</strong><br><br>
+             Устанавливаем запрет <strong class="strong">Wine</strong> добавлять ссылки пунктов меню на рабочем столе<br><br>
+             <strong class="p11 blue">vim ~/.bashrc</strong><br>
+             <strong class="p11 blue"># Запрет Wine добавлять ссылки пунктов меню на рабочем столе</strong><br> 
+             <strong class="p11 blue">export WINEDLLOVERRIDES='winemenubuilder.exe=d'</strong><br><br>
+             Для поддержки <strong class="strong">Winetricks</strong> в 64 битной системе в файл
+             <strong class="strong">/etc/portage/package.accept_keywords</strong> добавляем<br><br>
+             <strong class="p11 blue">app-emulation/winetricks ~amd64</strong><br><br>
+             Устанавливаем <strong class="strong">Winetricks</strong><br><br>
+             <strong class="p11 blue">emerge --ask app-emulation/winetricks</strong><br><br>
+             Всё. Можно работать.
+          </p>
+         <h2 id="w1">Немного теории</h2>
+          <p class="music1">Не запускайте wine из под <b class="p3">root</b>, это только приведёт к созданию префикса в <strong class="strong">/root</strong>!<br>
+             Файлы реестра <strong class="strong">Wine</strong>.<br>
+             Реестр, находится в трех файлах в директории <strong class="strong">~/.wine</strong>:<br>
+             <strong class="strong">system.reg</strong><br>
+             Этот файл содержит <strong class="strong">HKEY_LOCAL_MACHINE</strong>.<br>
+             <strong class="strong">user.reg</strong><br>
+             Этот файл содержит <strong class="strong">HKEY_CURRENT_USER</strong>.<br>
+             <strong class="strong">userdef.reg</strong><br>
+             Этот файл содержит <strong class="strong">HKEY_HKEY_USERS\.Default</strong> (то есть установки пользователя по умолчанию).<br>
+             Не следует редактировать эти файлы вручную, так как они используют необычную кодировку. Всегда используйте программу <strong class="strong">regedit</strong>.<br>
+             Открыть реестр можно командой в терминале:<br><br>
+             <strong class="p11 blue">regedit</strong><br><br>
+             Полный список ключей реестра 
+             <a class="special-link6 a link1" href="https://wiki.winehq.org/UsefulRegistryKeys">можно найти здесь</a>.<br>
+             Запускаем <strong class="strong">Wine:</strong><br><br>
+             <strong class="p11 blue">winecfg</strong><br><br>
+             Когда <strong class="strong">Wine</strong> запускается в первый раз, используется <strong class="strong">~/.wine</strong>.<br>
+             Если префикс не существует <strong class="strong">Wine</strong> создаст его и наполнит дефолтным содержимым,
+             создаст и наполнит файлами каталоги <strong class="strong">C:\windows</strong>, <strong class="strong">C:\Program Files</strong>, <strong class="strong">C:\users</strong>.<br> 
+             Плюс будет создан чистый реестр.<br>
+             Не всегда возможно запустить приложение, используя встроенные в <strong class="strong">Wine DLL</strong>.<br> 
+             Иногда "родные" <strong class="strong">DLL</strong> просто лучше работают. После того, как вы "засекли" "родную" <strong class="strong">DLL</strong>
+             в <b class="p3">Windows</b> системе, необходимо поместить ее в такое место, где <strong class="strong">Wine</strong> найдет ее, а затем
+             настроить для работы. Обычно таковым местом является директория, <strong class="strong">c:\windows\system32</strong>.<br>
+             Чтобы добавить заменяющий файл <strong class="strong">FOO.DLL</strong>, впишите "<strong class="strong">FOO</strong>" в поле, озаглавленное 
+             <strong class="strong">New override for library</strong> (Новая замена для библиотеки), и нажмите кнопку 
+             <strong class="strong">Add</strong> (Добавить).<br> 
+             Чтобы изменить поведение <strong class="strong">DLL</strong>, нужно выбрать ее из поля 
+             <strong class="strong">Existing overrides</strong>: (Существующие замены) и нажать <strong class="strong">Edit</strong>. По умолчанию, 
+             первой будет загружена "родная" Виндовская, второй - встроенная в <strong class="strong">Wine</strong> (<strong class="strong">Native then Builtin</strong>).<br> 
+             Можно также выбрать только "родную", только встроенную, или отключить обе.<br> 
+             Существуют 4 <strong class="strong">DLL</strong>, "родные" версии которых никогда не следует использовать:<br> 
+             <strong class="strong">kernel32.dll</strong>, <strong class="strong">gdi32.dll</strong>, <strong class="strong">user32.dll</strong> и <strong class="strong">ntdll.dll</strong>.<br> 
+             Эти библиотеки требуют низкоуровневый доступ к ядру <b class="p3">Windows</b>, которого просто нет в структуре <strong class="strong">Wine</strong>.<br>
+             Можно создать поддельные <strong class="strong">DLL</strong> файлы, чтобы обмануть многие программы, 
+             проверяющие только наличие файла, чтобы убедиться, что определенное свойство 
+             (такое как <strong class="strong">Winsock</strong> и его <strong class="strong">TCP/IP networking</strong>) теоретически доступно.<br> 
+             Если встала эта проблема, создайте в сконфигурированной директории <strong class="strong">c:\windows\system32</strong> 
+             пустые файлы с соответствующими именами, чтобы программа думала, 
+             будто они на месте, а встроенные в <strong class="strong">Wine DLL</strong> будут загружены, 
+             когда программа действительно их запросит.<br>
+             Иногда требуется зарегистрировать некоторые библиотеки. Это делается в терминале.<br>
+             Например:<br><br>
+             <strong class="p11 blue">regsvr32 ~/.wine/dosdevices/c\:/Program\ Files/Common\ Files/System/OLE\ DB/msdaps.dll</strong><br>
+             Результат успешной регистрации:<br>
+             <strong class="p11 blue">regsvr32: DLL «/home/nikolay/.wine/dosdevices/c:/Program Files/Common Files/System/OLE DB/msdaps.dll»</strong><br>
+             <strong class="p11 blue">успешно зарегистрирована</strong><br><br>
+             Проверить список установленных пакетов <strong class="strong">winetricks</strong> можно коммандой:<br><br>
+             <strong class="p11 blue">winetricks list-installed</strong><br><br>
+             Вызов панельи управления <strong class="strong">Wine</strong>, запустив в терминале:<br><br>
+             <strong class="p11 blue">wine control</strong><br><br>
+             Если приложение не устанавливает себя в меню или значок на рабочем столе, 
+             придется запускать его из командной строки. Примерно такая команда:<br><br>
+             <strong class="p11 blue">$ wine "c:\program files\appname\appname.exe"</strong><br><br>
+             Не забудьте про двойные кавычки.<br> 
+             Запуск <strong class="strong">Wine</strong> консоли:<br><br>
+             <strong class="p11 blue">wineconsole</strong><br><br> 
+             После удаления <strong class="strong">Wine</strong> необходимо удалить муср оставшийся после него:<br>
+             В директориях<br><br>
+             <strong class="p11 blue">~/.local/share/desktop-directories/</strong><br>
+             <strong class="p11 blue">~/.cache/</strong><br><br>
+             удалить всё, что касается <strong class="strong">wine</strong> и <strong class="strong">winetricks</strong><br><br>
+             <strong class="p11 blue">rm -r ~/.local/share/applications/wine</strong><br>
+             <strong class="p11 blue">rm ~/.local/share/applications/wine*</strong><br><br>
+             Проссмотреть директории:<br><br> 
+             <strong class="p11 blue">/usr/local/share/</strong><br>
+             <strong class="p11 blue">/usr/local/share/applications/</strong><br><br>
+             и удалить всё, что касается <strong class="strong">wine</strong>             
+          </p>
+         <h2 id="w2">Префиксы</h2>
+          <p>С их помощью можно устанавливать приложения именно туда
+             куда вы их хотите установить, а не в дефолтный <strong class="strong">.wine</strong>.<br>
+             Воспринимайте каждый созданный префикс, как отдельно установленную <b class="p3">Windows</b>.<br>
+             Даже если что то пойдет не так, достаточно удалить тот префикс, 
+             в котором произошла ошибка, при этом все другие приложения-префиксы не пострадают.<br>
+             Для создания префикса необходимо в терминале запустить команду:<br><br>
+             <strong class="p11 blue">WINEPREFIX=~/.wine2/ winecfg</strong><br><br>
+             Все дальнейшие команды выполняем добавляя <strong class="strong">WINEPREFIX=~/.wine2/</strong><br> 
+             Например, запуская установщик нужной программы, вводим:<br><br>
+             <strong class="p11 blue">WINEPREFIX=~/.wine2/ wine filename.exe</strong><br><br>
+             Для запуска программы:<br><br>
+             <strong class="p11 blue">WINEPREFIX=~/название_префикса C:/путь/до/программы</strong><br><br>
+             Запуск <strong class="strong">winetricks</strong> для созданного префикса:<br><br>
+             <strong class="p11 blue">WINEPREFIX=~/.wine2/ winetricks</strong>
+          </p>
+         <h2 id="w3">Запуск программы в <strong class="strong">Wine</strong></h2>
+          <p class="music1">Создаём префикс. У меня 64 битная система, но по рекомендациям <strong class="strong">Wine</strong> лучше работает с<br> 
+             32 битной.<br>
+             По этому создаю префикс 32 битной системы:<br><br>
+             <strong class="p11 blue">WINEARCH=win32 WINEPREFIX=~/.wine winecfg</strong><br><br>
+             Настройки оставляю по умолчанию (Версия <b class="p3">Windows XP</b>).<br>
+             Пробуем запустить<br> 
+             "Налогоплатильщик ЮЛ" загружаем с сайта <a class="special-link7 a link1" href="https://www.nalog.ru/rn77/program/5961229/">ИФНС  файл NalogUL449.msi</a><br>  
+             и двойным щелчком запускаем его, <strong class="strong">Wine</strong> подхватывает и устанавливает.<br>
+             Всё делаем в соответствии с "Руководством по установке, Установка программы в <strong class="strong">Linux</strong>".<br>
+             1.Устанавливаем программу не в папку «Налогоплательщик ЮЛ», 
+             а в папку с латинским наименованием (например, <strong class="strong">NPUL</strong>), далее все по руководству установки НП ЮЛ.
+             Так же устанавливается "Печать НД с PDF417 3.2.4"<br>
+             2. через <strong class="strong">winetricks</strong> добавляем русские <b class="p3">windows</b> шрифты <strong class="strong">tahoma.ttf</strong><br>
+             3. командой<br><br> 
+             <strong class="p11 blue">regedit</strong><br><br>  
+             изменяем значение настройки реестра<br><br>
+             <strong class="p11 blue">HKEY_LOCAL_MACHINE\Software\Classes\htmlfile\shell\open\command</strong> на<br> 
+             <strong class="p11 blue">C:\windows\system32\winebrowser.exe "%l"</strong><br><br>
+             4.Загружаем файл <a class="special-link8 a link1" href="http://npul.ru/download/linux/ooffice">http://npul.ru/download/linux/ooffice</a>  и кладём в папку <strong class="strong">command</strong><br> 
+             (обычно это папка <strong class="strong">.wine/drive_c/windows/command</strong> в домашней папке пользователя)<br>
+             5.Загружаем файл <a class="special-link9 a link1" href="http://npul.ru/download/linux/ooffice.reg">http://npul.ru/download/linux/ooffice.reg</a>  в папку <strong class="strong">~/.wine/drive_c/windows/</strong> и 
+             импортируем в программе <strong class="strong">regedit</strong><br><br>
+             <strong class="p11 blue">regedit ~/.wine/drive_c/windows/ooffice.reg</strong><br><br> 
+             6. в папке с программой «<strong class="strong">NPUL</strong>» (обычно <strong class="strong">~/.wine/drive_c/NPUL/INPUTDOC/</strong>  создаём файл <strong class="strong">linux.txt</strong> (содержимое неважно)<br>
+             Запускаем установленный "Налогоплатильщик ЮЛ"<br>
+             Предлагается "Добавить налогоплатильщика"<br>
+             После заполнения данных и нажатии "<strong class="strong">OK</strong>" выскакивает окошко:<br><br></p>
+          <div class="kartinka5 cockroach" ><img src="Wine/NPUL.png" alt=""></div><br>
+          <p>Нажимаем "<strong class="strong">OK</strong>" выскакивает окошко:<br><br></p>
+          <div class="kartinka5" ><img src="Wine/NPUL1.png" alt=""></div><br>   
+          <p>Нажимаем "выйти из программы" выскакивает окошко:<br><br></p>
+          <div class="kartinka5" ><img src="Wine/NPUL2.png" alt=""></div><br>
+          <p>Нажимаем "прекратить" выскакивает окошко:<br><br></p>
+          <div class="kartinka5"><img src="Wine/NPUL3.png" alt=""></div><br>
+          <p>Нажимаем "прекратить" выскакивает такое же окошко:<br>
+             Повторно нажимаем "прекратить" программа закрывается.<br>
+             Устранение причины оказалось очень простым.<br>
+             С помощью <strong class="strong">Winetricks</strong> устанавливаем <strong class="strong">IE8</strong>.<br>
+             Запускаем опять "Налогоплатильщик ЮЛ"<br>
+             Заполняем например "Налоговую декларацию по ЕНВД"<br>
+             После заполнения делаем контроль и сохраняем.<br>
+             Для рапечатки нажимаем на значёк принтера.<br>
+             В окошке устанавливаем галочку "Двумерный штрих-код PDF417" "<strong class="strong">OK</strong>"<br>
+             Появляется окошко с установленным принтером.<br>
+             После нажатия "<strong class="strong">OK</strong>"<br>
+             Выскакивает окошко:<br><br></p>   
+          <div class="kartinka5" ><img src="Wine/NPUL4.png" alt=""></div>             
+          <p class="music1">В чём дело?<br>
+             Без штрих-кода всё печатается нормально.<br>
+             Оброщаться к разработчикам - пустая трата времени.<br>
+             Вместо решения проблеммы, создают себе рекламу. В описании программы указывают свойства не соответствуещие действительности. Не могут решить между собой кто чем занимается!!! Одни отправляют в службу технической поддержки сервисов ФНС, а другие в Филиал АО ГНИВЦ в ЧР. При этом страдает пользователь.<br><br>
+             <!--Видел решение, но сам не пробовал:<br>
+             Чтобы формы распаковывались нормально, нужно не просто перезаписать extrac32.exe в папке windows/system32 (в официальном мануале от разработчиков так написано), но и в wincfg добавить замещение для библиотеки "extrac32.exe (сторонняя, встроенная)", иначе ждите кучи ошибок "fixme:extrac32:wWinMain /A not implemented"<br>-->
+          </p>
+       </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Николай. Волгоград. 30.06.2016 </h2>
+				    		<p class="text-testimonial gray">
+                              Кому info@mail.rvcgnivc.ru
+                            </p>
+                            <p class="text-testimonial Romantique white">
+                              Здравствуйте! Подскажите, пожалуйста, что я делаю не так? Не могу распечатать документ с двумерным штрих-кодом PDF417 в "Wine".<br> 
+                              Всё, что необходимо рапечатать без штрих-кода печатается нормально. Помогите устранить проблемму. Буду очень благодарен!
+                            </p>
+                            <h2 class="name gray">Филиал АО ГНИВЦ в ЧР. Ответ на письмо от 30.06.2016</h2>
+                        <p class="text-testimonial Romantique white">По Вашему обращению № 687578 предоставлен ответ службой технической поддержки 01.07.2016:<br>
+                            пожалуйста, обратитесь к разработчикам модуля печати PDF417: е-mail: printpdf417@gnivc.ru
+                        </p>
+                        <h2 class="name gray">Библиотечный модуль печати PrintPDF417@gnivc.ru</h2>
+				    		<p class="text-testimonial Romantique white">По Вашему обращению № 687578 предоставлен ответ службой технической поддержки 07.07.2016.<br>
+				    		Выполните печать документа без двухмерного штрих кода.
+				    		</p>
+                            <p class="text-testimonial gray">Николай: <b class="Romantique white">Ответ достойный похвал!</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+                        <h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+                    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Врождённый порок капитализма - неравное распределение благ; врождённое достоинство социализма - равное распределение нищеты." Уинстон Черчилль'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="установка wine 64"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="wine linux"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="префиксы"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="hvr-curl"><a><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="wine linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="wine установка программ"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="установка wine 64"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="налогоплатильщик юл"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="wine linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="wine установка программ"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="налогоплатильщик юл"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="wine linux"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf - 220,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt="yandex.ru"></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="wine linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

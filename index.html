@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+     <meta charset="utf-8">
+     <title>Установка linux</title>     
+     <meta name="description" content="Начальная страница сайта Установка операционных систем и программного обеспеченмя Linux.">
+     <meta name="keywords" content="Установка linux,linux,дистрибутивы linux,операционная система,gentoo,centos,red hat,archlinux,debian,opensuse,ubuntu,windows">
+     <meta name='wmail-verification' content='f8280fe894ea90818a5b584ef171e447'>
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+     <link rel="canonical" href="http://nikolay.interviewonline.ru">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="СлайдШоу/SlideShow.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="index/index.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift page_fix">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Довольный клиент обязательно приведёт к Вам друга!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 home"><img src="Будка.gif" alt="операционная система"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps 01coin Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul> 
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="Установка linux"></div>
+     </noscript>
+          <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music5">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music5">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music5">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Когда человек с деньгами встречает человека с опытом, человек с опытом уходит с деньгами, а человек с деньгами уходит с опытом."</p></div>
+    </header>
+    <section class="section3">
+    <div class="section11">
+    <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+      <h2 class="p2 p3">Заработайте немного <b class="purpel2">sa Toshas</b></h2>
+      <iframe class="theoremreach" src="https://theoremreach.com/respondent_entry/direct?api_key={a1eb95de2001ca7205ae5772ad92}&user_id={1000}"></iframe>
+      <div class="kartinka5 music5 cursorT" onclick="TR.showRewardCenter()">      
+         <span class="four arrow2">Earn sa Toshas!</span>
+      </div>
+      <div class="owl-carousel toys">
+          <iframe class="toy" src="Собачка.html"></iframe>
+          <iframe class="toy" src="Зайчик.html"></iframe>
+	      <iframe class="toy" src="Змейка.html"></iframe>
+	      <iframe class="toy" src="Обезьянка.html"></iframe>
+	      <iframe class="toy" src="Кошечка.html"></iframe>
+	      <iframe class="toy" src="Мышка.html"></iframe>			    	
+          <iframe class="toy" src="Рыбка.html"></iframe>
+          <iframe class="toy music1" src="Птичка.html"></iframe>                   
+      </div>
+    </div>
+    </div><!-- 
+ --><div class="group kartinka11 sectionHome">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote> 
+           </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+         <div class="kartinka3-1" id="promotion"></div>
+         <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+         <div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+         </div></a>
+         </div> 
+        </div>
+      </div>
+       <div class="kartinka1-1 cloud">
+       <div class="kartinka5">
+         <div class="kartinka1"><!--<div id="swiffycontainer" style="width:800px; height:600px">--><div class="Home"></div><div class="smoke"><div class="cat"></div><canvas id="smoke"></canvas><div class="kinePng"><div class="kine music6"></div></div><div class="barrel"></div><div class="WC"></div><div class="bereza1"><div class="smail"></div></div><div class="hen1"></div><div class="hen-wrapper music1"><a><div class="hen"></div><div class="egg"></div><span></span></a></div><div class="pig"></div><div class="hens"></div>
+         <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div class="mail"></div></a><a target="_blank" href="https://toloka.yandex.ru/promo?referralCode=DKM4U3KP"><div class="yandex"></div></a>
+         </div>
+           <div class="bluebirdPng"><div class="bluebird music1"></div></div>
+         </div>
+       </div>
+            <div class="hole"><div class="ladybug"></div></div>
+            <img src="index/cloud-01.png" alt="" class="cloud1">
+            <img src="index/cloud-02.png" alt="" class="cloud2">        
+            <img src="index/cloud-03.png" alt="" class="cloud3">
+            <img src="index/cloud-04.png" alt="" class="cloud4">
+         <div id="axis" class="music2">
+           <iframe class="daqc object move-right" src="index/daqc.gif" allowfullscreen="allowfullscreen" onmouseover="this.src='index/daqc.gif'" onmouseout="this.src='index/daqc1.gif'"></iframe>
+         </div>
+           <div class="parasol"></div><div class="sosna"><div class="mushroom"></div></div><div class="bereza"></div><div class="fungus"></div>
+       </div>
+      </div> 
+      <div class="elephant"> 
+        <div class="txt">
+         <h2 class="darkblue">Сегодня компьютер для многих стал одним из лучших друзей.</h2>
+         <p>Работать в ОС "<b class="p3">Windows</b>", на первый взгляд, кажется очень просто?<br>
+            Зависания, вирусы, платные лицензионные программы, а самое главное, закрытость системы (понятия не имеешь, не подсматривает ли дядюшка "<b class="p3">Microsoft</b>" или другой какой третий глаз за тобой и не загружаются ли рекламные или вредоносные программы при установке необходимых?) начинают выводить из себя. <b class="macos">"Microsoft isn't evil, they just make really crappy operating systems." Linus Torvalds</b><br>
+            По началу, это может даже нравиться? Устранение возникающих проблем приносит удовлетворение, хотя со временем однообразие становится надоедливым.<br>
+            Решение пришло само сабой.
+         <img class="kartinka3 kartinka8" src="index/WindowsLinux.gif" alt="дистрибутивы linux">
+         <p class="music3">Открытая, практически защищённая, бесплатная операционная система "<strong class="strong">Linux</strong>"!<br>
+            Достаточно один раз погрузиться в эту систему, чтобы понять - <b class="blue">"назад дороги нет"</b>.<br>
+            Возможности оказались неограниченными. Всё зависит от Ваших знаний и стремлений познать...<br>
+            Изучая "<strong class="strong">Linux</strong>" не раз придётся наступить на грабли. Многое может не получаться.<br>
+            Но <b class="blue">"если хочешь достичь цели не смотря ни на что, а надежда уже уходит, не отчаивайся никогда, ибо решение находиться у тебя перед носом..."</b><br>
+            До использования "<strong class="strong">Linux</strong>", приходилось мириться с проблемами "<b class="p3">Windows</b>", поскольку не было другого выбора и поменять что либо не имелось возможности.<br> 
+            С "<strong class="strong">Linux</strong>" всё изменилось. Можно абсолютно свободно заменить всё, что не нравится.<br>
+            Многие часто спрашивают: "Как установить <strong class="strong">Linux</strong>"?<br>
+            Чтобы постоянно не отвечать на одни и те же вопросы, решено было создать сайт, с описанием необходимого для дальнейшего использования.<br>
+            Основной упор сделан на "<a class="a special-link a link1" href="Gentoo.html">Gentoo</a>", из-за стабильности, быстродействия и универсальности.<br>
+            Однако, это ни в коей мере не умоляет достоинства и других дистрибутивов "<strong class="strong">Linux</strong>".<br>
+            Возможно, изложенное на сайте, кому то поможет справиться с возникающими проблемами, в противном случае, <a class="a special-link1 a link1"  href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">обращайтесь</a>, попробуем устранить их вместе. А чтобы было не очень скучно, можете немного и развлечься!
+         </p>
+         <a href="#" class="bomg1"><p class="macos">"Если программист создаст более понятный интерфейс, то природа создаст более тупого пользователя."</p>
+         <h1 class="linux" >Установка Linux</h1></a>
+           <img class="bomg" src="index/bomg.jpg" alt="дистрибутивы linux">
+        </div>
+         <!--<canvas id="canvas-webgl"></canvas>--> 
+      </div>    
+      <div class="Hp">  
+        <ul class="aviaslider" id="frontpage-slider">
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Gentoo" style="background-color:transparent;background-image:none;z-index:5;display:block;"><a href="https://gentoo.org/" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/Gentoo.jpg" alt="gentoo"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке openSUSE" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://ru.opensuse.org/%D0%94%D0%BE%D0%B1%D1%80%D0%BE_%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C_%D0%BD%D0%B0_openSUSE.org" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/opensuse.png" alt="opensuse"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Red Hat" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://www.redhat.com/en/global/russia" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/Redhat.png" alt="red hat"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке CentOS" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://www.centos.org/" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/CentOS.png" alt="centos"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Fedora" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://getfedora.org/ru/" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/fedora.jpg" alt="centos"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Arch Linux" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://www.archlinux.org/" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/arch.jpg" alt="arch"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Debian" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="https://www.debian.org/index.ru.html" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/Debian.png" alt="debian"></a></li>
+            <li class="sliderTxt1" data-title="Окажу помощь в установке Ubuntu" style="background-color:transparent;background-image:none;z-index:0;display:none;"><a href="http://www.ubuntu.com/" title=""><img style="opacity:1;visibility:visible;display:block;" src="СлайдШоу/Ubuntu.jpg" alt="ubuntu"></a></li>
+        </ul>
+      </div>
+                <div class="kartinka5 music5">      
+                   <a class="a" target="_blank" href="//linuxtosha.ru/comments.php">
+                    <span class="four arrow">Оставить отзыв</span>
+                   </a>
+                </div>				    
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Игнат. Подмосковье. 05.01.2020 22:52</h2>
+				    		<p class="text-testimonial Romantique white">Спасиба за сайт. Вещь харошей. Страница перва суперовая где птица. Я тоже люблю линукс, пака не знаю как поставить. Спасиба, изучать сайта буду</p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Не стоит благодарностей. Будут вопросы - обращайтесь. Чем смогу, помогу.</b></p>
+				    </div>
+			    	<div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+			    	<div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>				    
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br> БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+         <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money"> 
+         <div class="music4"><a target="_blank" href="https://paypal.me/InstullingLinux">
+           <div class="photoDollar" data-title='"Деньги не приносят счастья. У меня сейчас 50 миллионов, а счастлив я ровно также, как и тогда, когда у меня было 48 миллионов." Арнольд Шварценеггер'><div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="opensuse"></div></div></a>
+         </div>
+        <div class="music4"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="opensuse"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music4 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music4"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 homebottom"><img src="Будка.gif" alt="операционная система"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps 01coin Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul> 
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+    </section>
+    <footer class="group">
+        <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="дистрибутивы linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="операционная система"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="Установка linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="gentoo"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="centos"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="samba"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="opensuse"></div></a>
+          </div>
+       </div>
+         <p id="js1" class="kartinka2 white p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br> 
+         <script language=JavaScript> d0 = new Date('January 31, 2014'); d1 = new Date(); dt = (d1.getTime() - d0.getTime()) / (1000*60*60*24); document.write('Этому сайту ' + Math.round(dt) + '-й день!');</script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+         <div id="rating" class="Rating">
+           <div class="param purpel2">Полезность сайта:</div>
+             <div><div class="stars"></div><p class="progress" id="p1"></p></div>
+           <div class="rating purpel2" id="param1">5.0</div>
+           <div class="param purpel2">Доходчивость изложения:</div>
+             <div><div class="stars"></div><p class="progress" id="p2"></p></div>
+           <div class="rating purpel2" id="param2">5.0</div>
+           <div class="param purpel2">Оформление сайта:</div>
+             <div><div class="stars"></div><p class="progress" id="p3"></p></div>
+           <div class="rating purpel2" id="param3">5.0</div>
+           <div class="param purpel1">Всё вместе:</div>
+             <div><div id="sum_stars"></div><p id="sum_progress"></p></div>
+           <div id="summ" class="purpel1">5.00</div>
+           <div id="el_999" class="container_buttons buttonR music5" type="submit"><span class="a_demo_three">Отправьте Ваш Rating!</span></div>
+           <div><p id="message" class="purpel2"></p></div>
+        </div>
+                      <!--Revolvermaps-->
+        <div class="revolvermaps"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5lk68gw8kwy&amp;m=0&amp;c=54ff00&amp;cr1=ff007e&amp;f=verdana&amp;l=1&amp;s=170&amp;bv=0&amp;lx=220&amp;ly=-100" async="async"></script>
+        </div>
+        <nav class="google socseti1 G-wrapper">
+            <a class="a" style="width:92px; height:31px; left:-10px; top:-2px;" target="_blank" href="https://analytics.google.com/analytics/web/?hl=ru&pli=1#/report-home/a74368123w112518335p117486036">
+			<span>Google Analytics: просмотры, визиты и уникальные посетители</span></a>
+        </nav>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                      <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+        <script src="index/Home.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
+          swiffyobject, {});
+          stage.start();
+        </script>
+                      <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+		              <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		              <!--Slider-->
+        <script type="text/javascript" src="СлайдШоу/jquery_002.js" ></script>
+	    <script type="text/javascript" src="СлайдШоу/custom.js"></script>
+	    <script type="text/javascript" src="СлайдШоу/jquery.js"></script>
+	                  <!--Smoke-->
+	    <script src="smoke.js"></script>
+	                  <!--Elephant
+        <script src="Elephant/three.min.js"></script>
+        <script src="Elephant/Elephant.js"></script>
+                      <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                     <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!--<a class="a" href="https://metrika.yandex.ru/stat/?id=70910983&amp;from=informer"
+            target="_blank" rel="nofollow"><img src="//informer.yandex.ru/informer/70910983/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+            style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:70910983,lang:'ru'});return false}catch(e){}"></a>-->
+        <nav class="Y-wrapper socseti">
+         <a class="a" href="https://metrika.yandex.ru/stat/?id=70910983&amp;from=informer"
+            target="_blank" rel="nofollow" onclick="try{Ya.Metrika.informer({i:this,id:70910983,lang:'ru'});return false}catch(e){}"><span>Яндекс Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)</span></a>
+        </nav>
+                       <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                       <!-- Rating@Mail.ru logo-->
+         <a class="a"  href="http://top.mail.ru/jump?from=3203799">
+         <!--<img src="//top-fwz1.mail.ru/counter?id=3203799;t=479;l=1" 
+            style="border:0;" height="31" width="88" alt="Рейтинг@Mail.ru">--></a>
+        <nav class="M-wrapper socseti">    
+         <a class="a" href="http://top.mail.ru/jump?from=3203799" target="_blank"><span>Рейтинг@Mail.ru</span></a>
+        </nav>
+                          <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript> 
+                           <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img src="naverh.png" alt="дистрибутивы linux"></div></a>  
+         </div>
+            <div class="switchS music5"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-60px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div></div>
+            <!--<a target="_blank" href="http://app3.jivosite.com/">-->
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="Dog"><!--</a>-->
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+		                    <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		<!--<script type="text/javascript" src="СлайдШоу/jquery.js"></script>--> 
+	                        <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="index/Щебет.mp3" type="audio/mpeg">
+          <source src="index/Щебет.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="index/КряканиеГуся.mp3" type="audio/mpeg">
+          <source src="index/КряканиеГуся.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link4" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link5" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link6" preload="auto">
+          <source src="index/МычаниеКоровы.mp3" type="audio/mpeg">
+          <source src="index/МычаниеКоровы.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1").mouseenter(function() {
+                  soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 iframe").mouseenter(function() {
+                  soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink3 = $("#sound-link3")[0];
+               $(".music3 a").mousedown(function() {
+                   soundLink3.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link4")[0];
+               $(".music4 a").mouseenter(function() {
+                   soundLink4.play();
+               });
+        </script>
+        <script>
+               var soundLink5 = $("#sound-link5")[0];
+               $(".music5").mousedown(function() {
+                   soundLink5.play();
+               });
+        </script>
+        <script>
+               var soundLink6 = $("#sound-link6")[0];
+               $(".music6").mouseenter(function() {
+                   soundLink6.play();
+               });
+        </script>
+                         <!--Rating-->
+        <script type="text/javascript">
+           $(document).ready(function(){
+           function move(e, obj){
+           var summ=0;
+           var id = obj.next().attr('id').substr(1);
+           var progress = e.pageX - obj.offset().left;
+           var rating = progress * 5 / $('.stars').width();
+           $('#param'+id).text(rating.toFixed(1));
+           obj.next().width(progress);
+           $('.rating').each(function(){ summ += parseFloat($(this).text()); });
+           summ = summ / $('.rating').length;
+           $('#sum_progress').width(Math.round($('.stars').width() * summ / 5));
+           $('#summ').text(summ.toFixed(2));
+           }
+           $('#rating .stars').click(function(e){
+           $(this).toggleClass('fixed');
+           move(e, $(this));
+           });
+           $('#rating .stars').on('mousemove', function(e){
+           if ($(this).hasClass('fixed')==false) move(e, $(this));
+           });
+           $('#rating [type=submit]').click(function(){
+           summ = parseFloat($('#summ').text());
+           jQuery.post('rating.php', {
+           obj_id: $(this).attr('id').substr(3),
+           rating: summ
+           }, notice);
+           });
+           function notice(text){
+           $('#message').fadeOut(500, function(){ $(this).text(text); }).fadeIn(2000);
+           }});
+        </script>
+                          <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                           <!--JIVOSITE CODE
+         <script type='text/javascript'>
+              (function(){ var widget_id = '7czPg8B9Ch';var d=document;var w=window;function l(){
+              var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+              s.src = '//code.jivosite.com/script/widget/'+widget_id
+              ; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
+              if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}
+              else{w.addEventListener('load',l,false);}}})();
+        </script>-->
+        <!--<script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>
+                           <!--TheoremReach
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <script type="text/javascript" src="https://s3.amazonaws.com/cdn.theoremreach/v3/theorem_reach.min.js"></script>
+        <script>
+              /* Включать обратные вызовы, когда центр вознаграждений открывается и закрывается */
+              function onRewardCenterOpened(){
+              console.log("onRewardCenterOpened");
+              }
+              function onReward(data){
+              console.log("onReward: " + data.earnedThisSession);
+              }
+              function onRewardCenterClosed(){
+              console.log("onRewardCenterClosed");
+              };
+              // настраиваем объект конфигурации и инициализируем
+              var theoremReachConfig = {
+              apiKey: "a1eb95de2001ca7205ae5772ad92",
+              userId: "1000",
+              // idfa: "USERS_APPLE_ADVERTISING_ID", по желанию. Если iOS, установите Apple IDFA, чтобы обеспечить доступ к наибольшему количеству опросов.
+              // gpsId: "USERS_GOOGLE_ADVERTISING_ID",  по желанию. Если Android, установите Google Advertising ID 
+              onRewardCenterOpened: onRewardCenterOpened,
+              onReward: onReward,
+              onRewardCenterClosed: onRewardCenterClosed
+              };
+              var TR = new TheoremReach(theoremReachConfig);
+              /* Oтображение центра вознаграждения. Вызовите метод showRewardCenter (), для отправления пользователя в центр вознаграждений, где он может заполнить опросы в обмен на Вашу виртуальную валюту. Мы автоматически конвертируем сумму валюты, которую получает пользователь, на основе курса, указанного в Вашем приложении. */
+              function theoremReach(){
+              if (TR.isSurveyAvailable()) {
+              TR.showRewardCenter();
+              }
+              };             
+         </script>             
+      </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+	</body>
+</html>

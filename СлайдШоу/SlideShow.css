@@ -1,0 +1,2 @@
+.aviaslider{height:383px;width:680px;overflow:hidden;position:relative;top:53px;margin:0px auto;border:3px inset rgb(89,89,89);}.aviaslider li{display: block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;}.sliderTxt1:hover::after{content:attr(data-title);left:27%;top:45%;position:absolute;color:#fff;font-size:18px;text-shadow:1px 1px 0px rgb(0,0,0);z-index:11;}.Hp{position:relative;background:url("Hp.png")no-repeat;height:740px;width:1000px;margin:0 auto;}
+

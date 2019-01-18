@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка Qemu</title>
+     <meta name="description" content="Установка виртуальной машины Qemu на Gentoo Linux. Установка операционных систем Windows, Gentoo, macOS и Android на ВМ Qemu.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="установка windows,qemu windows,qemu linux,скачать spice,spice,виртуализация,аппаратная виртуализация,macOS,enoch_rev2902_boot,OS X,Apple,установка macOS,Android,qemu-img,virt-manager">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Qemu/ball.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Удача - это аренда, за которую постоянно приходится платить!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="qemu linux"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="qemu windows"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Иногда жизнь бьёт вас кирпичом по голове. Не только вас лично, а всех нас." Стив Джобс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+           <li class="p1"><a class="white aS" href="#q">Установка QEMU</a></li>
+           <li class="p1"><a class="white aS" href="#q1">Установка Windows на виртуальную машину QEMU</a></li>
+           <li class="p1"><a class="white aS" href="#q2">Установка Gentoo на виртуальную машину QEMU</a></li>
+           <li class="p1"><a class="white aS" href="#q3">Установка macOS на виртуальную машину QEMU</a></li>
+           <li class="p1"><a class="white aS" href="#q4">Создание загружаемого установщика для macOS</a></li>
+           <li class="p1"><a class="white aS" href="#q5">Установка Android на виртуальную машину QEMU</a></li>
+           <li class="p1"><a class="white aS" href="#q6">Программа qemu-img</a></li>
+           <li class="p1"><a class="white aS" href="#q7">Монтируем .img образ</a></li>
+           <li class="p1"><a class="blue aS" href="virtualbox.html#VB">Установка VirtualBox</a></li>
+           <li class="p1"><a class="blue aS" href="Wine.html#w">Установка Wine</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div>
+         </div>
+        </div>
+       <div class="camera">
+          <div id="ballWrapper">
+            <div id="ball"></div>
+            <div id="ballShadow"></div>
+            <div class="tor"></div>
+          </div>
+         <a href="virtualbox.html#VB"><h2 class="explanation">Click and hold the "Qemu"<br> to make it move back!</h2>
+         <div class="photograf qemu-virtualbox"></div></a>
+       </div>
+         <h1 id="q" class="music1"><a class="send-link special-link a" href="http://wiki.gentoo.org/wiki/QEMU">Установка QEMU
+           <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h1>
+         <p class="music1">Проверяем, поддерживается ли компьютером виртуализация:<br><br>
+            <strong class="p11 blue"><strong class="strong">~ $</strong> egrep --color -E "vmx|svm" /proc/cpuinfo</strong><br><br>
+            в вывде должно быть:<br><br> 
+            <strong class="p11 blue">flags</strong> ... <b class="p3">vmx</b> ...<br><br>
+            В <strong class="strong">BIOS</strong> подключаем виртуализацию:<br><br>
+            <strong class="p11 blue">Virtualization Technology Enabled</strong><br><br>
+            В ядре устанавливаем следующие опции:<br><br>
+            <strong class="p11 blue">[*] Virtualization ---></strong><br>
+            <strong class="p11 blue">&lt;*&gt; Kernel-based Virtual Machine (KVM) support</strong><br>
+            Если процессор <strong class="strong">Intel</strong>:<br>
+            <strong class="p11 blue">&lt;M&gt; KVM for Intel processors support</strong><br>
+            Если процессор <strong class="strong">AMD</strong>:<br>
+            <strong class="p11 blue">&lt;M&gt; KVM for AMD processors support</strong><br>
+            <strong class="p11 blue">Needed for "vhost-net" USE flag (recommend):</strong><br>
+            <strong class="p11 blue">&lt;*> Host kernel accelerator for virtio net</strong><br><br>
+            Расширенная поддержка сети<br>
+            <strong class="p11 blue">Device Drivers ---></strong><br>
+            <strong class="p11 blue">[*] Network device support ---></strong><br>
+            <strong class="p11 blue">[*]   Network core driver support</strong><br>
+            <strong class="p11 blue">&lt;*&gt;  Universal TUN/TAP device driver support</strong><br>
+            <strong class="p11 blue">Needed for 802.1d Ethernet Bridging:</strong><br>
+            <strong class="p11 blue">[*] Networking support ---></strong><br>
+            <strong class="p11 blue">Networking options ---></strong><br>
+            <strong class="p11 blue">&lt;*&gt; 802.1d Ethernet Bridging</strong><br><br>
+            Включение поддержки файловых возможностей <strong class="strong">Linux</strong><br>
+            <strong class="p11 blue">Kernel hacking ---></strong><br>
+            <strong class="p11 blue">Compile-time checks and compiler options ---></strong><br>
+            <strong class="p11 blue">[*] Debug Filesystem</strong><br><br>
+            Включение поддержки <strong class="strong">ext4 kvm_stat</strong><br>
+            <strong class="p11 blue">File systems ---></strong><br>
+            <strong class="p11 blue">If you use the ext4 filesystem:</strong><br>
+            <strong class="p11 blue">&lt;*&gt; The Extended 4 (ext4) filesystem</strong><br>
+            <strong class="p11 blue">[*]   Ext4 Security Labels</strong><br><br>
+            <a class="special-link1 a link1" href="http://www.spice-space.org/download.html"><strong class="strong">SPICE</strong> - поддержка</a> включает более мощные <strong class="strong">QXL</strong> устройства отображения, повышает производительность, буфер обмена и возможность перетаскивания между хостом и гостем, автоматическое переключение разрешения и т.д.<br>
+            Для его использования  с <strong class="strong">QEMU</strong> добавляем <strong class="strong">USE</strong> -  флаг <strong class="strong">spice</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># vim /etc/portage/package.use<br>
+            app-emulation/qemu spice usb QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64<br>
+            app-emulation/spice client</strong><br><br>
+            Устанавливаем <strong class="strong">QEMU</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge --ask app-emulation/qemu<br>
+            Сообщения для пакета sys-firmware/edk2-ovmf-201905:<br>
+            Этот пакет содержит прошивки UEFI для tianocore edk2, 64-разрядной версии x86 виртуальных машин.<br> 
+            Прошивки находятся в:<br> 
+            /usr/share/edk2-ovmf/OVMF_CODE.fd<br>
+            /usr/share/edk2-ovmf/OVMF_VARS.fd<br>
+            /usr/share/edk2-ovmf/OVMF_CODE.secboot.fd<br>
+            Если USE=binary флаг включен, также устанавливаем файл переменных OVMF (поступивший из fedora), который содержит ключи по умолчанию для безопасной загрузки:<br>
+            /usr/share/edk2-ovmf/OVMF_VARS.secboot.fd<br>
+            Если скомпилирован этот пакет вручную, необходимо либо заполнить все переменные EFI вручную при загрузке:<br>
+            /usr/share/edk2-ovmf/UefiShell.(iso|img)<br>
+            или создать  вручную OVMF_VARS.secboot.fd см. <a class="special-link2 a link1" href="https://github.com/puiterwijk/qemu-ovmf-secureboot">qemu-ovmf-secureboot</a><br>
+            Прошивка не поддерживает CSM (из-за отсутствия доступа к свободной реализации CSM). Если нужна прошивка с поддержкой csm, необходимо её скачать. Эти прошивки обычно помечаются:<br>
+            OVMF{,_CODE,_VARS}-with-csm.fd<br>
+            Для использования прошивки можно запустить qemu следующим образом:<br> 
+            $ qemu-system-x86_64 -drive file=/usr/share/edk2-ovmf/OVMF.fd,if=pflash,format=raw,unit=0,readonly=on ...<br>
+            Можно зарегистрировать прошивку для использования в libvirt, добавив в /etc/libvirt/qemu.conf:<br>
+            nvram = ["/usr/share/edk2-ovmf/OVMF_CODE.fd:/usr/share/edk2-ovmf/OVMF_VARS.fd" "/usr/share/edk2-ovmf/OVMF_CODE.secboot.fd:/usr/share/edk2-ovmf/OVMF_VARS.fd"]<br>
+            Подробнее на /usr/share/doc/edk2-ovmf-201905/README.gentoo*</strong><br><br>
+            Если необходим графический интерфейс, дополнительно устанавливаем "<a class="special-link3 a link1" href="https://virt-manager.org/">Менеджер виртуальных машин</a>" <b class="gray">или app-emulation/aqemu</b>.<br>
+            При использовании <strong class="strong">virt-manager USE</strong> - флаг <strong class="strong">usbredir</strong> должен быть включен.<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge virt-manager</strong><br><br>
+            Для запуска, необходимо убедиться, что пользователь, находятся в группе <strong class="strong">libvirt</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># groupadd libvirt</strong><br>
+            <b class="p11 p3">root</b> <strong class="blue"># usermod -a -G libvirt &lt;user></strong><br><br> 
+            Раскомментируем следующие строки из файла конфигурации <strong class="strong">libvirtd</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># vim /etc/libvirt/libvirtd.conf<br>
+            unix_sock_group = "libvirt"<br>
+            unix_sock_ro_perms = "0777"<br>
+            unix_sock_rw_perms = "0770"</strong><br><br>
+            Перед запуском менеджера необходимо запустить <strong class="strong">libvirtd</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># /etc/init.d/libvirtd start</strong><br><br>
+            <b class="gray">Для <strong class="strong">systemd</strong>:</b><br><br>
+            <b class="p11 p3">root</b> <b class="darkgrey"># systemctl restart libvirtd</b><br><br> 
+            Добавляем пользователя в группу <strong class="strong">KVM</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># gpasswd -a username kvm</strong><br><br>            
+            Проссматриваем <a class="special-link4 a link1" href="http://xgu.ru/wiki/man:qemu"><strong class="strong">QEMU</strong> опции</a>.<br>
+            Создаём директорию "<strong class="strong">QEMU</strong>".<br><br>
+            <strong class="p11 blue"><strong class="strong">~ $</strong>  mkdir ~/QEMU</strong><br><br>
+            Заходим в неё:<br><br>
+            <strong class="p11 blue"><strong class="strong">~ $</strong>  cd ~/Qemu</strong><br>
+         </p>
+         <h2 id="q1" class="music1"><a class="special-link5 send-link2 a" href="http://wiki.gentoo.org/wiki/QEMU/Windows_guest">Установка <b class="p3">Windows</b> на виртуальную машину <strong class="strong">QEMU</strong><br>
+          <span class="icon-wrapper2">
+            <span class="icon-1"></span><span class="icon-2"></span>
+          </span></a>
+         </h2>
+         <p class="macos">"Но вернёмся к MS-DOS. Сейчас это основная операционная система для персональных компьютеров, но постепенно она заменяется системой с графическим пользовательским интерфейсом. Заменой ей могла бы быть и Macintosh, и OS/2, и UNIX. Но получилось так, что лидером стала Windows. Однако в области высоких технологий перемены не редкость, и даже на ближайшее будущее нет никакой гарантии, что Windows сохранит лидерство."<br>Билл Гейтс
+         </p>
+         <p class="music1">Прежде, чем принять решение об установке <b class="p3">Windows</b>, внимательно ознакомьтесь с:<br>
+         "<a class="special-link6 a link1" href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx">Microsoft Terms of Use</a>".<br>  
+            Загружаем на основной компьютер <a class="special-link7 a link1" href="https://www.microsoft.com/ru-ru/software-download/windows10ISO">Win10_XXXXX_XXXXX_x64.iso</a><br>
+            Создаём виртуальный, жёсткий диск:<br><br>
+            <strong id="qemu" class="p11 blue"><strong class="strong">~/QEMU $</strong> qemu-img create -f qcow2 Windows10.img 50G</strong><br><br>
+            Устанавливаем "<b class="p3">Windows</b>" c загруженого <strong class="strong">iso</strong> образа на созданный виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> /usr/bin/qemu-system-x86_64 -enable-kvm -m 2048 -smp 4,cores=2 -usb -device usb-kbd -device usb-tablet -hda ./Windows10.img -boot d -cdrom ./Win10_XXXXX_XXXXX_x64.iso -name "Windows10"</strong><br><br>
+            Чтобы запустить <strong class="strong">QEMU</strong> из скрипта с поддержкой <strong class="strong">SPICE</strong>, предварительно устанавливаем <strong class="strong">net-misc/spice-gtk</strong>  <b class="gray">или app-emulation/virt-viewer</b>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge --ask net-misc/spice-gtk</strong><br><br>
+            Создаём скрипт для запуска "<b class="p3">Windows</b>" с поддержкой <a class="special-link8 a link1" href="https://www.linux-kvm.org/page/SPICE">SPICE</a>:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU</strong> $ cat > ./Запуск_Qemu.sh &lt;&lt; "EOF"<br>
+            <strong class="p11">#!/bin/sh<br>
+            <strong class="p11">/usr/bin/qemu-system-x86_64 -enable-kvm -m 2048 -rtc base=localtime -daemonize -soundhw hda \<br>
+            <strong class="p11">-cpu host -smp 4,cores=2 \<br>
+            <strong class="p11">-usb -device usb-ehci,id=ehci -device usb-tablet,bus=ehci.0 \<br>
+            <strong class="p11">-net nic -net user,hostname=windowsvm \<br>
+            <strong class="p11">-drive file=Windows10.img -vga qxl \<br>
+            <strong class="p11">-spice port=5900,addr=127.0.0.1,disable-ticketing -device virtio-serial-pci \<br>
+            <strong class="p11">-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \<br>
+            <strong class="p11">-chardev spicevmc,id=spicechannel0,name=vdagent \<br>
+            <strong class="p11">"$@"<br>
+            <strong class="p11">exec spicy --title Windows 127.0.0.1 -p 5900 <b class="gray"># для virt-viewer строку заменяем на:<br> 
+            <strong class="p11">exec remote-viewer --title Windows spice://127.0.0.1:5900</strong></b><br>
+            <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+            Делаем его исполняемым:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sudo chmod +x ./Запуск_Qemu.sh</strong><br><br>
+            Запускаем <b class="p3">Windows</b>:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sh ./Запуск_Qemu.sh</strong>
+         </p><br>
+                <div class="kartinka5"><img src="Qemu/windows.png" alt="Windows"></div><br>
+         <p>Для повышения производительности, включения буфера обмена, возможности перетаскивания, автоматического переключения разрешения и т.д., устанавливаем на <b class="p3">Windows</b> <a class="special-link9 a link1" href="https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe">spice-guest-tools</a>.<br>
+            Добавляем виртуальную память:<br>
+            В проводнике правой кнопкой мыши щёлкаем "Этот компьютер".<br>
+            Выбираем: "Свойства" > "Дополнительные параметры системы" > пункт "Быстродействие" > нажимаем "Параметры..." > "Дополнительно" > пункт "Виртуальная память" > нажимаем "Изменить..." > ставим галочку "Указать размер:" > устанавливаем "Исходный размер (МБ):" и "Максимальный размер (МБ):" > щёлкаем "Задать" и "<b class="p3">OK</b>"; "<b class="p3">OK</b>"; "<b class="p3">OK</b>"<br>
+            Перезагружаемся.<br>
+            Выход из полноэкранного режмиа осуществляется нажатием клавиш <strong class="strong">Shift_l + F12</strong> или <strong class="strong">Shift_Ctrl + F12</strong>.<br>
+            Выходим из спящего режима щелчком правой кнопкой мышки по экрану <strong class="strong">Qemu</strong>.
+         </p>
+         <h2 id="q2" class="music1"><a class="send-link special-link10 a" href="https://wiki.gentoo.org/wiki/QEMU/Linux_guest">Установка <strong class="strong">Gentoo</strong> на виртуальную машину <strong class="strong">QEMU</strong>
+          <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+          </span></a>
+         </h2>
+          <p class="macos">"Я действительно не хочу уничтожать Microsoft - это будет побочный эффект"<br>Линус Торвальдс</p>
+          <p class="music1">Загружаем на основной компьютер установочный диск 
+            <a class="special-link11 a link1" href="https://www.gentoo.org/downloads/mirrors/">install-amd64-minimal-xxxx.iso.</a><br>
+            Создаём виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> qemu-img create -f qcow2 Gentoo.img 20G</strong><br><br>
+            Устанавливаем <strong class="strong">./install-amd64-minimal-xxxx.iso</strong> на созданный, виртуальный жёсткий диск:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> /usr/bin/qemu-system-x86_64 -enable-kvm -m 2048 -smp 4,cores=2 -usb -device usb-kbd -device usb-tablet -hda ./Gentoo.img -boot d -cdrom ./install-amd64-minimal-xxxx.iso -name "Gentoo"</strong><br><br>
+            Для загрузки с <strong class="strong">CD-DVD</strong> диска, необходимо заменить <strong class="strong">iso</strong> образ на флаг "<strong class="strong">-cdrom /dev/cdrom</strong>"<br>
+            Устанавливаем "<a class="special-link12 a link1" href="Gentoo.html#sg1">Gentoo!</a>".<br>
+            Добавляем исходные коды ядра:<br><br>
+            <strong class="p11 blue">Processor type and features ---><br>
+            <strong class="p11">[*] Linux guest support ---></strong><br>
+            <strong class="p11">[*] Enable Paravirtualization code</strong><br>
+            <strong class="p11">[*] KVM Guest support (including kvmclock)</strong><br>
+            <strong class="p11">Device Drivers ---></strong><br>
+            <strong class="p11">Virtio drivers ---></strong><br>
+            <strong class="p11">&lt;*>   PCI driver for virtio devices</strong><br>
+            <strong class="p11">[*] Block devices ---></strong><br>
+            <strong class="p11">&lt;*> Virtio block driver</strong><br>
+            <strong class="p11">[*] Network device support ---></strong><br>
+            <strong class="p11">&lt;*> Virtio network driver</strong><br>
+            <strong class="p11">SCSI device support ---></strong><br>
+            <strong class="p11">[*] SCSI low-level drivers ---></strong><br>
+            <strong class="p11">[*] virtio-scsi support</strong></strong><br><br>
+            Для запуска <strong class="strong">Gentoo</strong> с жёсткого, виртуального диска создаём скрипт:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> cat > ./Запуск_Qemu.sh &lt;&lt; "EOF"</strong><br>
+            <strong class="p11 blue">#!/bin/sh</strong><br>
+            <strong class="p11 blue">/usr/bin/qemu-system-x86_64 --enable-kvm -m 2048 -soundhw hda -smp 4,cores=2 \</strong><br>
+            <strong class="p11 blue">-usb -device usb-kbd -device usb-tablet \</strong><br>
+            <strong class="p11 blue">-boot c ./Gentoo.img -name "Gentoo" \</strong><br>
+            <strong class="p11 blue">EOF</strong><br><br>
+            Делаем его исполняемым:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sudo chmod +x ./Запуск_Qemu.sh</strong><br><br>
+            Запускаем <strong class="strong">Gentoo</strong>:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sh ./Запуск_Qemu.sh</strong>
+         </p>
+         <h2 id="q3" class="music1"><a class="send-link special-link13 a" href="https://wiki.qemu.org/Hosts/Mac">Установка <strong class="gradient">macOS</strong> на виртуальную машину <strong class="strong">QEMU</strong>
+           <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h2>
+         <p class="macos">"Microsoft потратили много миллионов долларов на разработки и развитие собственных продуктов, но все они отчего-то выглядят как копии продуктов Apple. Когда я хочу поднять себе настроение, то сразу вспоминаю этот факт."<br>Стив Джобс</p>
+         <div class="kartinka3 macos">
+               <span class="kartinka5"><img class="macos1 SteveJobs" src="Qemu/SteveJobs.jpg" alt="OS X"></span>
+               <p class="macos1 macos">"Вы не можете просто спросить клиентов о том что им нужно, ведь к тому моменту пока вы это сделаете - они будут хотеть что-то новое..."<br>Стив Джобс</p>
+               <div class="kartinka5 apple"><img class="MacOS" src="Qemu/Apple.png" alt="OS X"><span class="apple1"><img class="MacOS" src="Qemu/apple.png" alt="OS X">
+               <p class="MacOSp macos">"Пикассо говорил: 'Хорошие художники копируют, великие - воруют'. И мы никогда не стеснялись воровать великие идеи."<br>Стив Джобс</p></span></div>
+         </div><br>
+         <p>Прежде, чем принять решение об установке <strong class="strong">macOS</strong>, внимательно ознакомьтесь с:<br>
+         "<a class="special-link14 a link1" href="https://www.apple.com/legal/sla/docs/macOS1013.pdf">SOFTWARE LICENSE AGREEMENT FOR macOS High Sierra For use on Apple-branded Systems</a>".<br> 
+            Загружаем установщик <strong class="strong">OS X</strong> в папку <strong class="strong">~/QEMU</strong>.<br>
+            Система должна содержать следующие компоненты:<br>
+            <strong class="strong">libffi<br>
+            gettext<br>
+            glib<br>
+            pkg-config<br>
+            autoconf<br>
+            automake<br>
+            pixman</strong><br>
+            Проверяем, если их нет, устанавливаем.<br>
+            Загружаем <a class="special-link15 a link1" href="https://github.com/kholia/OSX-KVM/blob/master/enoch_rev2902_boot">enoch_rev2902_boot BIOS</a> в папку <strong class="strong">~/QEMU</strong>.<br>
+            Создаём виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> qemu-img create -f qcow2 macOS.img 64G</strong><br><br>
+            Создаём раздел <strong class="strong">GPT</strong> на диске «<strong class="strong">macOS.img</strong>»:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> cfdisk macOS.img</strong><br><br>
+            Создаём скрипт для запуска <strong class="strong">macOS.sh</strong>:<br><br>
+            <strong class="p11 blue">#!/bin/sh<br>
+            <strong class="p11">/usr/bin/qemu-system-x86_64 -enable-kvm -boot c -m 4096 -machine pc-q35-2.11 \<br> 
+	        <strong class="p11">-usb -device usb-kbd -device usb-tablet \<br>
+	        <strong class="p11">-device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" \<br>
+	        <strong class="p11">-kernel enoch_rev2902_boot \<br>
+	        <strong class="p11">-smbios type=2 \<br>
+	        <strong class="p11">-device ich9-intel-hda \<br>
+	        <strong class="p11">-device hda-duplex \<br>
+	        <strong class="p11">-device ide-drive,bus=ide.2,drive=MacHDD \<br>
+	        <strong class="p11">-drive format=qcow2,id=MacHDD,if=none,file=macOS.img \<br>
+	        <strong class="p11">-cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on -smp 4,cores=2 \<br>
+	        <strong class="p11">-netdev user,id=eno1 -device e1000-82545em,netdev=eno1,id=vnet0 \<br>
+	        <strong class="p11">-device ide-drive,bus=ide.0,drive=MacDVD \<br>
+	        <strong class="p11">-drive id=MacDVD,if=none,snapshot=on,file=macOS.iso -monitor stdio</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>  
+            Делаем его исполняемым:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sudo chmod +x macOS.sh</strong><br><br> 
+            Устанавливаем "<strong class="strong">macOS</strong>" c <strong class="strong">iso</strong> образа на созданный виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 blue"><strong class="strong">~/QEMU $</strong> sh macOS.sh</strong>
+         </p>
+            <div class="kartinka5"><img src="Qemu/MacOS1.png" alt="enoch_rev2902_boot"></div><br>
+         <p>нажимаем <strong class="strong">Enter</strong>.</p><br>   
+            <div class="kartinka5"><img src="Qemu/MacOS2.png" alt="enoch_rev2902_boot"></div><br>
+         <p>Выбираем язык.<br>
+            Перед установкой "<strong class="strong">macOS</strong>" заходим в терминал.<br><br></p> 
+            <div class="kartinka5"><img src="Qemu/MacOS3.png" alt="OS X"></div><br>
+         <p>Форматируем образ диска «<strong class="strong">macOS.img</strong>», чтобы он соответствовал типу <b class="gradient">Apple</b>.<br>
+            Определяем наш виртуальный, жёсткий диск и разбиваем его, на разделы:<br><br>
+            <strong class="p11 blue">diskutil list<br>
+            <strong class="p11">diskutil partitionDisk /dev/disk2 GPT HFS+J New 0b</strong></strong><br><br>
+         </p>
+         <div class="macos">
+               <span class="kartinka5"><img class="macos1" src="Qemu/MacOS4-1.png" alt="MacOS"></span>
+               <div class="kartinka5"><img class="MacOS" src="Qemu/MacOS4.png" alt="MacOS"></div>
+         </div><br>
+         <p>Закрываем терминал и выбираем опцию «Установка <strong class="strong">macOS</strong>».<br><br></p>
+            <div class="kartinka5"><img src="Qemu/MacOS5.png" alt=""></div><br>
+         <p>Следуем инструкциям.<br>
+            Выбираем установочный диск, помеченный как «<strong class="strong">New</strong>».<br><br></p>
+            <div class="kartinka5"><img src="Qemu/MacOS6.png" alt=""></div><br>
+         <p>После завершения установки может появиться черный экран с предупреждением: "<strong class="strong">ParseTagDate unimplemented</strong>".<br>
+            Нажимаем <strong class="strong">F12</strong>, появится экран загрузки <strong class="strong">BIOS</strong>. Выбираем «Новый» диск «<strong class="strong">hd (1,2) () New</strong>», нажимаем <strong class="strong">Enter</strong> и завершаем установку <strong class="strong">macOS</strong>.<br>
+            Cнова появится экран <strong class="strong">BIOS</strong>. На этот раз он будет содержать установщик, установленный образ диска <strong class="strong">macOS</strong> и диск восстановления.<br><br>
+         </p>
+            <div class="kartinka5"><img src="Qemu/MacOS7.png" alt=""></div><br>
+         <p>Выбираем свой образ диска <strong class="strong">macOS</strong> «<strong class="strong">hd (1,2) (10.13) New</strong>», завершаем работу установщика.<br><br></p>
+             <div class="macos8"><img src="Qemu/MacOS8.png" alt=""><img class="pointerApple" src="Qemu/apple.gif" alt=""></div><br>
+         <p> Выключаем виртуальную машину.<br>
+            Убираем <strong class="strong">ISO</strong> образ из стартового скрипта <strong class="strong">macOS.sh</strong>, закоментировав или удалив <strong class="strong">-device</strong> и <strong class="strong">-drive</strong> в последних двух строках:<br><br>
+            <strong class="p11 blue">/usr/bin/qemu-system-x86_64 -enable-kvm -boot c -m 4096 -machine pc-q35-2.11 -usb -device usb-kbd -device usb-tablet -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" -kernel enoch_rev2902_boot -smbios type=2 -device ich9-intel-hda -device hda-duplex -device ide-drive,bus=ide.2,drive=MacHDD -drive format=qcow2,id=MacHDD,if=none,file=macOS.img -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on -smp 4,cores=2 -netdev user,id=eno1 -device e1000-82545em,netdev=eno1,id=vnet0 -monitor stdio</strong><br><br>
+            Это удалит установщика <strong class="strong">macOS</strong> из загрузочного <strong class="strong">BIOS</strong>.<br>
+            С каждым обновлением, машины <b class="gradient">Apple</b> становятся все более заблокированными и недружелюбными к конечному пользователю. Вероятность установки  <strong class="strong">OS X</strong> на другую машину становится всё меньше и меньше.<br>
+            <b class="orange">Рекомендуется</b>: "Прежде чем устанавливать какое-либо обновление, создать резервную копию данных виртуальной машины".
+         </p>
+         <h2 id="q4" class="music1"><a class="send-link special-link16 a" href="https://support.apple.com/ru-ru/HT201372">Создание загружаемого установщика для <b class="gradient">macOS</b>
+           <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h2>
+         <p>В качестве загрузочного диска для установки операционной системы на компьютер <strong class="strong">Mac</strong> можно использовать внешний диск или дополнительный том.<br>
+            Для загрузки установщика <strong class="strong">macOS High Sierra</strong>, набираем в браузере:<br><br>
+            <strong class="p11 blue">https://itunes.apple.com/us/app/macos-high-sierra/id1246284741?ls=1&mt=12&ign-mscache=1</strong><br><br>
+            Загружаем установщик, щелчком по <strong class="strong">GET</strong>.
+         </p><br>
+            <div class="kartinka5"><img src="Qemu/MacOS9.png" alt=""></div><br>
+         <p>Когда установщик <strong class="strong">macOS</strong> загрузится, закрываем его, не продолжая установку.<br>
+            Находим файл установщика с именем <strong class="strong">Install macOS High Sierra</strong>, в папке «Программы».<br>
+            Перезагружаемся.<br>
+            Открываем терминал.<br>
+            Создаём чистый образ диска:<br><br>
+            <strong class="p11 blue">hdiutil create -o /tmp/HighSierra.cdr -size 6500m -layout SPUD -fs HFS+J</strong> # <strong class="strong">hdiutil</strong> - это консольная утилита, работающая с образами дисков.<br><br>
+            Монтируем созданный образ:<br><br>
+            <strong class="p11 blue">hdiutil attach /tmp/HighSierra.cdr.dmg -noverify -mountpoint /Volumes/HighSierra</strong><br><br>
+            Предполагается, что установщик все еще находится в папке «Программы», а вместо <strong class="strong">HighSierra</strong> можно использовать <strong class="strong">New</strong> - диск, флеш-накопитель <strong class="strong">USB</strong> или другой подключенный том.<br>
+            Устанавливаем установщик на вновь смонтированный образ:<br><br>
+            <strong class="p11 blue">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/HighSierra</strong><br><br>   
+            <b class="gray">Если на компьютере <strong class="strong">Mac</strong> используется <strong class="strong">ОС macOS Sierra</strong> или более ранней версии, добавляем аргумент</b> <strong class="strong">--applicationpath /Applications/Install\ *.app</strong><br>
+            Копируем ядро:<br><br>
+            <strong class="p11 blue">cp -rp /System/Library/Kernels /Volumes/Install\ macOS\ High\ Sierra/System/Library/Kernels</strong><br><br>
+            Размонтируем образ:<br><br>
+            <strong class="p11 blue">hdiutil detach /Volumes/Install\ macOS\ High\ Sierra</strong><br><br>
+            Переносим образ на рабочий стол:<br><br>
+            <strong class="p11 blue">mv /tmp/HighSierra.cdr.dmg ~/Desktop/HighSierra.dmg</strong><br><br>
+            Конвертируем формат <strong class="strong">.dmg</strong> в формат <strong class="strong">.iso</strong>:<br><br>
+            <strong class="p11 blue">hdiutil convert ~/Desktop/HighSierra.dmg -format UDTO -o ~/Desktop/HighSierra.iso</strong><br><br>
+            Переименовываем файл, убрав <strong class="strong">.cdr</strong> с конца:<br><br>
+            <strong class="p11 blue">mv ~/Desktop/HighSierra.iso.cdr ~/Desktop/HighSierra.iso</strong>
+         </p>
+         <h2 id="q5" class="music1"><a class="send-link special-link17 a" href="https://source.android.com/">Установка <strong class="strong">Android</strong> на виртуальную машину <strong class="strong">QEMU</strong>
+           <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h2>
+         <p>Проект с открытым исходным кодом, лицензированный под <strong class="strong">Apache Public License 2.0</strong>. Некоторые компоненты лицензируются в соответствии с <strong class="strong">GNU General Public License (GPL) 2.0</strong> или более поздней.<br>
+            Загружаем любой необходимый образ (<strong class="strong">stable</strong>) <a class="special-link18 a link1" href="http://www.android-x86.org/">Android-x86</a>.<br>
+            Создаём виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 strong">~/QEMU $</strong> <strong class="blue">qemu-img create -f qcow2 Android.img 8G</strong><br><br>
+            Устанавливаем "<strong class="strong">Android</strong>" c загруженого <strong class="strong">iso</strong> образа на созданный виртуальный, жёсткий диск:<br><br>
+            <strong class="p11 strong">~/QEMU $</strong> <strong class="blue">/usr/bin/qemu-system-x86_64 -enable-kvm -m 2048 -smp 4,cores=2 -usb -device usb-kbd -device usb-tablet -hda ./Android.img -boot d -cdrom ./android-x86_64-8.1-r1.iso -name "Android"</strong><br><br>
+            Запускаем установку.
+         </p><br>
+            <div class="kartinka5"><img src="Qemu/Android.png" alt=""></div><br>
+         <p>Создаём партицию.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android1.png" alt=""></div><br>
+         <p id="qAndroid">Не используем <strong class="strong">GPT</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android2.png" alt=""></div><br>
+         <p>Создаём новый раздел на диске.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android3.png" alt=""></div><br>
+         <p>Делаем его первичным.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android4.png" alt=""></div><br>
+         <p>Подтверждаем созданный раздел.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android5.png" alt=""></div><br>
+         <p>Делаем раздел загрузочным.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android6.png" alt=""></div><br>
+         <p>Записываем данные на раздел.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android7.png" alt=""></div><br>
+         <p>Подтверждаем запись данных на раздел напечатав <strong class="strong">yes</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android8.png" alt=""></div><br>
+         <p>Для окончания работы с диском, выбираем <strong class="strong">Quit</strong> и выходим из создания раздела.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android9.png" alt=""></div><br>
+         <p>Выбираем только что созданный раздел для установки <strong class="strong">Android</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android10.png" alt=""></div><br>
+         <p>Выбираем  тип файловой системы <strong class="strong">Ext4</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android11.png" alt=""></div><br>
+         <p>Подтверждаем выбор файловой системы <strong class="strong">Ext4</strong>, стрелкой на клавиатуре переместившись в <strong class="strong">Yes</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android12.png" alt=""></div><br>
+         <p>Выбираем загрузчик <strong class="strong">Grub</strong>, стрелкой на клавиатуре переместившись в <strong class="strong">Yes</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android13.png" alt=""></div><br>
+         <p>Соглашаемся с созданием <strong class="strong">/system</strong> директории.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android14.png" alt=""></div><br>
+         <p>Перезагружаемся <strong class="strong">Reboot</strong>. Выключаем виртуальную машину.<br>
+            Убираем <strong class="strong">ISO</strong> образ из стартового скрипта, это удалит установщика <strong class="strong">Android</strong> из загрузочного <strong class="strong">BIOS</strong>.<br>
+            Запускаем <strong class="strong">Android</strong>:<br><br>
+            <strong class="p11 strong">~/QEMU $</strong> <strong class="blue">/usr/bin/qemu-system-x86_64 -enable-kvm -m 4096 -soundhw hda -smp 4,cores=2 -usb -device usb-kbd -device usb-tablet -boot d -hda ./Android.img -name "Android"</strong><br><br>
+            Выбираем язык и нажимаем "Начать".</p><br>
+            <div class="kartinka5"><img src="Qemu/Android15.png" alt=""></div><br>   
+         <p>Переходим к настройкам приложений <strong class="strong">Android</strong>.</p><br>
+            <div class="kartinka5"><img src="Qemu/Android16.png" alt=""></div><br>
+         <p>Подобным образом <strong class="strong">Android</strong> можно установить на жёсткий диск или флешку.<br>
+            Для этого загружаем <strong class="strong">iso</strong> образ на загрузочную флешку:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># dd if=./android-x86_64-8.1-r1.iso of=/dev/sdX</strong><br><br>
+            При разбивке диска выделяем раздел <strong class="strong">8G</strong> под установку <strong class="strong">Android</strong>.<br>
+            Устанавливаем с этой флешки.<br>
+            Запускаем <strong class="strong">Installation - Install Android-x86 to harddisk</strong>, появится окошко <strong class="strong">Choose Partition</strong> с разделами диска и флешками.<br>
+            В случае, если разделы диска или флешки не отобразились, выбираем <strong class="strong">Detect devices</strong> и нажимаем <strong class="strong">OK</strong>.<br>
+            Выбираем раздел диска, или флешку, на которые хотим установить <strong class="strong">Android</strong>, жмём <strong class="strong">OK</strong>.<br> 
+            <a class="special-link19 a link1" href="#qAndroid">Далее, что доктор прописал...</a>
+         </p>
+         <h2 id="q6" class="music1"><a class="send-link special-link20 a" href="https://linux.die.net/man/1/qemu-img">Программа <strong class="strong">qemu-img</strong>
+           <span class="icon-wrapper">
+             <span class="icon-1"></span><span class="icon-2"></span>
+           </span></a>
+         </h2>
+         <p><strong class="strong">qemu-img</strong> - программа для манипулирования с образами дисков машин <strong class="strong">QEMU</strong>.<br>
+            Поддерживает несколько подкоманд: <a class="special-link21 a link1" href="#qemu">create</a>, <strong class="strong">commit</strong>, <strong class="strong">convert</strong>, <strong class="strong">info</strong> и т.д.<br> 
+            Возможные форматы:<br>
+            <strong class="strong">VMware</strong> - <strong class="strong">vmdk</strong>, <strong class="strong">KVM</strong>, <strong class="strong">Xen</strong> - <strong class="strong">qcow2</strong>, <strong class="strong">Hyper-V</strong> - <strong class="strong">vpc</strong>, <strong class="strong">Hyper-V</strong> - <strong class="strong">vhdx</strong>, <strong class="strong">RAW</strong> - <strong class="strong">raw</strong>, <strong class="strong">VirtualBox</strong> - <strong class="strong">vdi</strong> и т.д.<br>
+            Для конвертации используем опцию <strong class="strong">convert</strong> с ключами указания исходного и конечного формата.
+            Ключи к <strong class="strong">convert</strong>:<br>
+            <strong class="strong">-p</strong> - отображает процесс конвертации в процентах.<br>
+            <strong class="strong">-f</strong> - указание исходного формата.<br>
+            <strong class="strong">-O</strong> - указания формата на выходе.<br>
+            <strong class="strong">-o</strong> - дополнительные опции.<br>
+            <strong class="strong">-o subformat=dynamic</strong> - используется для конвертации в <strong class="strong">vhdx</strong> для <strong class="strong">Hyper-V</strong>, указывается для получения на выходе динамического диска.<br>
+            К примеру конвертировать:<br><br>
+            <strong class="p11 strong">~/QEMU $</strong>  <strong class="blue">qemu-img convert -p -f vmdk -O qcow2 Gentoo.vmdk Gentoo.img</strong>
+         </p>
+         <h2 id="q7">Монтируем <strong class="strong">.img</strong> образ</h2>
+         <p>Командой <strong class="strong">fdisk</strong> определяем начальный сектор раздела:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># fdisk -l ~/Qemu/Android.img<br> 
+            Диск ~/Qemu/Android.img: 8 GiB, 8589934592 байт, 16777216 секторов<br>
+            Единицы: секторов по 1 * 512 = 512 байт<br>
+            Размер сектора (логический/физический): 512 байт / 512 байт<br>
+            Размер I/O (минимальный/оптимальный): 512 байт / 512 байт<br>
+            Тип метки диска: dos<br>
+            Идентификатор диска: 0x00000000</strong>
+         </p>
+         <ul class="fstab">
+            <li><p class="blue">Устр-во</p></li>                             
+            <li><p class="blue">~/Qemu/Android.img1</p></li>                                      
+         </ul>
+         <ul class="fstab"><li><p class="blue">Загрузочный</p></li></ul>
+         <ul class="fstab">
+            <li><p class="blue">начало</p></li>                              
+            <li><p class="blue">63</p></li>                                            
+         </ul>
+         <ul class="fstab">
+            <li><p class="blue">Конец</p></li>                             
+            <li><p class="blue">16771859</p></li>                                      
+         </ul>
+         <ul class="fstab">
+            <li><p class="blue">Секторы</p></li>                             
+            <li><p class="blue">16771797</p></li>                                      
+         </ul>
+         <ul class="fstab">
+            <li><p class="blue">Размер</p></li>                             
+            <li><p class="blue">8G</p></li>                                      
+         </ul>
+         <ul class="fstab">
+            <li><p class="blue">Идентификатор</p></li>                             
+            <li><p class="blue">83</p></li>                                      
+         </ul>
+         <ul class="fstab">
+            <li><p class="blue">Тип</p></li>                             
+            <li><p class="blue">Linux</p></li>                                      
+         </ul><br><br>
+         <p>Монтируем необходимый раздел:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># mount -o offset=$((63*512)) ~/Qemu/Android.img /media/</strong> # 63 начало монтируемого раздела<br><br>
+            Проверяем:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># ls /media/<br>
+            android-8.1-r1  grub  lost+found</strong>
+         </p><br>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="">
+				    		<h2 class="name gray">Сергей. Коровино.</h2>
+				    		<p class="Romantique white">Огромное спасибо за SPICE - попробую на досуге. Твой сайт помогает быть в курсе новинок. Спасибо!</p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">И Вам спасибо.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="animated fadeIn full-opacity"  alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/camera.png" class="animated fadeIn full-opacity"  alt="">
+				    		<h2 class="name">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Если проблему можно решить с помощью денег, то это не проблема. Это просто расходы." Генри Форд'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="аппаратная виртуализация"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Android"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="qemu linux"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="qemu windows"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="qemu linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="скачать spice"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="виртуализация"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="аппаратная виртуализация"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="spice"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="qemu linux"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="виртуализация"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                    <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                       <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="qemu linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

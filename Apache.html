@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Apache & MySql</title>
+     <meta name="description" content="Установка и использование Apache & MySql на Gentoo Linux.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="apache,mysql,виртуальные хосты,mod_security,массивы,таблицы,базы данных,.htaccess">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="apache.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">С деньгами не так хорошо, как без них плохо!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1"><span>Apache & MySql</span></a>
+            <ul class="dropdown-inside">
+              <li class="hvr-curl music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+              <li class="hvr-curl music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+            </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="базы данных"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Глухой не тот, кто не слышит, а тот, кто не хочет слышать."</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <label for="tab_1"><li class="p1 cursor"><a class="white aS">Apache, виртуальные хосты, включение mod_security</a></li></label>
+            <label for="tab_2"><li class="p1 cursor"><a class="white aS">.htaccess файл</a></li></label>
+            <label for="tab_3"><li class="p1 cursor"><a class="white aS">MySql</a></li></label>
+            <label for="tab_4"><li class="p1 cursor"><a class="white aS">продолжение...</a></li></label>
+            <label for="tab_5"><li class="p1 cursor"><a class="white aS">продолжение...</a></li></label>
+            <label for="tab_6"><li class="p1 cursor"><a class="white aS">Разделение данных на таблицы</a></li></label>
+            <li class="p1"><a class="blue aS" href="PHP.html">PHP</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!--
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+  <div id="contain" class="containApache"> 
+  <div class="sheet">
+  <input type="radio" name="tabs" id="tab_6"/>
+  <label for="tab_6">
+    <div class="content pP">
+     <h2>Разделение данных на таблицы</h2>
+    <p>Таблицы связей для отношения "один к одному".<br>
+    <strong class="p11 blue">CREATE TABLE e_mail<br> 
+    <strong class="p11">(e_mailID int(11) NOT NULL AUTO_INCREMENT,</strong></strong> # Модифмкатор <strong class="strong">NOT NOLL</strong> позволяет удостовериться, что у всех записей этой таблицы будет задано значение первичного ключа<br>
+       <strong class="p11 blue">Name VARCHAR(30) default NULL,<br>
+       <strong class="p11">PRIMARY KEY (e_mailID) );</strong><br>
+       <strong class="p11">INSERT INTO e_mail VALUES ( null, 'umanov@mail.ru');</strong></strong> # Первичный ключ не может иметь значение <strong class="strong">null</strong>. Но, так как его поле установлено в <strong class="strong">AUTO_INCREMENT</strong>, значение <strong class="strong">null</strong> автоматически замещается неиспользованным целым числом<br>
+       <strong class="p11 blue">CREATE TABLE Отзывы (<br>
+       <strong class="p11">reviewsID INT (11) NOT NULL AUTO_INCREMENT,</strong><br>
+       <strong class="p11">Name VARCHAR (15) default NULL,</strong><br>
+       <strong class="p11">City VARCHAR (15) default NULL,</strong><br>
+       <strong class="p11">e_mailID INT (11) default NULL,</strong><br>
+       <strong class="p11">Date DATE default NULL,</strong><br>
+       <strong class="p11">IP_адресанта VARCHAR (15) default NULL,</strong><br>
+       <strong class="p11">Отзывы VARCHAR (150) default NULL,</strong><br>
+       <strong class="p11">PRIMARY KEY (reviewsID),</strong><br>
+       <strong class="p11">FOREIGN KEY (e_mailID) REFERENCES e_mail (e_mailID));</strong><br>
+       <strong class="p11">INSERT INTO Отзывы VALUES ( null, 'Nikolay', 'Volgograd','1','', '', '' );</strong></strong><br><br>
+       Поле, представляющее первичный ключ другой тавлицы, называется внешним ключом.<br>
+       Первичный и внешний ключи осуществляют взаимосвязи между таблицами.<br>
+       Воссоединяются таблицы инструментом называемым внутренним обьединением.<br>
+       Сокращённый вариант:<br><br>
+       <strong class="p11 blue">SELECT Отзывы.name AS Отзывы, e_mail.name AS e_mail<br>
+       <strong class="p11">FROM Отзывы, e_mail</strong><br>
+       <strong class="p11">WHERE Отзывы.e_mailID = e_mail.e_mailID</strong><br>
+       <strong class="p11">ORDER BY Отзывы.name;</strong></strong><br><br>
+       Формальный синтаксис внутренних объединений:<br><br>
+       <strong class="p11 blue">SELECT Отзывы.name, e_mail.name<br>
+       <strong class="p11">FROM</strong><br>
+       <strong class="p11">Отзывы INNER JOIN e_mail</strong><br>
+       <strong class="p11">ON Отзывы.e_mailID = e_mail.e_mailID</strong><br>
+       <strong class="p11">ORDER BY Отзывы.name;</strong></strong><br><br>
+       Запрос <strong class="strong">SQL</strong> может получать данные более, чем из одной таблицы.<br>
+       Выражение <strong class="strong">SELECT</strong> определяет <strong class="strong">Отзывы.name</strong>, а не просто <strong class="strong">name</strong>. Это необходимо потому, что обе таблицы содержат поля, имеющие название <strong class="strong">name</strong>.<br>
+       Используется синтаксис "<strong class="strong">таблица.поле</strong>".<br> Для изменения названия столбца используется команда <strong class="strong">AS</strong>.<br>
+       Команда <strong class="strong">FROM</strong> указывает, что данные будут содержаться в двух таблицах.<br>
+       Оператор <strong class="strong">WHERE</strong> помогает определить взаимосвязи между двумя таблицами.<br>
+       Соединение без <strong class="strong">WHERE</strong>:<br><br>
+       <strong class="p11 blue">SELECT Отзывы.name AS 'Отзывы',<br>
+       <strong class="p11">Отзывы.e_mailID AS 'Отзывы opID',</strong><br>
+       <strong class="p11">e_mail.e_mailID AS 'op opID',</strong><br>
+       <strong class="p11">e_mail.name AS 'e_mail'</strong><br>
+       <strong class="p11">FROM Отзывы, e_mail</strong><br>
+       <strong class="p11">ORDER BY Отзывы.name;</strong></strong><br><br>
+       Если не использовать команду <strong class="strong">WHERE</strong>, возвращаются все возможные комбинации, она используется для ограничения отображаемых записей.<br><br>
+       <strong class="p11 blue">SELECT Отзывы.name AS 'Отзывы',<br>
+       <strong class="p11">e_mail.name AS 'e_mail'</strong><br>
+       <strong class="p11">FROM Отзывы, e_mail</strong><br>
+       <strong class="p11">WHERE Отзывы.e_mailID = e_mail.e_mailID</strong><br>
+       <strong class="p11">AND Отзывы.name LIKE 'N%';</strong></strong><br><br>
+       Вернёт имя и <strong class="strong">e_mail</strong> всех, чьё имя начинается с "<strong class="strong">N</strong>".<br>
+       Таблицы связей для отношения "многие ко многим".<br>
+       Сложные взаимосвязи между таблицами обрабатываются при помощи таблицы связей.<br><br>
+       <strong class="p11 blue">CREATE TABLE specialty (<br>
+       <strong class="p11">reviews_e_mailID INT PRIMARY KEY AUTO_INCREMENT,</strong><br>
+       <strong class="p11">reviewsID VARCHAR (11),</strong><br> 
+       <strong class="p11">e_mailID VARCHAR (11) );</strong><br>       
+       <strong class="p11">INSERT INTO specialty VALUES (null, 1, 1 );</strong></strong><br><br>
+       Она используется для управления взаимосвязями других таблиц и содержит только ссылки на внешние ключи.<br><br>
+       <strong class="p11 blue">SELECT reviews_e_mailID,<br>
+       <strong class="p11">Отзывы.name AS 'Отзывы',</strong><br>
+       <strong class="p11">e_mail.name AS 'e_mail'</strong><br>
+       <strong class="p11">FROM specialty,</strong><br>
+       <strong class="p11">Отзывы,</strong><br>
+       <strong class="p11">e_mail</strong><br>
+       <strong class="p11">WHERE Отзывы.reviewsID = specialty.reviewsID</strong><br>
+       <strong class="p11">AND e_mail.e_mailID = specialty.e_mailID;</strong></strong><br><br>
+       Этот запрос требует двух сравнений для объединения трёх таблиц.<br>
+       Каждый раз, когда добавляетсяновая новая взаимосвязь, добавляется новая запись в таблицу <strong class="strong">specialty</strong>.<br>
+       Запрос, использующий таблицы связей:<br><br>
+       <strong class="p11 blue">SELECT Отзывы.name<br>
+       <strong class="p11">FROM specialty,</strong><br>
+       <strong class="p11">Отзывы,</strong><br>
+       <strong class="p11">e_mail</strong><br>
+       <strong class="p11">WHERE Отзывы.reviewsID = specialty.reviewsID</strong><br>
+       <strong class="p11">AND e_mail.e_mailID = specialty.e_mailID</strong><br>
+       <strong class="p11">AND e_mail.name = 'umanov@mail.ru';</strong></strong><br><br>
+       Этот запрос получает данные из трёх разных таблиц. Результату необходимо получить имя, содержащееся в таблице <strong class="strong">Отзывы</strong>.<br>
+       Таблица <strong class="strong">specialty</strong> используется для связи с двумя оставшимися таблицами.<br>
+       Команда <strong class="strong">WHERE</strong> позволяет сделать объединения и убедиться что были объедены таблицы <strong class="strong">specialty</strong> и <strong class="strong">reviews</strong>.<br>
+       Последняя часть команды <strong class="strong">WHERE</strong> возвращает только те записи, которые имеют <strong class="strong">e_mail umanov@mail.ru</strong>.
+    </p>
+       <div class="kartinka5">
+          <label for="tab_5"><img class="steps cursorG1" src="Gentoo/steps.png" alt="php"></label>
+       </div>
+    </div>
+  </label>  
+  <input type="radio" name="tabs" id="tab_5"/>
+  <label for="tab_5">
+    <div class="content pP">
+    <p>Кроме этих <strong class="strong">MySql</strong> поддерживает множество других типов данных.<br>
+       Текстовые значения обычно хранятся в поле <strong class="strong">VARCHAR</strong>. Эти поля должны содержать столько символов, сколько было для них аллоцировано. Отличие <strong class="strong">CHAR</strong> от <strong class="strong">VARCHAR</strong> в том, что если текст содержит меньше, чем n символов, оставшееся место заполняется пробелами.<br>
+       <strong class="strong">VARCHAR</strong> удаляет всё ненужное пространство.<br>
+       Иногда полезно проверить структуру таблицы. Команда <strong class="strong">DESCRIBE</strong> позволяет это.<br>
+       После создания таблицы, можно добавлять в неё данные.<br>
+       Основным инструментом добавления записей в таблицу является команда <strong class="strong">INSERT</strong>:<br><br>
+       <strong class="p11 blue">INSERT INTO Отзывы VALUES ( 1, 'Nikolay', 'Volgograd', 'umanov@mail.ru', 'ГГГГ-ММ-ДД', '', '' );</strong><br><br>
+       Значения должны приводиться в том же порядке, в котором были определены поля.<br>
+       Если необходимо загрузить в базу данных большое количество данных, можно использовать команду <strong class="strong">LOAD DATA</strong>. Эта команда принимает текстовый файл, элементы которого разделены символами, например,  точкой с запятой <strong class="strong">;</strong>.<br><br> 
+       <strong class="p11 blue">LOAD DATA LOCAL INFILE "comments.txt" INTO TABLE Отзывы fields terminated by ";";</strong><br><br>
+       Посмотреть данные, находящиеся в таблице, можно командой <strong class="strong">SELECT</strong>:<br><br>
+       <strong class="p11 blue">SELECT * FROM Отзывы;</strong><br><br>
+       Можно создать скрипт, который создаст базу данных, содержащую текстовые данные:<br>
+       <strong class="p11 blue">CREATE DATABASE reviews;<br>
+       <strong class="p11">USE reviews;</strong><br>
+       <strong class="p11">DROP TABLE IF EXISTS Отзывы;</strong><br>
+       <strong class="p11">CREATE TABLE Отзывы (</strong><br>
+       <strong class="p11">reviewsID INT PRIMARY KEY  AUTO_INCREMENT,</strong><br>
+       <strong class="p11">Name VARCHAR (15),</strong><br>
+       <strong class="p11">City VARCHAR (15),</strong><br>
+       <strong class="p11">e_mail VARCHAR (30),</strong><br>
+       <strong class="p11">Date DATE,</strong><br>
+       <strong class="p11">IP_адресанта VARCHAR (15),</strong><br>
+       <strong class="p11">Отзывы VARCHAR (150) );</strong><br>
+       <strong class="p11">INSERT INTO Отзывы VALUES ( 0, 'Nikolay', 'Volgograd', 'umanov@mail.ru', '', '', '' );</strong><br>
+       <strong class="p11">SELECT * FROM Отзывы;</strong></strong><br><br>
+       Прежде чем создавать новую таблицу, необходимо проверить, существует ли она и если существует, то удалить с помощью команды <strong class="strong">DROP</strong>.<br>
+       Такие скрипты принято сохранять в файлах с расширением <strong class="strong">.sql</strong>.<br>
+       Для обозначения комментариев обычно используется знак <strong class="strong">#</strong>.<br>
+       Команду <strong class="strong">SOURCE</strong> можно использовать для загрузки и выполнения внешнего скрипта.<br>
+       База данных не только получает данные, но и фильтрует их.<br>
+       Команду <strong class="strong">SELECT</strong> можно использовать для получения части всех данных, в которых содержатся только необходимые поля и записи. Такой процесс задания вопросов базе данных называется запросом.<br>
+       Для выбора столбцов:<br><br>
+       <strong class="p11 blue">SELECT Name, City FROM Отзывы;</strong> # данный запрос возвращает столбцы <strong class="strong">Name</strong> и <strong class="strong">City</strong><br><br>
+       Для выбора строк:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы  WHERE City = 'Eurosteel';</strong> # данный запрос возвращает только строки, удовлетворяющие заданному условию<br><br>
+       Текстовые элементы заключаются в одинарные кавычки(<strong class="strong">'</strong>).<br>
+       Для использования одинарных кавычек, требуемых в некоторых запросах, необходимо перед ними поставить символ обратной черты <strong class="strong">\'</strong>.<br>
+       Условия в команде <strong class="strong">WHERE</strong> задаются математическими знаками: <strong class="strong">=</strong> используется для обозначения равенства, <strong class="strong">&lt;</strong>, <strong class="strong">></strong> и <strong class="strong">&lt;=</strong> или <strong class="strong">>=</strong> для ограничения поиска.<br><br>
+       Кроме того, операторы <strong class="strong">&lt;</strong> и <strong class="strong">></strong> предназначены для сортировки по алфавиту:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы  WHERE City &lt; 'V';</strong> # выберет все записи названия городов, которые начинаются с букв расположеных ранее по алфовиту, чем <strong class="strong">V</strong><br><br>
+       Команда <strong class="strong">LIKE</strong> позволяет находить частичные совпадения:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы  WHERE City LIKE 'M%'; #</strong> выберет все записи названия городов, которые начинаются с <strong class="strong">M</strong><br><br>
+       Знак "<strong class="strong">%</strong>" используется в качестве специального символа для обозначения любого количества символов. Для обозначения одного символа используется знак подчёркивания "<strong class="strong">_</strong>".<br>
+       Можно комбинировать условия с помощью ключевых слов <strong class="strong">AND</strong>, <strong class="strong">OR</strong> и <strong class="strong">NOT</strong>:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы  WHERE City LIKE 'E%' AND Name LIKE '_ub%';</strong> # выберет все записи названия городов, которые начинаются с <strong class="strong">E</strong> и именем с любой первой буквой продолжающимся <strong class="strong">ub</strong> и окончивающимся любым количеством символов<br><br>
+       Команда <strong class="strong">ORDER BY</strong> позволяет определить, как будут отсортированы данные:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы ORDER BY e_mail;</strong><br><br>
+       Команда <strong class="strong">DESC</strong> определяет, что данные будут отсортированы в порядке убывания:<br><br>
+       <strong class="p11 blue">SELECT *FROM Отзывы ORDER BY id DESC;</strong>
+       Для обновления данных  можно использовать команду <strong class="strong">UPDATE</strong>:<br><br>
+       <strong class="p11 blue">UPDATE Отзывы SET City = 'Eurosteel' WHERE Name = 'Nikolay';</strong> # изменит город в записях с именем <strong class="strong">Nikolay</strong><br><br>
+       Узнать, какие базы существуют в настоящее время на сервере, можно при помощи команды <strong class="strong">SHOW</strong>:<br><br>
+       <strong class="p11 blue">mysql> SHOW DATABASES;</strong><br><br>
+       Возможно, будут присутствовать базы <strong class="strong">mysql</strong> и <strong class="strong">test</strong>. В базе данных <strong class="strong">mysql</strong> описываются пользовательские права доступа. База <strong class="strong">test</strong> применяется для экспериментов.<br>
+       При создании базы данных она автоматически не выбирается; выбирать ее нужно отдельно. Сделать <strong class="strong">reviews</strong> текущей базой можно с помощью следующей команды:<br><br>
+       <strong class="p11 blue">mysql> USE reviews;<br>
+       <strong class="p11">Database changed</strong></strong><br><br>
+       Делать это можно из командной строки при запуске <strong class="strong">mysql</strong>. Для этого достаточно ввести ее имя после параметров соединения:<br><br>
+       <strong class="p11 blue">mysql -h host -u user -p reviews<br>
+       <strong class="p11">Enter password: ********</strong></strong><br><br>
+       Ввести пароль в командной строке после параметра <strong class="strong">-p</strong> нужно без пробела (например, <strong class="strong">-pmypassword</strong>, а не <strong class="strong">-p mypassword</strong>). Пароль в командной строке лучше не вводить, так как его могут и подсмотреть.<br> 
+       Определить, какая  база выбрана в данный момент, можно с помощью функции <strong class="strong">DATABASE()</strong>:<br><br>
+       <strong class="p11 blue">mysql> SELECT DATABASE();</strong><br><br>
+       Если ни одна из баз не выбрана, результат будет пуст.<br>
+       Какие таблицы содержит текущая база данных , можно при помощи команды:<br><br>
+       <strong class="p11 blue">mysql> SHOW TABLES;</strong><br><br>
+       Узнать структуру таблицы можно при помощи команды <strong class="strong">DESCRIBE</strong>, которая выводит информацию о каждом из столбцов таблицы, например <strong class="strong">logger</strong>:<br><br>
+       <strong class="p11 blue">mysql> DESCRIBE logger;</strong><br><br>
+       Перевести время хранимое БД в локальное, например 1540058178:<br><br>
+       <strong class="p11 blue">mysql> SELECT NOW(), FROM_UNIXTIME(1540058178);</strong><br><br>
+     </p>  
+     <table class="tab blue">
+       <tr><th style="border:1px ridge;padding:5px;"> NOW() </th><th style="border:1px ridge;padding:5px;"> FROM_UNIXTIME(1540058178) </th></tr>
+       <tr><th style="border:1px ridge;padding:5px;"> 2018-10-20 21:00:58 </th><th style="border:1px ridge;padding:5px;"> 2018-10-20 20:56:18 </th></tr>
+     </table>
+      <div class="kartinka5">
+       <label for="tab_4"><img class="steps cursorG1" src="Gentoo/steps.png" alt="php"></label>
+       <label for="tab_6"><img class="steps cursorG" src="Gentoo/steps1.png" alt="php"></label>
+      </div>
+    </div>
+  </label>
+  <input type="radio" name="tabs" id="tab_4"/>
+  <label for="tab_4">
+    <div class="content pP">
+     <p>Выходим из клиента <strong class="strong">MySQL</strong>:<br><br>
+       <strong class="p11 blue">\q</strong><br><br>
+       Перезапускаем <strong class="strong">MySQL</strong> сервер:<br><br>
+       <strong class="p11 blue">/etc/init.d/mysql restart</strong><br>
+       <strong class="p11 darkgrey">systemctl restart mysqld.service</strong><br><br>
+       Пароль <strong class="strong">MySQL</strong> изменён.<br>
+       Создать пользователя <strong class="strong">MySQL</strong> и предоставить ему права доступа.<br>
+       Запускаем <strong class="strong">MySQL</strong>.<br>
+       Выполняем следующую команду:<br><br>
+       <strong class="p11 blue">CREATE USER 'non-root'@'localhost' IDENTIFIED BY '123';</strong><br><br>
+       В этой команде, ‘<strong class="strong">non-root</strong>’ – это имя, которое назначается новому пользователю. А ‘<strong class="strong">123</strong>’ – это его пароль.<br>
+       Чтобы назначить вновь созданному пользователю неограниченные права доступа к базе данных, выполняем следующую команду:<br><br>
+       <strong class="p11 blue">GRANT ALL PRIVILEGES ON * . * TO 'non-root'@'localhost';</strong><br><br>
+       Для вступления изменений в силу запускаем команду обновления:<br><br>
+       <strong class="p11 blue">FLUSH PRIVILEGES;</strong><br><br>
+       Пользователь получил те же права доступа в базе данных, что и пользователь <b class="p3">root</b>.<br>
+       Не очень разумно давать уровень доступа <b class="p3">root</b>-а не <b class="p3">root</b>-пользователю. Чаще всего, будет необходимо предоставлять разные уровни доступа для разных пользователей. <strong class="strong">MySQL</strong> позволяет сделать это, выполнив команду:<br><br>
+       <strong class="p11 blue">GRANT [тип прав] ON [имя базы данных].[имя таблицы] TO ‘non-root’@'localhost’;</strong><br><br>
+       Необходимо заменить значение ‘тип прав’ на тот вид прав доступа, который нужен пользователю. Также нужно указать базу данных и имена таблиц, доступ к которым предоставляется. ‘<strong class="strong">non-root</strong>’ – это имя пользователя, его можно заменить на нужное. В <strong class="strong">MySQL</strong> есть несколько типов прав доступа, некоторые из них описаны ниже:<br>
+       <strong class="strong">CREATE</strong> – Позволяет пользователям создавать базы данных/таблицы;<br>
+       <strong class="strong">SELECT</strong> – Позволяет пользователям делать выборку данных;<br>
+       <strong class="strong">INSERT</strong> – Позволяет пользователям добавлять новые записи в таблицы;<br>
+       <strong class="strong">UPDATE</strong> – Позволяет пользователям изменять существующие записи в таблицах;<br>
+       <strong class="strong">DELETE</strong> – Позволяет пользователям удалять записи из таблиц;<br>
+       <strong class="strong">DROP</strong> – Позволяет пользователям удалять записи в базе данных/таблицах.<br>
+       Чтобы назначить несколько видов прав доступа, разделяем их запятыми как в следующей команде:<br><br>
+       <strong class="p11 blue">GRANT CREATE, SELECT, UPDATE, DELETE ON * . * TO 'non-root'@'localhost';</strong><br><br>
+       Когда необходимо забрать у пользователя данные ранее права доступа выполняем следующую команду:<br><br>
+       <strong class="p11 blue">REVOKE [тип прав] ON [имя базы данных].[имя таблицы] FROM ‘non-root’@‘localhost’;</strong><br><br>
+       Например, чтобы отменить все привилегии у пользователя <strong class="strong">non-root</strong> нужно сделать:<br><br>
+       <strong class="p11 blue">REVOKE ALL PRIVILEGES ON *.* FROM 'non-root'@'localhost';</strong><br><br>
+       Проверяем существование пользователя:<br><br>
+       <strong class="p11 blue">SELECT User FROM mysql.user;</strong><br><br>
+       Удаляем существующего пользователя, выполнив команду:<br><br>
+       <strong class="p11 blue">DROP USER ‘non-root’@‘localhost’;</strong><br><br>
+       Для выполнения любой из этих команд необходимо иметь права доступа <b class="p3">root</b>. Также, обязательно выполняем <strong class="strong">FLUSH PRIVILEGES</strong> после любого изменения в правах доступа.<br>
+       Просмотреть логи <strong class="strong">MySql</strong> можно командой:<br><br>
+       <strong class="p11 blue">less /var/log/mysql/mysqld.err</strong><br><br> 
+       Существует несколько способов использования <strong class="strong">MySql</strong>, одноко типичная процедура работы состоит в следующим: соединение с сервером <strong class="strong">MySql</strong>, выбор базы данных и использования языка структурированных запросов (<strong class="strong">Structured Query Language</strong>) <strong class="strong">SQL</strong> для управления ею (создания таблиц, просмотра данных и т.д.)<br>
+       Создаём базу данных для отзывов посетителей сайта:<br><br>
+    </p>
+     <center>
+     <table class="blue">
+       <tr><th style="border:1px ridge;">id</th><th style="border:1px ridge;padding:5px;">Name</th><th style="border:1px ridge;padding:5px;">City</th><th style="border:1px ridge;padding:5px;">e_mail</th><th style="border:1px ridge;padding:5px;">Date</th><th style="border:1px ridge;padding:5px;">IP_адресанта</th><th style="border:1px ridge;padding:5px;">Отзывы</th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">1</th><th style="border:1px ridge;">Nikolay</th><th style="border:1px ridge;">Volgograd</th><th style="border:1px ridge;">umanov@mail.ru</th><th style="border:1px ridge;">ГГГГ-ММ-ДД</th><th style="border:1px ridge;"></th><th style="border:1px ridge;"></th></tr>
+       <tr><th style="border:1px ridge;padding:5px;">2</th><th style="border:1px ridge;">Sergey</th><th style="border:1px ridge;">Moscow</th><th style="border:1px ridge;">polkan@gmail.com</th><th style="border:1px ridge;">ГГГГ-ММ-ДД</th><th style="border:1px ridge;"></th><th style="border:1px ridge;"></tr>
+       <tr><th style="border:1px ridge;padding:5px;">3</th><th style="border:1px ridge;">Lubov</th><th style="border:1px ridge;">Eurosteel</th><th style="border:1px ridge;">kukareku@gmail.com</th><th style="border:1px ridge;">ГГГГ-ММ-ДД</th><th style="border:1px ridge;"></th><th style="border:1px ridge;"></th></tr>
+     </table>
+     </center><br>
+     <p>Отзывы представляют собой простую таблицу данных.<br>
+       Каждая строка таблицы называется записью. Записи описывают дискретные сущности. Список записей называется таблицей. Все записи таблицы содержат одинаковые элементы, называемые полями (или столбцами). У всех записей таблицы одинаковое определение полей, однако записи могут содержать различные значения в этих полях.<br> 
+       Из-за способа хранения таблиц базы данных в файле, компьютер должен точно знать, сколько места необходимо выделить для каждого поля, поэтому размер и тип каждого поля очень важен.<br>
+       В этой конкретной базе данных определено пять полей.<br>
+       Поле <strong class="strong">ID</strong> является целочисленным. Все остальные поля содержат строковые данные.<br>
+       Программ СУРБД используют специальный язык <strong class="strong">SQL</strong>.<br>
+       Язык <strong class="strong">SQL</strong> является стандартизированным языком, предназеаченным для создания базы данных, сохранения и получения информации из них.<br><br>
+       <strong class="p11 blue">CREATE DATABASE reviews;<br>
+       <strong class="p11">USE reviews;</strong><br>
+       <strong class="p11">CREATE TABLE Отзывы (</strong><br>
+       <strong class="p11">ID INT PRIMARY KEY,</strong><br>
+       <strong class="p11">Name VARCHAR (15),</strong><br>
+       <strong class="p11">City VARCHAR (15),</strong><br>
+       <strong class="p11">e_mail VARCHAR (30),</strong><br>
+       <strong class="p11">Date DATE,</strong><br>
+       <strong class="p11">IP_адресанта VARCHAR (15),</strong><br>
+       <strong class="p11">Отзывы VARCHAR (150) );</strong><br>
+       <strong class="p11">DESCRIBE Отзывы;</strong></strong><br><br>
+       Этод код является <strong class="strong">SQL</strong> скриптом и набором инструкций, которые выполняет компьютер. Когда этот код отсылается в программу, поддерживающую базы данных <strong class="strong">SQL</strong> (например <strong class="strong">MySql</strong>), он создаёт базу данных в таблице.<br>
+       Для начала необходимо создать базу данных <strong class="strong">CREATE DATABASE</strong>.<br>
+       Обычно бывает несколько проектов баз данных, функционирующих в одной и той же СУРБД.<br>
+       Активизируется база данных с помощью команды <strong class="strong">USE</strong>.<br>
+       Создаётся база данных с помощью команды <strong class="strong">CREATE</strong>.<br>
+       <strong class="strong">reviewsID INT PRIMARY KEY  AUTO_INCREMENT</strong>   большенство таблиц баз данных содержат поле похожее на это, которое хранит численное значение. Это специальное поле называется первичным ключом.<br>
+       Первичный ключ должен быть уникальным и соответствовать каждой записи.<br>
+       Названия первичных ключей начинаются с названия таблицы и заканчиваются на <strong class="strong">ID</strong>.<br>
+       Индификатор <strong class="strong">AUTO_INCREMENT</strong> является специальным инструментом, позволяющим <strong class="strong">MySql</strong> выбрать новое значение для этого поля, если это значение не задано.<br>
+       Чтобы создать таблицу, необходимо указать её название, а также название всех полей таблицы.
+       Для каждого поля необходимо указать тип данных, содержащийся в нём, и (по  крайней мере для текстовых данных) задать максимальное количество символов, содержащихся в поле.<br>
+       Для создания эффективной базы данных <strong class="strong">MySql</strong> должен точно знать, сколько байтов памяти выделять для каждого поля базы данных.<br>
+       Список основных типов данных:<br>
+       <strong class="strong">INT</strong> - стандартное целое число +/- 2 миллиарда (приблизительно);<br>
+       <strong class="strong">BIGINT</strong> - большое целое число +/- 9x10^18;<br>
+       <strong class="strong">FLOAT</strong> - десятичное вещественное число 38 цифр;<br>
+       <strong class="strong">DOUBLE</strong> - вещественное число с двойной точностью 308 цифр;<br>
+       <strong class="strong">CHAR (n)</strong> - текст, содержащий <strong class="strong">n</strong> символов. Если текст содержит меньше, чем <strong class="strong">n</strong> символов, оставшееся место добавляется пробелами;<br>
+       <strong class="strong">VARCHAR (n)</strong> - текст, содержащий <strong class="strong">n</strong> символов. Оставшееся место автоматически обрезается;<br>
+       <strong class="strong">DATE</strong> - дата в форме ГГГГ-ММ-ДД;<br>
+       <strong class="strong">TIME</strong> - время в формате ЧЧ:ММ:СС;<br>
+       <strong class="strong">YEAR</strong> - год в формате ГГГГ.<br>
+    </p>
+      <div class="kartinka5">
+          <label for="tab_3"><img class="steps cursorG1" src="Gentoo/steps.png" alt="php"></label>
+          <label for="tab_5"><img class="steps cursorG" src="Gentoo/steps1.png" alt="php"></label>
+       </div>
+    </div>
+  </label>
+  <input type="radio" name="tabs" id="tab_3"/>
+  <label for="tab_3">
+    <div class="content pP">
+    <p>С помощью <strong class="strong">.htaccess</strong> можно настраивать перенаправления ссылок на сайте. Например, следующая конструкция будет перенаправлять запросы с <strong class="strong">domain_name</strong> на <strong class="strong">www.domain_name</strong>:<br><br>
+       <strong class="p11 blue">RewriteEngine on<br>
+       <strong class="p11">RewriteCond %{HTTP_HOST} ^domain_name$<br>
+       <strong class="p11">RewriteRule ^(.*)$ http://www.domain_name/$1 [R=301]</strong></strong></strong><br><br>
+       Если добавить к ней строки:<br><br>
+       <strong class="p11 blue">RewriteCond %{HTTP_HOST} sub.domain_name$<br>
+       <strong class="p11">RewriteRule ^(.*)$ http://www.domain_name/$1 [NC,R=301,L]</strong></strong><br><br>
+       то при открытии <strong class="strong">sub.domain_name</strong> пользователь будет попадать на <strong class="strong">http://www.domain_name</strong>.<br>
+       Для перенаправления запросов с сайта <strong class="strong">http://domain_name</strong> на <strong class="strong">https://domain_name</strong> добавьте в <strong class="strong">.htaccess</strong> следующие строки:<br><br>
+       <strong class="p11 blue">RewriteEngine On<br>
+       <strong class="p11">RewriteCond %{HTTPS} !=on [NC]<br>
+       <strong class="p11">RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</strong></strong></strong><br><br>
+       Теперь запросы к <strong class="strong">domain_name</strong> будут идти по шифрованному протоколу <strong class="strong">HTTPS</strong>, при условии, что на сайте установлен сертификат <strong class="strong">SSL</strong>.<br> 
+       Для чтения <strong class="strong">PHP</strong> кода в <strong class="strong">html</strong> файле:<br><br>
+       <strong class="p11 blue">RemoveHandler .html .htm<br>
+       <strong class="p11">AddType application/x-httpd-php .php .htm .html<br>
+       <strong class="p11">AddLanguage ru .txt .css .js</strong></strong></strong><br><br>
+       Настройка <strong class="strong">Last-Modified</strong><br><br>
+       <strong class="p11 blue">RewriteRule .* - [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]<br>
+       <strong class="p11">RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]</strong></strong><br><br>
+       Защищаем <strong class="strong">.htaccess</strong> файл:<br><br>
+       <strong class="p11 blue">&lt;files .htaccess><br>
+       <strong class="p11">order allow,deny<br>
+       <strong class="p11">deny from all<br>
+       <strong class="p11">&lt;/files></strong></strong></strong></strong>
+    </p>
+    <h2><a class="special-link7 a link1" href="https://wiki.gentoo.org/wiki/MySQL/ru">MySql</a></h2>
+    <p><strong class="strong">MySql</strong> это популярный сервер баз данных.<br>
+       Устанавливаем <strong class="strong">MySql</strong><br><br>
+       <strong class="p11 blue">emerge --ask dev-db/mysql</strong><br><br>
+       После установки запускаем:<br><br>
+       <strong class="p11 blue">emerge --config =dev-db/mysql-X.X.XX<br>
+       <strong class="p11">Configuring pkg...</strong><br>
+       <strong class="p11">* Trying to get password for mysql 'root' user from 'mysql' section ...</strong><br>
+       <strong class="p11">* Trying to get password for mysql 'root' user from 'client' section ...</strong><br>
+       <strong class="p11">* Please provide a password for the mysql 'root' user now</strong><br>
+       <strong class="p11">* or through the /root/.my.cnf file.</strong><br>
+       <strong class="p11">* Avoid ["'\_%] characters in the password</strong></strong> # вводим пароль<br>
+       <strong class="p11 blue">><br>
+       <strong class="p11">* Retype the password</strong></strong> # повторно вводим пароль<br>
+       <strong class="p11 blue">><br>
+       <strong class="p11">* Creating the mysql database and setting proper permissions on it ...</strong></strong><br><br>
+       Если предыдущая команда не выполнится из-за того, что имя хоста установлено в <strong class="strong">localhost</strong>, изменяем его на другое имя, например <strong class="strong">gentoo</strong>.<br>
+       Обновляем файл:<br><br>
+       <strong class="p11 blue">vim /etc/conf.d/hostname<br>
+       <strong class="p11">hostname="gentoo"</strong></strong><br><br>
+       В файл <strong class="strong">hosts</strong> добавляем <strong class="strong">aliases</strong>:<br><br>
+       <strong class="p11 blue">vim /etc/hosts<br>
+       <strong class="p11">127.0.0.1 <strong class="p11">... ... gentoo</strong></strong><br>
+       <strong class="p11">::1 <strong class="p11">... ... gentoo</strong></strong></strong><br><br>
+       и перезапускаем:<br><br> 
+       <strong class="p11 blue">/etc/init.d/hostname restart</strong><br><br>
+       <strong class="gray">Для systemd запускаем команду:<br><br>
+       <strong class="p11 darkgrey">hostnamectl set-hostname gentoo</strong><br><br>
+       и перезагружаем компьютер.</strong><br>
+       Запускаем <strong class="strong">MySql</strong>:<br><br>
+       <strong class="p11 blue">/etc/init.d/mysql start</strong><br><br>
+       <strong class="gray">Для systemd:</strong><br><br>
+       <strong class="p11 darkgrey">systemctl start mysqld.service</strong><br><br>
+       Пароль <b class="p3">root</b> для <strong class="strong">MySql</strong> можно изменить  командой:<br><br>
+       <strong class="p11 blue">/usr/bin/mysqladmin -u root -h localhost password 'new-password'</strong><br><br>
+       Можно проверить, что пароль <b class="p3">root</b> был успешно настроен, попытавшись войти на <strong class="strong">MySql</strong> сервер:<br><br>
+       <strong class="p11 strong">gentoo ~ $</strong> <strong class="blue">mysql -u root -h localhost -p<br>
+       <strong class="p11">Enter password:</strong><br>
+       <strong class="p11">Welcome to the MySQL monitor...</strong><br>
+       <strong class="p11">mysql></strong></strong><br><br>
+       Параметр <strong class="strong">-u</strong> указывает пользователя, который будет выполнять вход. Параметр <strong class="strong">-h</strong> указывает хост. Обычно это будет <strong class="strong">localhost</strong>, если только не настраивается удаленный сервер. <strong class="strong">-p</strong> сообщает клиенту <strong class="strong">mysql</strong> что будет вводиться пароль для доступа к базе данных.<br> 
+       Приглашение <strong class="strong">mysql></strong> это то место, куда будут вводиться все команды.<br>
+       Если забыт пароль <b class="p3">root</b> для <strong class="strong">MySQL</strong>, его можно сбросить.<br>      
+       Останавливаем <strong class="strong">MySQL</strong>:<br><br>
+       <strong class="p11 blue">/etc/init.d/mysql stop</strong><br>
+       <strong class="p11 darkgrey">systemctl stор mysqld.service</strong><br><br>
+       Запускаем <strong class="strong">MySQL</strong> с особыми параметрами:<br><br>
+       <strong class="p11 blue">/usr/bin/mysqld_safe --skip-grant-tables --user=root &</strong><br><br>
+       Запускаем клиента <strong class="strong">MySQL</strong>:<br><br>
+       <strong class="p11 blue">mysql -u root</strong><br><br>
+       Выполняем запрос <strong class="strong">SQL</strong>:<br><br>
+       <strong class="p11 blue">mysql>UPDATE mysql.user SET Password=PASSWORD('newpassword') WHERE User='root';</strong><br><br>
+       <strong class="strong">newpassword</strong> новый пароль.<br>
+       Применяем изменения:<br><br>
+       <strong class="p11 blue">FLUSH PRIVILEGES;</strong>
+    </p>
+       <div class="kartinka5">
+          <label for="tab_2"><img class="steps cursorG1" src="Gentoo/steps.png" alt="php"></label>
+          <label for="tab_4"><img class="steps cursorG" src="Gentoo/steps1.png" alt="php"></label>
+       </div>
+    </div>
+  </label>
+  <input type="radio" name="tabs" id="tab_2"/>
+  <label for="tab_2">
+    <div class="content pP music1">
+    <h2><a class="special-link6 a link1" href="https://httpd.apache.org/docs/2.2/howto/htaccess.html">.htaccess файл</h2></a>
+     <p><strong class="strong">.htaccess</strong> — это дополнительный конфигурационный файл <strong class="strong">Apache</strong>, который позволяет настраивать работу веб-сервера для каждой отдельной директории, не влияя на  глобальные настройки <strong class="strong">Apache</strong>.<br>
+       В регулярном выражении можно использовать любые печатные символы и пробел, но часть символов имеет особое значение:<br>
+       Круглые скобки <strong class="strong">()</strong> используются для выделения групп символов.<br>
+       Символ <strong class="strong">^</strong> обозначает начало строки.<br>
+       Символ <strong class="strong">$</strong> обозначает конец строки.<br>
+       Символ <strong class="strong">.</strong> обозначает любой символ.
+       Символ <strong class="strong">|</strong> обозначает альтернативу. Например, выражения "<strong class="strong">A|B</strong>" и "<strong class="strong">(ABC|DEF)</strong>" означают "<strong class="strong">A или B</strong>" и "<strong class="strong">ABC или DEF</strong>" соответственно.<br>
+       Символ <strong class="strong">?</strong> ставится после символа (или группы символов), который может как присутствовать, так и отсутствовать. Например, выражению "<strong class="strong">jpe?g</strong>" подойдет и строка "<strong class="strong">jpg</strong>", и строка "<strong class="strong">jpeg</strong>". Пример выражения с группой символов: "<strong class="strong">super-(puper-)?site</strong>".<br>
+       Символ <strong class="strong">*</strong> ставится после символа (или группы символов), который может отсутствовать или присутствовать неограниченное число раз подряд. Например, выражению "<strong class="strong">jpe*g</strong>" подойдут строки "<strong class="strong">jpg</strong>", "<strong class="strong">jpeg</strong>" и "<strong class="strong">jpeeeeeeg</strong>".<br>
+       Символ <strong class="strong">+</strong> действует аналогично символу <strong class="strong">*</strong> с той лишь разницей, что предшествующий ему символ обязательно должен присутствовать хотя бы один раз. Например, выражению "<strong class="strong">jpe+g</strong>" подойдут строки "<strong class="strong">jpeg</strong>" и "<strong class="strong">jpeeeeg</strong>", но не "<strong class="strong">jpg</strong>".<br>
+       Квадратные скобки <strong class="strong">[ ]</strong> используются для перечисления допустимых символов. Например, выражение "<strong class="strong">[abc]</strong>" равносильно выражению "<strong class="strong">a|b|c</strong>", но вариант с квадратными скобками обычно является более оптимальным по быстродействию. Внутри скобок можно использовать диапазоны: например, выражение "<strong class="strong">[0-9]</strong>" равносильно выражению "<strong class="strong">[0123456789]</strong>". Если символы внутри квадратных скобок начинаются с символа<strong class="strong"> ^</strong>, это означает любой символ, кроме перечисленных в скобках. Например, выражение "<strong class="strong">[^0-9]+</strong>" означает строку из любых символов, кроме цифр.<br>
+       Символ <strong class="strong">\</strong> ставится перед спецсимволами, если они нужны в своём первозданном виде. Например, выражению "<strong class="strong">jpe\+g</strong>" соответствует только одна строка "<strong class="strong">jpe+g</strong>".<br>
+       <strong class="strong">{3,9}</strong> - фигурные скобки означают диапозон количества символов, в данном случае допускается от 3 до 9 символов, длина строки из символов должна быть равна или более 3 равна или менее 9 символов. Применяется в основном в модуле преобразований - синтаксис регулярных выражений преобразований, значение флагов.<br> 
+       Пример, проверяем строку <strong class="strong">HTTP</strong> запроса отправленную браузером серверу на предмет совпадения ее содержания определённому шаблону:<br>
+       <strong class="strong">RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/</strong><br>
+       предположим что мы запросили индексную страницу на сервере <strong class="strong">%{THE_REQUEST} = «GET /index.html HTTP/1.1»</strong><br>
+       в таком случае мы читаем исходную строку содержащую фигурные скобки так "<strong class="strong">начало_полученных_данныхGETпробел/index.phpпробелHTTP/"</strong><br>
+       т.е. может быть "<strong class="strong">GET</strong>", а может быть "<strong class="strong">POST</strong>" могут быть и другие значения... просто символы, в зависимости от того чем и как мы запросим файл <strong class="strong">index.php</strong> на сервере.<br>
+       Все, что расположено после символа '<strong class="strong">#</strong>', считается комментарием.<br>
+       Флаг и их описание:<br>
+       <strong class="strong">[C] Chain</strong> — объединяет несколько правил в цепочку. Если первое правило цепочки не срабатывает, то вся цепочка игнорируется.<br>
+       <strong class="strong">[F] Forbidden</strong> — возвращает ошибку <strong class="strong">403 Forbidden</strong> (запрещено).<br>
+       <strong class="strong">[G] Gone</strong> — возвращает ошибку <strong class="strong">410 Gone</strong> (удалён).<br>
+       <strong class="strong">[L] Last</strong> — останавливает процесс преобразования, и текущая ссылка считается окончательной.<br>
+       <strong class="strong">[N] Next</strong> — запускает процесс преобразования с первого по порядку правила.<br>
+       <strong class="strong">[NS] NoSubreq</strong> — разрешает срабатывание правила только для настоящих запросов, игнорируя подзапросы.<br>
+       <strong class="strong">[NC] NoCase</strong> — отключает проверку регистра символов.<br>
+       <strong class="strong">[P] Proxy</strong> — даёт команду <strong class="strong">Apache</strong> выполнить подзапрос к указанной странице с использованием программного модуля mod_proxy, при этом пользователь ничего не узнает об этом подзапросе. Если модуль <strong class="strong">mod_proxy</strong> отсутствует, то произойдет ошибка.<br>
+       <strong class="strong">[PT] PassThrough</strong> — останавливает процесс преобразования и передаёт полученную новую ссылку дальше по цепочке.<br>
+       <strong class="strong">[QSA] Qsappend</strong> — добавляет исходные параметры запроса (<strong class="strong">Query String</strong>) к замене. Если замена не включает в себя новые параметры запроса, то исходные параметры запроса добавляются автоматически. Если же включает, то без флага <strong class="strong">QSA</strong> исходные параметры запроса будут утеряны.<br>
+       <strong class="strong">[R] Redirect</strong> — останавливает процесс преобразования и возвращает результат браузеру клиента как редирект на новую страницу. По умолчанию передаётся <strong class="strong">HTTP-код 302 Moved Temporarily</strong> (перемещенно временно), но его можно изменить путём присвоения нового статуса через знак равенства <strong class="strong">[R=301]</strong>. В этом случае будет передан <strong class="strong">HTTP-код 301 Moved Permanently</strong> (перемещено навсегда).<br>
+       <strong class="strong">[S] Skip</strong> — пропускает следующее правило, если текущее правило сработало. Можно указать количество последующих игнорируемых правил <strong class="strong">[S=2]</strong>.<br>
+       Примеры использования файла <strong class="strong">.htaccess</strong>.<br>
+       Если при обращении к сайту в <strong class="strong">URL</strong> не указан файл, по умолчанию <strong class="strong">web</strong>-сервер будет возвращать индексный файл, например <strong class="strong">index.html</strong>. Данное поведение можно изменить директивой <strong class="strong">DirectoryIndex</strong>:<br><br>
+       <strong class="p11 blue">DirectoryIndex 123.php3 /cgi-bin/index.pl</strong><br><br>
+       Теперь при обращении к каталогу будет открываться файл <strong class="strong">123.php3</strong> или <strong class="strong">cgi-bin/index.pl</strong>.<br>
+       При обращении к каталогу <strong class="strong">Apache</strong> попытается найти один из указанных файлов и показать посетителю его содержимое, а если сделать этого не получится, сервер выдаст пользователю список файлов в каталоге. Запретить выдачу листинга каталога можно директивой:<br><br>
+       <strong class="p11 blue">Options -Indexes</strong><br><br>
+       При каждом обращении к <strong class="strong">web</strong>-серверу он возвращает код состояния из трёх цифр, в зависимости от результата выполнения запроса. Например, код <strong class="strong">404</strong>, сообщает, что сервер не нашёл запрошенный ресурс, код <strong class="strong">500</strong> означает внутреннюю ошибку сервера и т.д. По умолчанию выдаётся стандартное сообщение сервера с кодом состояния, которое можно переопределить директивой <strong class="strong">ErrorDocument</strong>, указывающей серверу, какой файл выдать на соответствующий код состояния.<br><br>
+       <strong class="p11 blue">ErrorDocument 404 /missing.html</strong><br><br>
+       При возникновении ошибки <strong class="strong">404</strong> сервер вернёт файл <strong class="strong">missing.html</strong> вместо стандартного сообщение об ошибке. Это полезно с точки зрения выдачи пользователям более информативных сообщений при обработке определённых ситуаций: запроса несуществующего ресурса, требования авторизации <strong class="strong">web</strong>-сервером, ограничения доступа к странице, некорректных ссылок в запросе и т.д.<br>
+       Полный список кодов состояния доступен по ссылке: <a class="special-link5 a link1" href="HTTP.http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">Коды состояний</a>.<br> 
+       Если страница отображается в некорректной кодировке, её можно изменить в <strong class="strong">.htaccess</strong>. Для статических страниц (<strong class="strong">html</strong>) можно добавить строку:<br><br>
+       <strong class="p11 blue">AddCharset utf-8 .htm .html</strong><br>
+       где <strong class="strong">utf-8</strong> - нужная кодировка.<br>
+       Для <strong class="strong">PHP</strong>-скриптов можно добавить:<br>
+       <strong class="p11 blue">php_value default_charset "cp1251"</strong><br>
+       где <strong class="strong">cp1251</strong> - нужная кодировка.<br><br>
+       В самих <strong class="strong">PHP</strong>-скриптах можно добавить такую строку (в начале):<br><br>
+       <strong class="p11 blue">header("Content-Type: text/html; charset=utf-8");</strong><br><br>
+       Механизм <strong class="strong">.htaccess</strong> можно использовать для установки пароля на доступ к определенным страницам или разделам сайта. Делается это путём создания в нужном подкаталоге файла <strong class="strong">.htaccess</strong> следующего содержания:<br><br>
+       <strong class="p11 blue">AuthType Basic<br> 
+       <strong class="p11">AuthName "this is a test of protected realm"<br> 
+       <strong class="p11">AuthUserFile путь_к_файлу_паролей<br> 
+       <strong class="p11">require valid-user</strong></strong></strong></strong><br><br>
+       Теперь нужно создать файл с паролями, путь к которому указывается в качестве параметра к директиве <strong class="strong">AuthUserFile</strong>, если он ещё не создан. Файл паролей создаётся утилитой <strong class="strong">htpasswd</strong> в <strong class="strong">Unix-shell</strong> на сервере хостинга:<br><br>
+       <strong class="p11 blue">htpasswd -c passwords test1<br>
+       <strong class="p11">New password:<br> 
+       <strong class="p11">Re-type new password:<br> 
+       <strong class="p11">Adding password for user test1</strong></strong></strong></strong><br><br>
+       Данная команда создаст файл паролей <strong class="strong">passwords</strong> с пользователем <strong class="strong">test1</strong>:<br><br>
+       <strong class="p11 blue">cat passwords<br> 
+       <strong class="p11">test1:$apr1$Nxjyt55B$FgzqcO.v1ggG7RyLkMDz3/</strong></strong><br><br>
+       Теперь для доступа к каталогу, где расположен файл <strong class="strong">.htaccess</strong>, нужно будет ввести логин <strong class="strong">test1</strong> и пароль для него.<br>
+       С помощью директив <strong class="strong">.htaccess</strong> можно запретить доступ к сайту с одного или нескольких <strong class="strong">IP</strong>-адресов:<br><br>
+       <strong class="p11 blue">Order Deny,Allow<br>
+       <strong class="p11">Deny from 195.1.1.1<br>
+       <strong class="p11">Allow from All</strong></strong></strong><br><br>
+       Данная конструкция запрещает доступ к сайту с <strong class="strong">IP</strong>-адреса <strong class="strong">195.1.1.1</strong>. Если вместо <strong class="strong">195.1.1.1</strong> написать <strong class="strong">195.1.1</strong>, то доступ будет запрещён для всей сети класса с <strong class="strong">195.1.1.0/24</strong>.<br>
+       В некоторых случаях при ограничении доступа бывает полезна директива <strong class="strong">Limit</strong>. Она определяет список методов, к которым применяется данное ограничение. Например, <strong class="strong">&lt;Limit GET></strong> означает, что данное ограничение доступа относится только к методу <strong class="strong">GET</strong>, но не влияет, например, на метод <strong class="strong">POST</strong>. Если в предыдущем примере написать:<br><br>
+       <strong class="p11 blue">&lt;Limit GET><br>
+       <strong class="p11">Order Allow,Deny<br>
+       <strong class="p11">Deny from 195.1.1.1<br>
+       <strong class="p11">Allow from All<br>
+       <strong class="p11">&lt;/Limit></strong></strong></strong></strong></strong>
+     </p>
+        <div class="kartinka5">
+          <label for="tab_1"><img class="steps cursorG1" src="Gentoo/steps.png" alt="виртуальные хосты"></label>
+          <label for="tab_3"><img class="steps cursorG" src="Gentoo/steps1.png" alt="виртуальные хосты"></label>
+        </div>    
+    </div>
+  </label>
+  <input type="radio" name="tabs" id="tab_1"/>
+  <label for="tab_1">
+    <div class="content pA music1 apache">
+    <h1 class="h1">Apache & MySql</h1>
+    <h2><a class="send-link special-link4 a" href="https://wiki.gentoo.org/wiki/Apache/ru">Apache<span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span></span></a>
+    </h2>
+    <p>В <strong class="strong">make.conf</strong> добавляем:<br><br>
+       <strong class="blue p11">Use="...apache2 php threads"</strong><br>
+       <strong class="blue p11">APACHE2_MODULES="cgid cgi"</strong><br><br>
+       Для использования <strong class="strong">event MPM</strong> (<strong class="strong">Multi-Processing Module</strong>) добавляем:<br><br> 
+       <strong class="blue p11">APACHE2_MPMS="event"</strong><br><br>
+       В <strong class="strong">package.use</strong> добавляем:<br><br>
+       <strong class="blue p11">>=www-servers/apache-2.4.27-r1 apache2_modules_dir apache2_modules_unixd apache2_modules_authn_core apache2_modules_authz_core apache2_modules_authz_host apache2_modules_mime apache2_modules_socache_shmcb</strong><br><br>
+       В ядре проверяем:<br><br>
+       <strong class="blue p11">CONFIG_SYSVIPC=y</strong><br><br>
+       Устанавливаем <strong class="strong">Apache</strong>:<br><br> 
+       <strong class="blue p11">emerge --ask www-servers/apache</strong><br><br>
+       Обновляем систему для поддержки <strong class="strong">Apache</strong> в других пакетах:<br><br>
+       <strong class="blue p11">emerge --ask --changed-use --deep @world</strong><br><br>
+       Запуск сервера <strong class="strong">Apache</strong>:<br><br>
+       <strong class="blue p11">/etc/init.d/apache2 start</strong><br><br>
+       Добавление <strong class="strong">Apache</strong> в уровень запуска по умолчанию:<br><br>
+       <strong class="blue p11">rc-update add apache2 default</strong><br><br>
+       Перезагрузка конфигурационных файлов <strong class="strong">Apache</strong>:<br><br>
+       <strong class="blue p11">/etc/init.d/apache2 reload</strong><br><br>
+       <strong class="gray">Для <strong class="strong">systemd</strong><br>
+       Запуск сервера <strong class="strong">Apache</strong>:<br><br>
+       <strong class="darkgrey p11">systemctl start apache2</strong><br><br>
+       Добавление <strong class="strong">Apache</strong> в уровень запуска по умолчанию:<br><br>
+       <strong class="darkgrey p11">systemctl enable apache2</strong></strong><br><br>
+       Проверяем все ли правильно установлено, зайдя браузером на <a class="special-link3 a link1" target="_blank" href="http://localhost/">localhost</a>. На странице должно появиться сообщение «<strong class="strong">It works!</strong>».<br>
+       Просмотреть логи <strong class="strong">Apache</strong> можно командой:<br><br>
+       <strong class="blue p11">less /var/log/apache2/error_log</strong><br><br>
+       Логи <strong class="strong">Apache</strong> могут очень быстро забить систему.
+       Для их очистки можно использовать программу <a class="special-link2 a link1" target="_blank" href="Полезные-советы.html#p11">logrotate</a>
+     </p>
+     <h2><a class="special-link1 a link1" href="https://httpd.apache.org/docs/2.0/ru/vhosts/">Виртуальные хосты</a></h2>
+     <p>Для каждого виртуального хоста необходимо иметь каталог <strong class="strong">DocumentRoot</strong>, который демон <strong class="strong">Apache</strong> сможет открыть и прочитать.<br>
+        Добавляем в файл конфигурации виртуального хоста <strong class="strong">/etc/apache2/vhosts.d/00_default_vhost.conf</strong>, который будет использовать данный <strong class="strong">DocumentRoot</strong> и имя сервера виртуального хоста:<br><br>
+        <strong class="blue">&lt;IfDefine DEFAULT_VHOST></strong><br>
+        <strong class="blue">&lt;VirtualHost *:80></strong><br>
+        <strong class="blue p11">ServerAdmin email@site.com</strong><br>
+        <strong class="blue p11">DocumentRoot /var/www/nikolay.interviewonline.ru</strong><br>
+        <strong class="blue p11">ServerName nikolay.interviewonline</strong><br>
+        <strong class="blue">&lt;IfModule mpm_peruser_module></strong><br>
+        <strong class="blue p11">ServerEnvironment apache apache</strong><br>
+        <strong class="blue">&lt;/IfModule></strong><br>
+        <strong class="blue">&lt;Directory "/var/www/nikolay.interviewonline.ru"></strong> # то же, что и у <strong class="strong">DocumentRoot</strong><br>
+        <strong class="blue p11">Options Indexes FollowSymLinks</strong><br>
+        <strong class="blue p11">AllowOverride All</strong><br>
+        <strong class="blue p11">Require all granted</strong><br>
+        <strong class="blue">&lt;/Directory></strong><br>
+        <strong class="blue">&lt;/VirtualHost></strong><br>
+        <strong class="blue">&lt;/IfDefine></strong><br><br>
+        Создаём каталог виртуального хоста:<br><br>
+        <strong class="blue p11">mkdir /var/www/nikolay.interviewonline.ru</strong>
+        Назначаем файлам виртуального хоста пользователя/группу <strong class="strong">apache</strong>:<br><br>
+        <strong class="blue p11">chown apache:apache /var/www/nikolay.interviewonline.ru/ -R</strong><br><br>
+        Добавляем запись для данного доменного имени в <strong class="strong">/etc/hosts</strong>:<br><br>
+        <strong class="blue p11">127.0.0.1 <strong class="p11">localhost</strong> <strong class="p11">nikolay.interviewonline</strong></strong><br><br>
+        После добавления новых хостов сервер нужно перезапустить, чтобы новые сайты стали активны:<br><br>
+        <strong class="blue p11">/etc/init.d/apache2 restart</strong><br><br>
+        <strong class="gray">Для systemd:</strong><br><br>
+        <strong class="darkgrey p11">systemctl restart apache2</strong><br><br>
+        Проверяем правильность настройки виртуального хоста, набрав в браузере<br> <a class="special-link a link1" target="_blank" href="https://www.linuxtosha.ru">nikolay.interviewonline</a>. Должна появиться страница сайта.
+    <h2>Включение <strong class="strong">mod_security</strong></h2>
+     <p>В <strong class="strong">/etc/portage/package.use</strong> добавляем:<br><br> 
+        <strong class="blue p11">>=www-servers/apache-2.4.27-r1 apache2_modules_unique_id</strong><br><br>
+        Установливаем <strong class="strong">www-apache/mod_security</strong>:<br><br>
+        <strong class="blue p11">emerge --ask www-apache/mod_security</strong><br><br>
+        Включаем модуль <strong class="strong">SECURITY</strong> в переменной <strong class="strong">APACHE2_OPTS</strong> файла <strong class="strong">/etc/conf.d/apache2</strong>:<br><br>
+        <strong class="blue p11">APACHE2_OPTS="... -D SECURITY"</strong><br><br>
+        Для настройки этого модуля редактируем <strong class="strong">/etc/apache2/modules.d/79_modsecurity.conf</strong> и <strong class="strong">/etc/apache2/modules.d/80_modsecurity-crs.conf</strong> файлы, а затем перезапускаем <strong class="strong">Apache</strong>.
+     </p>    
+        <div class="kartinka5">
+        <label for="tab_2"><img class="steps cursorG" src="Gentoo/steps1.png" alt="mod_security"></label>
+      </div>    
+    </div>
+   </label>
+  </div>
+  </div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="" width="100%" height="100%"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+         </div>
+         </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Undefined. Eurosteel.</h2>
+				    		<p class="text-testimonial Romantique white">Умные люди не тратят свою жизнь на изучение всякой  ерунды, они на то и умные что всю работу за них делают другие тоже считающие себя умными, умные платят им зарплату напечатанными бумажками, за которые можно приобрести еду и немного удовольствий.
+				    		</p>
+				    		<p class="text-testimonial gray">
+                            Николай: <b class="Romantique white">Не могу с Вами не согласиться. С нетерпением жду бумажек от умного человека.</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>      
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+       <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Тот, кто теряет деньги, теряет многое; тот, кто теряет здоровье, теряет намного больше; тот, кто теряет веру, теряет всё."'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="массивы"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img class="dropdown-top" src="Будка.gif" alt="ядро"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside hvr-curl">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 dropdown-top hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1"><span>Apache & MySql</span></a>
+            <ul class="dropdown-inside">
+              <li class="hvr-curl music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+              <li class="hvr-curl music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+            </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="ядро gentoo"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="ядро"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="ядро linux"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="код ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="обновление ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="исходные коды ядра"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="код ядра linux"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="ядро gentoo"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                    <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                   <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                  <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="ядро linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+         </div>
+         <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
+

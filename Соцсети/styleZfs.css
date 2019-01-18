@@ -1,0 +1,13 @@
+table.sh{display:inline-block;width:100%;height:360px;color:rgb(1,71,255);overflow:inherit;}
+/*Подъём картинки*/
+.img{padding:0 15px;}.ih-item.square.effect3{overflow:visible;}
+.ih-item.square.effect3 .img{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0);
+ -webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;transition:all 0.35s ease-in-out;}
+.ih-item.square.effect3 .info3{height:0;opacity:0;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;transition:all 0.35s ease-in-out;}
+.ih-item.square.effect3 .info3 h2{position:relative;bottom:55px;background:#9FE3FC;border:1px solid rgb(0,0,100);border-radius:5px;}
+.ih-item.square.effect3 a:hover .info3{visibility:visible;opacity:1;}
+.ih-item.square.effect3.bottom_to_top .info3{top:auto;-webkit-transform:translateY(100%);-moz-transform:translateY(100%);-ms-transform:translateY(100%);-o-transform:translateY(100%);transform:translateY(100%);}
+.ih-item.square.effect3.bottom_to_top a:hover .img{-webkit-transform:translateY(-53px);-moz-transform:translateY(-53px);-ms-transform:translateY(-53px);-o-transform:translateY(-53px);transform:translateY(-53px);}
+.ih-item.square.effect3.bottom_to_top a:hover .info3{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0);}
+/*Shadow*/
+.product{width:250px;height:210px;padding:15px;position:relative;margin:0 20px 0 0;}.product > img{display:block;position:relative;}.product:hover .product-hover,.product:active .product-hover{opacity:1;}.product-hover{position:absolute;top:-40px;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s ease;background-size:30px 30px;background-image:linear-gradient(45deg,rgba(78,194,255,0.5)25%,transparent 25%,transparent 50%,rgba(78,194,255,0.5)50%,rgba(78,194,255,0.5)75%,transparent 75%,transparent);animation:barberpole 0.5s linear infinite;}@keyframes barberpole{from{background-position:0 0;}to{background-position:60px 30px;}}

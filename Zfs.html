@@ -1,0 +1,1187 @@
+ <!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка zfs</title>
+     <meta name="description" content="Установка файловой системы zfs на операционную систему Gentoo Linux. Установка операционной системы Gentoo Linux на файловую систему zfs.   Утилита Smartmontools.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="создать пул,raid z,установка zfs,пул zfs,команды zfs,обновление пулов,создание raid z,smartmontools">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Соцсети/styleZfs.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">"Клиент не всегда прав." Энцо Феррари</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="создать пул"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>ZFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="smartmontools"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Только безумец верит, что может изменить мир, - и потому меняет его." Стива Джобса </p></div>
+    </header>
+     <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <li class="p1"><a class="white aS" href="#zfs1">Установка ZFS на Gentoo</a></li>
+            <li class="p1"><a class="white aS" href="#zfs2">Создаём пул raid z</a></li>
+            <li class="p1"><a class="white aS" href="#zfs3">Установка Gentoo на zfs</a></li>
+            <li class="p1"><a class="white aS" href="#zfs4">Команды zfs</a></li>
+            <li class="p1"><a class="white aS" href="#zfs5">Обновление пулов устройств хранения данных zfs</a></li>
+            <li class="p1"><a class="white aS" href="#zfs6">Замена диска</a></li>
+            <li class="p1"><a class="white aS" href="#zfs7">Smartmontools</a></li>
+            <img src="razz.png" alt="">
+          </ul>
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h1 id="zfs1" class="music1"><a class="send-link special-link a" href="http://wiki.gentoo.org/wiki/ZFS">Установка ZFS на Gentoo
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h1>
+        <div class="kartinka3 product">
+         <div class="product-hover"></div>
+         <div class="ih-item square effect3 bottom_to_top"><a href="https://docs.oracle.com/cd/E19253-01/820-0836/820-0836.pdf">
+         <div class="img"><img src="Соцсети/Zfs.png" alt="raid z"></div>
+         <div class="info3">
+         <h2>Руководство по<br> администрированию<br> файловых систем<br> <strong class="strong">ZFS Solaris</strong>!</h2>
+         </div></a></div>
+        </div>
+         <p>В ядре устанавливаем следующие параметры:<br><br>
+            <strong class="p11 blue">General Setup ---><br>
+            <strong class="p11">GCC plugins ---></strong><br>  
+            <strong class="p11">[ ] Randomize layout of sensitive kernel structures</strong><br> 
+            <strong class="p11">Cryptographic API ---></strong><br>
+            <strong class="p11">&lt;*> Deflate compression algorithm</strong><br>
+            <strong class="p11">Security options  ---></strong><br> 
+            <strong class="p11">[ ] Harden common str/mem functions against buffer overflows</strong></strong><br><br>
+            проверяем параметры:<br><br>
+            <strong class="p11 blue">vim /usr/src/linux/.config</strong><br><br>
+            <strong class="p11 gray">CONFIG_CRYPTO_DEFLATE=m</strong><br>
+            <strong class="p11 blue">CONFIG_ZLIB_DEFLATE=y</strong><br>
+            <strong class="p11 blue">CONFIG_ZLIB_INFLATE=y</strong><br><br>
+            Компелируем ядро:<br><br>
+            <strong class="p11 blue">make && make modules_install</strong><br>                                                                                                                        
+            <strong class="p11 blue">make install</strong><br>                                                                                                                     
+            <strong class="p11 blue">grub-mkconfig -o /boot/grub/grub.cfg</strong><br><br> 
+            Прописываем в <strong class="strong">/etc/portage/package.accept_keywords</strong>:<br><br>
+            <strong class="p11 blue">echo "sys-fs/zfs-kmod ~amd64" >> /etc/portage/package.accept_keywords</strong><br>
+            <strong class="p11 blue">echo "sys-fs/zfs ~amd64" >> /etc/portage/package.accept_keywords</strong><br> 
+            (опционально):<br> 
+            <strong class="p11 blue">echo "=sys-fs/zfs-kmod-9999 **" >> /etc/portage/package.accept_keywords</strong><br>
+            <strong class="p11 blue">echo "=sys-fs/zfs-9999 **" >> /etc/portage/package.accept_keywords</strong><br><br> 
+            Загружаем <strong class="strong">ZFS</strong>:<br><br>
+            <strong class="p11 blue">emerge -av sys-fs/zfs</strong><br><br>
+            Добавляем в уровень загрузки:<br><br> 
+            <strong class="p11 blue">rc-update add zfs-import boot</strong><br>
+            <strong class="p11 blue">rc-update add zfs-mount boot</strong><br>
+            <strong class="p11 blue">rc-update add zfs-share default</strong><br>
+            <strong class="p11 blue">rc-update add zfs-zed default</strong><br><br>
+            Для большинства настроек необходимы только первые два.<br> 
+            <strong class="strong">zfs-share</strong> предназначен для  использования общих ресурсов <strong class="strong">NFS</strong>.<br>
+            <strong class="strong">zfs-zed</strong> предназначен для <strong class="strong">ZFS Event Daemon</strong>, который обрабатывает замену диска через <strong class="strong">hotspares</strong> и уведомления о сбоях по электронной почте.<br>
+            Для этого раскомментируем раздел «<strong class="strong">ZED_EMAIL_ADDR=""</strong>» и заполняем свой адрес электронной почты в файле <strong class="strong">/etc/zfs/zed.d/zed.rc</strong><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:<br>
+            Демон <strong class="strong">zfs</strong> монтирует пулы, просматривая файл <strong class="strong">/etc/zfs/zpool.cache</strong>. Для каждого пула, который необходимо автоматически установить демоном <strong class="strong">zfs</strong>, выполняем:<br><br>
+            <strong class="p11 darkgrey">zpool set cachefile=/etc/zfs/zpool.cache ZFS-gentoo</strong><br><br>
+            Файл кеша можно отключить, установив <strong class="strong">cachefile = none</strong>. Это полезно для отказоустойчивых конфигураций, где пул всегда должен быть явно импортирован программным обеспечением для восстановления после сбоя.<br>
+            Включаем службы, чтобы они автоматически запускались во время загрузки:<br><br>
+            <strong class="p11 darkgrey">systemctl enable zfs.target</strong><br>
+            <strong class="p11 darkgrey">systemctl enable zfs-import-cache.service</strong><br>
+            <strong class="p11 darkgrey">systemctl enable zfs-mount.service</strong><br>
+            <strong class="p11 darkgrey">systemctl enable zfs-import.target</strong><br>
+            <strong class="p11 darkgrey">systemctl enable zfs-share.service</strong><br>
+            <strong class="p11 darkgrey">systemctl enable zfs-zed.service</strong></strong><br><br>
+            <strong class="strong">ZFS on Linux</strong> использует алгоритм замены страницы <strong class="strong">ARC</strong> вместо алгоритма замены страницы, использованного другими файловыми системами. Это  обеспечивает лучшую производительность. Реализация <strong class="strong">ARC</strong> в <strong class="strong">ZFS</strong> отличается от обычной тем, что объем памяти, используемой в качестве кэша, может варьироваться. Это позволяет памяти, используемой <strong class="strong">ARC</strong>, восстанавливаться, когда система находится под давлением памяти (через механизм сжатия ядра), и увеличиваться, когда у системы есть запасная память. Минимальный и максимальный объем памяти, выделенный для <strong class="strong">ARC</strong>, зависит от вашей системной памяти. Минимальный размер по умолчанию составляет 1/32 всей памяти или 64 МБ, в зависимости от того, что больше. Максимальное значение по умолчанию больше 1/2 системной памяти или 64 МБ.<br>
+            Способ, которым <strong class="strong">Linux</strong> учитывает память, используемую <strong class="strong">ARC</strong>, отличается от памяти, используемой кешем страниц. В частности, память, используемая <strong class="strong">ARC</strong>, включена в «<strong class="strong">used</strong>», а не «<strong class="strong">cached</strong>» в выводе, используемом программой «<strong class="strong">free</strong>». Это никоим образом не препятствует освобождению памяти, когда системе не хватает памяти. Однако может сложиться впечатление, что <strong class="strong">ARC</strong> (и соответственно <strong class="strong">ZFS</strong>) будет использовать всю системную память, если будет предоставлена ​​такая возможность.<br>
+            Минимальное и максимальное использование памяти <strong class="strong">ARC</strong> настраивается через <strong class="strong">zfs_arc_min</strong> и <strong class="strong">zfs_arc_max</strong> соответственно:<br><br>
+            <strong class="p11 blue">echo "options zfs zfs_arc_max=536870912" >> /etc/modprobe.d/zfs.conf</strong><br><br>
+            Второй способ находится в командной строке ядра, указав "<strong class="strong">zfs.zfs_arc_max = 536870912</strong>" (для 512 МБ).<br>
+            Аналогичным образом, можно сделать для настройки <strong class="strong">zfs_arc_min</strong>.
+         </p>
+         <h2 id="zfs2">Создаём пул <strong class="strong">raid z</strong></h2>
+         <p>из трёх дисков:<br><br>
+            <strong class="p11 blue">zpool create -f ZFS-gentoo raidz1 /dev/sdb /dev/sdc /dev/sdd</strong><br><br>
+            <strong class="strong">-f</strong> должно преодолеть «ошибку метки <strong class="strong">EFI</strong>».<br>
+            <strong class="strong">-m</strong> точка монтирования пула. Если не указано, то пул будет подключен к <strong class="strong">/&lt;pool></strong><br>
+            из четырёх дисков:<br><br>
+            <strong class="p11 blue">zpool create -f ZFS-gentoo raidz2 /dev/sdb /dev/sdc /dev/sdd /dev/sde</strong><br><br>
+            <strong class="strong">Advanced Format</strong> представляет собой новый формат диска, который изначально использует  размер сектора <strong class="strong">4096</strong> байт, а не <strong class="strong">512</strong> байт. Чтобы поддерживать совместимость с унаследованными системами <strong class="strong">ZFS</strong> автоматически определит размер сектора диска, но это может привести к плохо выровненному доступу к диску, что значительно ухудшит производительность пула.<br>
+            Свойство <strong class="strong">ashift</strong> было добавлено ​​в команду <strong class="strong">zpool</strong>. Оно позволяет явно назначать размер сектора, обычно при создании пула или добавлении <strong class="strong">vdev</strong> в пул. 
+            Значения варьируются от <strong class="strong">9</strong> до <strong class="strong">16</strong>.<br> 
+            Значение по умолчанию <strong class="strong">0</strong>, что означает, <strong class="strong">zfs</strong> должен автоматически определять размер сектора.<br> 
+            Это значение на самом деле является значением сдвига бит, поэтому значение <strong class="strong">512</strong> байтов равно <strong class="strong">9 (2 ^ 9 = 512)</strong>, тогда как значение для <strong class="strong">4096</strong> байт составляет <strong class="strong">12 (2 ^ 12 = 4096)</strong>.<br>
+            Для использования пулом <strong class="strong">4096</strong> байт секторов при создания пула, запускаем:<br><br>
+            <strong class="p11 blue">zpool create -o ashift=12 ZFS-gentoo mirror sdb sdc</strong><br><br>
+            Для использования пулом <strong class="strong">4096</strong> байт секторов при добавлении <strong class="strong">vdev</strong> в пул, запускаем:<br><br>
+            <strong class="p11 blue">zpool add -o ashift=12 ZFS-gentoo mirror sdd sde</strong><br><br>
+            Создаём набор данных в <strong class="strong">zpool</strong> (например <strong class="strong">home</strong>):<br><br>
+            <strong class="p11 blue">zfs create ZFS-gentoo/home</strong><br><br>
+            Функция горячих запасных частей позволяет идентифицировать диски, которые могут быть использованы для замены неисправного или неисправных устройств в одном или нескольких пулах хранилищ.<br> 
+            Назначение устройства в качестве горячего резерва означает, что устройство не является активным устройством в пуле, но если активное устройство в пуле не работает, горячий резерв автоматически заменяет неисправное устройство.<br> 
+            Устройства могут быть назначены в качестве «горячих» запасных частей следующими способами,<br> 
+            когда пул создается:<br><br>
+            <strong class="p11 blue">zpool create ZFS-gentoo mirror /div/sdb /div/sdc spare /div/sdd /div/sde</strong><br><br>
+            или добавлением их в пул после создания пула:<br><br>
+            <strong class="p11 blue">zpool add ZFS-gentoo spare /div/sdd /div/sde</strong><br><br>
+            Горячие запасные части можно удалить из пула хранения:<br><br>
+            <strong class="p11 blue">zpool remove ZFS-gentoo /div/sde</strong><br><br>
+            В настоящее время команда <strong class="strong">zpool remove</strong> поддерживает только удаление устройств горячего резерва и устройств кэширования.<br>
+            Горячий резерв нельзя удалить, если он в настоящее время используется пулом хранения.<br>
+            Если физически заменить неисправное устройство активным запасным устройством, можно повторно активировать оригинальное устройство, используя команду <strong class="strong">zpool detach</strong> для отсоединения запасного.
+         </p>
+         <h2 id="zfs3" class="music1">Установка <strong class="strong">Gentoo</strong> на <strong class="strong">zfs</strong></h2>
+         <p>Создаём загрузочную флешку:<br>
+            В <strong class="strong">linux</strong> с одного из зеркал сайта <a class="special-link1 a link1" href="https://wiki.gentoo.org/wiki/User:Fearedbliss">https://wiki.gentoo.org/wiki/User:Fearedbliss</a><br>
+            загружаем "<strong class="strong">System Rescue</strong>", который включает <strong class="strong">ZFS</strong>.<br>
+            Вставляем флешку и выполняем команды:<br><br>
+            <strong class="p11 blue">mkdir /tmp/iso</strong><br>
+            <strong class="p11 blue">mount -o loop,ro sysresccd-X.X.X_zfs_X.X.X.iso /tmp/iso</strong><br>
+            <strong class="p11 blue">/tmp/iso/usb_inst.sh</strong><br><br>
+            Откроется экран, на котором выбираем подключенный флеш-накопитель и запускаем.<br> 
+            Отмантируем и вынимаем флешку для использования.<br>
+            Загружаемся с созданой флешки.
+            </p>
+            <div class="p11"><table>
+            <tr><td class="darkblue">Разбиваем диск без поддержки <strong class="strong">efi</strong>:</td> <td class="gray">с поддержкой <strong class="strong">efi</strong>:</td></tr>
+            <tr><td class="p11 blue paddingtop">parted -a optimal /dev/sda</td> <td>parted -a optimal /dev/sda</td></tr>
+            <tr><td class="p11 blue">(parted) mklabel gpt</td> <td>(parted) mklabel gpt</td></tr>
+            <tr><td class="p11 blue">(parted) unit kb</td> <td>(parted) unit kb</td></tr>
+            <tr><td class="p11 blue">(parted) mkpart primary 1024 3072</td> <td>(parted) mkpart primary 1024 3072</td></tr>
+            <tr><td class="p11 blue">(parted) name 1 grub</td> <td>(parted) name 1 grub</td></tr>
+            <tr><td class="p11 blue">(parted) set 1 bios_grub on</td> <td>(parted) set 1 bios_grub on</td></tr>
+            <tr><td class="p11 blue">(parted) mkpart primary 3072 134144</td> <td>(parted) mkpart primary 3072 134144</td></tr>
+            <tr><td class="p11 blue">(parted) name 2 boot</td> <td>(parted) name 2 esp</td></tr>
+            <tr><td class="p11 blue">(parted) set 2 boot on</td> <td>(parted) set 2 boot on</td></tr>
+            <tr><td class="p11 blue">(parted) mkpart primary 134144 -1</td> <td>(parted) mkpart primary 134144 265216</td></tr>
+            <tr><td class="p11 blue">(parted) name 3 rootfs</td> <td>(parted) name 3 boot</td></tr>
+            <tr><td></td> <td>(parted) mkpart primary 265216 -1</td></tr>
+            <tr><td></td> <td>(parted) name 4 rootfs</td></tr>
+            <tr><td class="p11 blue">(parted) print</td> <td>(parted) print</td></tr>
+            <tr><td class="p11 blue">(parted) q</td> <td>(parted) q</td></tr>
+            <tr><td class="p11 paddingtop"></td> <td>mkfs.fat -F32 /dev/sda2</td></tr>
+            </table>
+            </div><br>
+         <p>Если прошивка материнской платы, настроенная для загрузки в <strong class="strong">BIOS / CSM</strong> , имеет проблему с загрузкой дисков с меткой <strong class="strong">GPT</strong>. Обходим эту проблему:<br><br>
+            <strong class="p11 blue">fdisk -t dos /dev/sda<br>
+            <strong class="p11">Command (m for help): a</strong><br>
+            <strong class="p11">Command (m for help): w</strong></strong><br><br>
+            Создаём <strong class="strong">pool</strong>:<br><br>
+            <strong class="p11 blue">zpool create -f -o ashift=12 -o cachefile= -O normalization=formD -m none -R /mnt/gentoo -d -o feature@async_destroy=enabled -o feature@empty_bpobj=enabled -o feature@lz4_compress=enabled -o feature@spacemap_histogram=enabled -o feature@enabled_txg=enabled -o feature@extensible_dataset=enabled -o feature@bookmarks=enabled rpool /dev/sda3</strong> <strong class="gray"># для системы с <strong class="strong">efi</strong> <strong class="darkgrey">/dev/sda4</strong></strong><br><br>
+            Создание наборов данных <strong class="strong">zfs</strong>:<br><br>
+            <strong class="p11 blue">zfs create rpool/ROOT<br>
+            <strong class="p11">zfs create -o mountpoint=/ rpool/ROOT/gentoo</strong><br>
+            <strong class="p11">zfs create -o mountpoint=/home rpool/HOME</strong></strong><br><br>    
+            Для <strong class="strong">grub</strong> безопаснее создавать отдельный <strong class="strong">zpool</strong>, у которого отключены все флаги функций:<br><br>
+            <strong class="p11 blue">zpool create -f -d -o ashift=12 -o cachefile= -m /boot -R /mnt/gentoo boot /dev/sda2</strong> <strong class="gray"># для системы с <strong class="strong">efi</strong> <strong class="darkgrey">/dev/sda3</strong></strong><br><br>
+            Создаём  <strong class="strong">swap zvol</strong>:<br><br>
+            <strong class="p11 blue">zfs create -o sync=always -o primarycache=metadata -o secondarycache=none -b 4k -V 4G -o logbias=throughput rpool/swap<br>
+            <strong class="p11">mkswap -f /dev/zvol/rpool/swap</strong><br>
+            <strong class="p11">swapon /dev/zvol/rpool/swap</strong></strong><br><br> 
+            Проверяем <strong class="strong">pool</strong>:<br><br>
+            <strong class="p11 blue">zpool status<br>
+            <strong class="p11">zfs list</strong></strong><br><br>
+            Проверяем и установливаем время:<br><br>
+            <strong class="p11 blue">date</strong><br><br>
+            Подготовка к <strong class="strong">chroot</strong>:<br><br>
+            <strong class="p11 blue">cd /mnt/gentoo</strong><br><br> 
+            Загружаем <strong class="strong">stage3-amd64</strong>:<br><br>  
+            <strong class="p11 blue">wget</strong> <a class="special-link2 a link1" href="https://www.gentoo.org/downloads/">http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-*.tar.xz</a><br><br>
+            Распаковываем:<br><br>
+            <strong class="p11 blue">tar xpf stage3-amd64-*.tar.xz</strong><br><br>
+            <strong class="gray">Для системы с <strong class="strong">efi</strong> добавляем</strong>:<br><br>
+            <strong class="p11 darkgrey">mkdir boot/efi<br>
+            <strong class="p11">mount /dev/sda2 boot/efi</strong></strong><br><br> 
+            Копируем <strong class="strong">zpool cache</strong>:<br><br>
+            <strong class="p11 blue">mkdir etc/zfs<br>
+            <strong class="p11">cp /etc/zfs/zpool.cache etc/zfs</strong></strong><br><br> 
+            Копируем настройки сети:<br><br>
+            <strong class="p11 blue">cp -L /etc/resolv.conf etc/</strong><br><br>
+            Устанавливаем необходимые устройства:<br><br>
+            <strong class="p11 blue">mount --types=proc /proc proc<br>   
+            <strong class="p11">mount --rbind /dev dev</strong><br>
+            <strong class="p11">mount --rbind /sys sys</strong></strong><br><br> 
+            Изменение корневого каталога для перехода в новую среду:<br><br>
+            <strong class="p11 blue">chroot /mnt/gentoo /bin/bash<br>
+            <strong class="p11">source /etc/profile</strong><br>
+            <strong class="p11">export PS1="(chroot) $PS1"</strong></strong><br><br> 
+            Копируем конфигурацию <strong class="strong">portage</strong> по умолчанию:<br><br>
+            <strong class="p11 blue">cp /usr/share/portage/config/repos.conf /etc/portage/</strong><br><br>
+            Переходим к "<a class="special-link3 a link1" href="Gentoo.html#sg5">Настройка Portage.</a>"<br>
+            Переходим к "<a class="special-link4 a link1" href="Gentoo.html#sg6">Настройка переменной USE.</a>"<br>
+            Настроить дату:<br><br>
+            <strong class="p11 blue">ln -sf /usr/share/zoneinfo/Europe/Volgograd /etc/localtime<br>
+            <strong class="p11">date ММДДччммГГГГГ</strong></strong><br><br> 
+            Переходим к "<a class="special-link5 a link1" href="Gentoo1.html#sg7">Установка исходных кодов ядра.</a>"<br>
+            Ядро компилируем с учотом "<a class="special-link6 a link1" href="#zfs1">Установка ZFS на Gentoo</a>".<br>
+            Создать символическую ссылку <strong class="strong">mtab</strong>:<br><br>
+            <strong class="p11 blue">ln -sf /proc/self/mounts /etc/mtab</strong><br><br>
+            Создаём <strong class="strong">fstab</strong>:<br><br>
+            <strong class="p11 blue">nano /etc/fstab</strong>
+         </p>
+         <div class="p11"><table>
+            <tr><td class="p11">/dev/sda2</td> <td class="p11">/boot/efi</td> <td class="p11">vfat</td> <td class="p11">noauto</td> <td class="p11">1 2 <strong class="gray"># добавляем для системы с <strong class="strong">efi</strong></strong></td></tr>
+            <tr class="blue"><td class="p11">/dev/zvol/rpool/swap</td> <td class="p11">none</td> <td class="p11">swap</td> <td class="p11">sw</td> <td class="p11">0 0</td></tr>
+            </table>
+         </div><br>
+         <p>Пароль <b class="p3">root</b>:<br><br>    
+            <strong class="p11 blue">passwd</strong><br><br>
+            Переходим к "<a class="special-link7 a link1" href="#zfs1">Установка ZFS на Gentoo.</a>"<br>
+            Для включения зависимостей, необходимых при загрузки пула, содержащего <strong class="strong">rootfs</strong>, добавляем <strong class="strong">USE</strong> - флаг:<br><br> 
+            <strong class="p11 blue">echo "sys-fs/zfs rootfs" >> /etc/portage/package.use</strong><br><br> 
+            Включаем поддержку <strong class="strong">ZFS</strong> в <strong class="strong">GRUB</strong>:<br><br>
+            <strong class="p11 blue">echo "sys-kernel/genkernel ~amd64" >> /etc/portage/package.accept_keywords<br>
+            <strong class="p11">echo "sys-boot/grub ~amd64" >> /etc/portage/package.accept_keywords</strong><br>
+            <strong class="p11">echo "sys-boot/grub libzfs" >> /etc/portage/package.use</strong></strong><br><br> 
+            Устанавливаем <strong class="strong">bootfs</strong>:<br><br>
+            <strong class="p11 blue">zpool set bootfs=rpool/ROOT/gentoo rpool</strong><br><br>
+            Переходим к "<a class="special-link8 a link1" href="Gentoo2.html#sg10">Установка GRUB 2.</a>"<br>
+            Проверяем, может ли <strong class="strong">GRUB</strong> определить тип файловой системы:<br><br>
+            <strong class="p11 blue">grub-probe /boot</strong><br><br>
+            должно выдать '<strong class="strong">zfs</strong>'.<br><br> 
+            <strong class="gray">Для системы с <strong class="strong">efi</strong>:<br><br>
+            <strong class="p11 darkgrey">grub-probe /boot/efi</strong><br><br>
+            должно выдать '<strong class="darkgrey">fat</strong>'.</strong><br><br>
+            Указываем <strong class="strong">grub</strong>, что используем <strong class="strong">ZFS</strong>, и том для загрузки.<br><br>
+            <strong class="p11 blue">nano /etc/default/grub<br>
+            <strong class="p11">GRUB_CMDLINE_LINUX="dozfs real_root=ZFS=rpool/ROOT/gentoo"</strong></strong><br><br>
+            Устанавливаем <a class="special-link9 a link1" href="https://wiki.gentoo.org/wiki/Genkernel/ru">genkernel</a>:<br><br>
+            <strong class="p11 blue">emerge --ask sys-kernel/genkernel</strong><br><br>
+            Настраивается конфигурация <strong class="strong">genkernel</strong> в <strong class="strong">/etc/genkernel.conf</strong>.<br>
+            Настраиваем <a class="special-link10 a link1" href="https://wiki.gentoo.org/wiki/Initramfs/Guide/ru">initramfs</a>:<br><br>
+            <strong class="p11 blue">genkernel --install --zfs --bootloader=grub --disklabel --callback="emerge @module-rebuild" initramfs<br>
+            <strong class="p11">grub-mkconfig -o /boot/grub/grub.cfg</strong></strong><br><br>
+            Перезагружаем компьютер:<br><br>
+            <strong class="p11 blue">exit<br>
+            <strong class="p11">reboot</strong></strong><br><br>
+            <b class="p3">WARNING...</b> для устранения возникающих ошибок, запускаем систему в корне <strong class="strong">ZFS</strong>, с помощью  аварийного загрузочного диска "<strong class="strong">System Rescue</strong>":<br><br>
+            <strong class="p11 blue">zpool import -f -R /mnt/gentoo rpool<br>
+            <strong class="p11">zpool import -f -R /mnt/gentoo boot</strong></strong>
+         </p>
+         <h2 id="zfs4" class="h3">Команды <strong class="strong">zfs</strong></h2>
+         <p>Опция <strong class="strong">-f</strong> предписывает принудительное выполнение данной операции и требуется, например, при создании пула из неразмеченных устройств.<br>
+            Опция <strong class="strong">-n</strong> ыводит результат, например, субкоманды <strong class="strong">zpool create</strong> без фактического создания пула. И соответственно, сообщает об ошибках, если таковые имеются.<br>
+            Просмотреть пул можно с помощью команд:<br><br>
+            <strong class="p11 blue">df -h /ZFS-gentoo</strong><br>
+            или<br>  
+            <strong class="p11 blue">zfs list</strong><br><br>
+            Проссмотреть, какие диски включены в пул можно командой:<br><br>
+            <strong class="p11 blue">zpool status</strong><br><br>
+            Извлечение всех существующих свойств набора данных:<br><br>
+            <strong class="p11 blue">zfs get all ZFS-gentoo</strong><br><br>
+            Добавление дисков в пул:<br><br>
+            <strong class="p11 blue">zpool add -f ZFS-gentoo raidz /dev/sdb /dev/sdc /dev/sdd</strong><br><br>
+            Например создаём <strong class="strong">raidz1</strong> добавлением двух дисков к существующему пулу <strong class="strong">ZFS-gentoo</strong>, состоящего из одного диска.<br>
+            Проссматриваем, что из этого может получиться (опция <strong class="strong">-n</strong>):<br><br>
+            <strong class="p11 blue">zpool add -n -f ZFS-gentoo raidz1 /dev/sdc /dev/sdd<br>          
+            would update 'ZFS-gentoo' to the following configuration:<br>
+            ZFS-gentoo<br>
+            sdb<br>
+            raidz1<br>
+            sdc<br>
+            sdd</strong><br><br>
+            Создаём пул <strong class="strong">raidz1</strong>:<br><br>
+            <strong class="p11 blue">zpool add -f ZFS-gentoo raidz1 /dev/sdc /dev/sdd</strong><br><br>
+            Исключить устройство из пула:<br><br>
+            <strong class="p11 blue">zpool detach ZFS-gentoo /dev/sdd</strong><br><br>
+            Удаление пула:<br><br> 
+            <strong class="p11 blue">zpool destroy ZFS-gentoo</strong><br><br>
+            Экспорт пула (размонтирование):<br><br>
+            <strong class="p11 blue">zpool export ZFS-gentoo</strong><br><br>
+            Если размонтировать какую-либо из файловых систем не удается, ее можно размонтировать принудительно с помощью параметра <strong class="strong">-f</strong><br><br>
+            <strong class="p11 blue">zpool export -f  ZFS-gentoo</strong><br><br>
+            Получение списка доступных пулов:<br><br>
+            <strong class="p11 blue">zpool import</strong><br><br>
+            По умолчанию команда <strong class="strong">zpool import</strong> позволяет выполнить поиск устройств только в каталоге <strong class="strong">/dev/dsk</strong>.<br> 
+            При наличии устройств в другом каталоге или файловых пулов для их поиска следует использовать параметр <strong class="strong">-d</strong><br><br>
+            <strong class="p11 blue">zpool import -d /file</strong><br><br>
+            Импорт пула (монтирование):<br><br>
+            <strong class="p11 blue">zpool import  ZFS-gentoo</strong><br><br>
+            Меняем точку монтирования:<br><br>
+            <strong class="p11 blue">zfs set mountpoint=/mnt ZFS-gentoo</strong><br><br>
+            При изменении свойства <strong class="strong">mountpoint</strong> файловая система автоматически размонтируется из старой точки монтирования и монтируется в новой (<strong class="strong">/mnt</strong>) точке.<br>
+            Проверка пула на ошибки: <br><br>
+            <strong class="p11 blue">zpool status -x</strong><br><br>
+            <strong class="p11 blue">all pools are healthy</strong> данный вывод сообщает об отсутствии ошибок.<br><br>
+            Определение команд <strong class="strong">ZFS</strong>, после выполнения которых возникла ошибка:<br><br>
+            <strong class="p11 blue">zpool history ZFS-gentoo</strong><br><br>
+            Проверкой целостности данных является очистка всех данных в пуле. 
+            Это позволяет проследить все данные в пуле и проверить возможность чтения блоков на определенный момент времени.<br> 
+            Операция может негативно повлиять на производительность, несмотря на то, что файловая система остается доступной и обеспечивает в процессе очистки почти такой же отклик.<br> 
+            Для очистки используется команда:<br><br>
+            <strong class="p11 blue">zpool scrub ZFS-gentoo</strong><br><br>
+            Информацию по очистке можно вывести командой;<br><br>
+            <strong class="p11 blue">zpool status -v ZFS-gentoo<br>
+            pool: ZFS-gentoo<br>
+            state: ONLINE<br>
+            scan: scrub in progress since Wed Jun  1 13:54:28 2016<br>
+            377G scanned out of 1,65T at 60,2M/s, 6h12m to go<br>
+            0 repaired, 22,27% done<br>
+            config:</strong><br>
+        </p>
+        <table class="blue">     
+            <tr><th>NAME</th> <th> STATE</th> <th class="p11">READ</th><th class="p11">WRITE</th><th class="p11">CKSUM</th></tr>
+            <tr><th class="p11">ZFS-gentoo</th><th> ONLINE</th><th> 0</th> <th> 0</th> <th> 0</th></tr>
+            <tr><th>sdb</th> <th> ONLINE</th><th> 0</th> <th> 0</th> <th> 0</th></tr>
+         </table>     
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            Остановить очистку можно командой:<br><br>
+            <strong class="p11 blue">zpool scrub -s ZFS-gentoo</strong><br><br>
+            Для восстановления уничтоженного пула устройств хранения данных используется команда:<br><br>
+            <strong class="p11 blue">zpool import -D ZFS-gentoo</strong><br><br>
+            Сделать снимок системы, если будет необходимость вернуться или восстановить файлы:<br><br>
+            <strong class="p11 blue">zfs snapshot ZFS-gentoo@20170103</strong><br><br>
+            <strong class="strong">ZFS-gentoo@20170103</strong> полное имя моментального снимка, все после символа <strong class="strong">@</strong> может быть любой буквенно-цифровой комбинацией.<br>
+            Можно просмотреть содержимое всех доступных снимков:<br><br>
+            <strong class="p11 blue">zfs list -t snapshot -o name,creation</strong><br><br>
+            Откат полного объема до предыдущего состояния:<br><br>
+            <strong class="p11 blue">zfs rollback ZFS-gentoo@20170103</strong><br><br>
+            Удаление снимков системы:<br><br>
+            <strong class="p11 blue">zfs destroy ZFS-gentoo@20170103</strong><br><br>
+            <strong class="strong">ZFS</strong> позволяет автоматически сжимать данные.<br>
+            Уменьшенный размер данных означает, что меньше данных будут физически прочитаны и записаны, из чего следует более быстрые операции ввода/вывода.
+            По умолчанию используется <strong class="strong">lz4</strong>, самый безопасный и значительно быстрее всех остальных вариантов при хорошей производительности.<br>
+            Для смены уровня компрессии можно использовать команду:<br><br>
+            <strong class="p11 blue">zfs set compression=gzip-9 ZFS-gentoo</strong><br><br>
+            можно сменить тип сжатия:<br><br>
+            <strong class="p11 blue">zfs set compression=lz4 ZFS-gentoo</strong><br><br>
+            просмотр уровеня компрессии:<br><br>
+            <strong class="p11 blue">zfs get compressratio</strong>
+         </p>
+         <h2 id="zfs5">Обновление пулов устройств хранения данных <strong class="strong">zfs</strong></h2>
+         <p><strong class="strong">zpool status</strong> может проинформировать об использовании в пулах старых версий.<br>
+            Для вывода дополнительной информации по определенной версии и поддерживаемым релизам используется следующая команда:<br><br>
+            <strong class="p11 blue">zpool upgrade -v</strong><br><br>
+            Обновляем <strong class="strong">ZFS-gentoo</strong>:<br><br>
+            <strong class="p11 blue">zpool upgrade ZFS-gentoo</strong><br><br>
+            Для обновления версии всех <strong class="strong">zpools</strong> в системе:<br><br>
+            <strong class="p11 blue">zpool upgrade -a</strong><br><br>
+            При обновлении пула до новой версии <strong class="strong">ZFS</strong> пул будет недоступен в системе, использующей более старую версию <strong class="strong">ZFS</strong><br>
+            После каждой переустановке ядра необходимо переустановить модули:<br> 
+            <strong class="strong">sys-kernel/spl</strong> и <strong class="strong">sys-fs/zfs-kmod</strong><br><br>
+            <strong class="p11 blue">emerge --ask @module-rebuild</strong><br><br> 
+            и перезагрузиться<br><br>
+            <strong class="p11 blue">reboot</strong>
+         </p>
+         <h2 id="zfs6">Замена диска</h2>
+         <p class="music1">Замена диска в  <strong class="strong">RAID</strong> массиве - потенциально опасная операция.<br> 
+            Если в процессе замены заменяющий диск даст сбой, будут проблемы, от неприятных до фатальных.<br> 
+             <strong class="strong">ZFS</strong> - надежная система. И в большинстве случаев выдерживает такую проблему. Но не всегда.<br>
+            Если диск ранее использовался в  <strong class="strong">zfs</strong> пуле, необходимо обнулить его:<br><br>
+            <strong class="p11 blue">zpool labelclear /dev/xxx</strong><br><br>
+            Определяем с каким именно диском проблемма, взглянув на его <strong class="strong">SMART Diagnostics(Information) S.M.A.R.T.</strong> (<a class="special-link11 a link1" href="#zfs7">смотри Smartmontools</a>)<br> 
+            Отключать или нет сбойный диск  <strong class="strong">zfs</strong> массива при замене?<br>
+            Предположим, оказалось, что виновен именно диск. Есть два варианта - <br>
+            1. отключить его, подключить вместо него новый, провести замену.<br>  
+            2. оставить сбойный диск, подключить на другой  <strong class="strong">SATA</strong> порт новый, провести замену, отключить сбойный диск.<br>
+            Вариант 1 проще, позволяет забрать диск. Но есть важный недостаток. В случае  <strong class="strong">raidz</strong> (или одиночного зеркала) в процессе замены данные  - без избыточности. Возможен сбой в процессе замены, а это часы, -  и часть данных может быть потеряна.<br>
+            Вариант 2 сложнее, требует свободного (хотя бы временно)  <strong class="strong">SATA</strong> порта и диска из подменного фонда.<br> 
+            Но есть важный плюс - данные в процессе замены имеют избыточность. Каждый блок достаточно прочитать либо со сбойного диска, либо с остальных. Единичный сбой не страшен.<br>
+            Обычно исходят из того, что данные ценнее дисков. Поэтому вариант 2 выглядит предпочтительным. Но есть детали.<br>
+            Если диск сбоит сильно, то процесс замены значительно затягивается. Это увеличивает риск сбоя остальных дисков массива. Поэтому придётся как-то на глаз оценить плюсы и минусы.<br> 
+            Если <strong class="strong">RAIDZ2</strong>, способный выдержать выход из строя двух дисков - то цепляться за сбоящий диск смысла нет. Разумно идти по варианту 1 - избыточность ведь сохраняется.<br>
+            Если  <strong class="strong">raidz</strong> или простое зеркало - то решение принять труднее. Желательно сохранить избыточность до последнего, пока диск не умер, а затем - отключить от него питание.<br>
+            Определяемся с возможностью использования заменяемого диска в процессе замены. Если с него хоть что-то читается,  имеется свободный  <strong class="strong">SATA</strong> порт и временное место ещё под один диск - подключаем заменяющий диск параллельно заменяемому. Это улучшит шансы на хороший исход если что-то пойдёт не так.<br>
+            Начинается замена, за которой можно наблюдать командой  <strong class="strong">status</strong>.<br>
+            Для замены устройства пул должен находиться в состоянии  <strong class="strong">ONLINE</strong>.<br> 
+            Если устройство повреждено, но находится в оперативном режиме, заменить его можно только до перевода пула в состояние  <strong class="strong">FAULTED</strong>.<br> 
+            Пример - Замена отказавшего устройства.<br>
+            Определяем повреждённый диск:<br><br>
+            <strong class="p11 blue">zpool status -x<br>                  
+            pool: ZFS-gentoo<br>
+            state: DEGRADED<br>
+            status: One or more devices could not be used because the label is missing or invalid.  Sufficient replicas exist for the pool to continue functioning in a degraded state.<br>
+            action: Replace the device using 'zpool replace'.<br>
+            see: http://zfsonlinux.org/msg/ZFS-8000-4J<br>
+            scan: scrub canceled on Sat Dec  9 22:00:43 2017<br>
+            config:</strong>
+         </p>
+         <table class="blue cockroach">
+            <tr><th>NAME</th>  <th>STATE</th><th>READ</th><th class="p11">WRITE</th><th>CKSUM</th></tr>
+            <tr><th>ZFS-gentoo</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-SAMSUNG_HD204UI_S2H7J90B901313</th><th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>raidz1-1</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-ST2000VX000-1ES164_Z4Z7WWBF</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>14418579150418840623</th> <th>UNAVAIL</th> <th>0</th> <th>0</th> <th>0 was /dev/disk/by-id/ata-ST2000VX000-1ES164_Z4Z7WD8V-part1</th></tr>
+         </table>
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            Отключаем его:<br><br>
+            <strong class="p11 blue">zpool offline ZFS-gentoo 14418579150418840623<br>
+            <strong class="p11">zpool status -x<br>
+            pool: ZFS-gentoo<br>
+            state: DEGRADED<br>
+            status: One or more devices has been taken offline by the administrator. Sufficient replicas exist for the pool to continue functioning in a degraded state.<br>
+            action: Online the device using 'zpool online' or replace the device with<br>
+            'zpool replace'.<br>
+            scan: scrub canceled on Sat Dec  9 22:00:43 2017<br>
+            config:</strong></strong>
+        </p>
+        <table class="blue">
+            <tr><th>NAME</th>  <th>STATE</th><th>READ</th><th class="p11">WRITE</th><th>CKSUM</th></tr>
+            <tr><th>ZFS-gentoo</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-SAMSUNG_HD204UI_S2H7J90B901313</th><th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>raidz1-1</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-ST2000VX000-1ES164_Z4Z7WWBF</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>14418579150418840623</th> <th>OFFLINE</th> <th>0</th> <th>0</th> <th>0 was /dev/disk/by-id/ata-ST2000VX000-1ES164_Z4Z7WD8V-part1</th></tr>
+         </table>
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            Удаляем повреждённый диск с компьютера и устанавливаем новый.<br>
+            Для замены поврежденного устройства другим устройством используем следующую команду:<br><br>
+            <strong class="p11 blue">zpool replace ZFS-gentoo ata-ST2000VX000-1ES164_Z4Z7WD8V ata-ST2000DM006-2DM164_Z4ZBC5S1</strong><br><br>
+            Эта команда инициирует переход данных в новое устройство из поврежденного устройства или других устройств пула, если для него используется конфигурация с избыточностью.<br><br> 
+            <strong class="p11 blue">zpool status -x<br>
+            pool: ZFS-gentoo<br>
+            state: DEGRADED<br>
+            status: One or more devices is currently being resilvered.  The pool will continue to function, possibly in a degraded state.<br>
+            action: Wait for the resilver to complete.<br>
+            scan: resilver in progress since Sun Aug 12 15:20:06 2018<br>
+            171G scanned at 2,63G/s, 341G issued at 5,25G/s, 5,20T total<br>
+            0B resilvered, 6,40% done, 0 days 00:15:51 to go<br>
+            config:</strong>
+         </p>
+         <table class="blue">
+            <tr><th>NAME</th>  <th>STATE</th><th>READ</th><th class="p11">WRITE</th><th>CKSUM</th></tr>
+            <tr><th>ZFS-gentoo</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-SAMSUNG_HD204UI_S2H7J90B901313</th><th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>raidz1-1</th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-ST2000VX000-1ES164_Z4Z7WWBF</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>replacing-1 </th> <th>DEGRADED</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>14418579150418840623</th> <th>OFFLINE</th> <th>0</th> <th>0</th> <th>0 was /dev/disk/by-id/ata-ST2000VX000-1ES164_Z4Z7WD8V-part1</th></tr>
+            <tr><th>ata-ST2000DM006-2DM164_Z4ZBC5S1</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+         </table>         
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            По завершении выполнения команды поврежденное устройство отключается от конфигурации, после чего может быть удалено из системы:<br><br> 
+            <strong class="p11 blue">zpool detach ZFS-gentoo 14418579150418840623<br> 
+            <strong class="p11">zpool status -x<br>
+            pool: ZFS-gentoo<br>
+            state: ONLINE<br>
+            status: One or more devices is currently being resilvered. The pool will continue to function, possibly in a degraded state.<br>
+            action: Wait for the resilver to complete.<br>
+            scan: resilver in progress since Sun Aug 12 15:20:06 2018<br>
+            887G scanned at 3,04G/s, 1,73T issued at 6,07G/s, 5,20T total<br>
+            0B resilvered, 33,27% done, 0 days 00:09:45 to go<br>
+            config:</strong></strong>
+         </p>
+         <table class="blue">
+            <tr><th>NAME</th> <th>STATE</th><th>READ</th><th class="p11">WRITE</th><th>CKSUM</th></tr>
+            <tr><th>ZFS-gentoo</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-SAMSUNG_HD204UI_S2H7J90B901313</th><th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>raidz1-1</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-ST2000VX000-1ES164_Z4Z7WWBF</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>ata-ST2000DM006-2DM164_Z4ZBC5S1</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+         </table>
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            Проверяем <strong class="strong">Pool</strong>:<br><br>
+            <strong class="p11 blue">zpool status -x<br>
+            pool: ZFS-gentoo<br>
+            state: ONLINE<br>
+            status: One or more devices is currently being resilvered.  The pool will<br>
+            continue to function, possibly in a degraded state.<br>
+            action: Wait for the resilver to complete.<br>
+            scan: resilver in progress since Sun Aug 12 15:43:07 2018<br>
+            1,28T scanned at 453M/s, 763G issued at 264M/s, 2,45T total<br>
+            254G resilvered, 30,37% done, 0 days 01:53:01 to go<br>
+            config:</strong>
+         </p>
+         <table class="blue">
+            <tr><th>NAME</th> <th>STATE</th> <th>READ</th> <th>WRITE</th> <th>CKSUM</th></tr>
+            <tr><th>ZFS-gentoo</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>raidz1-1</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>
+            <tr><th>sdb</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th></tr>  
+            <tr><th>sdc</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th> </tr>
+            <tr><th>sdd</th> <th>ONLINE</th> <th>0</th> <th>0</th> <th>0</th> <th>(resilvering)</th></tr>
+         </table>
+         <p><strong class="blue">errors: No known data errors</strong><br><br>
+            <strong class="strong">Pool</strong> проверяем до тех пор, пока не получим результат:<br><br>
+            <strong class="p11 blue">all pools are healthy</strong><br><br>
+            Если устройство уже было удалено и заменено новым устройством в том же местоположении, используется форма команды для одного устройства:<br><br>
+            <strong class="p11 blue">zpool replace ZFS-gentoo /dev/xxx</strong><br><br>
+            Эта команда выполняет надлежащее форматирование неформатированного диска и инициирует перенос актуальных данных из оставшейся конфигурации.<br>
+            Удаляем информацию об ошибках пула:<br><br>
+            <strong class="p11 blue">zpool clear ZFS-gentoo</strong>
+         </p>
+         <h2 id="zfs7" class="music1"><a class="send-link special-link12 a" href="https://wiki.gentoo.org/wiki/Smartmontools">Smartmontools
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p>Устанавливаем <strong class="strong">smartmontools</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask sys-apps/smartmontools</strong><br><br>
+            Запускаем <strong class="strong">smartmontools</strong>:<br><br>
+            <strong class="p11 blue">/etc/init.d/smartd start</strong><br><br>
+            Добавляем в автозагрузку:<br><br>
+            <strong class="p11 blue">rc-update add smartd default</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl start smartd.service</strong><br>
+            <strong class="p11 darkgrey">systemctl enable smartd.service</strong><br><br>
+            Пакет <a class="special-link13 a link1" href="https://ru.wikipedia.org/wiki/S.M.A.R.T.">smartmontools</a> состоит из двух утилит (<strong class="strong">smartctl</strong> и <strong class="strong">smartd</strong>), которые контролируют и следят за системными накопителями используя самопроверку, анализ и систему технологического отчёта (<strong class="strong">S.M.A.R.T.</strong>), встроенную в большинство современных <strong class="strong">ATA</strong> и <strong class="strong">SCSI</strong> жёстких дисков.<br>
+            Определяем, поддерживает ли диск технологию <strong class="strong">SMART</strong>:<br><br>
+            <strong class="p11 blue">smartctl -i /dev/sdc<br>
+            smartctl 6.4 2015-06-04 r4109 [x86_64-linux-4.9.16-gentoo] (local build)<br>
+            Copyright (C) 2002-15, Bruce Allen, Christian Franke, www.smartmontools.org<br>
+            === START OF INFORMATION SECTION ===<br>
+            Model Family:     Seagate SV35<br>
+            Device Model:     ST2000VX000-1ES164<br>
+            Serial Number:    Z4Z7WD8V<br>
+            LU WWN Device Id: 5 000c50 0a289fb1c<br>
+            Firmware Version: CV27<br>
+            User Capacity:    2 000 398 934 016 bytes [2,00 TB]<br>
+            Sector Sizes:     512 bytes logical, 4096 bytes physical<br>
+            Rotation Rate:    7200 rpm<br>
+            Form Factor:      3.5 inches<br>
+            Device is:        In smartctl database [for details use: -P show]<br>
+            ATA Version is:   ACS-2, ACS-3 T13/2161-D revision 3b<br>
+            SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 3.0 Gb/s)<br>
+            Local Time is:    Wed Jun 28 12:56:27 2017 +03<br>
+            SMART support is: Available - device has SMART capability.<br>
+            SMART support is: Enabled</strong><br><br>
+            Приминение <strong class="strong">smartctl</strong>:<br><br>
+            <strong class="p11 blue">smartctl -h</strong><br><br>
+            Быстрый тест здоровья жесткого диска:<br><br>
+            <strong class="p11 blue">smartctl -H /dev/sdc<br>
+            smartctl 6.4 2015-06-04 r4109 [x86_64-linux-4.9.16-gentoo] (local build)<br>
+            Copyright (C) 2002-15, Bruce Allen, Christian Franke, www.smartmontools.org<br>
+            === START OF READ SMART DATA SECTION ===<br>
+            SMART overall-health self-assessment test result: PASSED</strong><br><br>
+            Если тест не пройден - стоит задуматься о замене жесткого диска.<br>
+            Выполнить расширенные встроенные тесты для диска <strong class="strong">/dev/sdc</strong>:<br><br>
+            <strong class="p11 blue">smartctl --test=long /dev/sdc</strong><br><br>
+            Команду можно использовать на работающей системе. Для просмотра результатов выполнения тестов используется команда вывода внутреннего журнала после завершения теста:<br><br>
+            <strong class="p11 blue">smartctl -l selftest /dev/sdc</strong><br><br>
+            Отмена теста:<br><br>
+            <strong class="p11 blue">smartctl -X</strong><br><br> 
+            Журнал ошибок диска:<br><br>
+            <strong class="p11 blue">smartctl -l error /dev/sdc<br>
+            smartctl 6.4 2015-06-04 r4109 [x86_64-linux-4.9.16-gentoo] (local build)<br>
+            Copyright (C) 2002-15, Bruce Allen, Christian Franke, www.smartmontools.org<br>
+            === START OF READ SMART DATA SECTION ===<br>
+            SMART Error Log Version: 1<br>
+            No Errors Logged</strong><br><br>
+            Если диск не страдал сбоями, журнал пуст. Обычно, следует беспокоится, если дисковые ошибки в журнале появляются сразу с большими номерами.<br>
+            Выводим атрибуты <strong class="strong">SMART</strong> для <strong class="strong">HDD</strong>:<br><br>
+            <strong class="p11 blue">smartctl -A  /dev/sdc<br>
+            smartctl 6.4 2015-06-04 r4109 [x86_64-linux-4.9.16-gentoo] (local build)<br>
+            Copyright (C) 2002-15, Bruce Allen, Christian Franke, www.smartmontools.org<br>
+            === START OF READ SMART DATA SECTION ===<br>
+            SMART Attributes Data Structure revision number: 10<br>
+            Vendor Specific SMART Attributes with Thresholds:</strong>
+         </p><br>
+        <div class="p11">
+        <table class="sh">
+          <tr><th>ID#</th> <th>ATTRIBUTE_NAME</th> <th>FLAG</th> <th class="p11">VALUE</th> <th class="p11">WORST</th> <th class="p11">THRESH</th> <th>TYPE</th> <th class="p11">UPDATED</th> <th class="p11">WHEN_FAILED</th> <th class="p11">RAW_VALUE</th></tr>
+          <tr><th>1</th> <th>Raw_Read_Error_Rate</th> <th>0x000f</th><th>111</th> <th>099</th> <th>006</th> <th>Pre-fail</th><th>Always</th> <th>-</th> <th>36483048</th></tr>
+          <tr><th>3</th> <th>Spin_Up_Time</th> <th>0x0003</th> <th>096</th> <th>096</th> <th>000</th> <th>Pre-fail</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>4</th> <th>Start_Stop_Count</th> <th>0x0032</th> <th>100</th> <th>100</th> <th>020</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>16</th></tr>
+          <tr><th>5</th> <th>Reallocated_Sector_Ct</th> <th>0x0033</th> <th>100</th> <th>100</th> <th>010</th> <th>Pre-fail</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>7</th> <th>Seek_Error_Rate</th> <th>0x000f</th> <th>100</th> <th>253</th> <th>030</th> <th>Pre-fail</th> <th>Always</th> <th>-</th> <th>285941</th></tr> <tr><th>9</th> <th>Power_On_Hours</th> <th>0x0032</th> <th>100</th> <th>100</th>  <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>46</th></tr>
+          <tr><th>10</th> <th>Spin_Retry_Count</th> <th>0x0013</th><th>100</th>  <th>100</th>  <th>097</th> <th>Pre-fail</th><th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>12</th> <th>Power_Cycle_Count</th> <th>0x0032</th> <th>100</th> <th>100</th> <th>020</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>16</th></tr>
+          <tr><th>184</th> <th>End-to-End_Error</th> <th>0x0032</th> <th>100</th> <th>100</th>  <th>099</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>187</th> <th>Reported_Uncorrect</th> <th>0x0032</th> <th>100</th> <th>100</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>188</th> <th>Command_Timeout</th> <th>0x0032</th> <th>100</th> <th>100</th>  <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>189</th> <th>High_Fly_Writes</th> <th>0x003a</th> <th>094</th> <th>094</th>  <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>6</th></tr>
+          <tr><th>190</th> <th>Airflow_Temperature_Cel</th> <th>0x0022</th> <th>065</th>  <th>064</th> <th>045</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>35(Min/Max26/35)</th></tr>
+          <tr><th>191</th> <th>G-Sense_Error_Rate</th> <th>0x0032</th> <th>100</th> <th>100</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>192</th> <th>Power-Off_Retract_Count</th> <th>0x0032</th> <th>100</th> <th>100</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>2</th></tr>
+          <tr><th>193</th> <th>Load_Cycle_Count</th> <th>0x0032</th> <th>100</th> <th>100</th>  <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>16</th></tr>
+          <tr><th>194</th> <th>Temperature_Celsius</th> <th>0x0022</th> <th>035</th> <th>040</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>35(0 23 0 0 0)</th></tr>
+          <tr><th>197</th> <th>Current_Pending_Sector</th> <th>0x0012</th> <th>100</th> <th>100</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+          <tr><th>198</th> <th>Offline_Uncorrectable</th> <th>0x0010</th><th>100</th> <th>100</th> <th>000</th> <th>Old_age</th> <th>Offline</th><th>-</th> <th>0</th></tr>
+          <tr><th>199</th> <th>UDMA_CRC_Error_Count</th> <th>0x003e</th> <th>200</th> <th>200</th> <th>000</th> <th>Old_age</th> <th>Always</th> <th>-</th> <th>0</th></tr>
+        </table>
+        </div>
+          <p>Атрибуты состоят из нескольких полей, (наиболее часто обозначаемых как <strong class="strong">VALUE</strong>, <strong class="strong">WORST</strong>, <strong class="strong">THRESH</strong>, <strong class="strong">RAW_VALUE</strong>), каждое из которых является определенным показателем, характеризующим техническое состояние накопителя на данный момент времени. Программы считывания <strong class="strong">S.M.A.R.T.</strong> выводят содержимое атрибутов, как правило, в виде нескольких колонок:<br>
+            <strong class="strong">ID#</strong> - числовой идентификатор атрибута<br>
+            <strong class="strong">ATTRIBUTE_NAME</strong> - название атрибута<br>
+            <strong class="strong">FLAG</strong> - флаги атрибутов, задаваемые производителем <strong class="strong">HDD</strong>. Характеризуют тип атрибута ( большинство программ интерпретируют флаги в виде символов <strong class="strong">k,c,r,s,o,p</strong> или аббревиатур, например, <strong class="strong">EC – Event Count</strong>, счетчик событий ). <strong class="strong">Pre-Failure (PF, 01h)</strong> - при достижении порогового значения данного типа атрибутов диск требует замены. Иногда данный бит флагов обозначают как <strong class="strong">Life Critical (CR)</strong> или <strong class="strong">Pre-Failure warranty (PW)</strong><br>
+            <strong class="strong">Online test (OC, 02h)</strong>– атрибут обновляет значение при выполнении <strong class="strong">off-line/on-line</strong> встроенных тестов <strong class="strong">SMART</strong>;<br> 
+            <strong class="strong">Perfomance Related (PE или PR , 04h)</strong>– атрибут характеризует производительность ;<br> 
+            <strong class="strong">Error Rate (ER , 08h )</strong>– атрибут отражает счетчики ошибок оборудования;<br> 
+            <strong class="strong">Event Counts (EC, 10h )</strong> – атрибут представляет собой счетчик событий;<br> 
+            <strong class="strong">Self Preserving (SP, 20h )</strong> – самосохраняющися атрибут;<br> 
+            Некоторые из программ могут интерпретировать флаги в виде текстовых описаний, близких по смыслу к рассмотренным выше. Один атрибут может иметь несколько установленных в единицу значений флагов, например, атрибут с идентификатором 05 отражающий количество переназначенных из-за сбоев секторов из резервной области, имеет установленные флаги <strong class="strong">SP+EC+OC</strong> – самосохраняющийся, счетчик событий, обновляется при автономном и интерактивном режиме накопителя.<br>
+            Каждый атрибут имеет величины:<br>
+            <strong class="strong">VALUE</strong> - текущее значение атрибута. Для анализа состояния накопителя, самым важным значением атрибута является <strong class="strong">VALUE</strong> - условное число (обычно от 0 до 100 или до 253), заданное производителем. Значение <strong class="strong">VALUE</strong> изначально установлено на максимум при производстве накопителя и уменьшается в случае ухудшения его параметров.<br>
+            Низкое значение говорит о быстрой деградации диска или о возможном скором сбое. т.е. чем выше значение <strong class="strong">VALUE</strong> атрибута, тем лучше;<br>
+            <strong class="strong">WORST</strong> - самое худшее значение атрибута за все время работы накопителя;<br>
+            <strong class="strong">THRESH</strong> - минимальное возможное значение атрибута, при котором гарантируется безотказная работа накопителя.<br>
+            При Значении атрибута меньше <strong class="strong">Threshold</strong> очень вероятен сбой в работе или полный отказ.<br>
+            Выход критически важного параметра за пределы <strong class="strong">Threshold</strong> фактический означает выход диска из строя, выход за переделы допустимых значений некритически важного параметра свидетельствует о наличии проблемы, но диск может сохранять свою работоспособность;<br>
+            <strong class="strong">TYPE</strong> - некоторые из программ в данном необязательном поле отображают информацию из флажков атрибутов или признаки их критичности <strong class="strong">Critical</strong> или <strong class="strong">Pre-fail</strong>, отражающих ухудшение характеристик оборудования и <strong class="strong">Old-age</strong> для атрибутов, отражающих выработку ресурса;<br>
+            <strong class="strong">WHEN_FAILED</strong> - для отслеживания надежности диска прошивка конвертирует сырые данные в нормализованные в диапазоне целых от 1 до 253. Если нормализованное значение меньше или равно пороговому (<strong class="strong">THRESH</strong>), данный атрибут генерирует состояние <strong class="strong">failed</strong>, которое отображается в этой колонке;<br>
+            <strong class="strong">RAW_VALUE</strong> - это значение атрибута во внутреннем формате производителя.<br>
+            Критичные атрибуты:<br>
+            <strong class="strong">1 Raw_Read_Error_Rate</strong> - частота ошибок при чтении данных с диска, происхождение которых обусловлено аппаратной частью диска.<br>
+            Ненулевое значение должно сильно насторожить, а большие значение и вовсе говорят о скором выходе диска из строя. Известно, что на дисках <strong class="strong">Seagate</strong>, <strong class="strong">Samsung</strong> (семейства <strong class="strong">F1</strong> и более новые) и <strong class="strong">Fujitsu 2,5″</strong> большое значение в этом поле является нормальным. Для остальных же дисков в идеале значение должно быть равно нулю;<br>
+            <strong class="strong">3 Spin_Up_Time</strong> - время раскрутки пакета дисков из состояния покоя до рабочей скорости.<br> 
+            При расчете нормализованного значения (<strong class="strong">Value</strong>) практическое время сравнивается с некоторой эталонной величиной, установленной на заводе. Не ухудшающееся немаксимальное значение при <strong class="strong">Spin Retry Count Value = max</strong> (<strong class="strong">Raw</strong> равном 0) не говорит ни о чем плохом. Отличие времени от эталонного может быть вызвано рядом причин, например просадка по вольтажу блока питания.<br>
+            Чем меньше — тем лучше. Большие значения говорят о низкой отзывчивости;<br>
+            <strong class="strong">5 Reallocated_Sector_Ct</strong> - число операций переназначения секторов.<br>
+            <strong class="strong">SMART</strong> в современных дисках способен произвести анализ сектора на стабильность работы "на лету" и в случае признания его сбойным, произвести его переназначение. Очень плохо, если этот параметр растёт. Диск готовится к вымиранию, которое может начаться и через неделю и через минуту;<br>
+            <strong class="strong">7 Seek_Error_Rate</strong> - частота ошибок при позиционировании блока головок.<br> 
+            Высокое значение <strong class="strong">Raw</strong> свидетельствует о наличии проблем, которыми могут являться повреждение сервометок, чрезмерное термическое расширение дисков, механические проблемы в блоке позиционирования и др. Постоянное высокое значение <strong class="strong">Value</strong> говорит о том, что все хорошо;<br>
+            <strong class="strong">10 Spin_Retry_Count</strong> - число повторных попыток раскрутки дисков до рабочей скорости, в случае если первая попытка была неудачной.<br>
+            Ненулевое значение <strong class="strong">Raw</strong> (соответственно немаксимальное <strong class="strong">Value</strong>) свидетельствует о проблемах в механической части накопителя. Большое значение говорит о плохом состоянии диска;<br>
+            <strong class="strong">191 G-Sense_Error_Rate</strong> - число ошибок, возникших из-за внешних нагрузок. Атрибут хранит показания встроенного акселерометра, который фиксирует все удары, толчки, падения и даже неаккуратную установку диска в корпус компьютера;<br>
+            <strong class="strong">198 Offline_Uncorrectable</strong>  — количество неисправных секторов. Большое значение говорит о поврежденной поверхности.<br>
+            Не критичные атрибуты:<br>
+            <strong class="strong">4 Start_Stop_Count</strong> - полное число запусков/остановов шпинделя.<br>
+            Гарантировано мотор диска способен перенести лишь определенное число включений/выключений. Это значение выбирается в качестве <strong class="strong">Treshold</strong>;<br>
+            <strong class="strong">9 Power_On_Hours</strong> - число часов проведенных во включенном состоянии.<br>
+            В качестве порогового значения для него выбирается паспортное время наработки на отказ (<strong class="strong">MBTF</strong>). Обычно величина <strong class="strong">MBTF</strong> огромна и маловероятно, что этот параметр достигнет критического порога. Но даже в этом случае выход из строя диска совершенно не обязателен. По нему можно узнать сколько проработал диск во включённом состоянии;<br>
+            <strong class="strong">12 Power_Cycle_Count</strong> — количество включений/выключений диска. По этому атрибуту можно оценить, например, сколько использовался диск;<br> 
+            <strong class="strong">194 Temperature_Celsius</strong> - температура диска в градусах Цельсия. Здесь хранятся показания встроенного термодатчика.<br>
+            Температура имеет огромное влияние на срок службы диска (даже если она находится в допустимых пределах). Вернее имеет влияние не на срок службы диска а на частоту возникновения некоторых типов ошибок, которые влияют на срок службы;<br>
+            Не нулевые, растущие три следующих параметра могут означать как реальные проблемы с диском, так и проблемы с <strong class="strong">SATA</strong> кабелем. Последнее намного вероятнее.<br>
+            <strong class="strong">196 Reallocated_Event_Count</strong> — количество операций перераспределения секторов;<br>
+            <strong class="strong">197 Current_Pending_Sector</strong> - Число секторов, являющихся кандидатами на замену.<br> 
+            Они не были еще определенны как плохие, но считывание их отличается от чтения стабильного сектора, так называемые подозрительные или нестабильные сектора;<br>
+            <strong class="strong">199 UDMA_CRC_Error_Count</strong> - число ошибок, возникающих при передаче данных по внешнему интерфейсу. Могут быть вызваны некачественными кабелями, нештатными режимами работы.<br>
+            Контролировать и подстраивать поведение <strong class="strong">smartd</strong> можно с помощью конфигурационного файла <strong class="strong">/etc/smartd.conf</strong>. Этот файл, монитор просматривает после запуска до перехода в фоновый режим. Каждая строка содержит инструкции по поводу отдельного диска. Конфигурационный файл на узлах нашего кластера выглядит так:<br><br>
+            <strong class="p11 blue">vim /etc/smartd.conf<br> 
+            /dev/sda -S on -o on -a -I 194 -m umanov@mail.ru<br>
+            /dev/sdb -S on -o on -a -I 194 -m umanov@mail.ru<br>
+            /dev/sdc -S on -o on -a -I 194 -m umanov@mail.ru<br>
+            /dev/sdd -S on -o on -a -I 194 -m umanov@mail.ru</strong><br><br>
+            Первая колонка содержит устройства для мониторинга. Директива <strong class="strong">-o</strong> включает автоматические off-line тесты, <strong class="strong">-S</strong> - автоматическое сохранение значений атрибутов. После ключа <strong class="strong">-m</strong> указывается адрес для сообщений об ошибках. Ключ <strong class="strong">-a</strong> требует просмотра всех атрибутов <strong class="strong">SMART</strong> для данного диска. В этой конфигурации журналы монитора все время пополняются нормализованными значениями атрибутов. Опции, подобные <strong class="strong">-I 194</strong> заставляют игнорировать изменения значения атрибута <strong class="strong">ID 194</strong>, поскольку температура диска меняется часто и эти данные не требуют частой проверки.
+            Параметры вышли из нормы или статус здоровья диска получен в виде <strong class="strong">NOT OK</strong>?<br><br> 
+         </p>
+      </div><!--
+      --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Сергей. Коровино.</h2>
+				    		<p class="text-testimonial Romantique white">Спасибо большое за помощь в проверке пула ZFS на работоспособность! Благодаря Вашему сайту я убедился, что мой RAID на ZFS работает без ошибок!
+				    		</p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">И Вам спасибо что не забываете заходить на сайт.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Если вы возьмёте все деньги мира и разделите их поровну между всеми, то вскоре они опять окажутся в тех же самых карманах, в которых были до этого." Джим Рон'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="создание raid z"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="создание raid z"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="создать пул"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>ZFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="raid z"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="установка zfs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="пул zfs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="команды zfs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="обновление пулов"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="создание raid z"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="установка zfs"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="пул zfs"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="raid z"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Smartmontools-Email-->
+        <script type="text/javascript" src="Соцсети/scriptZfs.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui.js"></script>                    
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+                            <<!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

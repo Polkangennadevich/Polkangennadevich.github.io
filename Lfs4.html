@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Конфигурация LFS</title>
+     <meta name="description" content="Конфигурация Linux From Scratch.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="Конфигурация системы,Обработка устройств и модулей,Управление устройствами,BLFS">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">"Хорошее клиентское обслуживание стоит меньше, чем плохое клиентское обслуживание." Салли Гроноу</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="Конфигурация системы"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="hvr-curl"><a><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="BLFS"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Между жопой и диваном доллар никогда не пролетит." Билл Гейтс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs">Linux From Scratch</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs1">2.2. Требования к хост-системе</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs2">Создание новых разделов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs3">Создание файловых систем на разделах</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs4">2.6. Настройка переменной окружения $LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs5">2.7. Монтирование нового раздела</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs6">3. Пакеты и патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs7">3.2. Все пакеты</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs8">3.3. Необходимые патчи</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs9">4.2. Создание директории $LFS/tools</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs10">4.3. Добавление пользователя LFS</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs11">4.4. Установка рабочего окружения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs.html#lfs12">5.3. Общие инструкции по компиляции</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs13">5.4. Binutils-2.31.1 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs14">5.5. GCC-8.1.0 - Проход 1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs15">5.6. Заголовочные файлы Linux-4.17.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs16">5.7. Glibc-2.27</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs17">5.8. Libstdc++ из пакета GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs18">5.9. Binutils-2.31.1 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs19">5.10. GCC-8.2.0 - Проход 2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs20">5.11. Tcl-8.6.8</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs21">5.12. Expect-5.45.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs22">5.13. DejaGNU-1.6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs23">5.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs24">5.15. Ncurses-6.1</a></li>   
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs25">5.16. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs26">5.17. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs27">5.18. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs28">5.19. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs29">5.20. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs30">5.21. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs31">5.22. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs32">5.23. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs33">5.24. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs34">5.25. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs35">5.26. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs36">5.27. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs37">5.28. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs38">5.29. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs39">5.30. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs40">5.31. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs41">5.32. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs42">5.33. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs43">5.34. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs44">5.35. Удаление ненужных файлов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs1.html#lfs45">5.36. Изменение прав</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs46">6. Установка основного системного программного обеспечения</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs48">6.3. Управление пакетами</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs49">6.4. Вход в окружение Chroot</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs50">6.5. Создание каталогов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs51">6.6. Создание основных файлов и символических ссылок</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs52">6.7. Заголовочные файлы API Linux-4.17.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs53">6.8. Man-pages-4.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs54">6.9. Glibc-2.28</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs2.html#lfs55">6.10. Перенастройка временного набора инструментов</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs56">6.11. Zlib-1.2.11</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs57">6.12. File-5.34</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs58">6.13. Readline-7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs59">6.14. M4-1.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs60">6.15. Bc-1.07.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs61">6.16. Binutils-2.31.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs62">6.17. GMP-6.1.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs63">6.18. MPFR-4.0.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs64">6.19. MPC-1.1.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs65">6.20. GCC-8.2.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs66">6.21. Bzip2-1.0.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs67">6.22. Pkg-config-0.29.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs68">6.23. Ncurses-6.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs69">6.24. Attr-2.4.48</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs70">6.25. Acl-2.2.53</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs71">6.26. Libcap-2.25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs72">6.27. Sed-4.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs73">6.28. Shadow-4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs74">6.29. Psmisc-23.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs75">6.30. Iana-Etc-2.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs76">6.31. Bison-3.0.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs77">6.32. Flex-2.6.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs78">6.33. Grep-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs79">6.34. Bash-4.4.18</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs80">6.35. Libtool-2.4.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs81">6.36. GDBM-1.17</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs82">6.37. Gperf-3.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs83">6.38. Expat-2.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs84">6.39. Inetutils-1.9.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs85">6.40. Perl-5.28.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs86">6.41. XML::Parser-2.44</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs87">6.42. Intltool-0.51.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs88">6.43. Autoconf-2.69</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs89">6.44. Automake-1.16</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs90">6.45. Xz-5.2.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs91">6.46. Kmod-25</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs92">6.47. Gettext-0.19.8.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs93">6.48. Libelf 0.173</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs94">6.49. Libffi-3.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs95">6.50. OpenSSL-1.1.0h</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs96">6.51. Python-3.7.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs97">6.52. Ninja-1.8.2</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs98">6.53. Meson-0.47.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs99">6.54. Procps-ng-3.3.15</li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs100">6.55. E2fsprogs-1.44.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs101">6.56. Coreutils-8.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs102">6.57. Check-0.12.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs103">6.58. Diffutils-3.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs104">6.59. Gawk-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs105">6.60. Findutils-4.6.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs106">6.61. Groff-1.22.3</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs107">6.62. GRUB-2.02</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs108">6.63. Less-530</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs109">6.64. Gzip-1.9</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs110">6.65. IPRoute2-4.17.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs111">6.66. Kbd-2.0.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs112">6.67. Libpipeline-1.5.0</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs113">6.68. Make-4.2.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs114">6.69. Patch-2.7.6</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs115">6.70. Sysklogd-1.5.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs116">6.71. Sysvinit-2.90</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs117">6.72. Eudev-3.2.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs118">6.73. Util-linux-2.32.1</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs119">6.74. Man-DB-2.8.4</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs120">6.75. Tar-1.30</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs121">6.76. Texinfo-6.5</a></li>
+           <li class="p1"><a class="blue aS" href="Lfs3.html#lfs122">6.77. Vim-8.1</a></li>
+           <li class="p1"><a class="white aS" href="#lfs123">6.79. Повторная очистка от отладочных символов</a></li>
+           <li class="p1"><a class="white aS" href="#lfs124">6.80. Выполнение очистки</a></li>
+           <li class="p1"><a class="white aS" href="#lfs125">7. Конфигурация системы</a></li>
+           <li class="p1"><a class="white aS" href="#lfs126">7.2. LFS-Bootscripts-20180820</a></li>
+           <li class="p1"><a class="white aS" href="#lfs127">7.3. Обработка устройств и модулей</a></li>
+           <li class="p1"><a class="white aS" href="#lfs128">7.4. Управление устройствами</a></li>
+           <li class="p1"><a class="white aS" href="#lfs129">7.5. Конфигурация Сети</a></li>
+           <li class="p1"><a class="white aS" href="#lfs130">7.6. Настройка и использование System V Bootscript</a></li> 
+           <li class="p1"><a class="white aS" href="#lfs131">7.7. Файлы запуска оболочки Bash</a></li>
+           <li class="p1"><a class="white aS" href="#lfs132">7.8. Создание файла /etc/inputrc</a></li>
+           <li class="p1"><a class="white aS" href="#lfs133">7.9. Создание файла /etc/shells</a></li>
+           <li class="p1"><a class="white aS" href="#lfs134">8.2. Создание файла /etc/fstab</a></li>
+           <li class="p1"><a class="white aS" href="#lfs135">8.3. Linux-4.18</a></li>
+           <li class="p1"><a class="white aS" href="#lfs136">8.4. Использование GRUB для настройки процесса загрузки</a></li>
+           <li class="p1"><a class="white aS" href="#lfs137">9.3. Перезагрузка системы</a></li>
+           <li class="p1"><a class="white aS" href="#lfs138">Приложение C. Зависимости</a></li>
+           <li class="p1"><a class="white aS" href="#lfs139">Приложение E. Правила конфигурации Udev</a></li>
+           <li class="p1"><a class="blue aS" href="http://rus-linux.net/nlib.php?name=/MyLDP/BOOKS/BLFS-ru/blfs-ru-index.html">Beyond Linux® From Scratch. Version 2011-12-30</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+            <h2 id="lfs123">6.79. Повторная очистка от отладочных символов</h2>
+            <p>Этот раздел является необязательным. Если вы не программист и не планируете выполнять отладку установленного программного обеспечения, то общий размер системы можно сократить, удалив отладочные символы из двоичных файлов и библиотек. Такая операция не вызовет проблем, за исключением того, что не получится выполнить отладку установленного программного обеспечения.<br>
+               Большинство пользователей, которые используют приведенные ниже команды, не испытывают никаких трудностей. Тем не менее, легко сделать опечатку и сделать новую систему непригодной для использования, поэтому перед запуском команд рекомендуется создать резервную копию системы <strong class="strong">LFS</strong> в текущем состоянии.<br>
+               Расположим отладочные символы для выбранных библиотек в отдельные файлы. Отладочная информация необходима для запуска регрессионных тестов, которые используют <strong class="strong">valgrind</strong> или <strong class="strong">gdb</strong> позднее в книге <strong class="strong">BLFS</strong>.<br><br>
+               <strong class="p11 blue">save_lib="ld-2.28.so libc-2.28.so libpthread-2.28.so libthread_db-1.0.so"<br>
+               <strong class="p11">cd /lib<br>
+               <strong class="p11">for LIB in $save_lib; do<br>
+               <strong class="p11">objcopy --only-keep-debug $LIB $LIB.dbg<br>
+               <strong class="p11">strip --strip-unneeded $LIB<br>
+               <strong class="p11">objcopy --add-gnu-debuglink=$LIB.dbg $LIB<br>
+               <strong class="p11">done<br>
+               <strong class="p11">save_usrlib="libquadmath.so.0.0.0 libstdc++.so.6.0.25<br>
+               <strong class="p11">libmpx.so.2.0.1 libmpxwrappers.so.2.0.1 libitm.so.1.0.0<br>
+               <strong class="p11">libatomic.so.1.2.0" "<br>
+               <strong class="p11">cd /usr/lib<br>
+               <strong class="p11">for LIB in $save_usrlib; do<br>
+               <strong class="p11">objcopy --only-keep-debug $LIB $LIB.dbg<br>
+               <strong class="p11">strip --strip-unneeded $LIB<br>
+               <strong class="p11">objcopy --add-gnu-debuglink=$LIB.dbg $LIB<br>
+               <strong class="p11">done<br>
+               <strong class="p11">unset LIB save_lib save_usrlib</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Перед выполнением очистки тщательно следим за тем, чтобы ни один из исполняемых файлов, который планируется удалить, не был запущен. Если не уверены, что находимся в правильно настроенной среде chroot как было рассказано ранее, раздел «<a class="special-link a link1" href="Lfs2.html#lfs49">6.4 Вход в окружение Chroot</a>» выйдем из среды chroot, выполнив команду:<br><br>
+               <strong class="p11 blue">logout</strong><br><br>
+               Выполним вход в среду <strong class="strong">chroot</strong> заново, выполнив команду:<br><br>
+               <strong class="p11 blue">chroot $LFS /tools/bin/env -i \<br>
+               <strong class="p11">HOME=/root TERM=$TERM \<br>
+               <strong class="p11">PS1='(lfs chroot) \u:\w\$ ' \<br>
+               <strong class="p11">PATH=/bin:/usr/bin:/sbin:/usr/sbin \<br>
+               <strong class="p11">/tools/bin/bash --login</strong></strong></strong></strong></strong><br><br>
+               Двоичные файлы и библиотеки можно безопасно очистить:<br><br>
+               <strong class="p11 blue">/tools/bin/find /usr/lib -type f -name \*.a \<br>
+               <strong class="p11">-exec /tools/bin/strip --strip-debug {} ';'<br>
+               <strong class="p11">/tools/bin/find /lib /usr/lib -type f \( -name \*.so* -a ! -name \*dbg \) \<br>
+               <strong class="p11">-exec /tools/bin/strip --strip-unneeded {} ';'<br>
+               <strong class="p11">/tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \</strong></strong></strong></strong></strong><br><br>
+               На экране будет множество сообщений, не удается распознать формат файлов (<strong class="strong">format not recognized</strong>). Такие предупреждения можно игнорировать. Они указывают, что файлы являются сценариями вместо двоичных файлов.  
+           </p>
+           <h2 id="lfs124">6.80. Выполнение очистки</h2>
+            <p>Очистим некоторые дополнительные файлы, оставшиеся от запускаемых ранее тестов:<br><br>
+               <strong class="p11 blue">rm -rf /tmp/*</strong><br><br>
+               По возвращении в среду <strong class="strong">chroot</strong> после выхода, необходимо использовать следующую измененную команду входа в <strong class="strong">chroot</strong> окружение:<br><br>
+               <strong class="p11 blue">chroot "$LFS" /usr/bin/env -i \<br>
+               <strong class="p11">HOME=/root TERM="$TERM" \<br>
+               <strong class="p11">PS1='(lfs chroot) \u:\w\$ ' \<br>
+               <strong class="p11">PATH=/bin:/usr/bin:/sbin:/usr/sbin \<br>
+               <strong class="p11">/bin/bash --login</strong></strong></strong></strong></strong><br><br>
+               Причиной является то, что программы в каталоге <strong class="strong">/tools</strong> больше не потребуются, и соответствующий каталог <strong class="strong">/tools</strong>, при желании, можно удалить.<br>
+               При удалении каталога <strong class="strong">/tools</strong> также, будут удалены временные копии программ <strong class="strong">Tcl</strong>, <strong class="strong">Expect</strong> и <strong class="strong">DejaGNU</strong>, которые были установлены для обеспечения запуска тестов устанавливаемых пакетов. Если эти программы вам вновь понадобятся, вы можете установить их позднее. В книге <a class="special-link1 a link1" href="https://linuxfromscratch.org.ru/blfs/">BLFS</a> есть информация по установке и настройке этих пакетов.<br>
+               Если виртуальные файловые системы не были примонтированы, по причине перезагрузки или ручного отмонтирования,убедитесь что они заново примонтированы, когда вы входите в среду <strong class="strong">chroot</strong>. Этот процесс описан в разделе «<a class="special-link2 a link1" href="Lfs2.html#lfs47">6.2. Подготовка виртуальных файловых систем ядра</a>».<br>
+               Есть статические библиотеки, которые ранее не были удалены, чтобы регрессионные тесты могли правильно выполняться, в нескольких пакетах. Эти библиотеки из <strong class="strong">binutils</strong>, <strong class="strong">bzip2</strong>, <strong class="strong">e2fsprogs</strong>, <strong class="strong">flex</strong>, <strong class="strong">libtool</strong> и <strong class="strong">zlib</strong>, при желании, можно тоже удалить:<br><br>
+               <strong class="p11 blue">rm -f /usr/lib/lib{bfd,opcodes}.a<br>
+               <strong class="p11">rm -f /usr/lib/libbz2.a<br>
+               <strong class="p11">rm -f /usr/lib/lib{com_err,e2p,ext2fs,ss}.a<br>
+               <strong class="p11">rm -f /usr/lib/libltdl.a<br>
+               <strong class="p11">rm -f /usr/lib/libfl.a<br>
+               <strong class="p11">rm -f /usr/lib/libfl_pic.a<br>
+               <strong class="p11">rm -f /usr/lib/libz.a</strong></strong></strong></strong></strong></strong></strong><br><br>
+               Есть еще несколько файлов с расширением <strong class="strong">.la</strong>, расположенные каталогах в <strong class="strong">/usr/lib</strong> и <strong class="strong">/usr/libexec</strong>. Это файлы "архивов <strong class="strong">libtool</strong>", и в системе <strong class="strong">linux</strong> они не нужны. На данный момент они не требуется. Чтобы удалить их, выполните команду:<br><br>
+               <strong class="p11 blue">find /usr/lib /usr/libexec -name \*.la -delete</strong><br><br>
+               Более подробную информацию можно изучить в книге <strong class="strong">BLFS</strong>, "<a class="special-link3 a link1" href="https://linuxfromscratch.org.ru/blfs/view/8.2//introduction/la-files.html">Информация об архивных файлах (.la)</a>". 
+            </p>
+            <h1 id="lfs125" class="darkblue">7. Конфигурация системы</h1>
+            <p>Загрузка <strong class="strong">Linux</strong> системы включает в себя несколько задач. Процесс должен примонтировать как виртуальные, так и реальные файловые системы, инициализировать устройства, активировать файл подкачки, проверить целостность файловых систем, примонтировать другие разделы или файл подкачки, установить системные часы, создать сети, запустить службы, требуемые системой и выполнить любые другие задачи, необходимые пользователю. Этот процесс должен быть организован для выполнения задач в правильном порядке и в то же время, выполняться как можно быстрее.<br>
+               <strong class="strong">System V</strong> - представляет классический процесс загрузки, который использовался в <strong class="strong">Unix</strong> и <strong class="strong">Unix</strong>-подобных системах, таких как <strong class="strong">Linux</strong> с 1983 года. Он состоит из небольшой программы <strong class="strong">init</strong>, которая устанавливает базовые программы, такие как <strong class="strong">login</strong> (через <strong class="strong">getty</strong>) и запускает другие сценарии. Этот сценарий, как правило, называется <strong class="strong">rc</strong>, и управляет выполнением дополнительных сценариев, необходимых для инициализации системы.<br>
+               Программа <strong class="strong">init</strong> управляется файлом <strong class="strong">/etc/inittab</strong> и структурирована на уровни запуска, которые могут выполнятся пользователем:<br>
+               0 — <strong class="strong">Halt</strong> - остановка<br>
+               1 — <strong class="strong">Single user mode</strong> - Однопользовательский режим<br>
+               2 — <strong class="strong">Multiuser, without networking</strong> - Многопользовательский режим, без сети<br>
+               3 — <strong class="strong">Full multiuser mode</strong> - Полный многопользовательский режим<br>
+               4 — <strong class="strong">User definable</strong> - Режим, определяемый пользователем<br>
+               5 — <strong class="strong">Full multiuser mode with display manager</strong> - Полный многопользовательский режим с экранным менеджером<br>
+               6 — <strong class="strong">reboot</strong> - перезагрузка<br>
+               Обычно, стандартный уровень запуска - 3 или 5.<br>
+               Преимущества:<br>
+               Устоявшаяся, хорошо понятая система.<br>
+               Легко настроить.<br>
+               Недостатки:<br>
+               Медленная загрузка. Средняя скорость загрузки <strong class="strong">LFS</strong> системы составляет 8-12 секунд, если измерить время с начала первого отображения приглашения командной строки ядра. Соединение с сетью как правило устанавливается примерно 2 секунды после приглашения командной строки.<br>
+               Последовательная обработка задач загрузки. Это связано с предыдущим пунктом. Задержка в работе любого процесса, например проверка файловой системы, задержит соответственно и весь процесс загрузки.<br>
+               Не поддерживает напрямую дополнительные функции, такие как контроль групп (<strong class="strong">cgroups</strong>) и расписания для каждого пользователя.<br>
+               Для добавления сценариев требуются ручные, статические последовательные решения.
+            </p>
+            <h2 id="lfs126">7.2. <strong class="strong">LFS-Bootscripts-20180820</strong></h2>
+            <p>Пакет <strong class="strong">LFS-Bootscripts</strong> содержит набор сценариев для запуска/остановки <strong class="strong">LFS</strong> системы. Файлы конфигурации и процедуры необходимы, чтобы настроить процесс загрузки, описанные в следующих разделах.<br>
+               Установим пакет:<br><br>
+               <strong class="p11 blue">make install</strong><br><br>
+               Содержимое пакета <strong class="strong">LFS-Bootscripts</strong>.<br>
+               Установленные каталоги: <strong class="strong">/etc/rc.d</strong>, <strong class="strong">/etc/init.d</strong> (<strong class="strong">symbolic link</strong>), <strong class="strong">/etc/sysconfig</strong>, <strong class="strong">/lib/services</strong>, <strong class="strong">/lib/lsb</strong> (<strong class="strong">symbolic link</strong>)<br>
+               Установленные скрипты:<br> 
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds01.html">D.1. /etc/rc.d/init.d/rc</a> Основной управляющий сценарий. Он отвечает за запуск других сценариев загрузки один за одним, в той последовательности, которая определенной по имени обрабатываемых символических ссылок.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds02.html">D.2. /lib/lsb/init-functions</a> Содержит общие функции, такие как <strong class="strong">error</strong> и проверка статуса. Эти функции используются другими сценариями пакета.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds03.html">D.3. /etc/rc.d/init.d/mountvirtfs</a> Монтирует виртуальные файловые системы, такие как <strong class="strong">proc</strong><br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds04.html">D.4. /etc/rc.d/init.d/modules</a><br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds05.html">D.5. /etc/rc.d/init.d/udev</a> Подготовка каталога <strong class="strong">/dev</strong> и запуск <strong class="strong">Udev</strong>.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds06.html">D.6. /etc/rc.d/init.d/swap</a> Включает или выключает файл подкачки и связанные с ним разделы файловой системы.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds07.html">D.7. /etc/rc.d/init.d/setclock</a> Сбрасывает настроенные часы ядра в локальное время в случае, если аппаратное время не настроено в <strong class="strong">UTC</strong>.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds08.html">D.8. /etc/rc.d/init.d/checkfs</a> Проверяет целостность файловых систем, после того, как они были примонтированы (за исключением журналов и сетевых файловых систем).<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds09.html">D.9. /etc/rc.d/init.d/mountfs</a> Монтирует все файловые системы, кроме тех, которые отмечены как <strong class="strong">noauto</strong> или сетевые файловые системы.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds10.html">D.10. /etc/rc.d/init.d/udev_retry</a> Повторная попытка запуска неудавшихся событий <strong class="strong">udev</strong>, копирование сгенерированных правил из каталога <strong class="strong">/run/udev</strong> в каталог <strong class="strong">/etc/udev/rules.d</strong> при необходимости.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds11.html">D.11. /etc/rc.d/init.d/cleanfs</a> Удаляет файлы, которые не должны быть сохранены между циклами включения/выключения системы, такие как в каталоге <strong class="strong">/var/run/</strong> и <strong class="strong">/var/lock/</strong>; также создается заново <strong class="strong">/var/run/utmp</strong> и удаляют, возможные наличия файлов <strong class="strong">/etc/nologin</strong>, <strong class="strong">/fastboot,</strong> и <strong class="strong">/forcefsck</strong>.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds12.html">D.12. /etc/rc.d/init.d/console</a> Загружает правильные таблицы раскладки клавиатуры для клавиатуры, и устанавливает шрифт экрана.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds13.html">D.13. /etc/rc.d/init.d/localnet</a> Выполняет настройку имени хоста и локального <strong class="strong">loopback</strong> устройства.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds14.html">D.14. /etc/rc.d/init.d/sysctl</a> Загружает параметры системной конфигурации в запущенное ядро из файла <strong class="strong">/etc/sysctl.conf</strong>, в том случае, если файл существует.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds15.html">D.15. /etc/rc.d/init.d/sysklogd</a> Запускает или останавливает системные службы журналирования и службы ядра.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds16.html">D.16. /etc/rc.d/init.d/network</a> Выполняет настройку сетевых интерфейсов, таких как сетевые карты, и настаивает сетевой шлюз по-умолчанию (где это применимо).<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds17.html">D.17. /etc/rc.d/init.d/sendsignals</a> Гарантирует то, что каждый процесс будет завершен до того, как система будет остановлена или перезагружена.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds18.html">D.18. /etc/rc.d/init.d/reboot</a> Перезагружает систему.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds19.html">D.19. /etc/rc.d/init.d/halt</a> Останавливает систему.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds20.html">D.20. /etc/rc.d/init.d/template</a> Шаблон, для создания собственных сценариев загрузки для других служб.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds21.html">D.21. /etc/sysconfig/modules</a> Загружает модули ядра из списка, который находится в файле <strong class="strong">/etc/sysconfig/modules</strong>, используя переданные здесь аргументы.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds22.html">D.22. /etc/sysconfig/createfiles</a><br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds23.html">D.23. /etc/sysconfig/udev-retry</a><br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds24.html">D.24. /sbin/ifup</a> Инициализирует сетевые устройства.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds25.html">D.25. /sbin/ifdown Остановка работы сетевых устройств.</a><br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds26.html">D.26. /lib/services/ipv4-static</a> Предоставляет функциональность, позволяющую назначать статический <strong class="strong">IP</strong> адрес сетевому интерфейсу.<br>
+               <a class="special-link4 a link1" href="http://www.linuxfromscratch.org/lfs/view/stable/scripts/apds27.html">D.27. /lib/services/ipv4-static-route</a>
+            </p>
+            <h2 id="lfs127">7.3. Обработка устройств и модулей</h2>
+            <p>Системы <strong class="strong">Linux</strong> традиционно используют метод статического создания устройств, посредством чего, большое число узлов устройств (иногда буквально тысячи узлов) создается в каталоге <strong class="strong">/dev</strong>, независимо от того, существуют ли соответствующие аппаратные устройства. Это обычно делается средствами сценария <strong class="strong">MAKEDEV</strong>, который содержит команды вызова программы <strong class="strong">mknod</strong> с соответствующим числом для каждого возможного устройства какое только может существовать.<br>
+               Используя метод <strong class="strong">Udev</strong>, только те устройства, которые были обнаружены ядром, получают свой узел. Поскольку эти узлы будут создаваться каждый раз, при загрузке системы, они будут располагаться в каталоге виртуальной файловой системы <strong class="strong">devtmpfs</strong> (виртуальная файловая система, которая полностью находится в оперативной памяти). Узлы не занимают много места в памяти, и их общий размер незначителен.<br>
+               При развитии нестабильной ветки ядра 2.5, позднее, выпущенной как стабильный релиз 2.6, появилась новая виртуальная файловая система <strong class="strong">sysfs</strong>. Задача этой файловой системы заключалась в экспорте представления об аппаратной конфигурации системы в процессах пользовательского окружения. Благодаря этому, разработка замены пользовательского окружения для <strong class="strong">devfs</strong> стала гораздо реалистичнее.<br>
+               Можно задаться вопросом, как <strong class="strong">sysfs</strong> получает информацию об устройствах в системе, и о том, какие номера устройств должны использоваться для них. Драйверы, скомпилированные в ядро, напрямую регистрируют объекты с помощью <strong class="strong">sysfs</strong> (внутри <strong class="strong">devtmpfs</strong>), так как они обнаруживаются ядром. Для драйверов, которые скомпилированы в виде модулей, регистрация будет происходить при его загрузке. После того, как файловая система <strong class="strong">sysfs</strong> будет примонтирована в каталог <strong class="strong">/sys</strong>, данные, которые регистрируются драйверами, с помощью <strong class="strong">sysfs</strong>, станут доступны для процессов пользовательского окружения и для <strong class="strong">udevd</strong>, для последующей обработки (включая изменения узлов устройств).<br>
+               Файлы устройств создаются ядром при помощи файловой системы <strong class="strong">devtmpfs</strong>. Любой драйвер, которому необходимо зарегистрировать узел устройства, будет проходить через файловую систему <strong class="strong">devtmpfs</strong> (через системный драйвер ядра). Когда экземпляр <strong class="strong">devtmpfs</strong> монтируется в каталог <strong class="strong">/dev</strong>, узел устройства будет создан с фиксированным наименованием, соответствующими разрешениями и владельцем.<br>
+               Через некоторое время, ядро отправит <strong class="strong">uevent</strong> в <strong class="strong">udevd</strong>. На основе правил, которые указанны в файлах в каталогах <strong class="strong">/etc/udev/rules.d</strong>, <strong class="strong">/lib/udev/rules.d</strong>, и <strong class="strong">/run/udev/rules.d</strong>, <strong class="strong">udevd</strong> создаст дополнительные символические ссылки на узлы устройств, или сменит разрешения, владельца или группу, или сменит запись (наименование) во внутренней базе данных <strong class="strong">udevd</strong> для этого объекта.<br>
+               Правила в этих трёх каталогах нумеруются и объединяются вместе. Если <strong class="strong">udevd</strong> не может найти правило для устройства, он оставит права доступа и права собственности на все первоначально используемые <strong class="strong">devtmpfs</strong>.<br>
+               Драйверы устройств, скомпилированные в виде модулей ядра могут содержать встроенные псевдонимы. Псевдонимы можно увидеть просмотрев вывод программы <strong class="strong">modinfo</strong>. Они, как правило, связаны с идентификаторам шины устройства, поддерживаемым модулем. Например, драйвер <strong class="strong">snd-fm801</strong> подерживает <strong class="strong">PCI</strong> устройства с идентификатором поставщика <strong class="strong">0x1319</strong> и идентификатором устройства <strong class="strong">0x0801</strong>, и имеет псевдоним «<strong class="strong">pci:v00001319d00000801sv*sd*bc04sc01i*</strong>». Для большинства устройств, драйвер шины экспортирует псевдонимы драйвера, которые будет обрабатывать устройство через <strong class="strong">sysfs</strong>. Например, файл <strong class="strong">/sys/bus/pci/devices/0000:00:0d.0/modalias</strong> может содержать строку «<strong class="strong">pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</strong>». Правила по умолчанию, которые предоставлены <strong class="strong">Udev</strong>, заставят <strong class="strong">udevd</strong> вызвать <strong class="strong">/sbin/modprobe</strong> с содержимым, которое находится в значении переменной окружения <strong class="strong">MODALIAS uevent</strong> (которая должна совпадать с содержимым файла <strong class="strong">modalias</strong> в <strong class="strong">sysfs</strong>), тем самым загружая все модули, чьи псевдонимы совпадают в строке после расширение подстановочных знаков.<br>
+               К указанному выше примеру, это означает, что в дополнение к <strong class="strong">snd-fm801</strong> устаревший (и нежелательный) драйвер <strong class="strong">forte</strong> будет загружен, если он будет доступен. Ниже описано, как можно предотвратить загрузку нежелательных драйверов.<br>
+               Само ядро также может загружать модули для сетевых протоколов, файловых систем и поддержки <strong class="strong">NLS </strong>по требованию.<br>
+               При подключении устройства, например, <strong class="strong">MP3</strong>-плеер, к универсальной последовательной шине (<strong class="strong">USB</strong>), ядро распознает, что устройство подключено, и сгенерирует событие <strong class="strong">uevent</strong>. Это событие затем обрабатывается <strong class="strong">udevd</strong>, как было описано выше.<br>
+               Есть несколько возможных проблем, когда дело доходит до автоматического создания узлов устройств.<br>
+               Модуль ядра не загружается автоматически<br>
+               <strong class="strong">Udev</strong> будет загружать модуль, только если он имеет указанный псевдоним шины, и драйвер шины правильно экспортирует необходимые псевдонимы в <strong class="strong">sysfs</strong>. В других случаях следует организовать загрузку модуля другими способами. начиная с версии <strong class="strong">Linux-4.18</strong>, в <strong class="strong">udev</strong>, выполняет загрузку правильно написанных драйверов для <strong class="strong">INPUT</strong>, <strong class="strong">IDE</strong>, <strong class="strong">PCI</strong>, <strong class="strong">USB</strong>, <strong class="strong">SCSI</strong>, <strong class="strong">SERIO</strong>, и <strong class="strong">FireWire</strong> устройств.<br>
+               Чтобы определить, имеет ли требуемый драйвер устройства необходимую поддержку <strong class="strong">Udev</strong>, запустим <strong class="strong">modinfo</strong> с именем модуля в качестве аргумента. Далее, попробуем найти каталог устройства в <strong class="strong">/sys/bus</strong> и проверим, есть ли там файл <strong class="strong">modalias</strong>.<br>
+               Если файл <strong class="strong">modalias</strong> существует в <strong class="strong">sysfs</strong>, то драйвер, который поддерживает устройство, может общаться с ним напрямую, но не имеет псевдонима, это ошибка в драйвере. Загрузим драйвер без помощи <strong class="strong">Udev</strong> и ожидаем, что проблема будет исправлена позднее.<br>
+               Если же в каталоге <strong class="strong">/sys/bus</strong> нет файла <strong class="strong">modalias</strong>, это означает, что разработчики ядра еще не добавили поддержку <strong class="strong">modalias</strong> к этому типу шины. В <strong class="strong">Linux-4.18</strong>, это относится к шинам <strong class="strong">ISA</strong>. Ожидайте, что эта проблема будет исправлена в более поздних версиях ядра.<br>
+               <strong class="strong">Udev</strong> не предназначен для загрузки драйверов «обёрток», таких как <strong class="strong">snd-pcm-oss</strong> и драйверов, не относящихся к оборудованию, например <strong class="strong">loop</strong><br>
+               Модуль ядра не загружается автоматически, и <strong class="strong">Udev</strong> не предназначен для его загрузки.<br>
+               Если модуль «обёртка» только расширяет функциональность, которая может быть предоставлена иным модулем (например модуль <strong class="strong">snd-pcm-oss</strong> расширяет функциональность модуля <strong class="strong">snd-pcm</strong>, давая возможность звуковым картам быть доступными для <strong class="strong">OSS</strong> приложений), настройте <strong class="strong">modprobe</strong> для загрузки оболочки после того, как <strong class="strong">Udev</strong> загрузит обернутый модуль. Для этого добавьте строку «<strong class="strong">softdep</strong>» в файл, который находится в каталоге <strong class="strong">/etc/modprobe.d/&lt;filename>.conf</strong>. Например:<br><br>
+               <strong class="p11 blue">softdep snd-pcm post: snd-pcm-oss</strong><br><br>
+               Обращаем внимание, что команда «<strong class="strong">softdep</strong>» разрешает добавлять <strong class="strong">pre:</strong> зависимости, или одновременно <strong class="strong">pre:</strong> и <strong class="strong">post:</strong>. Читаем документацию <strong class="strong">modprobe.d(5)</strong> для изучения синтаксиса и возможностей «<strong class="strong">softdep</strong>».<br>
+               Если модуль не является обёрткой, и полезен сам по себе, настройте загрузочный сценарий модулей, чтобы он добавлялся при загрузке системы. Для этого добавим имя модуля в файл <strong class="strong">/etc/sysconfig/modules</strong> в отдельной строке. Этот способ сработает и для оберточных модулей, но не является оптимальным.<br>
+               <strong class="strong">Udev</strong> загружает ненужные модули<br>
+               Либо не создаём модуль, либо заносим его в черный список в файле <strong class="strong">/etc/modprobe.d/blacklist.conf</strong>. Например:<br><br>
+               <strong class="p11 blue">blacklist forte</strong><br><br>
+               Блокированные модули могут быть загружены вручную с явным указанием в команде <strong class="strong">modprobe</strong>.<br>
+               <strong class="strong">Udev</strong> создает устройство неправильно или создает некорректную символическую ссылку<br>
+               Это обычно происходит, если правило неожиданно совпадает с устройством. Например, плохо написанное правило может соответствовать как диску <strong class="strong">SCSI</strong> (по желанию), так и соответствующему универсальному устройству <strong class="strong">SCSI</strong> (неправильно) указанному поставщиком. Находим нарушающее правило и уточняем его с помощью команды <strong class="strong">udevadm info</strong>.<br>
+               Правило <strong class="strong">Udev</strong> работает ненадежно<br>
+               Это может быть проявлением предыдущей проблемы. В ином случае, если правило использует атрибуты файловой системы <strong class="strong">sysfs</strong>, то это может быть проблемой синхронизации ядра, которая будет исправлена в более поздних версиях ядра. Но вы можете обойти проблему, создав правило, которое ожидает используемый атрибут <strong class="strong">sysfs</strong> и добавляет его к файлу правил (создайте его, если он не существует).<br>
+               <strong class="strong">Udev</strong> не создаёт устройство<br>
+               Предполагается, что драйвер статически встроен в ядро или уже загружен как модуль и уже проверили, что <strong class="strong">Udev</strong> не создает устройство с неправильным наименованием.<br>
+               <strong class="strong">Udev</strong> не обладает информацией, необходимой для создания узла устройства, если драйвер ядра не экспортирует свои данные в <strong class="strong">sysfs</strong>. Как правило, такое происходит с внешними драйверами, которых нет в дереве исходного кода ядра. Создайте статический узел в каталоге <strong class="strong">/lib/udev/devices</strong> с соответствующими первичными и второстепенными номерами (см. файл <strong class="strong">devices.txt</strong> внутри документации ядра или документации, предоставленной сторонним поставщиком драйвера). Статический узел будет скопирован в <strong class="strong">/dev</strong> с помощью <strong class="strong">udev</strong>.
+               Порядок именования устройств изменяется случайным образом после перезагрузки<br>
+               Это связано с тем, что <strong class="strong">Udev</strong> обрабатывает события и загружает модули параллельно, а значит в непредсказуемом порядке. Это никогда не будет «исправлено». Не следует полагаться на стабильность имен устройств ядра. Вместо этого создайте свои собственные правила, которые делают символические ссылки со стабильными именами на основе некоторых стабильных атрибутов устройства, таких как серийный номер или вывод различных утилит <strong class="strong">*_id</strong>, установленных <strong class="strong">Udev</strong>. В разделах «7.4 Управление устройствами» и «7.5 Конфигурация Сети», есть примеры.<br>
+               Дополнительная полезная документация:<br>
+               <a class="special-link5 a link1" href="http://www.kroah.com/linux/talks/ols_2003_udev_paper/Reprint-Kroah-Hartman-OLS2003.pdf">Реализация devfs в пользовательском окружении</a><br>
+               <a class="special-link6 a link1" href="http://www.kernel.org/pub/linux/kernel/people/mochel/doc/papers/ols-2005/mochel.pdf">Файловая система sysfs</a>
+            </p>
+            <h2 id="lfs128">7.4. Управление устройствами</h2>
+            <p>Cетевое оборудование.<br>
+               <strong class="strong">Udev</strong> по умолчанию называет сетевые устройства в соответствии с данными прошивки, <strong class="strong">BIOS</strong> или физическими характеристиками, такими как шина, слот или <strong class="strong">MAC</strong>-адрес. Цель такого соглашения о именовании нужна для гарантии того, что сетевые устройства названы последовательно и не на основывались на времени обнаружении усстройства. Например, на компьютере с двумя сетевыми картами производства <strong class="strong">Intel</strong> и <strong class="strong">Realtek</strong> сетевая карта производства <strong class="strong">Intel</strong> может стать <strong class="strong">eth0</strong>, а карта <strong class="strong">Realtek eth1</strong>. В некоторых случаях после перезагрузки, сетевые карты могут быть переименованы в другой последовательности.<br>
+               В новой схеме именования обычные имена сетевых устройств будут чем-то вроде <strong class="strong">enp5s0</strong> или <strong class="strong">wlp3s0</strong>. Если это соглашение о именовании не требуется, традиционная схема или своя собственная, может быть использована.<br>
+               Традиционная схема именования - <strong class="strong">eth0</strong>, <strong class="strong">eth1</strong> и так далее, могут быть установлены путем добавления <strong class="strong">net.ifnames=0</strong> в командную строку ядра. Это подойдёт для систем, которые имеют только сетевое устройство одного типа. В ноутбуках часто есть несколько сетевых соединений с именами <strong class="strong">eth0</strong> и <strong class="strong">wlan0</strong>. Эта схема вполне применима к ним. Командная строка передается в файле конфигурации <strong class="strong">GRUB</strong><br>.
+               Именование схемы может быть настроено, созданием собственных правил <strong class="strong">Udev</strong>. Существует файл сценария, который генерирует начальные правила. Чтобы их сгенерировать, выполните команду:<br><br>
+               <strong class="p11 blue">bash /lib/udev/init-net-rules.sh</strong><br><br>
+               Проверим файл <strong class="strong">/etc/udev/rules.d/70-persistent-net.rules</strong>, и найдём в нём данные о том, какое название с каким сетевым устройством сопоставлено:<br><br>
+               <strong class="p11 blue">cat /etc/udev/rules.d/70-persistent-net.rules</strong><br><br>
+               В некоторых случаях, например, когда <strong class="strong">MAC</strong>-адреса были назначены сетевой карте вручную или в виртуальной среде, такой как <strong class="strong">Qemu</strong> или <strong class="strong">Xen</strong>, возможно, файл сетевых правил не будет создан, поскольку адреса не назначаются последовательно. В этих случаях, этот способ не применим.<br>
+               Файл начинается с блока комментариев, далее следуют две строки для каждой сетевой карты (<strong class="strong">NIC</strong>). Первая строка, в блоке комментария - это её описание, аппаратные идентификаторы (например, поставщик <strong class="strong">PCI</strong> и идентификаторы устройств, если это <strong class="strong">PCI</strong>-карта), вместе со своим драйвером в скобках, если драйвер удаётся найти. Никакой идентификатор оборудования и драйвер не используются для определения имени интерфейса. Эта информация только для справки. Вторая строка - правило <strong class="strong">Udev</strong>, которое соответствует сетевой карте и фактически присваивает ему имя.<br>
+               Все правила <strong class="strong">udev</strong> состоят из нескольких ключей, разделенных запятыми и необязательными пробелами. Ключи правила и объяснение каждого из них:<br>
+               <strong class="strong">SUBSYSTEM=="net"</strong> - сообщает Udev игнорировать устройства, которые не явлвяются сетевыми картами.<br>
+               <strong class="strong">ACTION=="add"</strong> - сообщает <strong class="strong">Udev</strong> игнорировать это правило для события <strong class="strong">uevent</strong> которое не добавляет (события <strong class="strong">uevents</strong> "удалить" и "добавить" также произойдут, но без необходимости переименования сетевого интерфейса).<br>
+               <strong class="strong">DRIVERS=="?*"</strong> - Это сделано так, чтобы <strong class="strong">Udev</strong> проигнорировал подинтерфейсы <strong class="strong">VLAN</strong> или моста (потому что эти подинтерфейсы не имеют драйверов). Эти подинтерфейсы пропускаются, поскольку имя, которое было бы назначено, столкнулось бы с их родительскими устройствами.<br>
+               <strong class="strong">ATTR{address}</strong> - Значение этого ключа - является <strong class="strong">MAC</strong> адресом сетевой карты.<br>
+               <strong class="strong">ATTR{type}=="1"</strong> - Это гарантирует, что правило только совпадает с основным интерфейсом в случае определенных беспроводных драйверов, которые создают множественные виртуальные интерфейсы. Вторичные интерфейсы пропущены по той же причине, что <strong class="strong">VLAN</strong> и подинтерфейсы моста. В ином случае будет конфликт имен.<br>
+               <strong class="strong">NAME</strong> - Значение этого ключа - наименование сетевого интерфейса, назначенного <strong class="strong">Udev</strong>.<br>
+               Значение <strong class="strong">NAME</strong> является важным.<br>
+               Некоторые программы, которые необходимо установить позднее (например, различные медиа-проигрыватели), ожидают, устройства <strong class="strong">/dev/cdrom</strong> и <strong class="strong">/dev/dvd</strong> и символические ссылки на <strong class="strong">CD-ROM</strong> или <strong class="strong">DVD-ROM</strong> устройства. Кроме того, может быть удобно поместить ссылки на эти символические ссылки в <strong class="strong">/etc/fstab</strong>. Udev поставляется со файлом сценария, который будет генерировать файлы правил для создания этих символических ссылок, в зависимости от возможностей каждого устройства, нужно решить, какой из двух режимов работы необходимо использовать.<br>
+               Во-первых, скрипт может работать в режиме «<strong class="strong">by-path</strong>» (используется по умолчанию для <strong class="strong">USB</strong> и <strong class="strong">FireWire</strong> устройств), где создаваемые им правила зависят от физического пути к <strong class="strong">CD</strong> или <strong class="strong">DVD</strong> устройству. Во-вторых, он может работать в режиме «<strong class="strong">by-id</strong>» (по умолчанию для устройств <strong class="strong">IDE</strong> и <strong class="strong">SCSI</strong>), где создаваемые им правила зависят от строк идентификации, хранящихся в самом устройстве <strong class="strong">CD</strong> или <strong class="strong">DVD</strong>. Путь определяется сценарием <strong class="strong">Udev path_id</strong>, а идентификационные строки считываются с оборудования программами <strong class="strong">ata_id</strong> или <strong class="strong">scsi_id</strong>, в зависимости от того, какой тип устройства имеется.
+               У каждого подхода есть свои преимущества; правильный подход к использованию будет зависеть от того, какие изменения устройств могут произойти. Если вы ожидаете, что физический путь к устройству (порты и/или слоты, которые он подключает), изменится, например, потому, что вы планируете переместить диск в другой порт <strong class="strong">IDE</strong> или другой разъем <strong class="strong">USB</strong>, то вы должны использовать режим «<strong class="strong">by-id</strong>». С другой стороны, если вы ожидаете, что идентификация устройства изменится, например, потому, что оно может умереть, и вы замените его другим устройством с теми же возможностями и которое подключено к тем же разъемам, тогда вы должны использовать режим «<strong class="strong">by-path</strong>».<br>
+               Если с устройством возможен любой из вариантов, выбираем тот, который случается наиболее часто.<br>
+               Внешние устройства (например, компакт-диск, подключенный через <strong class="strong">USB</strong>) не следует использовать методом «<strong class="strong">by-path</strong>», потому что каждый раз, когда устройство подключено в новый внешний порт, изменится его физический путь. Все внешние устройства подвержены этой проблеме при написании правил <strong class="strong">Udev</strong> при распознавании их по их физическому пути. К тому же, эта проблема не ограничивается <strong class="strong">CD</strong> и <strong class="strong">DVD</strong>-дисками.<br>
+               Если необходимо увидеть значения, которые будут использоваться сценариями <strong class="strong">Udev</strong>, то для соответствующего устройства <strong class="strong">CD-ROM</strong> найдите в каталоге <strong class="strong">/sys</strong> (например, это может быть каталог <strong class="strong">/sys/block/hdd</strong>) и выполните команду, наподобие следующей:<br><br>
+               <strong class="p11 blue">udevadm test /sys/block/hdd</strong><br><br>
+               Обращаем внимание на строки, содержащие вывод различных программ <strong class="strong">*_id</strong>. Режим «<strong class="strong">by-id</strong>» будет использовать значение <strong class="strong">ID_SERIAL</strong> если оно существует и не пустое, иначе будет использована комбинация <strong class="strong">ID_MODEL</strong> и <strong class="strong">ID_REVISION</strong>. Режим «<strong class="strong">by-path</strong>» будет использовать значение <strong class="strong">ID_PATH</strong>.<br>
+               Если режим по умолчанию не подходит, то в файле <strong class="strong">/etc/udev/rules.d/83-cdrom-symlinks.rules</strong> можно сделать изменение следующим образом (где <strong class="strong">mode</strong> один из «<strong class="strong">by-id</strong>» или «<strong class="strong">by-path</strong>»):<br><br>
+               <strong class="p11 blue">sed -i -e 's/"write_cd_rules"/"write_cd_rules mode"/' \<br>
+               <strong class="p11">/etc/udev/rules.d/83-cdrom-symlinks.rules</strong></strong><br><br>
+               Обращаем внимание, что на данный момент, нет необходимости создавать файлы правил или символические ссылки, так как вы смонтировали каталог <strong class="strong">/dev</strong> хост системы в системе <strong class="strong">LFS</strong>, и предполагаем, что символические ссылки уже существуют. Правила и символические ссылки будут созданы при первой загрузке <strong class="strong">LFS системы</strong>.<br>
+               Однако, если есть несколько устройств <strong class="strong">CD-ROM</strong>, то символические ссылки, сгенерированные в то время, могут указывать на другие устройства, и иметь различия от хост системы, потому что устройства не будут обнаружены в предсказуемом порядке. Назначения, созданные при первой загрузке системы <strong class="strong">LFS</strong>, будут стабильными, поэтому проблема возникает только в том случае, если символические ссылки в обеих системах указывают на одно и то же устройство. Если потребуется, проверьте (и, возможно, отредактируйте) сгенерированные правила в файле <strong class="strong">/etc/udev/rules.d/70-persistent-cd.rules</strong> после загрузки, чтобы убедиться, что назначенные символические ссылки соответствуют.<br>
+               Как поясняется в Раздел «7.3 Обработка устройств и модулей», порядок отображения устройства с одинаковой функциональностью в <strong class="strong">/dev</strong> является, как правило, случайным. Например, если у вас есть веб камера и <strong class="strong">TV</strong> тюнер, иногда <strong class="strong">/dev/video0</strong> ссылается на камеру, а <strong class="strong">/dev/video1</strong> ссылается на <strong class="strong">TV</strong> тюнер, а иногда, например, после перезагрузки системы, порядок поменяется на противоположный. Для всех классов оборудования, кроме звуковых и сетевых карт, это поправимо, путем создания пользовательских постоянных ссылкок <strong class="strong">udev</strong>. Случай относительно сетевых карт рассказаны отдельно в Раздел «7.5 Конфигурация Сети», и инструкции по конфигурированию звуковых карт можно найти в <strong class="strong">BLFS</strong>.<br>
+               Для каждого из устройств, которые могут иметь такую проблему (даже если проблема не существует в текущем дистрибутиве <strong class="strong">Linux</strong>), находим соответствующий каталог в <strong class="strong">/sys/class</strong> или <strong class="strong">/sys/block</strong>. Для видео устройств, это могут быть каталоги <strong class="strong">/sys/class/video4linux/videoX</strong>. Выясняем атрибуты, которые идентифицируют устройство однозначно (обычно, это идентификаторы поставщика и продукта и / или серийные номера):<br><br>
+               <strong class="p11 blue">udevadm info -a -p /sys/class/video4linux/video0</strong><br><br>
+               Напишим правило, которое создаёт символические ссылки:<br><br>
+               <strong class="p11 blue">cat > /etc/udev/rules.d/83-duplicate_devs.rules &lt;&lt; "EOF"<br>
+               # Persistent symlinks for webcam and tuner<br>
+               <strong class="p11">KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \<br>
+               <strong class="p11">SYMLINK+="webcam"
+               <strong class="p11">KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \<br>
+               <strong class="p11">SYMLINK+="tvtuner"<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong><br><br>
+               В результате устройства <strong class="strong">/dev/video0</strong> и <strong class="strong">/dev/video1</strong> по-прежнему случайным образом ссылаются на <strong class="strong">TV</strong> тюнер и веб-камеру (и следовательно, никогда не должны использоваться напрямую), но есть символические ссылки <strong class="strong">/dev/tvtuner</strong> и <strong class="strong">/dev/webcam,</strong> которые всегда указывают на правильное устройство.
+            </p>
+            <h2 id="lfs129">7.5. Конфигурация Сети</h2>
+            <p>Какие интерфейсы вызываются и выключаются сетевым сценарием, обычно зависит от файлов, которые находятся в каталоге <strong class="strong">/etc/sysconfig/</strong>. Этот каталог должен содержать файл для каждого настраиваемого интерфейса, например <strong class="strong">ifconfig.xyz</strong>, где "<strong class="strong">xyz</strong>" должен описывать сетевую карту. Имя интерфейса (например, <strong class="strong">eth0</strong>) обычно является подходящим. Внутри этого файла находятся атрибуты этого интерфейса, такие как <strong class="strong">IP</strong>-адреса, маски подсети и так далее. Необходимо, чтобы название файла начиналось с <strong class="strong">ifconfig</strong>.<br>
+               Если процедура в предыдущем разделе не использовалась, <strong class="strong">Udev</strong> назначит имена интерфейсов сетевых карт на основе физических характеристик системы, таких как <strong class="strong">enp2s1</strong>. Если не уверены, каково имя интерфейса, всегда можено запустить команду <strong class="strong">ip link</strong> или <strong class="strong">ls /sys/class/net</strong> после загрузки системы.<br>
+               Следующая команда создает пример конфигурационного файла для устройства <strong class="strong">eth0</strong> со статическим <strong class="strong">IP</strong>-адресом:<br><br>
+               <strong class="p11 blue">cd /etc/sysconfig/<br>
+               <strong class="p11">cat > ifconfig.eth0 &lt;&lt; "EOF"<br>
+               <strong class="p11">ONBOOT=yes<br>
+               <strong class="p11">IFACE=eth0<br>
+               <strong class="p11">SERVICE=ipv4-static<br>
+               <strong class="p11">IP=192.168.1.2<br>
+               <strong class="p11">GATEWAY=192.168.1.1<br>
+               <strong class="p11">PREFIX=24<br>
+               <strong class="p11">BROADCAST=192.168.1.255<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значения этих переменных должны быть изменены в каждом файле, для правильной настройки и работы сети.<br>
+               Если переменной <strong class="strong">ONBOOT</strong> указать значение «<strong class="strong">yes</strong>», сценарий работы сети пакета <strong class="strong">System V</strong> вызовет сетевую карту в процессе загрузки системы. Если задано значение, отличное от «<strong class="strong">yes</strong>», сетевой адаптер будет игнорироваться сценарием и не будет автоматически вызываться. Интерфейс можно запустить или остановить вручную с помощью команд <strong class="strong">ifup</strong> и <strong class="strong">ifdown</strong>.<br>
+               Переменная <strong class="strong">IFACE</strong> определяет имя сетевого интерфейса, например, <strong class="strong">eth0</strong>. Она необходима для всех файлов конфигураций сетевых устройств.<br>
+               Переменная <strong class="strong">SERVICE</strong> определяет метод получения <strong class="strong">IP</strong>-адреса. Пакет <strong class="strong">LFS-Bootscripts</strong> имеет модульный формат назначения <strong class="strong">IP</strong>, и создание дополнительных файлов в каталоге <strong class="strong">/lib/services/</strong> позволит использовать другие методы назначения <strong class="strong">IP</strong>. Как правило, используется для протокола <strong class="strong">DHCP</strong> (<strong class="strong">Dynamic Host Configuration Protocol</strong>), который рассматривается в книге <strong class="strong">BLFS</strong>.<br>
+               Переменная <strong class="strong">GATEWAY</strong> должна содержать значение по умолчанию <strong class="strong">IP</strong>-адрес шлюза, если таковой имеется. Если нет, то закомментируйте строку.<br>
+               Переменная <strong class="strong">PREFIX</strong> переменная содержит количество бит, используемых в подсети. Каждый байт в <strong class="strong">IP</strong> адресе - 8 бит. Если маска подсети 255.255.255.0, в таком случае, используется первые три байта (24 бита) для указания сетевого номера. Если маска подсети 255.255.255.240, то будет использовано первые 24 бита. Префиксы длиннее, чем 24 бита используются в основном провайдерами с <strong class="strong">сDSL</strong> и кабельными соединениями. В этом примере (<strong class="strong">PREFIX=24</strong>) маска подсети 255.255.255.0. Настройте переменную <strong class="strong">PREFIX</strong> в соответствии конфигурацией вашей подсети. Если опустить префикс, по умолчанию будет значение 24.<br>
+               Для более подробной информации, прочитайте руководство <strong class="strong">ifup</strong>.<br>
+               Системе потребуются некоторые средства для получения имен службы доменных имен (<strong class="strong">DNS</strong>) для преобразования доменных имен сети Интернет в <strong class="strong">IP</strong>-адреса и наоборот. Это достигается путем размещения <strong class="strong">IP</strong>-адреса <strong class="strong">DNS</strong>-сервера, доступного от провайдера или администратора сети, в <strong class="strong">/etc/resolv.conf</strong>. Создаём файл, выполнив следующие действия:<br><br>
+               <strong class="p11 blue">cat > /etc/resolv.conf &lt;&lt; "EOF"<br>
+               # Begin /etc/resolv.conf<br>
+               <strong class="p11">domain &lt;Your Domain Name><br>
+               <strong class="p11">nameserver &lt;IP address of your primary nameserver><br>
+               <strong class="p11">nameserver &lt;IP address of your secondary nameserver><br>
+               # End /etc/resolv.conf<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong><br><br>
+               Запись <strong class="strong">domain</strong> может быть опущена или заменена <strong class="strong">search</strong> записью. Читаем руководство <strong class="strong">resolv.conf</strong> для более подробной информации.
+               Заменим <strong class="strong">&lt;IP address of the nameserver></strong> адресом наиболее подходящего <strong class="strong">DNS</strong> сервера. <strong class="strong">DNS</strong> серверов, может быть указано более одной записи (необходимо для вторичных серверов для возможности резервного переключения). Если вам нужен только один <strong class="strong">DNS</strong>-сервер, удалите вторую строку <strong class="strong">nameserver</strong> из файла. <strong class="strong">IP</strong>-адрес также может быть маршрутизатором в локальной сети.<br>
+               Адреса общедоступных <strong class="strong">DNS</strong> серверов <strong class="strong">Google</strong> - 8.8.8.8 и 8.8.4.4.<br>
+               В процессе загрузки файл <strong class="strong">/etc/hostname</strong> используется для установки имени хоста системы.<br>
+               Создаём файл <strong class="strong">/etc/hostname</strong> и внесим в имя хоста:<br><br>
+               <strong class="p11 blue">echo "&lt;lfs>" > /etc/hostname</strong><br><br>
+               <strong class="strong">&lt;lfs></strong> заменим на имя компьютера. Не вносите <strong class="strong">FQDN</strong> имя. Эта информация должна располагаться в файле <strong class="strong">/etc/hosts</strong>.<br>
+               Определяем <strong class="strong">IP</strong>-адрес, полное доменное имя (<strong class="strong">FQDN</strong>) и возможные псевдонимы для использования в файле <strong class="strong">/etc/hosts</strong>. Синтаксис команды:<br><br>
+               <strong class="p11 blue">IP_address myhost.example.org aliases</strong><br><br>
+               Если компьютер не должен быть виден в Интернете (т. е. есть зарегистрированный домен и допустимый блок назначенных <strong class="strong">IP</strong>—адресов не имеются), убедимся, что <strong class="strong">IP</strong>-адрес находится в диапазоне <strong class="strong">IP</strong>-адресов частной сети. Допустимые диапазоны:<br><br>
+               <strong class="p11 blue">Private Network Address Range Normal Prefix<br>
+               <strong class="p11">10.0.0.1 - 10.255.255.254 8<br>
+               <strong class="p11">172.x.0.1 - 172.x.255.254 16<br>
+               <strong class="p11">192.168.y.1 - 192.168.y.254 24</strong></strong></strong></strong><br><br>
+               <strong class="strong">x</strong> может быть номером в пределах 16-31. y может быть номером в пределах 0-255.<br>
+               Правильный <strong class="strong">IP</strong> адрес может быть 192.168.1.1. Правильный <strong class="strong">FQDN</strong> для этого <strong class="strong">IP</strong> адреса может быть <strong class="strong">lfs.example.org</strong>.<br>
+               Даже если сетевая карта не используется, все равно требуется действительное полное доменное имя. Оно необходимо для правильной работы некоторых программ.<br>
+               Создаём файл <strong class="strong">/etc/hosts</strong>:<br><br>
+               <strong class="p11 blue">cat > /etc/hosts &lt;&lt; "EOF"<br>
+               # Begin /etc/hosts<br>
+               <strong class="p11">127.0.0.1 localhost<br>
+               <strong class="p11">127.0.1.1 &lt;FQDN> &lt;HOSTNAME><br>
+               <strong class="p11">&lt;192.168.1.1> &lt;FQDN> &lt;HOSTNAME> [alias1] [alias2 ...]<br>
+               <strong class="p11">::1 localhost ip6-localhost ip6-loopback<br>
+               <strong class="p11">ff02::1 ip6-allnodes<br>
+               <strong class="p11">ff02::2 ip6-allrouters<br>
+               # End /etc/hosts<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Значения <strong class="strong">&lt;192.168.1.1></strong>, <strong class="strong">&lt;FQDN></strong> и <strong class="strong">&lt;HOSTNAME></strong> должны быть изменены в соответствии с предпочтениями пользователя и параметров сети (если имеется <strong class="strong">IP</strong>-адрес выданный системным / сетевым администратором и машина подключена к существующей сети.) Необязательные псевдонимы могут быть опущены.
+            </p>
+            <h2 id="lfs130">7.6. Настройка и использование <strong class="strong">System V Bootscript</strong></h2>
+            <p>В <strong class="strong">Linux</strong> используется специальное средство загрузки <strong class="strong">SysVinit</strong>, основанное на концепции уровней выполнения (<strong class="strong">run-levels</strong>). Он может сильно отличаться от одной системы к другой, поэтому нельзя предположить, что, корректная работа в одном дистрибутиве <strong class="strong">Linux</strong>, должны работать одинаково и в <strong class="strong">LFS</strong>. У <strong class="strong">LFS</strong> есть свой собственный способ управления, но она уважает общепринятые стандарты.<br>
+               <strong class="strong">SysVinit</strong> (который теперь будет называться «<strong class="strong">init</strong>») работает по схеме уровней выполнения. Есть семь (пронумерованных от 0 до 6) уровней выполнения (на самом деле, есть больше уровней выполнения, но они предназначены для особых случаев и обычно не используются. См. <strong class="strong">init(8)</strong> Для получения более подробной информации), и каждый из них соответствует действиям, которые компьютер должен выполнять при запуске. Уровень запуска по умолчанию-3. Ниже приведены описания различных уровней запуска по мере их реализации:<br>
+               0: остановить компьютер<br>
+               1: однопользовательский режим<br>
+               2: многопользовательский режим без сети<br>
+               3 многопользовательский режим с сетью<br>
+               4: зарезервированный для настроек, в ином случае аналогичен уровню 3<br>
+               5: аналогичен уровню 3, 4 обычно используется для <strong class="strong">GUI</strong> авторизации (например <strong class="strong">xdm</strong> или <strong class="strong">kdm</strong>)<br>
+               6: перезагрузка компьютера<br>
+               Во время инициализации ядра первая запущенная программа указывается либо в командной строке, либо по умолчанию в <strong class="strong">init</strong>. Эта программа читает файл инициализации <strong class="strong">/etc/inittab</strong>. Создаём этот файл:<br><br>
+               <strong class="p11 blue">cat > /etc/inittab &lt;&lt;"EOF"<br>
+               # Begin /etc/inittab<br>
+               <strong class="p11">id:3:initdefault:<br>
+               <strong class="p11">si::sysinit:/etc/rc.d/init.d/rc S<br>
+               <strong class="p11">l0:0:wait:/etc/rc.d/init.d/rc 0<br>
+               <strong class="p11">l1:S1:wait:/etc/rc.d/init.d/rc 1<br>
+               <strong class="p11">l2:2:wait:/etc/rc.d/init.d/rc 2<br>
+               <strong class="p11">l3:3:wait:/etc/rc.d/init.d/rc 3<br>
+               <strong class="p11">l4:4:wait:/etc/rc.d/init.d/rc 4<br>
+               <strong class="p11">l5:5:wait:/etc/rc.d/init.d/rc 5<br>
+               <strong class="p11">l6:6:wait:/etc/rc.d/init.d/rc 6<br>
+               <strong class="p11">ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now<br>
+               <strong class="p11">su:S016:once:/sbin/sulogin<br>
+               <strong class="p11">1:2345:respawn:/sbin/agetty --noclear tty1 9600<br>
+               <strong class="p11">2:2345:respawn:/sbin/agetty tty2 9600<br>
+               <strong class="p11">3:2345:respawn:/sbin/agetty tty3 9600<br>
+               <strong class="p11">4:2345:respawn:/sbin/agetty tty4 9600<br>
+               <strong class="p11">5:2345:respawn:/sbin/agetty tty5 9600<br>
+               <strong class="p11">6:2345:respawn:/sbin/agetty tty6 9600<br>
+               # End /etc/inittab<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Объяснение содержимого файла инициализации находится на справочных страницах <strong class="strong">inittab</strong>. Для <strong class="strong">LFS</strong> ключевой командой является <strong class="strong">rc</strong>. В приведенном выше файле инициализации <strong class="strong">rc</strong> будет выполнять все сценарии, начиная с символа <strong class="strong">S</strong> в каталоге <strong class="strong">/etc/rc.d/rcS.d</strong>, за которым следуют все скрипты, начинающиеся с <strong class="strong">S</strong> в <strong class="strong">/etc/rc.d/rc?.D</strong>, каталог, в котором знак вопроса задается значением <strong class="strong">initdefault</strong>.<br>
+               Для удобства, сценарий <strong class="strong">rc</strong> считывает функции из библиотеки <strong class="strong">/lib/lsb/init-functions</strong>. Библиотека, в свою очередь, считывает опциональные файлы конфигурации из файла <strong class="strong">/etc/sysconfig/rc.site</strong>. Любой из системных конфигурационных файлов описанных в последующих разделах можно, в качестве альтернативы, поместить в этот файл, что позволит объединить все системные параметры в один файл.<br>
+               Для удобства отладки, функции сценария журналируют весь вывод в файл <strong class="strong">/run/var/bootlog</strong>. Поскольку каталог <strong class="strong">/run</strong> является <strong class="strong">tmpfs</strong>, файла может не быть, в процессе загрузки, однако уго содержимое добавляется к фиксированному файлу <strong class="strong">/var/log/boot.log</strong> при завершении процесса загрузки.
+               Изменить уровень выполнения можно с помощью команды <strong class="strong">init &lt;runlevel></strong>, где <strong class="strong">&lt;runlevel></strong> - будет целевым уровнем выполнения. Например, чтобы перезагрузить компьютер, пользователь должен выполнить команду <strong class="strong">init 6</strong>, которая является псевдонимом команды <strong class="strong">reboot</strong>. Аналогично, <strong class="strong">init 0</strong> является псевдонимом команды <strong class="strong">halt</strong>.
+               В каталоге <strong class="strong">/etc/rc.d</strong> есть ещё несколько каталогов, которые выглядят как <strong class="strong">rc?.d</strong> (где <strong class="strong">?</strong> номер уровня выполнения) и каталог <strong class="strong">rcsysinit.d</strong>, содержащий некоторый набор символических ссылок. Некоторые начинаются с <strong class="strong">K</strong>, другие начинаются с <strong class="strong">S</strong>, и все они имеют два числа после начальной буквы. <strong class="strong">K</strong> означает остановить (<strong class="strong">kill</strong>) службу, а <strong class="strong">S</strong> означает запустить службу. Числа определяют порядок выполнения сценариев от 00 до 99 - чем меньше число, тем раньше он запустится. Когда <strong class="strong">init</strong> переключается на другой уровень выполнения, соответствующие службы запускаются или останавливаются в зависимости от выбранного уровня запуска.<br>
+               Реальные сценарии находятся в каталоге <strong class="strong">/etc/rc.d/init.d</strong>. Они выполняют фактическую работу, и символические ссылки указывают на них. Ссылки <strong class="strong">К</strong> и ссылки <strong class="strong">S</strong> указывают на тот же сценарий в <strong class="strong">/etc/rc.d/init.d</strong>. Это связано с тем, что сценарии можно вызывать с различными параметрами, такими как <strong class="strong">start</strong>, <strong class="strong">stop</strong>, <strong class="strong">restart</strong>, <strong class="strong">reload</strong>, и <strong class="strong">status</strong>. Когда встречается ссылка <strong class="strong">K</strong>, соответствующий скрипт запускается с аргументом <strong class="strong">stop</strong>. Когда встречается <strong class="strong">S</strong>-ссылка, соответствующий скрипт запускается с аргументом <strong class="strong">start</strong>.<br>
+               Есть одно исключение. Ссылки, которые начинаются с <strong class="strong">S</strong> в каталогах <strong class="strong">rc0.d</strong> и <strong class="strong">rc6.d</strong>, не будут запускать что-либо. Они будут вызываться с параметром <strong class="strong">stop</strong>, для того, чтобы остановить какую либо службу. Логика этого заключается в том, что когда пользователь собирается перезагрузить или остановить систему, при этом, ему ничего не нужно запускать. Систему нужно только остановить.<br>
+               Ниже приведены описания к аргументам для сценариев и их значения:<br>
+               <strong class="strong">start</strong> Служба запущена.<br>
+               <strong class="strong">stop</strong> Служба остановлена.<br>
+               <strong class="strong">restart</strong> Остановка службы и затем повторный её запуск.<br>
+               <strong class="strong">reload</strong> Конфигурация службы была обновлена. Используется после того, как файлы конфигурации были обновлены, когда службу не нужно перезапускать.<br>
+               <strong class="strong">status</strong> Сообщает, работает ли служба и какие ей назначены <strong class="strong">PID</strong>.<br>
+               Не стесняемся изменять способ загрузки процесса. Приведенные здесь файлы являются примером того, как это можно сделать.
+               <strong class="strong">/etc/rc.d/init.d/udev initscript</strong> запускает <strong class="strong">udevd</strong>, запускает любые устройства «<strong class="strong">coldplug</strong>», которые уже были созданы ядром, и ждет каких-либо правил для завершения. Сценарий также отключает обработчик <strong class="strong">uevent</strong> от значения по умолчанию <strong class="strong">/sbin/hotplug</strong>. Это делается потому, что ядру больше не нужно вызывать внешний двоичный файл. Вместо этого <strong class="strong">udevd</strong> будет прослушивать сокет <strong class="strong">netlink</strong> для <strong class="strong">uevents</strong>, который повышает ядро.<br>
+               <strong class="strong">/etc/rc.d/init.d/udev_retry initscript</strong> заботится о событиях повторного запуска для подсистем, правила которых могут опираться на файловые системы, которые не монтируются до запуска скрипта <strong class="strong">mountfs</strong> (в частности, <strong class="strong">/usr</strong> и <strong class="strong">/var</strong> могут вызывать это). Этот скрипт запускается после скрипта <strong class="strong">mountfs</strong>, поэтому эти правила (если они запускаются повторно) должны преуспеть во второй раз. Он настроен из файла <strong class="strong">/etc/sysconfig/udev_retry</strong>; любые слова в этом файле, кроме комментариев, считаются именами подсистем, которые запускаются при повторном запуске. Чтобы найти подсистему устройства, используйте <strong class="strong">udevadm info --attribute-walk &lt;device></strong>, где <strong class="strong">&lt;device></strong> - абсолютный путь в <strong class="strong">/dev</strong> или <strong class="strong">/sys</strong>, такой как <strong class="strong">/dev/sr0</strong> или <strong class="strong">/sys/class/rtc</strong>.<br>
+               Настройка системных часов:<br>
+               Сценарий <strong class="strong">setclock</strong> считывает время с аппаратных часов, также называемое часами <strong class="strong">BIOS</strong> или дополнительным полупроводниковым металлом (<strong class="strong">CMOS</strong>). Если аппаратные часы установлены на <strong class="strong">UTC</strong>, этот скрипт будет преобразовывать время аппаратных часов в локальное время, используя файл <strong class="strong">/etc/localtime</strong> (который сообщает программе <strong class="strong">hwclock</strong>, в которой находится часовой пояс, в котором находится пользователь). Невозможно определить, установлены ли аппаратные часы в <strong class="strong">UTC</strong>, поэтому это нужно настроить вручную.
+               <strong class="strong">Setclock</strong> запускается через <strong class="strong">udev</strong>, когда ядро обнаруживает аппаратную возможность при загрузке. Его также можно запустить вручную с помощью параметра остановки, чтобы сохранить системное время для часов <strong class="strong">CMOS</strong>.<br>
+               Если вы не можете вспомнить, установлены ли аппаратные часы в <strong class="strong">UTC</strong>, узнайте, выполнив команду <strong class="strong">hwclock --localtime --show</strong>. Это покажет, какое текущее время соответствует аппаратным часам. Если это время соответствует вашим часам, тогда аппаратные часы устанавливаются в локальное время. Если выход из <strong class="strong">hwclock</strong> не является местным временем, скорее всего, он установлен на время <strong class="strong">UTC</strong>. Проверим это, добавив или вычитая правильное количество часов для часового пояса на время, показанное <strong class="strong">hwclock</strong>. Например, если находимся в часовом поясе <strong class="strong">MST</strong>, который также известен как <strong class="strong">GMT-0700</strong>, добавим семь часов в локальное время.<br>
+               Изменим значение переменной <strong class="strong">UTC</strong> ниже на значение 0 (ноль), если аппаратные часы не установлены на время <strong class="strong">UTC</strong>.<br>
+               Создаём новый файл <strong class="strong">/etc/sysconfig/clock</strong>:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/clock &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/clock<br>
+               <strong class="p11">UTC=1<br>
+               # Set this to any options you might need to give to hwclock,<br>
+               # such as machine hardware clock type for Alphas.<br>
+               <strong class="p11">CLOCKPARAMS=<br>
+               # End /etc/sysconfig/clock<br>
+               <strong class="p11">EOF</strong></strong></strong></strong><br><br>
+               Подсказку, объясняющую, как настроить время в <strong class="strong">LFS</strong>, можно найти <a class="special-link7 a link1" href="https://linuxfromscratch.org.ru/hints/downloads/files/time.txt">здесь</a>. Там описываются вопросы, как часовые пояса, <strong class="strong">UTC</strong> и переменная окружения <strong class="strong">TZ</strong>.<br>
+               Параметры <strong class="strong">CLOCKPARAMS</strong> и <strong class="strong">UTC</strong> могут быть альтернативно установлены в файле <strong class="strong">/etc/sysconfig/rc.site</strong>.<br>
+               Настройка консоли <strong class="strong">Linux</strong>:<br>
+               В этом разделе обсуждается, как настроить загрузочный скрипт консоли, который устанавливает карту клавиатуры, шрифт консоли и уровень журнала консоли. Если символы, отличные от <strong class="strong">ASCII</strong> (например, знак авторского права, знак британского фунта и символ евро), не будут использоваться, а клавиатура - в США. Большая часть этого раздела может быть пропущена. Без файла конфигурации (или эквивалентных настроек в <strong class="strong">rc.site</strong>) консольный <strong class="strong">bootscript</strong> ничего не сделает.<br>
+               Скрипт консоли читает файл <strong class="strong">/etc/sysconfig/console</strong> для информации о конфигурации. Определяем, какой шрифт клавиатуры и экран будут использоваться. Различные языковые <a class="special-link8 a link1" href="Http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html">HOWTO</a> также могут помочь в этом. Если вы все еще сомневаетесь, посмотрите в каталогах <strong class="strong">/usr/share/keymaps</strong> и <strong class="strong">/usr/share/consolefonts</strong> для действительных раскладок и экранных шрифтов. Прочтите страницы загрузочных клавиш (1) и <strong class="strong">setfont</strong> (8) вручную, чтобы определить правильные аргументы для этих программ.<br>
+               Файл <strong class="strong">/etc/sysconfig/console</strong> должен содержать строки вида: <strong class="strong">VARIABLE = "value"</strong>. Признаны следующие переменные:<br>
+               <strong class="strong">LOGLEVEL</strong> Эта переменная определяет уровень журнала для сообщений ядра, отправленных на консоль, как установлено <strong class="strong">dmesg</strong>. Допустимые уровни от «1» (без сообщений) до «8». Уровень по умолчанию - «7».<br>
+               <strong class="strong">KEYMAP</strong> Эта переменная указывает аргументы для программы <strong class="strong">loadkeys</strong>, как правило, имя карты клавиатуры для загрузки, например, «<strong class="strong">it</strong>». Если эта переменная не установлена, <strong class="strong">bootscript</strong> не будет запускать программу <strong class="strong">loadkeys</strong>, и будет использоваться ключевая карта ядра по умолчанию. Обратите внимание, что несколько раскладок имеют несколько версий с тем же именем (<strong class="strong">cz</strong> и его варианты в <strong class="strong">qwerty/</strong> и <strong class="strong">qwertz/</strong>, <strong class="strong">es</strong> в <strong class="strong">olpc/</strong> и <strong class="strong">qwerty/</strong>, и <strong class="strong">trf</strong> в <strong class="strong">fgGIod/</strong> и <strong class="strong">qwerty/</strong>). В этих случаях также должен быть указан родительский каталог (например, <strong class="strong">qwerty/es</strong>), чтобы убедиться, что загружена соответствующая карта.<br>
+               <strong class="strong">KEYMAP_CORRECTIONS</strong> Эта (редко используемая) переменная указывает аргументы для второго вызова программы <strong class="strong">loadkeys</strong>. Это полезно, если справочная карта запаса не является полностью удовлетворительной и требуется небольшая корректировка. Например, чтобы включить знак <strong class="strong">Euro</strong> в ключевую карту, которая обычно не имеет ее, установите для этой переменной значение «<strong class="strong">euro2</strong>».<br>
+               <strong class="strong">FONT</strong> Эта переменная указывает аргументы для программы <strong class="strong">setfont</strong>. Как правило, это включает в себя имя шрифта, «<strong class="strong">-m</strong>» и имя карты символов приложения для загрузки. Например, чтобы загрузить шрифт «<strong class="strong">lat1-16</strong>» вместе с картой символов приложения «<strong class="strong">8859-1</strong>» (как это уместно в США), установите для этой переменной значение «<strong class="strong">lat1-16 -m 8859-1</strong>». В режиме <strong class="strong">UTF-8</strong> ядро использует карту символов приложения для преобразования скомпонованных 8-битных кодов клавиш в карту клавиатуры в <strong class="strong">UTF-8</strong>, и поэтому аргумент параметра «<strong class="strong">-m</strong>» должен быть установлен в кодировку составленного коды клавиш в ключевой карте.<br>
+               <strong class="strong">UNICODE</strong> установим эту переменную в «1», «да» или «истина», чтобы перевести консоль в режим <strong class="strong">UTF-8</strong>. Это полезно в локациях на основе <strong class="strong">UTF-8</strong> и в противном случае вредно.<br>
+               <strong class="strong">LEGACY_CHARSET</strong> Для многих раскладок клавиатуры в пакете <strong class="strong">Kbd</strong> отсутствует карта <strong class="strong">Unicode</strong>. Консоль <strong class="strong">bootscript</strong> преобразует доступную раскладку в <strong class="strong">UTF-8</strong> «на лету», если эта переменная установлена на кодировку доступной раскладки клавиатуры, отличной от <strong class="strong">UTF-8</strong>.<br>
+               Для настройки, отличной от <strong class="strong">Unicode</strong>, обычно требуются только переменные <strong class="strong">KEYMAP</strong> и <strong class="strong">FONT</strong>. Например, для польской настройки можно использовать:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/console &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/console<br>
+               <strong class="p11">KEYMAP="pl2"<br>
+               <strong class="p11">FONT="lat2a-16 -m 8859-2"<br>
+               # End /etc/sysconfig/console<br>
+               <strong class="p11">EOF</strong></strong></strong></strong><br><br>
+               Как упоминалось выше, иногда необходимо слегка скорректировать справочную таблицу запаса. Следующий пример добавляет символ евро в немецкую раскладку:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/console &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/console<br>
+               <strong class="p11">KEYMAP="de-latin1"<br>
+               <strong class="p11">KEYMAP_CORRECTIONS="euro2"<br>
+               <strong class="p11">FONT="lat0-16 -m 8859-15"<br>
+               # End /etc/sysconfig/console<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong><br><br>
+               Ниже приведен пример с поддержкой <strong class="strong">Unicode</strong> для болгарского языка, в котором имеется справочная карта акций <strong class="strong">UTF-8</strong>:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/console &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/console<br>
+               <strong class="p11">UNICODE="1"<br>
+               <strong class="p11">KEYMAP="bg_bds-utf8"<br>
+               <strong class="p11">FONT="LatArCyrHeb-16"<br>
+               # End /etc/sysconfig/console<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong><br><br>
+               Из-за использования шрифта <strong class="strong">512-glyph LatArCyrHeb-16</strong> в предыдущем примере яркие цвета больше не доступны на консоли <strong class="strong">Linux</strong>, если не используется фреймбуфер. Если хотим иметь яркие цвета без фреймбуфера и можете жить без символов, не принадлежащих к его языку, все равно можно использовать шрифт 256-глифового языка, как показано ниже:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/console &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/console<br>
+               <strong class="p11">UNICODE="1"<br>
+               <strong class="p11">KEYMAP="bg_bds-utf8"<br>
+               <strong class="p11">FONT="cyr-sun16"<br>
+               # End /etc/sysconfig/console<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong><br><br>
+               Следующий пример иллюстрирует автоконверсию <strong class="strong">keymap</strong> из <strong class="strong">ISO-8859-15</strong> в <strong class="strong">UTF-8</strong> и включение мертвых ключей в режиме <strong class="strong">Unicode</strong>:<br><br>
+               <strong class="p11 blue">cat > /etc/sysconfig/console &lt;&lt; "EOF"<br>
+               # Begin /etc/sysconfig/console<br>
+               <strong class="p11">UNICODE="1"<br>
+               <strong class="p11">KEYMAP="de-latin1"<br>
+               <strong class="p11">KEYMAP_CORRECTIONS="euro2"<br>
+               <strong class="p11">LEGACY_CHARSET="iso-8859-15"<br>
+               <strong class="p11">FONT="LatArCyrHeb-16 -m 8859-15"<br>
+               # End /etc/sysconfig/console<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong><br><br>
+               Некоторые клавиши имеют мертвые ключи (т.е. клавиши, которые сами по себе не создают персонаж, но добавляют акцент на символ, созданный следующим ключом) или определяют правила композиции (например: «нажммём <strong class="strong">Ctrl +. AE</strong>, чтобы получить <strong class="strong">Æ</strong>» в по умолчанию). <strong class="strong">Linux-4.18</strong> правильно интерпретирует мертвые ключи и правила композиции в карте памяти только тогда, когда исходные символы, которые должны быть составлены вместе, не являются многобайтными. Этот недостаток не влияет на ключевые карты для европейских языков, потому что акценты добавляются к безрезультатным символам <strong class="strong">ASCII</strong>, или два символа <strong class="strong">ASCII</strong> составлены вместе. Однако в режиме <strong class="strong">UTF-8</strong> это проблема, например, для греческого языка, где иногда приходится указывать акцент на букве «альфа». Решение состоит в том, чтобы избежать использования <strong class="strong">UTF-8</strong> или установить систему окон <strong class="strong">X</strong>, которая не имеет этого ограничения при обработке ввода.<br>
+               Для китайского, японского, корейского и некоторых других языков консоль <strong class="strong">Linux</strong> не может быть настроена для отображения необходимых символов. Пользователи, которым нужны такие языки, должны установить <strong class="strong">X Window System</strong>, шрифты, которые охватывают необходимые диапазоны символов, и правильный метод ввода (например, <strong class="strong">SCIM</strong>, он поддерживает широкий спектр языков).<br>
+               Файл <strong class="strong">/etc/sysconfig/console</strong> управляет только локализацией текстовой консоли <strong class="strong">Linux</strong>. Он не имеет ничего общего с настройкой правильной раскладки клавиатуры и терминальных шрифтов в <strong class="strong">X Window System</strong>, с сеансами <strong class="strong">ssh</strong> или с последовательной консолью. В таких ситуациях ограничения, упомянутые в последних двух перечисленных выше пунктах, не применяются.<br>
+               Время от времени желательно создавать файлы во время загрузки. Например, может потребоваться каталог <strong class="strong">/tmp/.ICE-unix</strong>. Это можно сделать, создав запись в сценарии конфигурации <strong class="strong">/etc/sysconfig/createfiles</strong>. Формат этого файла встроен в комментарии файла конфигурации по умолчанию.<br>
+               Сценарий <strong class="strong">sysklogd</strong> вызывает программу <strong class="strong">syslogd</strong> как часть инициализации <strong class="strong">System V</strong>. Параметр <strong class="strong">-m</strong> 0 отключает метку временной метки, которую <strong class="strong">syslogd</strong> записывает в файлы журнала каждые 20 минут по умолчанию. Если вы хотите включить эту метку временной метки, отредактируйте файл <strong class="strong">/etc/sysconfig/rc.site</strong> и определите переменную <strong class="strong">SYSKLOGD_PARMS</strong> на нужное значение. Например, чтобы удалить все параметры, установите для переменной значение <strong class="strong">null</strong>:<br><br>
+               <strong class="p11 blue">SYSKLOGD_PARMS=</strong><br><br>
+               См. <strong class="strong">Man syslogd</strong> для получения дополнительных параметров.<br>
+               Дополнительный файл <strong class="strong">/etc/sysconfig/rc.site</strong> содержит параметры, которые автоматически устанавливаются для каждого скрипта загрузки <strong class="strong">SystemV</strong>. Он может альтернативно устанавливать значения, указанные в имени хоста, консоли и файлах часов в каталоге <strong class="strong">/etc/sysconfig/</strong>. Если связанные переменные присутствуют в обоих этих отдельных файлах и <strong class="strong">rc.site</strong>, значения в файлах, специфичных для скрипта, имеют приоритет.<br>
+               <strong class="strong">rc.site</strong> также содержит параметры, которые могут настраивать другие аспекты процесса загрузки. Установка переменной <strong class="strong">IPROMPT</strong> позволит выборочно запускать <strong class="strong">bootscripts</strong>. Другие параметры описаны в комментариях к файлам. Версия файла по умолчанию выглядит следующим образом:<br><br>
+               <strong class="p11 blue"># rc.site<br>
+               <strong class="p11"># Optional parameters for boot scripts</strong><br>
+               <strong class="p11"># Distro Information</strong><br>
+               <strong class="p11"># These values, if specified here, override the defaults</strong><br>
+               <strong class="p11">#DISTRO="Linux From Scratch" # The distro name</strong><br>
+               <strong class="p11">#DISTRO_CONTACT="lfs-dev@linuxfromscratch.org" # Bug report address</strong><br>
+               <strong class="p11">#DISTRO_MINI="LFS" # Short name used in filenames for distro config</strong><br>
+               <strong class="p11"># Define custom colors used in messages printed to the screen</strong><br>
+               <strong class="p11"># Please consult `man console_codes` for more information</strong><br>
+               <strong class="p11"># under the "ECMA-48 Set Graphics Rendition" section</strong><br>
+               <strong class="p11"># Warning: when switching from a 8bit to a 9bit font,</strong><br>
+               <strong class="p11"># the linux console will reinterpret the bold (1;) to</strong><br>
+               <strong class="p11"># the top 256 glyphs of the 9bit font. This does</strong><br>
+               <strong class="p11"># not affect framebuffer consoles</strong><br>
+               <strong class="p11"># These values, if specified here, override the defaults</strong><br>
+               <strong class="p11">#BRACKET="\\033[1;34m" # Blue</strong><br>
+               <strong class="p11">#FAILURE="\\033[1;31m" # Red</strong><br>
+               <strong class="p11">#INFO="\\033[1;36m" # Cyan</strong><br>
+               <strong class="p11">#NORMAL="\\033[0;39m" # Grey</strong><br>
+               <strong class="p11">#SUCCESS="\\033[1;32m" # Green</strong><br>
+               <strong class="p11">#WARNING="\\033[1;33m" # Yellow</strong><br>
+               <strong class="p11"># Use a colored prefix</strong><br>
+               <strong class="p11"># These values, if specified here, override the defaults</strong><br>
+               <strong class="p11">#BMPREFIX=" "</strong><br>
+               <strong class="p11">#SUCCESS_PREFIX="${SUCCESS}  *  ${NORMAL}"</strong><br>
+               <strong class="p11">#FAILURE_PREFIX="${FAILURE}*****${NORMAL}"</strong><br>
+               <strong class="p11">#WARNING_PREFIX="${WARNING} *** ${NORMAL}"</strong><br>
+               <strong class="p11"># Manually seet the right edge of message output (characters)</strong><br>
+               <strong class="p11"># Useful when resetting console font during boot to override</strong><br>
+               <strong class="p11"># automatic screen width detection</strong><br>
+               <strong class="p11">#COLUMNS=120</strong><br>
+               <strong class="p11"># Interactive startup</strong><br>
+               <strong class="p11">#IPROMPT="yes" # Whether to display the interactive boot prompt</strong><br>
+               <strong class="p11">#itime="3" # The amount of time (in seconds) to display the prompt</strong><br>
+               <strong class="p11"># The total length of the distro welcome string, without escape codes</strong><br>
+               <strong class="p11">#wlen=$(echo "Welcome to ${DISTRO}" | wc -c )</strong><br>
+               <strong class="p11">#welcome_message="Welcome to ${INFO}${DISTRO}${NORMAL}"</strong><br>
+               <strong class="p11"># The total length of the interactive string, without escape codes</strong><br>
+               <strong class="p11">#ilen=$(echo "Press 'I' to enter interactive startup" | wc -c )</strong><br>
+               <strong class="p11">#i_message="Press '${FAILURE}I${NORMAL}' to enter interactive startup"</strong><br>
+               <strong class="p11"># Set scripts to skip the file system check on reboot</strong><br>
+               <strong class="p11">#FASTBOOT=yes</strong><br>
+               <strong class="p11"># Skip reading from the console</strong><br>
+               <strong class="p11">#HEADLESS=yes</strong><br>
+               <strong class="p11"># Write out fsck progress if yes</strong><br>
+               <strong class="p11">#VERBOSE_FSCK=no</strong><br>
+               <strong class="p11"># Speed up boot without waiting for settle in udev</strong><br>
+               <strong class="p11">#OMIT_UDEV_SETTLE=y</strong><br>
+               <strong class="p11"># Speed up boot without waiting for settle in udev_retry</strong><br>
+               <strong class="p11">#OMIT_UDEV_RETRY_SETTLE=yes</strong><br>
+               <strong class="p11"># Skip cleaning /tmp if yes</strong><br>
+               <strong class="p11">#SKIPTMPCLEAN=no</strong><br>
+               <strong class="p11"># For setclock</strong><br>
+               <strong class="p11">#UTC=1</strong><br>
+               <strong class="p11">#CLOCKPARAMS=</strong><br>
+               <strong class="p11"># For consolelog (Note that the default, 7=debug, is noisy)</strong><br>
+               <strong class="p11">#LOGLEVEL=7</strong><br>
+               <strong class="p11"># For network</strong><br>
+               <strong class="p11">#HOSTNAME=mylfs</strong><br>
+               <strong class="p11"># Delay between TERM and KILL signals at shutdown</strong><br>
+               <strong class="p11">#KILLDELAY=3</strong><br>
+               <strong class="p11"># Optional sysklogd parameters</strong><br>
+               <strong class="p11">#SYSKLOGD_PARMS="-m 0"</strong><br>
+               <strong class="p11"># Console parameters</strong><br>
+               <strong class="p11">#UNICODE=1</strong><br>
+               <strong class="p11">#KEYMAP="de-latin1"</strong><br>
+               <strong class="p11">#KEYMAP_CORRECTIONS="euro2"</strong><br>
+               <strong class="p11">#FONT="lat0-16 -m 8859-15"</strong><br>
+               <strong class="p11">#LEGACY_CHARSET=</strong></strong><br><br>
+               Сценарии загрузки <strong class="strong">LFS</strong> загружаются и завершают работу системы довольно эффективно, но есть несколько настроек, которые вы можете сделать в файле <strong class="strong">rc.site</strong>, чтобы еще больше повысить скорость и настроить сообщения в соответствии с вашими предпочтениями. Для этого настройте параметры в файле <strong class="strong">/etc/sysconfig/rc.site</strong> выше.<br>
+               Во время загрузочного скрипта <strong class="strong">udev</strong> есть призыв к <strong class="strong">udev</strong>, который требует некоторого времени для завершения. Это время может потребоваться или не потребоваться в зависимости от устройств, присутствующих в системе. Если у вас есть только простые разделы и одна сетевая карта, процесс загрузки, вероятно, не потребуется ждать этой команды. Чтобы пропустить его, установите переменную <strong class="strong">OMIT_UDEV_SETTLE = y</strong>.<br>
+               Загрузочный скрипт <strong class="strong">udev_retry</strong> также запускает udev по умолчанию. Эта команда нужна только по умолчанию, если каталог <strong class="strong">/var</strong> отдельно установлен. Это связано с тем, что для часов требуется файл <strong class="strong">/var/lib/hwclock/adjtime</strong>. Другие настройки могут также потребовать, чтобы <strong class="strong">udev</strong> завершился, но на многих установках он не нужен. Пропустите команду, установив переменную <strong class="strong">OMIT_UDEV_RETRY_SETTLE = y</strong>.<br>
+               По умолчанию проверка файловой системы отключена. Это может показаться задержка во время процесса загрузки. Чтобы включить выход <strong class="strong">fsck</strong>, установите переменную <strong class="strong">VERBOSE_FSCK = y</strong>.<br>
+               При перезагрузке вы можете полностью пропустить проверку файловой системы, <strong class="strong">fsck</strong>. Для этого создайте файл <strong class="strong">/fastboot</strong> или перезагрузите систему с помощью команды <strong class="strong">/sbin/shutdown -f -r</strong>. С другой стороны, вы можете принудительно проверить все файловые системы, создав <strong class="strong">/forcefsck</strong> или выполнив <strong class="strong">shutdown</strong> с параметром <strong class="strong">-F</strong> вместо <strong class="strong">-f</strong>.<br>
+               Установка переменной <strong class="strong">FASTBOOT = y</strong> отключит <strong class="strong">fsck</strong> во время процесса загрузки до ее удаления. Это не рекомендуется на постоянной основе.<br>
+               Как правило, все файлы в каталоге <strong class="strong">/tmp</strong> удаляются во время загрузки. В зависимости от количества присутствующих файлов или каталогов это может вызвать заметную задержку в процессе загрузки. Чтобы пропустить удаление этих файлов, установите переменную <strong class="strong">SKIPTMPCLEAN = y</strong>.<br>
+               Во время выключения программа <strong class="strong">init</strong> отправляет сигнал <strong class="strong">TERM</strong> для каждой запущенной программы (например, <strong class="strong">agetty</strong>), ждет заданное время (по умолчанию 3 секунды) и отправляет каждому процессу сигнал <strong class="strong">KILL</strong> и снова ждет. Этот процесс повторяется в сценарии <strong class="strong">sendignals</strong> для любых процессов, которые не закрываются их собственными скриптами. Задержка для <strong class="strong">init</strong> может быть установлена путем передачи параметра. Например, чтобы удалить задержку в <strong class="strong">init</strong>, передайте параметр <strong class="strong">-t0</strong> при выключении или перезагрузке (например, <strong class="strong">/sbin/shutdown -t0 -r</strong> сейчас). Задержку для сценария <strong class="strong">sendignals</strong> можно пропустить, установив параметр <strong class="strong">KILLDELAY = 0</strong>.
+            </p>
+            <h2 id="lfs131">7.7. Файлы запуска оболочки <strong class="strong">Bash</strong></h2>
+            <p>Программа оболочки <strong class="strong">/bin/bash</strong> (далее называемая «оболочкой») использует коллекцию файлов запуска, чтобы помочь создать среду для запуска. Каждый файл имеет конкретное использование и может влиять на логин и интерактивные среды по-разному. Файлы в каталоге <strong class="strong">/etc</strong> предоставляют глобальные настройки. Если в домашнем каталоге существует эквивалентный файл, он может переопределять глобальные настройки.<br>
+               Интерактивная оболочка входа запускается после успешного входа в систему, используя <strong class="strong">/bin/login</strong>, путем чтения файла <strong class="strong">/etc/passwd</strong>. Интерактивная оболочка без входа запускается в командной строке (например, <strong class="strong">[приглашение] $ /bin/bash</strong>). Неинтерактивная оболочка обычно присутствует при запуске скрипта оболочки. Он неинтерактивен, поскольку обрабатывает скрипт и не ждет ввода пользователем команд.<br>
+               Файлы <strong class="strong">/etc/profile</strong> и <strong class="strong">~/.bash_profile</strong> читаются, когда оболочка вызывается как интерактивная оболочка входа.<br>
+               В <strong class="strong">/etc/profile</strong> ниже приведены некоторые переменные среды, необходимые для поддержки родного языка.<br> 
+               Правильная настройка их результатов.<br>
+               Вывод программ, переведенных на родной язык.<br>
+               Правильная классификация символов на буквы, цифры и другие классы. Это необходимо для того, чтобы <strong class="strong">bash</strong> правильно принимал символы, отличные от <strong class="strong">ASCII</strong>, в командных строках в неанглийских локалях.<br>
+               Правильный алфавитный порядок сортировки для страны.<br>
+               Соответствующий размер бумаги по умолчанию.<br>
+               Правильное форматирование значений денежных средств, времени и даты.<br>
+               Замените <strong class="strong">&lt;ll></strong> ниже двухбуквенным кодом для желаемого языка (например, «<strong class="strong">en</strong>») и <strong class="strong">&lt;CC></strong> с двухбуквенным кодом для соответствующей страны (например, «<strong class="strong">GB</strong>»). <strong class="strong">&lt;charmap></strong> следует заменить каноническим <strong class="strong">charmap</strong> для выбранной вами локали. Могут также присутствовать дополнительные модификаторы, такие как «<strong class="strong">@euro</strong>».
+               Список всех локалей, поддерживаемых <strong class="strong">Glibc</strong>, можно получить, запустив следующую команду:<br><br>
+               <strong class="p11 blue">locale -a</strong><br><br>
+               <strong class="strong">Charmaps</strong> может иметь несколько псевдонимов, например, «<strong class="strong">ISO-8859-1</strong>» также упоминается как «<strong class="strong">iso8859-1</strong>» и «<strong class="strong">iso88591</strong>». Некоторые приложения не могут правильно обрабатывать различные синонимы (например, требуют, чтобы «<strong class="strong">UTF-8</strong>» записывался как «<strong class="strong">UTF-8</strong>», а не «<strong class="strong">utf8</strong>»), поэтому в большинстве случаев безопаснее выбирать каноническое имя для определенной локали. Чтобы определить каноническое имя, выполните следующую команду, где <strong class="strong">&lt;locale name></strong> - это результат, заданный <strong class="strong">locale -a</strong> для предпочтительного языкового стандарта («<strong class="strong">en_GB.iso88591</strong>» в примере).<br><br>
+               <strong class="p11 blue">LC_ALL=&lt;locale name> locale charmap</strong><br><br>
+               Для локали «<strong class="strong">en_GB.iso88591</strong>» указанная выше команда будет печатать:<br><br>
+               <strong class="p11 blue">ISO-8859-1</strong><br><br>
+               Это приводит к окончательной настройке локали «<strong class="strong">en_GB.ISO-8859-1</strong>». Важно, чтобы локаль, найденная с использованием эвристики выше, была протестирована до ее добавления в файлы запуска <strong class="strong">Bash</strong>:<br><br>
+               <strong class="p11 blue">LC_ALL=&lt;locale name> locale language<br>
+               <strong class="p11">LC_ALL=&lt;locale name> locale charmap<br>
+               <strong class="p11">LC_ALL=&lt;locale name> locale int_curr_symbol<br>
+               <strong class="p11">LC_ALL=&lt;locale name> locale int_prefix</strong></strong></strong></strong><br><br>
+               Вышеприведенные команды должны печатать имя языка, кодировку символов, используемую локалью, местную валюту и префикс для набора номера до номера телефона, чтобы попасть в страну. Если какая-либо из вышеперечисленных команд выходит из строя с сообщением, аналогичным приведенному ниже, это означает, что ваш языковой стандарт был либо не установлен, либо не поддерживается установкой <strong class="strong">Glibc</strong> по умолчанию.<br><br>
+               <strong class="p11 blue">locale: Cannot set LC_* to default locale: No such file or directory</strong><br><br>
+               Если это произойдет, необходимо либо установить желаемый язык с помощью команды <strong class="strong">localedef</strong>, либо выбрать другой язык. Дальнейшие инструкции предполагают, что таких сообщений об ошибках от <strong class="strong">Glibc</strong> нет.<br>
+               Некоторые пакеты за пределами <strong class="strong">LFS</strong> также могут не поддерживать выбранную локаль. Одним из примеров является библиотека <strong class="strong">X</strong> (часть <strong class="strong">X Window System</strong>), которая выводит следующее сообщение об ошибке, если локаль не соответствует точно одному из имен символов в своих внутренних файлах:<br><br>
+               <strong class="p11 blue">Warning: locale not supported by Xlib, locale set to C</strong><br><br>
+               В некоторых случаях <strong class="strong">Xlib</strong> ожидает, что карта символов будет указана в верхнем регистре с каноническими тире. Например, «<strong class="strong">ISO-8859-1</strong>», а не «<strong class="strong">iso88591</strong>». Также можно найти соответствующую спецификацию, удалив часть <strong class="strong">charmap</strong> спецификации локали. Это можно проверить, выполнив команду <strong class="strong">charmap</strong> локали в обеих локалях. Например, нужно было бы изменить «<strong class="strong">de_DE.ISO-8859-15@euro</strong>» на «<strong class="strong">de_DE @ euro</strong>», чтобы получить эту локаль, признанную <strong class="strong">Xlib</strong>.<br>
+               Другие пакеты также могут работать некорректно (но могут не отображаться сообщения об ошибках), если имя локали не соответствует их ожиданиям. В этих случаях исследование того, как другие дистрибутивы <strong class="strong">Linux</strong> поддерживают вашу локаль, может предоставить некоторую полезную информацию.<br>
+               После того, как были определены правильные настройки локали, создайте файл <strong class="strong">/etc/profile</strong>:<br><br>
+               <strong class="p11 blue">cat > /etc/profile &lt;&lt; "EOF"<br>
+               # Begin /etc/profile<br>
+               <strong class="p11">export LANG=&lt;ll>_&lt;CC>.&lt;charmap>&lt;@modifiers><br>
+               # End /etc/profile<br>
+               <strong class="p11">EOF</strong></strong></strong><br><br>
+               «<strong class="strong">C</strong>» (по умолчанию) и «<strong class="strong">en_US</strong>» (рекомендуемый для пользователей из Соединенных Штатов Америки) разные. «<strong class="strong">C</strong>» использует 7-битный набор символов <strong class="strong">US-ASCII</strong> и обрабатывает байты с высоким битом, установленным как недопустимые символы. Вот почему, например, команда <strong class="strong">ls</strong> заменяет их вопросительными знаками в этой локали. Кроме того, попытка отправить почту с такими символами из <strong class="strong">Mutt</strong> или <strong class="strong">Pine</strong> приводит к отправке сообщений, не соответствующих <strong class="strong">RFC</strong>-сообщениям (кодировка в исходящей почте обозначается как «неизвестный 8-бит»). Таким образом, вы можете использовать локаль «<strong class="strong">C</strong>», только если вы уверены, что вам никогда не понадобятся 8-битные символы.<br>
+               Некоторые локации на основе <strong class="strong">UTF-8</strong> не поддерживаются. Ведется работа по документированию и, если возможно, <a class="special-link9 a link1" href="Https://linuxfromscratch.org.ru/blfs/view/8.2/introduction/locale-issues.html">решению таких проблем</a>.
+            </p>
+            <h2 id="lfs132">7.8. Создание файла <strong class="strong">/etc/inputrc</strong></h2>
+            <p>Файл <strong class="strong">inputrc</strong> -это файл конфигурации библиотеки <strong class="strong">Readline</strong>, который предоставляет возможности редактирования при вводе пользователем строки из терминала. Он перенаправляет ввода с клавиатуры в конкретные действия. <strong class="strong">Readline</strong> используется в <strong class="strong">Bash</strong> и большинством других оболочек, а также многими другими приложениями.<br>
+               Большинство не нуждаются в настраиваемой вручную функциональности, поэтому команда ниже создает глобальный <strong class="strong">/etc/inputrc</strong>, используемый всеми, кто входит в систему. Если решите, что необходимо переопределить значения по умолчанию для каждого пользователя, можно создать файл <strong class="strong">.inputrc</strong> в домашнем каталоге пользователя с измененными назначениями.<br>
+               Ниже приведен общий глобальный  <strong class="strong">inputrc</strong> вместе с комментариями, чтобы объяснить, что делают различные варианты. Обращаем внимание, что комментарии не могут находиться в одной строке с командами.<br><br>
+               <strong class="p11 blue">cat > /etc/inputrc &lt;&lt; "EOF"<br>
+               # Begin /etc/inputrc<br>
+               # Modified by Chris Lynn &lt;roryo@roryo.dynup.net><br>
+               # Allow the command prompt to wrap to the next line<br>
+               <strong class="p11">set horizontal-scroll-mode Off<br>
+               # Enable 8bit input<br>
+               <strong class="p11">set meta-flag On<br>
+               <strong class="p11">set input-meta On<br>
+               # Turns off 8th bit stripping<br>
+               <strong class="p11">set convert-meta Off<br>
+               # Keep the 8th bit for display<br>
+               <strong class="p11">set output-meta On<br>
+               # none, visible or audible<br>
+               <strong class="p11">set bell-style none<br>
+               # All of the following map the escape sequence of the value<br>
+               # contained in the 1st argument to the readline specific functions<br>
+               <strong class="p11">"\eOd": backward-word<br>
+               <strong class="p11">"\eOc": forward-word<br>
+               # for linux console<br>
+               <strong class="p11">"\e[1~": beginning-of-line<br>
+               <strong class="p11">"\e[4~": end-of-line<br>
+               <strong class="p11">"\e[5~": beginning-of-history<br>
+               <strong class="p11">"\e[6~": end-of-history<br>
+               <strong class="p11">"\e[3~": delete-char<br>
+               <strong class="p11">"\e[2~": quoted-insert<br>
+               # for xterm<br>
+               <strong class="p11">"\eOH": beginning-of-line<br>
+               <strong class="p11">"\eOF": end-of-line<br>
+               # for Konsole<br>
+               <strong class="p11">"\e[H": beginning-of-line<br>
+               <strong class="p11">"\e[F": end-of-line<br>
+               # End /etc/inputrc<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>
+            </p>
+            <h2 id="lfs133">7.9. Создание файла <strong class="strong">/etc/shells</strong></h2>
+            <p>Файл <strong class="strong">shells</strong> содержит список оболочек входа в систему. Приложения используют этот файл для определения корректности оболочки. Для каждой оболочки должна присутствовать одна строка, состоящая из пути к файлу оболочки относительно корня структуры каталогов (<strong class="strong">/</strong>).<br>
+               Например, <strong class="strong">chsh</strong> обращается к этому файлу, чтобы определить, может ли непривилегированный пользователь изменить оболочку входа для своей учетной записи. Если имя команды не указано, пользователю будет отказано в изменении.<br>
+               Это требование для таких приложений, как <strong class="strong">GDM</strong>, которые не заполняют браузер <strong class="strong">face</strong>, если он не удается найти <strong class="strong">/etc/shells</strong>, или <strong class="strong">FTP</strong>-демоны, которые традиционно запрещают доступ пользователям с оболочками, не включенными в этот файл.<br><br>
+               <strong class="p11 blue">cat > /etc/shells &lt;&lt; "EOF"<br>
+               # Begin /etc/shells<br>
+               <strong class="p11">/bin/sh<br>
+               <strong class="p11">/bin/bash<br>
+               # End /etc/shells<br>
+               <strong class="p11">EOF</strong></strong></strong></strong>
+            </p>
+            <h2 id="lfs134">8.2. Создание файла <strong class="strong">/etc/fstab</strong></h2>
+            <p>Файл <strong class="strong">/etc/fstab</strong> используется некоторыми программами для определения того, где файловые системы должны быть установлены по умолчанию, в каком порядке и которые необходимо проверить (для ошибок целостности) перед установкой:<br><br>
+               <strong class="p11 blue">cat > /etc/fstab &lt;&lt; "EOF"<br>
+               # Begin /etc/fstab<br>
+               # file system  mount-point  type options dump  fsck order<br>
+               <strong class="p11">/dev/&lt;xxx> / &lt;fff> defaults 1 1<br>
+               <strong class="p11">/dev/&lt;yyy> swap swap pri=1 0 0<br>
+               <strong class="p11">proc /proc proc nosuid,noexec,nodev 0 0<br>
+               <strong class="p11">sysfs /sys sysfs nosuid,noexec,nodev 0 0<br>
+               <strong class="p11">devpts /dev/pts devpts gid=5,mode=620 0 0<br>
+               <strong class="p11">tmpfs /run tmpfs defaults 0 0<br>
+               <strong class="p11">devtmpfs /dev devtmpfs mode=0755,nosuid 0 0<br>
+               # End /etc/fstab<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               Заменим <strong class="strong">&lt;xxx></strong>, <strong class="strong">&lt;yyy></strong> и <strong class="strong">&lt;fff></strong> значениями, подходящими для системы, например <strong class="strong">sda2</strong>, <strong class="strong">sda5</strong> и <strong class="strong">ext4</strong>. Подробнее о шести полях в этом файле см. <strong class="strong">Man 5 fstab</strong>.
+               Файловым системам с <strong class="strong">MS-DOS</strong> или <strong class="strong">Windows</strong>-источником (т.е. <strong class="strong">Vfat</strong>, <strong class="strong">ntfs</strong>, <strong class="strong">smbfs</strong>, <strong class="strong">cifs</strong>, <strong class="strong">iso9660</strong>, <strong class="strong">udf</strong>) требуется специальная опция <strong class="strong">utf8</strong>, чтобы символы, отличные от <strong class="strong">ASCII</strong> в именах файлов, были правильно интерпретированы. Для локалей, отличных от <strong class="strong">UTF-8</strong>, значение <strong class="strong">iocharset</strong> должно быть таким же, как и набор символов локали, настроенный таким образом, чтобы ядро ​​его понимало. Это работает, если соответствующее определение набора символов (найденное в Файловых системах -> Поддержка родного языка при настройке ядра) было скомпилировано в ядро ​​или построено как модуль. Однако, если набор символов в локали <strong class="strong">UTF-8</strong>, соответствующий параметр <strong class="strong">iocharset = utf8</strong> сделает регистр файловой системы чувствительным. Чтобы исправить это, используйте специальный параметр <strong class="strong">utf8</strong> вместо <strong class="strong">iocharset = utf8</strong> для локалей <strong class="strong">UTF-8</strong>. Опция «<strong class="strong">codepage</strong>» также необходима для файловых систем <strong class="strong">vfat</strong> и <strong class="strong">smbfs</strong>. Он должен быть установлен на номер кодовой страницы, используемый в <strong class="strong">MS-DOS</strong> в вашей стране. Например, чтобы смонтировать <strong class="strong">USB</strong>-флеш-накопители, пользователю <strong class="strong">ru_RU.KOI8-R</strong> понадобится следующее в части опций своей линии монтирования в <strong class="strong">/etc/fstab</strong>:<br><br>
+               <strong class="p11 blue">noauto,user,quiet,showexec,codepage=866,iocharset=koi8r</strong><br><br>
+               Соответствующий фрагмент параметров для пользователей <strong class="strong">ru_RU.UTF-8</strong>:<br><br>
+               <strong class="p11 blue">noauto,user,quiet,showexec,codepage=866,utf8</strong><br><br>
+               Обращаем внимание, что использование <strong class="strong">iocharset</strong> является значением по умолчанию для <strong class="strong">iso8859-1</strong> (которое не учитывает регистр файловой системы), а опция <strong class="strong">utf8</strong> сообщает ядру преобразовывать имена файлов с использованием <strong class="strong">UTF-8</strong>, чтобы их можно было интерпретировать в локали <strong class="strong">UTF-8</strong>.<br>
+               Также возможно указать значения кодовой страницы по умолчанию и значения <strong class="strong">iocharset</strong> для некоторых файловых систем во время конфигурации ядра. Соответствующие параметры называются «Опция по умолчанию <strong class="strong">NLS</strong>» (<strong class="strong">CONFIG_NLS_DEFAULT</strong>), «Опция по умолчанию <strong class="strong">Remote NLS</strong>» (<strong class="strong">CONFIG_SMB_NLS_DEFAULT</strong>), «Кодовая страница по умолчанию для <strong class="strong">FAT</strong>» (<strong class="strong">CONFIG_FAT_DEFAULT_CODEPAGE</strong>) и «По умолчанию <strong class="strong">iocharset</strong> для <strong class="strong">FAT</strong>» (<strong class="strong">CONFIG_FAT_DEFAULT_IOCHARSET</strong>). Невозможно указать эти параметры файловой системы <strong class="strong">ntfs</strong> во время компиляции ядра.<br>
+               Можно сделать файловую систему <strong class="strong">ext3</strong> надежной для сбоев питания для некоторых типов жестких дисков. Для этого добавьте параметр <strong class="strong">mount = 1 mount</strong> в соответствующую запись в файле <strong class="strong">/etc/fstab</strong>. Чтобы проверить, поддерживает ли этот диск этот параметр, запустите <strong class="strong">hdparm</strong> на соответствующем диске. Например, если:<br><br>
+               <strong class="p11 blue">hdparm -I /dev/sda | grep NCQ</strong><br><br>
+               возвращает непустой результат, поддерживается опция.<br>
+               Разделы на основе логического тома (<strong class="strong">LVM</strong>) не могут использовать параметр барьера.
+            </p>
+            <h2 id="lfs135">8.3. <strong class="strong">Linux-4.18</strong></h2>
+            <p>Ядро операционной системы.<br> 
+               Процесс сборки ядра состоит из нескольких этапов: настройка, компиляция и установка. Ознакомьтесь с файлом <strong class="strong">README</strong> в дереве исходных кодов пакета чтобы узнать о других способах настройки ядра.<br>
+               Подготовим пакет к компиляции:<br><br>
+               make mrproper<br><br>
+               Выполнение этой команды гарантирует, что дерево исходных кодов ядра абсолютно чистое. Разработчики ядра рекомендуют, чтобы эта команда выполнялась перед каждым процессом компиляции. Обращаем внимание что после распаковки пакета с исходным кодом не следует полагаться на его "чистоту".<br>
+               Настроим ядро с помощью псевдографического интерфейса. Для получения общей информации перейдём по <a class="special-link10 a link1" href="https://linuxfromscratch.org.ru/hints/downloads/files/kernel-configuration.txt">ссылке</a>, в книге <a class="special-link11 a link1" href="https://linuxfromscratch.org.ru/blfs/view/8.2/longindex.html#kernel-config-index">BLFS</a>. Дополнительная информация о настройке и сборке ядра расположена по <a class="special-link12 a link1" href="http://www.kroah.com/lkn/">ссылке</a>.<br>
+               Хорошей отправной точкой для настройки ядра, может стать запуск команды <strong class="strong">make defconfig</strong>. В результате её выполнения будет создана базовая конфигурация с учётом архитектуры машины.<br>
+               Убедимся в том, что включили/отключили/указали указанные ниже параметры настройки, в ином случае, система может работать не правильно, или вовсе не загрузится:<br><br>
+               <strong class="p11 blue">Device Drivers ---><br>
+               <strong class="p11">Generic Driver Options ---><br>
+               <strong class="p11">[ ] Support for uevent helper [CONFIG_UEVENT_HELPER]<br>
+               <strong class="p11">[*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]<br>
+               <strong class="p11">Kernel hacking ---><br>
+               <strong class="p11">Choose kernel unwinder (Frame pointer unwinder) ---> [CONFIG_UNWINDER_FRAME_POINTER]</strong></strong></strong></strong></strong></strong><br><br>
+               Также, есть некоторые опции, которые могут понадобиться в зависимости от конфигурации системы.
+               Если на хост системе используется <strong class="strong">UEFI</strong>, то после выполнения команды '<strong class="strong">make defconfig</strong>' должны автоматически примениться параметры ядра, связанные с <strong class="strong">EFI</strong>.<br>
+               Для того, чтобы ядро <strong class="strong">LFS</strong> могло загружаться из среды <strong class="strong">UEFI</strong>, необходимо включить соответствующий параметр:<br><br>
+               <strong class="p11 blue">Processor type and features ---><br>
+               <strong class="p11">[*] EFI stub support [CONFIG_EFI_STUB]</strong></strong><br><br>
+               Более полное описание управления <strong class="strong">UEFI</strong> из <strong class="strong">LFS</strong> доступно по <a class="special-link13 a link1" href="http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt">ссылке</a>.<br>
+               Разъяснение указанных параметров конфигурации:<br>
+               <strong class="strong">Support for uevent helper</strong> Наличие этого параметра может вызвать конфликт при управление устройствами через <strong class="strong">Udev / Eudev</strong>.<br>
+               <strong class="strong">Maintain a devtmpfs</strong> При использовании этого параметра, будет осуществлена поддержка узлов устройств, заполняемых самим ядром, даже без запуска <strong class="strong">Udev</strong>. <strong class="strong">Udev</strong> будет работать поверх, управляя разрешениями и добавляя необходимые символические ссылки. Этот элемент конфигурации необходим всем пользователям <strong class="strong">Udev / Eudev</strong>.<br>
+               <strong class="strong">make menuconfig</strong> Значение необязательных переменных окружения программы <strong class="strong">make</strong>:<br><br>
+               <strong class="p11 blue">LANG=&lt;host_LANG_value> LC_ALL=</strong><br><br>
+               Задаёт настройку локали на ту, которая используется в хост системе для корректного отображения <strong class="strong">menuconfig</strong> при использовании интерфейса <strong class="strong">ncurses</strong>  при генерации строк на текстовой консоли <strong class="strong">Linux</strong>  с кодировкой <strong class="strong">UTF-8</strong>.<br>
+               Если используете, то убедитесь что заменили переменную <strong class="strong">&lt;host_LANG_value></strong> на значение переменной окружения <strong class="strong">$LANG</strong> их хост системы. Или можно использовать значение переменной окружения хос системы <strong class="strong">$LC_ALL</strong> или <strong class="strong">$LC_CTYPE</strong>.<br>
+               Кроме того, команда <strong class="strong">make oldconfig</strong> может быть более уместна в некоторых случаях. Дополнительную информацию см. В файле <strong class="strong">README</strong>.<br>
+               При желании, можно пропустить этап настройки, скопировав файл конфигурации ядра <strong class="strong">.config</strong> с вашей хост системы (в том случае, если такой файл присутствует) в предварительно распакованный каталог ядра <strong class="strong">linux-4.18</strong>. Не рекомендуется такой подход. Гораздо полезнее изучить все параметры настройки и создать файл конфигурации ядра самостоятельно.<br>
+               Скомпилируем образ ядра и модули:<br><br>
+               <strong class="p11 blue">make</strong><br><br>
+               При использовании модулей, могут потребоваться файлы конфигурации, которые должны находиться в каталоге <strong class="strong">/etc/modprobe.d</strong>. Информация о модулях и конфигурации ядра находится в «7.3. Обработка устройств и модулей», в каталоге с документацией ядра <strong class="strong">linux-4.18/Documentation</strong>. Будет интересным изучение информации <strong class="strong">modprobe.d(5)</strong>.<br>
+               Установим модули, если ядро их использует:<br><br>
+               <strong class="p11 blue">make modules_install</strong><br><br>
+               После завершения компиляции, необходимо выполнить еще несколько шагов. Некоторые файлы должны быть скопированы в каталог <strong class="strong">/boot</strong>.<br>
+               Если хост система содержит отдельный раздел для каталога <strong class="strong">/boot</strong>, файлы скопированные ниже, должны находится в нём. Самый простой способ это сделать - выполнить привязку (<strong class="strong">bind</strong>) каталога <strong class="strong">/boot</strong> хост системы (за пределами выполнения в среде <strong class="strong">chroot</strong>) к каталогу <strong class="strong">/mnt/lfs/boot</strong> перед тем, как продолжить. Из-под пользователя <b class="p3">root</b> в хост системе выполним команду:<br><br>
+               <strong class="p11 blue">mount --bind /boot /mnt/lfs/boot</strong><br><br>
+               Путь к образу ядра зависит от используемой платформы. Имя файла, указанное ниже, может иметь произвольное наименование, на ваш вкус, но имя файла должно начинаться с <strong class="strong">vmlinuz</strong> для обеспечения совместимости автоматической настройки процесса загрузки, описанного в следующей главе. При выполнении следующей команды, будет считать что используется архитектура x86:<br><br>
+               <strong class="p11 blue">cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.18-lfs-20180813</strong><br><br>
+               <strong class="strong">System.map</strong> файл, внутри которого находится символьная таблица адресов функций и процедур, используемых ядром операционной системы <strong class="strong">Linux</strong>. В этой таблице перечислены имена переменных и функций и их адреса в памяти компьютера. Эта таблица весьма полезна при отладке ядра в случае <strong class="strong">Kernel panic</strong> или <strong class="strong">Linux oops</strong>. <strong class="strong">System.map</strong> генерируется при компиляции ядра. Выполните следующщую команду для установки файла <strong class="strong">System.map</strong>:<br><br>
+               <strong class="p11 blue">cp -iv System.map /boot/System.map-4.18</strong><br><br>
+               Файл конфигурации ядра <strong class="strong">.config</strong> полученный в результате настройки <strong class="strong">make menuconfig</strong> содержит в себе все опции конфигурации скомпилированного ядра. Хорошей идеей будет оставить этот файл для будующей работы:<br><br>
+               <strong class="p11 blue">cp -iv .config /boot/config-4.18</strong><br><br>
+               Установим документацию ядра:<br><br>
+               <strong class="p11 blue">install -d /usr/share/doc/linux-4.18<br>
+               <strong class="p11">cp -r Documentation/* /usr/share/doc/linux-4.18</strong></strong><br><br>
+               Важно отметить, что файлы в каталоге исходных кодов ядра не принадлежат пользователю <b class="p3">root</b>. Всякий раз, когда пакет распаковывается от пользователя <b class="p3">root</b> (как это и выполнялось внутри среды <strong class="strong">chroot</strong>), файлы имеют те идентификаторы пользователя и группы, которые были назначены при распаковке. Обычно это не вызывает проблем для других устанавливаемых пакетов, так как каталог с исходными кодами удаляется после установки пакета. Однако исходный код ядра <strong class="strong">Linux</strong> часто сохраняется в течение длительного времени. Из-за этого существует вероятность того, что идентификатор пользователя, используемый при распаковке, будет назначен другому пользователю. В таком случае, этот пользователь будет иметь доступ на запись в этот каталог.<br>
+               Во многих случаях конфигурация ядра должна быть обновлена для пакетов, которые будут установлены позже в <strong class="strong">BLFS</strong>. В отличие от других пакетов удалять дерево исходного кода ядра не требуется после компиляции и установки.<br>
+               Если планируется оставить каталог с исходным кодом ядра, выполним команду: <strong class="strong">chown -R 0:0</strong> для каталога <strong class="strong">linux-4.18</strong> чтобы указать права для пользователя <b class="p3">root</b>.<br>
+               В документации ядра рекомендуется создать символическую ссылку <strong class="strong">/usr/src/linux</strong> для указания местоположения каталога с исходными кодами ядра. Это рекомендация относится к ядрам до версии 2.6 и не должна выполняться в системе <strong class="strong">LFS</strong>, так как это может вызвать проблемы с пакетами, которые вы, возможно, захотите создать, когда ваша базовая система <strong class="strong">LFS</strong> будет готова.<br>
+               Заголовочные файлы в системном каталоге <strong class="strong">include</strong> (<strong class="strong">/usr/include</strong>) должны всегда быть те, которые использовались при компиляции <strong class="strong">Glibc</strong> в «6.7. Заголовочные файлы <strong class="strong">API Linux-4.17.11</strong>». Поэтому их никогда не следует заменять на чистые заголовочные файлы ядра или любые другие подготовленные заголовочные файлы.
+               Обычно модули <strong class="strong">Linux</strong> загружаются автоматически, но иногда требуется определенный порядок. Программа, которая загружает модули, <strong class="strong">modprobe</strong> или <strong class="strong">insmod</strong>, использует файл <strong class="strong">/etc/modprobe.d/usb.conf</strong> как раз для этой цели. Этот файл должен быть создан так, что если <strong class="strong">USB</strong>-драйверы (<strong class="strong">ehci_hcd</strong>, <strong class="strong">ohci_hcd</strong> и <strong class="strong">uhci_hcd</strong>) были созданы в виде модулей, то они будут загружены в требуемом порядке; <strong class="strong">ehci_hcd</strong> должен быть загружен до <strong class="strong">ohci_hcd</strong> и <strong class="strong">uhci_hcd</strong> для того, чтобы избежать предупреждений во время загрузки.
+               Создаём новый файл <strong class="strong">/etc/modprobe.d/usb.conf</strong>:<br><br>
+               <strong class="p11 blue">install -v -m755 -d /etc/modprobe.d<br>
+               <strong class="p11">cat > /etc/modprobe.d/usb.conf &lt;&lt; "EOF"<br>
+               # Begin /etc/modprobe.d/usb.conf<br>
+               <strong class="p11">install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true<br>
+               <strong class="p11">install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true<br>
+               # End /etc/modprobe.d/usb.conf<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong><br><br>
+               Содержимое пакета <strong class="strong">Linux</strong>.<br>
+               Установленные каталоги: <strong class="strong">/lib/modules</strong>, <strong class="strong">/usr/share/doc/linux-4.18</strong><br>
+               Краткое описание установленнх файлов:<br>
+               <strong class="strong">config-4.18</strong> Файл конфигурации ядра <strong class="strong">.config</strong> содержит в себе все опции конфигурации скомпилированного ядра.<br>
+               <strong class="strong">vmlinuz-4.18-lfs-20180813</strong> Ядро системы <strong class="strong">Linux</strong>. При включении компьютера ядро - первая часть операционной системы, которая будет загружена. Она обнаруживает и инициализирует все компоненты оборудования компьютера, делает их доступными в виде дерева каталогов с файлами для доступа к ним программам и превращает один процессор в мультизадачную машину, способную выполнять множество программ как будто одновременно.<br>
+               <strong class="strong">System.map-4.18</strong> Файл, внутри которого находится символьная таблица адресов функций и процедур, используемых ядром операционной системы <strong class="strong">Linux</strong>. В этой таблице перечислены имена переменных и функций и их адреса в памяти компьютера. Эта таблица весьма полезна при отладке ядра в случае <strong class="strong">Kernel panic</strong> или <strong class="strong">Linux oops</strong>. <strong class="strong">System.map</strong> генерируется при компиляции ядра. 
+            </p>
+            <h2 id="lfs136">8.4. Использование <strong class="strong">GRUB</strong> для настройки процесса загрузки</h2>
+            <p>Если <strong class="strong">GRUB</strong> будет настроен не правильно, то возможно, не получится штатно загрузиться в систему, без использования другого загрузочного устройства (например компакт-диска). Можно модифицировать текущий системный загрузчик, например <strong class="strong">Grub-Legacy</strong>, <strong class="strong">GRUB2</strong>, или <strong class="strong">LILO</strong>.<br>
+               Убедимся, что аварийный загрузочный диск готов «спасти» ваш компьютер, если он перестанет правильно загружаться. Если еще нет загрузочного устройства, можно его создать. Чтобы нижеследующая процедура работала, необходимо перейти в <strong class="strong">BLFS</strong> и установить программу <strong class="strong">xorriso</strong> из пакета <a class="special-link14 a link1" href="https://linuxfromscratch.org.ru/blfs/view/8.2/multimedia/libisoburn.html">libisoburn</a>.<br><br>
+               <strong class="p11 blue">cd /tmp<br>
+               <strong class="p11">grub-mkrescue --output=grub-img.iso<br>
+               <strong class="p11">xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</strong></strong></strong><br><br>
+               Чтобы загрузить <strong class="strong">LFS</strong> в хост-системах с <strong class="strong">UEFI</strong>, ядро должно быть собрано с указанием соответствующего ключа конфигурации <strong class="strong">CONFIG_EFI_STUB</strong>. Однако <strong class="strong">LFS</strong> можно загружать с помощью <strong class="strong">GRUB2</strong> без такого дополнения. Для этого необходимо отключить функции <strong class="strong">UEFI Mode</strong> и <strong class="strong">Secure Boot</strong> в <strong class="strong">BIOS</strong> хост-системе. Для получения дополнительной информации см. <a class="special-link15 a link1" href="http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt">the lfs-uefi.txt</a> подсказку.<br>
+               <strong class="strong">GRUB</strong> использует собственную структуру именования дисков и разделов в виде (<strong class="strong">hdn,m</strong>), где <strong class="strong">n</strong> - номер диска, а <strong class="strong">m</strong> - номер раздела. Номер диска начинается с нуля, а номер раздела начинается с единицы, для обычных разделов и с пяти для расширенных разделов. Обратите внимание, что именование отличается от предыдущих версий, когда оба номера начинались с нуля. Например, раздел <strong class="strong">sda1</strong> равен (<strong class="strong">hd0,1</strong>) в <strong class="strong">GRUB</strong>, а <strong class="strong">sdb3</strong> - (<strong class="strong">hd1,3</strong>). В отличие от <strong class="strong">Linux</strong>, <strong class="strong">GRUB</strong> не считает диски <strong class="strong">CD-ROM</strong> жесткими дисками. Например, если вы используете <strong class="strong">CD</strong> на <strong class="strong">hdb</strong> и второй жесткий диск на <strong class="strong">hdс</strong>, этот второй жесткий диск будет (<strong class="strong">hd1</strong>).<br>
+               <strong class="strong">GRUB</strong> записывает данные на первый физический сектор жесткого диска. Эта область не является частью какой-либо файловой системы. Программы доступны как модули <strong class="strong">GRUB</strong> в загрузочном разделе в каталоге по умолчанию -<strong class="strong">/boot/grub/</strong>.<br>
+               Расположение загрузочного раздела - это ваш выбор, его можно настроить. Одна рекомендация состоит в том, чтобы иметь отдельный небольшой (рекомендуемый размер - 100 МБ) раздел только для загрузочной информации. Таким образом, каждая сборка, будь то <strong class="strong">LFS</strong> или какой-либо другой дистрибутив, может обращаться к тем же загрузочным файлам, и доступ может быть сделан из любой загруженной системы. Если вы решите это сделать, вам нужно будет примонтировать отдельный раздел, переместить все файлы из текущего каталога <strong class="strong">/boot</strong> (например, ядро <strong class="strong">Linux</strong>, которое вы только что создали в предыдущем разделе), в новый раздел. Затем вам нужно размонтировать раздел и примонтировать заново в каталог <strong class="strong">/boot</strong>. Если вы это сделаете, обязательно обновите данные в файле <strong class="strong">/etc/fstab</strong>.<br>
+               Использование текущего раздела <strong class="strong">lfs</strong> будет работать, но настройка для нескольких систем сложнее.<br>
+               Используя приведенную выше информацию, определяем соответствующие точки монтирования для корневого раздела (или загрузочного раздела, если используется отдельный). В следующем примере предполагается, что корневой (или отдельный загрузочный) раздел является <strong class="strong">sda2</strong>.<br>
+               Установите файлы <strong class="strong">GRUB</strong> в каталог <strong class="strong">/boot/grub</strong> и настройте загрузочный сектор:<br>
+               Следующая команда перезапишет текущий загрузчик. Не выполняем эту команду, если это нежелательно, например, если вы используете сторонний менеджер загрузки для управления главной загрузочной записью (<strong class="strong">MBR</strong>).<br><br>
+               <strong class="p11 blue">grub-install /dev/sda</strong><br><br>
+               Создаём файл конфигурации <strong class="strong">/boot/grub/grub.cfg</strong>:<br><br>
+               <strong class="p11 blue">cat > /boot/grub/grub.cfg &lt;&lt;"EOF"<br>
+               # Begin /boot/grub/grub.cfg<br>
+               <strong class="p11">set default=0<br>
+               <strong class="p11">set timeout=5<br>
+               <strong class="p11">insmod ext2<br>
+               <strong class="p11">set root=(hd0,2)<br>
+               <strong class="p11">menuentry "GNU/Linux, Linux 4.18-lfs-20180813" {<br>
+               <strong class="p11">linux /boot/vmlinuz-4.18-lfs-20180813 root=/dev/sda2 ro<br>
+               <strong class="p11">}<br>
+               <strong class="p11">EOF</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+               С точки зрения <strong class="strong">GRUB</strong>, файлы ядра относительны от используемого раздела. Если вы используете отдельныф <strong class="strong">/boot</strong> раздел, удалите <strong class="strong">/boot</strong> из строки <strong class="strong">linux</strong>. Вам также потребуется изменить строку <strong class="strong">set root</strong>, чтобы указать на загрузочный раздел.<br>
+               <strong class="strong">GRUB</strong> - чрезвычайно мощная программа, и она обеспечивает огромное количество вариантов загрузки с самых разных устройств, работающих систем и типов разделов. Существует также множество вариантов настройки таких как графические экраны заставок, звуки воспроизведения, ввод мыши и т.д. детали этих вариантов выходят за рамки этого раздела.<br>
+               Существует команда <strong class="strong">grub-mkconfig</strong>, которая может автоматически записывать файл конфигурации. Она использует набор скриптов в файле <strong class="strong">/etc/grub.d/</strong> и уничтожит любые сделанные вами настройки. Эти сценарии предназначены в первую очередь для обычных дистрибутивов и не рекомендуются для <strong class="strong">LFS</strong>. Если устанавливаете коммерческий дистрибутив <strong class="strong">Linux</strong>, есть вероятность, что эта программа будет запущена. Обязательно создайте резервную копию файла <strong class="strong">grub.cfg</strong>.
+            </p>
+            <h2 id="lfs137">9.3. Перезагрузка системы</h2>
+            <p>Обзор следующих файлов конфигурации подходит на данном этапе.<br>
+               <strong class="strong">/etc/bashrc<br>
+               /etc/dircolors<br>
+               /etc/fstab<br>
+               /etc/hosts<br>
+               /etc/inputrc<br>
+               /etc/profile<br>
+               /etc/resolv.conf<br>
+               /etc/vimrc<br>
+               /root/.bash_profile<br>
+               /root/.bashrc<br>
+               /etc/sysconfig/network<br>
+               /etc/sysconfig/ifconfig.eth0</strong><br>
+               Перейдем к загрузке новой установки <strong class="strong">LFS</strong>! Первый выход из среды <strong class="strong">chroot</strong>:<br><br>
+               <strong class="p11 blue">logout</strong><br><br>
+               Отключим виртуальные файловые системы:<br><br>
+               <strong class="p11 blue">umount -v $LFS/dev/pts<br>
+               <strong class="p11">umount -v $LFS/dev<br>
+               <strong class="p11">umount -v $LFS/run<br>
+               <strong class="p11">umount -v $LFS/proc<br>
+               <strong class="p11">umount -v $LFS/sys</strong></strong></strong></strong></strong><br><br>
+               Отключим файловую систему <strong class="strong">LFS</strong>:<br><br>
+               <strong class="p11 blue">umount -v $LFS</strong><br><br>
+               Если было создано несколько разделов, отключите остальные разделы перед отключением основного, например:<br><br>
+               <strong class="p11 blue">umount -v $LFS/usr<br>
+               <strong class="p11">umount -v $LFS/home<br>
+               <strong class="p11">umount -v $LFS</strong></strong></strong><br><br>
+               Перезагрузим систему:<br><br>
+               <strong class="p11 blue">shutdown -r now</strong><br><br>
+               Предполагая, что загрузочный загрузчик <strong class="strong">GRUB</strong> был настроен, как описано ранее, в меню установлено автоматическая загрузку <strong class="strong">LFS</strong>.После перезагрузки система <strong class="strong">LFS</strong> готова к использованию и может быть добавлено больше программного обеспечения в соответствии с вашими потребностями. 
+            </p>
+            <h2 id="lfs138"><a class="special-link16 a link1" href="https://www.dropbox.com/s/6k6btrs142nda4r/C.%D0%97%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8.txt?dl=0">Приложение C. Зависимости</a></h2> 
+            <h2 id="lfs139">Приложение E. Правила конфигурации <strong class="strong">Udev</strong></h2>
+            <p><strong class="blue"># /etc/udev/rules.d/55-lfs.rules: Rule definitions for LFS.<br>
+               # Core kernel devices<br>
+               # This causes the system clock to be set as soon as /dev/rtc becomes available.<br>
+               <strong class="p11">SUBSYSTEM=="rtc", ACTION=="add", MODE="0644", RUN+="/etc/rc.d/init.d/setclock start"<br>
+               <strong class="p11">KERNEL=="rtc", ACTION=="add", MODE="0644", RUN+="/etc/rc.d/init.d/setclock start"<br>
+               # Comms devices<br>
+               <strong class="p11">KERNEL=="ippp[0-9]*", GROUP="dialout"<br>
+               <strong class="p11">KERNEL=="isdn[0-9]*", GROUP="dialout"<br>
+               <strong class="p11">KERNEL=="isdnctrl[0-9]*", GROUP="dialout"<br>
+               <strong class="p11">KERNEL=="dcbri[0-9]*", GROUP="dialout"</strong></strong></strong></strong></strong></strong></strong>
+            </p>
+        <div class="kartinka5"><a class="a steps cursorG1" href="Lfs3.html#lfs"><img src="Gentoo/steps.png" alt=""></a></div>
+       </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                    <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="Обработка устройств и модулей">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="animated fadeIn full-opacity"  alt="Обработка устройств и модулей">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/camera.png" class="animated fadeIn full-opacity"  alt="Управление устройствами">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"То единственное, что хочется больше всего в жизни, как правило, нельзя купить за деньги." Мэрилин Монро'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="Конфигурация системы"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="Конфигурация системы"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="hvr-curl"><a><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="Управление устройствами"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="facebook"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="Вконтакте"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="twitter"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="Однокласники"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="Мой Мир"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="GitHub"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="instagram"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="Конфигурация системы"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		             <!--Lens-->
+        <script>
+        $(document).ready(function() {
+        var $lens = $('.lens'),
+        lensWHalf = $lens.width() / 1.2;
+        $(document).on('mousemove', function(e) {
+        $lens.css({
+        //Subtract half width of the container, so cursor would be right in the center
+        "left": e.pageX - lensWHalf,
+        "top": e.pageY - lensWHalf - 240  
+        });
+        })
+        })
+        </script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!--Yandex.Metrika-->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!--Rating Mail.ru-->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="wine linux"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Установка Gentoo</title>
+     <meta name="description" content="Установка Gentoo Linux, разбивка диска, монтирование, настройка Portage, настройка переменной USE.">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="разбивка диска,монтирование,chroot,portage,gentoo install,gentoo use,установка opensuse">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Gentoo/Gentoo.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Сегодня Вас ожидает самый продуктивный день!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>     
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="монтирование"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps 01coin Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>Gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="portage"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+        </ul>
+      <div id="content" class="content"><p class="proverbs">"Программное обеспечение словно секс: лучше, когда это бесплатно!" Линус Торвальдс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+          <ul id="runner">
+            <li class="p1"><a class="white aS" href="#sg1">Установка Gentoo</a></li>
+            <li class="p1"><a class="white aS" href="#sg2">Разбивка диска</a></li>
+            <li class="p1"><a class="white aS" href="#sg3">Монтирование</a></li>
+            <li class="p1"><a class="white aS" href="#sg4">Изменение корневого каталога chroot</a></li>
+            <li class="p1"><a class="white aS" href="#sg5">Настройка Portage</a></li>
+            <li class="p1"><a class="white aS" href="#sg6">Настройка переменной USE</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo1.html#sg7">Установка исходных кодов ядра</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg8">Создание fstab</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg9">Параметры сети</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg10">Установка Grub 2</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg11">Окончание установки Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg12">Руссификация Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg13">Подключение к интернету PPP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg14">Iptables</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg15">Установка рабочего стола Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg16">Установка с Wayland</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg17">X server для старой видео карты nvidia</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg18">Установка Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg19">Systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg20">Установка рабочего стола Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg21">Xorg — сервер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg22">Установка Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg23">Sudo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg24">Тор браузер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg25">Загрузка Gentoo без загрузчика</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg26">Broadcom Corporation и Intel Corporation WiMAX/WiFi Link 5150, настройка wi-fi</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg27">Установка wpa_supplicant</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg28">Установка сканера LIDE110</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg29">Подключение беспроводного принтера HP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg30">NTFS в Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg31">Файловая система exFAT</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg32">Non-Volatile Memory Express</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sg33">Полный перенос операционной системы на другой жёсткий диск</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo4.html#sb-container">Полезные ссылки</a></li>
+          </ul>
+          <img src="razz.png" alt="gentoo install">
+        </div>
+        </div><!--
+   --><div class="group section1">
+        <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+        <div class="kartinka5"><h2 class="darkblue socseti1 GoudyDecorShodwnC">Что же такое <strong class="strong">Gentoo</strong> ???</h2>
+          <div class="avatar"></div><div class="avatar1 music5"></div>
+        </div>
+          <p>это дистрибутив <strong class="strong GoudyDecorShodwnC1">Linux</strong>, который ни чего не хочет делать сам.<br> 
+             Повышает Ваш <strong class="strong GoudyDecorShodwnC1">IQ</strong> , в замен требуя кучу времени на то, чтобы разобраться, как это работает и почему не всё получается.<br>
+             Он не становится с первого раза.., вот зараза, легко заставит рвать на себе волосы и проклинать того, кто подсунул эту гадость.<br>
+             Не раз может возникнуть желание послать всё к чёртовой матери.<br>
+             Но пройдя через огонь, воду и медные трубы, настроив систему по своему усмотрению, вытираем пот со лба, больше не придется этим заниматься.<br>
+             Однажды установив <strong class="strong GoudyDecorShodwnC1">Gentoo</strong>, можно годами использовать его, и это всегда будет свежая версия дистрибутива, которая больше всего подходит именно Вам.
+          </p>
+        <div class="kartinka5">
+          <svg viewbox="0 0 10 10">
+               <circle class="smile" cx="5" cy="5" r="4" stroke-dashoffset="-.5" stroke-dasharray="21.5,23.6327"/>
+               <circle class="eyes" cx="3.5" cy="3.7" r="0.2"/>
+               <circle class="eyes" cx="6.7" cy="3.7" r="0.2"/>
+               <line class="smile" x1="5.3" y1="5.45" x2="8.8" y2="5.45"/>
+               <circle class="eyes" cx="5" cy="6.5" r="0.8" stroke-dashoffset="-.5" stroke-dasharray="1.5,3.6327"/>
+           </svg>
+       </div>    
+        <div id="js" class="anekdoti">
+         <h2>Только <strong class="strong">Gentoo</strong>!</h2>
+         <p>"за другое будем бить по попе"</p>
+         <div id="letter" class="anekdoti1"></div>
+        <div class="butterfly"></div>
+         <img id="inkwell1" src="Gentoo/inkwell1.gif" alt="chroot">
+         <img id="inkwell2" src="Gentoo/inkwell2.gif" alt="chroot">
+         <p id="letter_src">
+            <b class="pG2"><b class="p11">"</b></b><b class="pG1">Я</b> вчера много пил...<br>
+            <b class="pG2">Пришёл</b> домой, не мог зайти в инет,<br> 
+            <b class="pG2">чё</b> то сделал и зашёл.<br>
+            <b class="pG2">Когда</b> с утра увидел что у меня стоит<br> 
+            <strong class="strong pG">Gentoo</strong>, вместо <b class="p3">macOC...|||||||||<b class="p3">Windы</b></b>...<br>
+            <b class="pG">Я</b> бросил пить."<br>
+            <b class="pG"><b class="p11">"</b></b><b class="pG1">Доктор</b>, у меня глюки.<br>
+            <b class="pG">А</b> какая у Вас<br> 
+            <b class="pG">операционная</b> система? -<br>
+            <b class="pG p3">macOC...||||||||</b><b class="p3">Windows</b>.<br>
+            <b class="pG2">Могу</b> посоветовать перейти на <strong class="strong">Gentoo</strong>.<br> 
+            <b class="pG2">Но</b> предупреждаю,<br> 
+            <b class="pG2">глюки</b> должны исчезнуть,<br> 
+            <b class="pG2">но</b> получите геморрой".<br>
+            <b class="pG2"><b class="p11">"</b></b><b class="pG1">Гентушник</b> без терминала<br>
+            <b class="pG">не</b> может даже пукнуть".<br>
+            <b class="pG2">"</b><b class="pG1">Ставил</b> <strong class="strong">Gentoo</strong> - поломал 2 бубна."
+         </p></div>
+        <div class="feet"></div>
+        <div id="sg1" class="sam music1"><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation">
+            <h1 class="linux">Установка GENTOO</h1>
+            <h2 class="gentoo1 GoudyDecorShodwnC">А ТЫ уже установил ?</h2> <div class="kartinka5"><img src="Gentoo/gentoo1.png" alt="chroot"></div></a> 
+        </div>
+            <h2 class="white">"Не держись устава, яко слепой стены, ибо там порядки писаны, а времён и случаев - нет, того ради надлежит рассуждение иметь" Пётр I</h2>
+            <p class="music1">Загружаем образ <strong class="strong">Live CD</strong> <a class="special-link a link1" href="https://www.gentoo.org/downloads/">Gentoo</a>.<br>
+            (На 20 апреля 2017г. официальный минимальный <strong class="strong">CD</strong> не способен загрузится в <strong class="strong">UEFI</strong> - режиме.)<br>
+            Для загрузки в  <strong class="strong">UEFI</strong> режиме загружаем последний <strong class="strong">Hybrid ISO (LiveDVD)</strong> или <a class="special-link1 a link1" href="https://wiki.gentoo.org/wiki/User:Fearedbliss">"System Rescue CD"</a> или <strong class="strong">Live CD</strong> поддерживающий <strong class="strong">UEFI</strong>,
+            (например "<a class="special-link2 a link1" href="https://linuxmint.com/download.php">Linux Mint</a>").<br>
+            Определяем нашу флешку:<br><br>
+            <strong class="p11 blue">ls -l /dev/disk/by-id/</strong><br><br>
+            (например <strong class="strong">/dev/sdb</strong>) и записываем образ на неё:<br><br>
+            <strong class="p11 blue">dd if=./livedvd-amd64-multilib-XXXXXXXX.iso of=/dev/sdb</strong><br><br>
+            Запуск установочного носителя:<br>
+            Запускаем <strong class="strong">livedvd-amd64-multilib-XXXXXXXX.iso</strong> с флешки и начинаем установку <strong class="strong">Gentoo</strong>.<br>
+            Проверка доступности сетевой платы:<br><br>
+            <strong class="p11 blue">ifconfig</strong><br><br>
+            (удачная):<br><br>                    
+            <strong class="p11 blue">enp3s0: flags=4163  UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500</strong><br>
+            <strong class="p11 blue">inet 192.168.0.101  netmask 255.255.255.0  broadcast 192.168.0.255</strong><br>
+            <strong class="p11 blue">inet6 fe80::4216:7eff:fe24:dfb8  prefixlen 64  scopeid 0x20</strong><br>
+            <strong class="p11 blue">ether 40:16:7e:24:df:b8  txqueuelen 1000  (Ethernet)</strong><br>
+            <strong class="p11 blue">RX packets 358625  bytes 534838685 (510.0 MiB)</strong><br>
+            <strong class="p11 blue">RX errors 0  dropped 0  overruns 0  frame 0</strong><br>
+            <strong class="p11 blue">TX packets 275597  bytes 23854365 (22.7 MiB)</strong><br>
+            <strong class="p11 blue">TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</strong><br>
+            <strong class="p11 blue">lo flags= ...</strong><br><br>
+            Если сеть не заработает сразу, можно использовать <strong class="strong">net-setup</strong> (для обычных или беспроводных сетей), 
+            <strong class="strong">pppoe-setup</strong>
+            (для пользователей <strong class="strong">ADSL</strong>) или <strong class="strong">pptp</strong> (для пользователей <strong class="strong">PPTP</strong>; есть на <strong class="strong">x86, amd64, alpha, ppc и ppc64</strong>).<br>
+            Тестирование сети:<br><br>
+            <strong class="p11 blue">ping -c 3 www.gentoo.org</strong>
+         </p>
+         <h2 id="sg2">Разбивка диска</h2>
+         <p class="music1">Использование <strong class="strong">GPT</strong> на компьютере с <strong class="strong">BIOS</strong> работает, но нельзя выполнять двойную загрузку с операционной системой <b class="p3">Microsoft Windows</b>.<br> 
+         <b class="p3">Windows</b> загрузится в режиме <strong class="strong">UEFI</strong>, если обнаружит метку раздела <strong class="strong">GPT</strong>. Некоторые прошивки материнской платы, настроенные для загрузки в <strong class="strong">BIOS / CSM</strong> , могут также иметь проблемы с загрузкой дисков с меткой <strong class="strong">GPT</strong>. Можно обойти проблему, добавив флаг <strong class="strong">boot / active</strong> в загрузочный раздел <strong class="strong">MBR</strong>, через <strong class="strong">fdisk -t dos</strong> чтобы заставить прочитать таблицу разделов с использованием формата <strong class="strong">MBR</strong>.<br><br>
+            <strong class="blue p11">fdisk -t dos /dev/sda<br>
+            <strong class="p11">Command (m for help): a</strong><br>
+            <strong class="p11">Command (m for help): w</strong></strong><br><br>
+            <strong class="strong">Parted</strong> поддерживает большие разделы (более 2 ТБ).<br> 
+            Для оптимального выравнивания разделов:<br><br>
+            <strong class="p11 blue">parted -a optimal /dev/sda</strong><br><br>
+            Удаление <strong class="strong">X</strong> раздела:<br><br>
+            <strong class="p11 blue">(parted) rm X</strong><br><br>
+            При изменении типа раздела <strong class="strong">gpt</strong> будут удалены все разделы с диска:<br><br>
+            <strong class="blue p11">(parted) mklabel gpt</strong><br><br>
+            <strong class="gray">Чтобы иметь диск с макетом <strong class="strong">MBR</strong>, используется <strong class="strong">mklabel msdos</strong>.</strong><br> 
+            Разделы могут быть выражены в <strong class="strong">КБ</strong>, <strong class="strong">МБ</strong>, <strong class="strong">ГБ</strong> и тд.<br><br>
+            <strong class="p11 blue">(parted) unit kb</strong><br>
+            <strong class="p11 blue">(parted) mkpart primary 1024 3072</strong><br>
+            <strong class="p11 blue">(parted) name 1 grub</strong><br>
+            <strong class="p11 blue">(parted) set 1 bios_grub on</strong><br> 
+            <strong class="p11 blue">(parted) mkpart primary 3072 134144</strong><br>
+            <strong class="p11 blue">(parted) name 2 boot</strong><br>
+            <strong class="p11 blue">(parted) mkpart primary 134144 4328448</strong><br>
+            <strong class="p11 blue">(parted) name 3 swap</strong><br>
+            <strong class="p11 blue">(parted) mkpart primary 4328448 56757248</strong><br>
+            <strong class="p11 blue">(parted) name 4 rootfs</strong><br>
+            <strong class="p11 blue">(parted) mkpart primary 56757248 -1</strong><br>
+            <strong class="p11 blue">(parted) name 5 home</strong><br><br>
+            При использовании интерфейса <strong class="strong">UEFI</strong> для загрузки системы (вместо <strong class="strong">BIOS</strong>), 
+            отмечаем загрузочный раздел в качестве раздела <strong class="strong">EFI System</strong><br><br>
+            <strong class="p11 blue">(parted) set 2 boot on</strong><br><br>
+            Для проссмотра конечного результата:<br><br>
+            <strong class="p11 blue">(parted) print</strong>
+          </p>  
+          <table class="blue">
+            <tr><th class="p11">Номер</th> <th>Начало</th> <th>Конец</th> <th>Размер</th> <th>Файловая система</th> <th>Имя</th> <th>Флаги</th></tr>                                      
+            <tr><th>1</th> <th>1024kB</th> <th>3073kB</th> <th>2049kB</th> <th></th> <th>grub</th> <th>bios_grub</th></tr>                                  
+            <tr><th>2</th> <th>3073kB</th> <th>134MB</th> <th>131MB</th> <th class="gray">fat32</th> <th>boot</th> <th>загрузочный, esp</th></tr>                           
+            <tr><th>3</th> <th>134MB</th> <th>4328MB</th> <th>4194MB</th> <th class="gray">linux-swap(v1)</th> <th>swap</th></tr>                                               
+            <tr><th>4</th> <th>4328MB</th> <th>56,8GB</th> <th>52,4GB</th> <th class="gray">ext4</th> <th>rootfs</th></tr>                                             
+            <tr><th>5</th> <th>56,8GB</th> <th>2000GB</th> <th>1944GB</th> <th class="gray">btrfs</th> <th>home</th></tr>
+          </table><br>
+          <p>(размеры показанные <strong class="strong">Parted</strong> не совпадают с  размерами указанными в процессе разбивки диска)<br> 
+            Для выхода<br><br>  
+            <strong class="p11 blue">(parted) q</strong><br><br>
+            <strong class="strong">Parted</strong> <b class="gray">позволяет изменять размеры раздела диска командой <strong class="strong">resizepart</strong>.<br>
+            Будет предложено указать номер раздела, который необходимо изменить.
+            После этого необходимо установить новую конечную точку для этого раздела.<br><br> 
+            <strong class="p11 darkgrey">(parted) resizepart<br>
+            <strong class="p11">Partition number? X</strong><br>
+            <strong class="p11">End? [XX.XGB]? XXXXX</strong></strong><br><br>
+            Может помочь восстановить потерянный раздел между начальной и конечной точками. Если раздел найден в этом диапазоне, он попытается восстановить его.<br><br>
+            <strong class="p11 darkgrey">(parted) rescue<br>
+            <strong class="p11">Start? X</strong><br>
+            <strong class="p11">End? XXXXX</strong><br>
+            <strong class="p11">(parted) print</strong></strong></b><br><br>
+            <b id="fs">Создание файловых систем на разделах:</b><br>
+            Первый раздел оставляем пустым.<br>
+            При установке <strong class="strong">Gentoo</strong> на систему, которая использует <strong class="strong">UEFI</strong> для загрузки операционной системы (вместо <strong class="strong">BIOS</strong>), важно, чтобы был создан системный раздел <strong class="strong">EFI</strong>.<br> 
+            Для <strong class="strong">EFI</strong> должена быть создана файловая система <strong class="strong">FAT32</strong> (или <strong class="strong">VFAT</strong>, как на системах <strong class="strong">Linux</strong>).<br><br>
+            <strong class="p11 blue">mkfs.vfat -F 32 /dev/sda2</strong><br><br>
+            Чтобы у раздела <strong class="strong">/dev/sda4</strong> была файловая система <strong class="strong">ext4</strong>, требуется выполнить:<br><br>                                                                          
+            <strong class="p11 blue">mkfs.ext4 /dev/sda4</strong><br><br>                                                                                                                                                                
+            Для других разделов выбираем свою файловую систему.<br>
+            Например для <strong class="strong">/dev/sda5</strong>, файловую систему <a class="special-link3 a link1" href="Gentoo2.html#btrfs">btrfs</a>:<br><br>
+            <strong class="p11 blue">mkfs.btrfs -f /dev/sda5</strong><br><br>
+            Подключение раздела подкачки<br><br>                                                                                                                        
+            <strong class="p11 blue">mkswap /dev/sda3</strong> команда, используемая для инициализации разделов подкачки<br>                                                           
+            <strong class="p11 blue">swapon /dev/sda3</strong>  для подключения раздела подкачки<br>
+         </p>
+         <h2 id="sg3">Монтирование</h2>
+         <p class="music1"><strong class="p11 blue">mount /dev/sda4 /mnt/</strong><br><br>
+            Проверка даты и времени:<br><br>                                                                                                                                                       
+            <strong class="p11 blue">date</strong><br><br>                                                                                                                                                                                           
+            <strong class="p11 blue">Fri Mar 29 16:21:18 UTC 2016</strong><br><br>                                                                                                                                                 
+            если время не соответствует, набираем команду:<br><br>                                                                                                                      
+            <strong class="p11 blue">date ММДДччммГГГГГ</strong><br><br>                                                                                                                                                           
+            Загрузка архива стадии:<br>                                                                                                                                                         
+            переход к точке подключения <strong class="strong">Gentoo</strong><br><br>                                                                                                                                         
+            <strong class="p11 blue">cd /mnt/</strong><br><br>                                                                                                                                                                  
+            загружаем файл стадии:<br><br>                                                                                                                                                          
+            <strong class="p11 blue">links http://www.gentoo.org/main/en/mirrors.xml</strong><br><br>
+            Выберите ближайшее зеркало. Перейдите в каталог <strong class="strong">releases/amd64/autobuilds/</strong>,<br>
+            выберите файлы стадий для вашей архитектуры и нажмите <strong class="strong">D</strong> для загрузки.<br>
+            По окончании нажмите <strong class="strong">Q</strong>, чтобы выйти из браузера.<br>
+            Распаковка архива стадии:<br><br>                                                                                                                                                        
+            <strong class="p11 blue">tar xpf stage3-amd64-*.tar.xz</strong><br><br>
+            Создаём <strong class="strong">efi</strong> директорию:<br><br>
+            <strong class="p11 blue">mkdir -p /mnt/boot/efi</strong><br>
+            <strong class="p11 blue">mount /dev/sda2 /mnt/boot/efi</strong><br><br>
+            Копирование информации о <strong class="strong">DNS</strong>:<br>
+            <strong class="gray">(при устранении ошыбок в установленной ОС с <strong class="strong">Systemd</strong>, предварительно удаляем <strong class="strong">resolv.conf</strong>)</strong><br><br>
+            <strong class="p11 darkgrey">rm /mnt/etc/resolv.conf</strong><br>
+            <strong class="p11 blue">cp -L /etc/resolv.conf /mnt/etc/</strong><br><br>
+            Монтирование <strong class="strong">proc</strong>, <strong class="strong">sys</strong> и <strong class="strong">dev</strong><br><br>
+            <strong class="p11 blue">mount --types=proc /proc /mnt/proc</strong><br>  
+            <strong class="p11 blue">mount --rbind /sys /mnt/sys</strong><br>
+            <strong class="p11 blue">mount --rbind /dev /mnt/dev</strong><br>
+            <strong class="p11 darkgrey">mount --make-rslave /mnt/sys</strong><br>
+            <strong class="p11 darkgrey">mount --make-rslave /mnt/dev</strong><br><br>                                                                                                                      
+            <strong class="gray">Операции <strong class="strong">--make-rslave</strong> необходимы для поддержки <strong class="strong">Systemd</strong>.</strong>
+         </p>
+         <h2 id="sg4">Изменение корневого каталога для перехода в новую среду <strong class="strong">chroot</strong></h2>                                                                                                       
+         <p><strong class="p11 blue">chroot /mnt /bin/bash</strong><br>                                                                                                                                                                                                  
+            <strong class="p11 blue">source /etc/profile</strong><br>                                                                                                                                                                                               
+            <strong class="p11 blue">export PS1="(chroot) $PS1"</strong>
+         </p>
+         <h2 id="sg5">Настройка <strong class="strong">Portage</strong></h2>
+         <p class="music1">Запускаем <strong class="strong">emerge-webrsync</strong> для установки образа <strong class="strong">Portage</strong>:<br><br>                                                                                                   
+            <strong class="p11 blue">emerge-webrsync </strong><br><br>                                                                                                                                                                  
+            Работаем с новостями <strong class="strong">Portage</strong>:<br><br>                                                                                                                                               
+            <strong class="p11 blue">eselect news list</strong><br>                                                                                                                                                
+            <strong class="p11 blue">eselect news read  20</strong><br><br>
+            <strong class="strong">2019-06-05-amd64-17-1-profiles-are-now-stable<br>
+            Title amd64 17.1 profiles are now stable<br>
+            Author Michał Górny &lt;mgorny@gentoo.org><br>
+            Posted 2019-06-05<br>
+            Revision 3</strong><br>
+            <strong class="gray">Новый набор профилей 17.1 <strong class="strong">amd64</strong> был добавлен в Gentoo хранилище в декабре 2017 года. Эти профили переключаются на более стандартный мультибиблиотечный макет '<strong class="strong">no SYMLINK_LIB</strong>' и требует явной миграции как описано ниже. Они считаются стабильными на данный момент, и мы бы хотели бы попросить всех пользователей обновить свои системы. Старые профили будут объявлены устаревшими в ближайшем будущем.<br>
+            В новых профилях удалена символическая ссылка совместимости <strong class="strong">lib->lib64</strong>.<br>
+            64-битные библиотеки должны быть установлены непосредственно в <strong class="strong">lib64</strong>. <strong class="strong">/Lib</strong> и <strong class="strong">/usr/lib</strong> становятся настоящими каталогами, которые используются для перекрестной дуги и нативные небиблиотечные пакеты (<strong class="strong">gcc</strong>, <strong class="strong">clang</strong>) и 32-битные библиотеки в мультибиблиотечном профиле (что улучшает совместимость с готовыми <strong class="strong">x86</strong> пакетами).<br>
+            Поддерживается миграция с профилей 13.0 и 17.0. В случае из первых, рекомендовано читать новость для обновления 17.0 [1].<br>
+            Миграция выполняется с помощью инструмента <strong class="strong">app-portage/unsymlink-lib</strong>.<br>
+            Следующие шаги могут быть использованы для обновления вашей системы:<br>
+            1. Синхронизируйте и обновите вашу систему до новейших версий пакетов чтобы уменьшить риск проблем.<br>
+            2. Если вы все еще используете профиль 13.0, выберите <strong class="strong">gcc 6.4.0</strong> или новее в качестве системного компилятора, установите исходный файл <strong class="strong">/etc/profile</strong> и переустановите <strong class="strong">libtool</strong>:<br><br>
+            <strong class="p11 darkgrey"># gcc-config -l<br>
+            <strong class="p11">[1] x86_64-pc-linux-gnu-5.5.0 *<br>
+            <strong class="p11">[2] x86_64-pc-linux-gnu-8.3.0<br>
+            <strong class="p11"># gcc-config 2<br>
+            <strong class="p11"># . /etc/profile<br>
+            <strong class="p11"># emerge -1v libtool</strong></strong></strong></strong></strong></strong><br><br>
+            3. Install the tool:<br><br>
+            <strong class="p11 darkgrey"># emerge -1v app-portage/unsymlink-lib</strong><br><br>
+            4. Запустите '<strong class="strong">unsymlink-lib --analyze</strong>' и проверьте вывод на очевидные ошибки. Если вам нужно внести какие-либо изменения в систему, помните, что потом необходимо запустить '<strong class="strong">unsymlink-lib --analyze</strong>' снова.<br>
+            [после этого пункта не вызывайте emerge или не изменяйте <strong class="strong">/usr</strong> вручную]<br>
+            5. Самое время, чтобы сделать резервную копию.<br>
+            6. Запустите '<strong class="strong">unsymlink-lib --migrate</strong>'. Вы можете сначала добавить '<strong class="strong">--pretend</strong>', чтобы увидеть что сейчас произайдёт.<br>
+            7. Перезагрузите вашу систему. Проверьте, работают ли важные программы.<br>
+            В частности, убедитесь, что, например, 'emerge <strong class="strong">--info</strong>' работает (но не работает установить что угодно). Если у вас возникли серьезные проблемы, вы можете использовать '<strong class="strong">unsymlink-lib --rollback</strong>', чтобы отменить изменения и вернуться к пункт 4.<br>
+            8. Запустите '<strong class="strong">unsymlink-lib --finish</strong>'. Вы можете сначала добавить '<strong class="strong">--pretend</strong>', чтобы увидеть что произойдет, но обратите внимание, что вы увидите очень длинный список файлов для удаления.<br>
+            9. Переключите профиль, например:<br><br>
+            <strong class="p11 darkgrey"># eselect profile set default/linux/amd64/17.1/desktop</strong><br><br>
+            [с этого момента вы можете начать использовать emerge снова]<br>
+            10. Перестройте набор инструментов:<br><br>
+            <strong class="p11 darkgrey"># emerge -1v sys-devel/gcc:8.3.0</strong><br><br>
+            [повторите для других слотов, которые вы будете использовать]<br>
+            [если вы обновляете профиль 13.0, также]:<br><br>
+            <strong class="p11 darkgrey"># emerge -1v sys-devel/binutils<br>
+            <strong class="p11"># emerge -1v sys-libs/glibc</strong></strong><br><br>
+            11. Если вы используете мультибиблиотечный профиль, перестройте все 32-битные пакеты.<br>
+            Это можно сделать с помощью:<br><br>
+            <strong class="p11 darkgrey"># emerge -1v --deep /lib32 /usr/lib32 /usr/lib/llvm/*/lib32</strong><br><br>
+            Как вариант, если вы переключаетесь с одного из профилей 13.0 вы можете пересобрать все пакеты, как описано в новостях 17.0:<br><br>
+            <strong class="p11 darkgrey"># emerge -ev @world</strong><br><br>
+            12. После того, как последний 32-битный пакет перестроен, ваш менеджер пакетов должен удалить потерянные символьные ссылки <strong class="strong">/lib32</strong> и <strong class="strong">/usr/lib32</strong>. Если это не случилось, удалите их вручную:<br><br>
+            <strong class="p11 darkgrey"># rm /lib32 /usr/lib32</strong><br><br>
+            Об известных проблемах см. Ошибка # 506276 [2]. Если у вас есть какие-либо проблемы с новыми профилями или процедурой миграции, пожалуйста, сообщите об ошибке и заставить его заблокировать трекер.<br>
+            Для получения дополнительной информации о макете, пожалуйста, смотрите статью в вики на многопоточных макетах <strong class="strong">AMD64</strong> [3].<br>
+            [1] <a class="special-link4 a link1" href="https://gentoo.org/support/news-items/2017-11-30-new-17-profiles.html">https://gentoo.org/support/news-items/2017-11-30-new-17-profiles.html</a><br>
+            [2] <a class="special-link5 a link1" href="https://bugs.gentoo.org/506276">https://bugs.gentoo.org/506276</a><br>
+            [3] <a class="special-link6 a link1" href="https://wiki.gentoo.org/wiki/Project:AMD64/Multilib_layout">https://wiki.gentoo.org/wiki/Project:AMD64/Multilib_layout</a></strong>
+         </p><br>   
+         <p id="Pr">Выяснение используемого профиля:<br><br>
+            <strong class="p11 blue">eselect profile list</strong><br><br>                                                                                                                                                 
+            <strong class="p11 strong">Available profile symlink targets:</strong><br>
+            <strong class="p11 blue">...<br>
+            <strong class="p11">[5] default/linux/amd64/17.1/desktop (stable)<br>
+            <strong class="p11">[6] default/linux/amd64/17.1/desktop/gnome (stable)<br>
+            <strong class="p11">[7] default/linux/amd64/17.1/desktop/gnome/systemd (stable)<br>
+            <strong class="p11">[8] default/linux/amd64/17.1/desktop/plasma (stable)<br>
+            <strong class="p11">[9] default/linux/amd64/17.1/desktop/plasma/systemd (stable)<br> 
+            <strong class="p11">...</strong></strong></strong></strong></strong></strong></strong><br><br>
+            Изменяем профили, например для <strong class="strong">Plasma</strong>:<br><br>             
+            <strong class="p11 blue">eselect profile set 8</strong><br><br>
+            <strong class="gray">для <strong class="strong">Gnome systemd</strong>:<br><br>
+            <strong class="p11 darkgrey">eselect profile set 7</strong></strong>
+         </p> 
+         <h2 id="sg6">Настройка переменной  <a class="special-link7 a link1" href="https://www.gentoo.org/support/use-flags/#global">USE</a></h2>                                                                                                                                              
+         <p>Открытие файла  <strong class="strong">/etc/portag/make.conf</strong><br><br>                                                                                                                    
+            <strong class="p11 blue">nano /etc/portage/make.conf</strong><br><br>
+            <strong class="p11 blue">USE="acl alsa berkdb cdr crypt cups dbus dvd elogind gnutls ipv6 nls policykit pulseaudio sasl ssl syslog tcpd udev udisks unicode X"</strong><br>
+            <strong class="p11 blue">VIDEO_CARDS="intel"</strong><br>
+            <strong class="p11 blue">INPUT_DEVICES="evdev <strong class="darkgrey">synaptics</strong>"</strong><br>
+            <strong class="p11 blue">CFLAGS="-march=ivybridge -mno-avx -mno-aes -mno-rdrnd -O2 -pipe"</strong><br>                                                                                                                               
+            <strong class="p11 blue">CXXFLAGS="${CFLAGS}"</strong><br>
+            <strong class="p11 blue">MAKEOPTS="-j3"</strong><br>
+            <strong class="p11 blue">LINGUAS="ru en"</strong><br>
+            <strong class="p11 blue">L10N="ru en"</strong><br>
+            <strong class="p11 blue">GRUB_PLATFORMS="efi-64"</strong> <strong class="gray">для ОС без efi</strong> <strong class="strong">GRUB_PLATFORMS="pc"</strong><br>
+            <strong class="p11 blue">CPU_FLAGS_X86="mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"</strong><br><br>
+            Для включения правильных флагов <strong class="strong">CPU_FLAGS_X86</strong> используем  <strong class="strong">Python</strong><br>
+            скрипт, который генерирует правильное значение с  <strong class="strong">/proc/cpuinfo</strong><br><br>
+            <strong class="p11 blue">emerge app-portage/cpuid2cpuflags</strong><br>  
+            <strong class="p11 blue">cpuid2cpuflags</strong><br>
+            <strong class="p11 blue">emerge -C app-portage/cpuid2cpuflags</strong><br><br>
+            Для оптимизации <strong class="strong">GCC</strong> необходимо подобрать разумные флаги 
+            <a class="special-link8 a link1" href="https://wiki.gentoo.org/wiki/GCC_optimization/ru">CFLAGS и CXXFLAGS</a>.<br>
+            Определяем модель процессора:<br><br>
+            <strong class="p11 blue">grep -m1 -A3 "vendor_id" /proc/cpuinfo</strong><br><br>
+            Чтобы узнать необходимый <a class="special-link9 a link1" href="https://wiki.gentoo.org/wiki/Safe_CFLAGS">CFLAGS</a>, сопоставляем <strong class="strong">CPU</strong> с одним, из указанных на странице.<br>
+            Значение <strong class="strong">MAKEOPTS</strong> устанавливается в зависимости от числа процессоров +1.<br>
+            <strong class="gray">Если выбран профиль в названии с <strong class="strong">Systemd</strong> (так как все стадии <strong class="strong">Gentoo</strong> по умолчанию используют <strong class="strong">OpenRC</strong> как систему инициализации) имеет смысл обновить <strong class="strong">@world</strong> с добавлением <strong class="strong">USE</strong> - флага, <strong class="strong">systemd</strong> и отключением флага <strong class="strong">-consolekit</strong>:<br><br>
+            <strong class="p11 darkgrey">emerge --ask --update --deep --newuse @world</strong><br><br>
+            это не является обязательным для других профилей.</strong><br>
+            Установка часового пояса:<br><br>                                                                                                                                                          
+            <strong class="p11 blue">ls /usr/share/zoneinfo</strong><br>                                                                                                                                                             
+            <strong class="p11 blue">echo "Europe/Volgograd" > /etc/timezone</strong><br><br>                                                                                                         
+            Переконфигурируем <strong class="strong">timezone-data</strong>:<br><br>                                                                                                                                                                     
+            <strong class="p11 blue">emerge --config sys-libs/timezone-data</strong>
+         </p>
+         <div class="kartinka5"><a class="a steps cursorG" href="Gentoo1.html#sg7"><img src="Gentoo/steps1.png" alt="gentoo use"></a></div>
+      </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+         </div>
+         </div>
+                   <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">linux.redneck. Ярославль. 12.08.2020 13:49</h2>
+				    		<p class="text-testimonial Romantique white">Прекрасный сайт. Давно такого не видел, очень интересный подход к дизайну. Я в восторге от прочитанного материала, сейчас устанавливаю Gentoo, дай бог здоровья автору. АМИНЬ!</p>
+                            <p class="text-testimonial gray">Николай: <b class="Romantique white">Не стоит благодарностей. Будут вопросы - обращайтесь. Чем смогу, помогу.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    	    <img src="Comments/gramophone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Клиент 132 09.10.2020 12:56</h2>
+				    		<p class="text-testimonial Romantique white">Ээээ а че с дизайном?....</p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Всё тоже!...</b></p>
+				    		<p class="text-testimonial gray">Клиент 132: <b class="Romantique white">Ну то есть не перебор?<br>Как будто сервак блеванул.</b></p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Боюсь, что нет!</b></p>
+				    		<p class="text-testimonial gray">Клиент 132: <b class="Romantique white">Ну оооок)</b></p>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Так и есть!<br>Мне понравилось Ваше выражение: "Как будто сервак блеванул."<br>Пришлось немного изменить дизайн! Удачи.</b></p>
+                    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b>
+                            </p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Как избавиться от фальшивых денег? Положить в миску для пожертвований..." Джордж Карлин'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="gentoo use"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="монтирование"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps 01coin Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1"><span>Gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="разбивка диска"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="монтирование"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="chroot"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="portage"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="gentoo install"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="gentoo use"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="установка opensuse"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="дистрибутивы linux"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+                   <!--Anekdoti-->
+        <script src="Gentoo/Anekdoti.js"></script>
+        <script type="text/javascript">
+              //Вызываем функцию
+              mail()
+        </script>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                   <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                   <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                   <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+		           <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		           <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                 <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="gentoo install"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link5" preload="auto">
+          <source src="Gentoo/Gentoo.mp3" type="audio/mpeg">
+          <source src="Gentoo/Gentoo.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+        <script>
+               var soundLink5 = $("#sound-link5")[0];
+               $(".music5").mouseenter(function() {
+                   soundLink5.play();    
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>

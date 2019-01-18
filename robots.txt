@@ -1,0 +1,9 @@
+# Если www.linuxtosha.ru/ главное зеркало сайта, то robots.txt для всех сайтов из группы зеркал выглядит так:
+
+User-Agent: *
+Disallow: /forum
+Disallow: /cgi-bin
+Host: www.linuxtosha.ru/
+
+Allow: /
+Sitemap: www.linuxtosha.ru/

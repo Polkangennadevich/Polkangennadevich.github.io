@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Bitcoin Core, Electrum, Exodus, Monero, Ryo, Dogecoin, Litecoin, Dash кошельки & Cgminer, Xmr-stak</title>
+     <meta name="description" content="Установка и настройка Bitcoin Core, Electrum, Exodus & Monero кошельков. CGMiner майнинг.">
+     <meta name=’keywords’ content="Bitcoin Core,bitcoin-qt,Bitcoin,Биткоин,Electrum,CGMiner,bitcoind,сид,seed,майнинг,Bitcoin Knots,Exodus,Monero,Monero Core,Xmr-stak,Ryo Wallet,Dogecoin,CoinPot,Litecoin,Dash ">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="socseti.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Проблема не в том, что не могут накормить бедных, а в том, что богатые никак не могут нажраться!</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+           <li class="music hvr-curl"><a><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto CoinPot Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top  music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="логи"></div>
+     </noscript>
+		  <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Как говорила моя бабушка, лучшее упражнение для рук - это пересчитывание денег. Снимает боли в суставах, нормализует давление, полностью убирает зубную и головную боль, улучшает зрение, аппетит, гардероб, внешний вид и жилищьные условия."</p></div>   
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class=" soderganie">
+          <span class="white">Join Us</span>
+          <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+          </div>
+          <h2 class="p2 p3">Содержание:</h2>
+          <ul>
+            <li class="p1"><a class="white aS" href="#b1">Установка Bitcoin Core</a></li>
+            <li class="p1"><a class="white aS" href="#b2">Настройка Bitcoin Core</a></li>
+            <li class="p1"><a class="white aS" href="#b3">Консольный Bitcoind</a></li>
+            <li class="p1"><a class="white aS" href="#b4">Electrum кошелёк</a></li>
+            <li class="p1"><a class="white aS" href="#b5">Exodus кошелёк</a></li>
+            <li class="p1"><a class="white aS" href="#b6">Monero кошелёк</a></li>
+            <li class="p1"><a class="white aS" href="#b7">Ryo кошелёк</a></li>
+            <li class="p1"><a class="white aS" href="#b8">Dogecoin Core</a></li>
+            <li class="p1"><a class="white aS" href="#b9">Litecoin Core</a></li>
+            <li class="p1"><a class="white aS" href="#b10">Dash Core</a></li>
+            <li class="p1"><a class="white aS" href="#b11">MyCrypto</a></li>
+            <li class="p1"><a class="white aS" href="#b12">CoinPot</a></li>
+            <li class="p1"><a class="white aS" href="#b13">Консольный клиент для майнинга CGMiner</a></li>
+            <li class="p1"><a class="white aS" href="#b14">Консольный клиент для майнинга Xmr-stak</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div> 
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div> 
+             <blockquote></blockquote>
+         </div>
+        <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div>
+        </div>
+       </div> 
+           <div class="kartinka3 fancy-hover"></div><br>
+           <p class="music1"><strong class="p11 blue">Майнинг</strong> (<strong class="strong">mining</strong>) - это процесс записи транзакций с биткоинами в блокчейн, общедоступную базу данных по всем операциям с <strong class="strong">Bitcoin</strong>, которая отвечает за подтверждение транзакции. Узлы сети используют блокчейн, чтобы отличить реальные транзакции от попыток потратить одни и те же средства дважды. Основная цель майнинга - это достижение консенсуса между узлами сети относительно того, какие транзакции считать легитимными.<br>
+              Каждый блок должен содержать подтверждение того, что работа по решению математической задачи была проведена, и каждый из узлов сети может легко проверить, действительно ли блок был закрыт по правилам.<br> 
+              <strong class="p11 blue">Блок</strong> - перманентно записываемые файлы в сети <strong class="strong">Bitcoin</strong>, содержащие информацию о произошедших транзакциях.<br>
+              Каждый блок, помимо остальных компонентов, содержит в своём заголовке запись о нескольких или всех последних транзакциях и запись о блоке, который шел непосредственно перед текущим. Для создания нового блока майнеру необходимо решить на своём оборудовании задачу, которую выдает сеть. У каждого блока - свое уникальное решение, которое так же записывается в заголовок блока. Эта задача сложна для решения и занимает большое количество времени, но как только один из пользователей (майнеров) решает задачу, остальная сеть очень быстро подтверждает, что решение верно. Существует несколько решений для каждого блока – достаточно найти хотя бы одно из них.<br> 
+              <strong class="p11 blue">Нода</strong> (от англ. <strong class="strong">Node</strong> - узел) - любой компьютер, который подключается к сети <strong class="strong">Bitcoin</strong> и использует <strong class="strong">p2p</strong> протокол, который позволяет нодам общаться между собой в сети и распространять информацию о транзакциях и блоках. Из таких узлов, между которыми распределена информация, и состоит сеть блокчейна.<br>
+              Узлы, которые полностью применяют все правила биткойнов, называются полными. Это означает, что они полностью синхронизированы с блокчейн-сетью, то есть на сегодняшний день хранят на жестком диске более 200 Гб полного набора файлов блокчейна. Большинство узлов в сети - облегчённые, но именно полные образуют ее основу.<br>
+              Полные узлы - это единственный способ, которым можно максимально безопасно использовать биткойны. Они хранят всю информацию о сети и благодаря этому дают гарантию, что соблюдаются все правила - например, что биткойны расходуются их владельцем, что ни один койн не был потрачен дважды и так далее.<br> 
+              <strong class="p11 blue">Блокчейн</strong> (<strong class="strong">blockchain</strong> – "цепочка блоков") – публичная база всех транзакций, когда-либо совершенных в системе <strong class="strong">Bitcoin</strong>. Используя эту базу, каждый пользователь имеет возможность узнать, какое количество <strong class="strong">Bitcoin</strong> принадлежало какому-либо конкретному адресу в определенный отрезок времени. База поддерживается с помощью распределённых усилий множества майнеров.<br>
+              <strong class="p11 blue">Хешрейт</strong> - суммарная вычислительная мощность майнингового оборудования, задействованного в процессе добычи криптовалюты.<br>
+              Хешрейт выражается в следующих единицах:<br>
+              Хеш/сек (<strong class="strong">H/s</strong>);<br>
+              Килохеш/сек (<strong class="strong">KH/s</strong>);<br>
+              Мегахеш/сек (<strong class="strong">MH/s</strong>);<br>
+              Гигахеш/сек (<strong class="strong">GH/s</strong>);<br>
+              Терахеш/сек (<strong class="strong">TH/s</strong>);<br>
+              Петахеш/сек (<strong class="strong">PH/s</strong>);<br>
+              Экзахеш/сек (<strong class="strong">EH/s</strong>).<br>
+              <strong class="p11 blue">Пул</strong> (<strong class="strong">pool</strong>) совместной генерации биткоинов это один из подходов к майнингу, при котором несколько генерирующих клиентов вносят общий вклад в генерацию блока, а затем делят полученный блок в соответствии со вложенной мощностью майнинга.<br>
+              <strong class="p11 blue">Воркер</strong> (<strong class="strong">worker</strong>) - это учетная запись для соединения майнера с пул-сервером.<br>
+              <strong class="p11 blue">Ферма</strong> - (набор видиокарт, <strong class="strong">fpga</strong> или <strong class="strong">asic</strong>) это аппаратный комплекс, который осуществляет процесс майнинга.<br>
+              <strong class="p11 blue">FPGA</strong> (<strong class="strong">Field Programmable Gate Array</strong>). В русском языке это означает программируемая пользователем вентильная матрица. Такое устройство состоит из полупроводников и может быть сконфигурировано как производителем, так и пользователем в зависимости от его нужд.<br> 
+              <strong class="p11 blue">ASIC</strong> (<strong class="strong">Application Specific Integrated Circuit</strong>). В переводе с английского «интегральная схема специального назначения» - это микросхема, настроенная на выполнение одного определённого вида работы – на расшифровку алгоритмов, на базе которых работает блокчейн криптовалюты.<br>
+              <a class="p11 special-link a link" href="http://coinmarketcap.com/">Альткоины, форки</a> (<strong class="strong">fork</strong> - развилка, ответвление) - название альтернативных, отличных от биткоина криптовалют. <strong class="strong">Litecoin LTC</strong>, <strong class="strong">Peercoin PPC</strong>, <strong class="strong">Novacoin NVC</strong>, <strong class="strong">Terracoin TRC</strong>, <strong class="strong">Quark QRK</strong>, <strong class="strong">Feathercoin FTC</strong>, <strong class="strong">Primecoin XPM</strong> и т.д.<br>
+              Продать или обменять криптовалюту можно на биржах. Вот одна из них: <a class="special-link1 a link" href="https://crex24.com/?refid=k291x6mjnxowxcjzaqmy">Crex24</a>. Она позволяют зарегистрированным пользователям бесплатно получать криптовалюту.<br>
+              На бирже представлены как популярные криптовалюты, так и редкие на рынке. Прямо на бирже можно обменять криптовалюту и вывести её в фиатных деньгах на банковскую карту.<br>
+              Биржа имеет собственный Токен <strong class="strong">Crex (CREX)</strong>. Его возможно обменять на другие крипто или фиатные валюты, а также оплатить комиссии за вывод криптовалют со скидкой.<br>
+              Получить токен <strong class="strong">CREX</strong> пользователи могут в качестве вознаграждения за сжигание остатков монет, которые нельзя продать на бирже и в качестве компенсации за сжигание неликвидных монет, подлежащих делистингу.<br>
+              <a class="special-link2 a link" href="https://www.calc.ru/kalkulyator-kryptovalyut.html">Калькулятор криптовалют</a>. Курсы криптовалют ко всем валютам мира. Конвертация криптовалюты в другую крипто или мировую валюту.<br>
+              <a class="special-link3 a link" href="https://coinmarketcap.com/ru/converter/">Калькулятор и конвертер криптовалют</a>.<br>
+              <strong class="p11 blue">Сатоши</strong> (<strong class="strong">Satoshi</strong>) в настоящее время является самой маленькой единицей биткоин, хранящейся в блокчейн. Сатоши - это одна стомиллионная биткоин (<strong class="strong">0,00000001 BTC</strong>).<br> 
+              <strong class="p11 blue">Фиатные деньги</strong> - англ. <strong class="strong">Fiat Money</strong>, извесны также как декретные деньги - валюта, которую правительство объявило в качестве законного средства платежа, несмотря на то, что она не имеет никакой внутренней стоимости и не обеспечена резервами.<br>
+              <strong class="p11 blue">Пир</strong> (<strong class="strong">peer</strong>) - равноправный участник (пользователь) сети, предоставляющий сервисы другим участникам одноранговой сети и сам пользующийся их сервисами. Часто так называется клиент, участвующий в раздаче в файлообменных сетях. Является противоположностью клиента или сервера в архитектуре клиент-сервер, поскольку сервисы ими и предоставляются, и используются.<br><img class="kartinka3" src="Bitcoin/dollars.gif" alt="Dollars"> 
+              <strong class="p11 blue">Однора́нговая, децентрализо́ванная, или пи́ринговая сеть</strong> (<strong class="strong">peer-to-peer, P2P</strong> - равный к равному) - оверлейная компьютерная сеть, основанная на равноправии участников. Часто в такой сети отсутствуют выделенные серверы, а каждый узел (<strong class="strong">peer</strong>) является как клиентом, так и выполняет функции сервера. В отличие от архитектуры клиент-сервера, такая организация позволяет сохранять работоспособность сети при любом количестве и любом сочетании доступных узлов. Участниками сети являются все пиры.<br>
+              <strong class="p11 blue">Краны криптовалюты</strong> (<strong class="strong">Faucet</strong>) являются ресурсами, предоставляющие зарегистрированным пользователям возможность заработка посредством выполнения несложных заданий, например введения капчи, кликания по рекламным ссылкам и т.д.<br>
+              Краны, которые платят за посещение, хоть и не раздают огромные деньги, но доход от них способен вырасти в разы вместе с ростом стоимости криптовалюты.<br>
+              Краны - это прекрасная возможность изучить тему криптовалюты, без вложений и не рискуя собственными деньгами.<br>
+              <strong class="p11 blue">Двойная трата</strong> или <strong class="strong">Double-spending</strong> называется удачное использование одних и тех же средств дважды. <strong class="strong">Bitcoin</strong> защищён от <strong class="strong">double-spending</strong> атаки тем, что верифицирует каждую транзакцию, которая добавляется в цепочку блоков, на предмет того, что средства, содержащиеся в транзакции, не были потрачены ранее.
+          </p>
+          <h1 id="b1" class="music1"><a class="send-link special-link4 a" href="https://bitcoin.org/ru/">Установка Bitcoin Core
+             <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+             </span></a>
+          </h1>
+          <p class="music1"><strong class="strong">Bitcoin Core</strong> по состоянию на 01.01.2020 года требует как минимум 272,7 Гб свободного пространства, которое должно быть на диске.<br> 
+             Для работы программа будет скачивать весь блокчейн (цепочки транзакций за все время существования сети), поэтому понадобится не только выделить минимум места, но и оставить солидный запас, так как объём данных постоянно будет увеличиваться. По-хорошему, под <strong class="strong">Bitcoin Core</strong> лучше всего выделить не менее 500 Гб.<br>
+             Устанавливаем пакет:<br><br>
+             <strong class="p11 blue">emerge --ask net-p2p/bitcoin-qt</strong><br><br>
+             Чтобы <strong class="strong">bitcoin-qt</strong> автоматически использовал <strong class="strong">tor</strong> при запуске, необходимо убедиться, что в конфигурационном файле «<strong class="strong">torrc</strong>» правильно установлены сегменты «<strong class="strong">ControlPort</strong>»,  «<strong class="strong">CookieAuthentication</strong>» и добавить пользователя '<strong class="strong">bitcoin</strong>' в группу «<strong class="strong">tor</strong>».<br><br>
+             <strong class="p11 blue">gpasswd -a bitcoin tor</strong><br><br>
+             <strong class="strong">ControlPort [address:]port|unix:path|auto [flags]</strong><br> 
+             Если установлено, <strong class="strong">Tor</strong> будет принимать соединения через этот порт и позволять этим соединениям управлять процессом <strong class="strong">Tor</strong> с использованием протокола управления <strong class="strong">Tor</strong> (описано в <strong class="strong">control-spec.txt</strong> в <a class="special-link5 a link" href="https://spec.torproject.org/">torspec</a>). Примечание: если не указаны (один или оба) <strong class="strong">HashedControlPassword</strong> или <strong class="strong">CookieAuthentication</strong>, установка этого параметра приведет к тому, что <strong class="strong">Tor</strong> позволит любому процессу на локальном хосте управлять им. (Установка обоих методов аутентификации означает, что любого метода достаточно для аутентификации в <strong class="strong">Tor</strong>.) Эта опция требуется для многих контроллеров <strong class="strong">Tor</strong>; большинство используют значение 9051. Если используется сокет домена <strong class="strong">unix</strong>, можно указать путь, используя стандартные <strong class="strong">escape</strong> - последовательности языка <strong class="strong">C</strong>. Можно указать эту директиву несколько раз, чтобы связать с несколькими парами адрес/порт. Установите «<strong class="strong">auto</strong>», чтобы <strong class="strong">Tor</strong> выбрал порт сам. (По умолчанию: 0)<br>
+             <strong class="strong">CookieAuthentication</strong> 0|1<br>
+             Если для этой опции задано значение 1, разрешить соединения через порт управления, когда процесс соединения узнает содержимое файла с именем «<strong class="strong">control_auth_cookie</strong>», который <strong class="strong">Tor</strong> создаст в своем каталоге данных. Этот метод аутентификации должен использоваться только в системах с хорошей безопасностью файловой системы. (По умолчанию: 0)
+          </p>
+       <h2 id="b2">Настройка <strong class="strong">Bitcoin Core</strong></h2>
+          <p>Запускаем файл установки после скачивания.</p><br>
+             <div class="kartinka5"><img src="Bitcoin/purse.png" alt="Биткоин"></div><br>
+          <p>Система предложит выбрать диск и папку, в которую будет скачиваться весь блокчейн.<br>
+             Активируем процесс синхронизации. Это самый долгий этап установки клиента. Поскольку объём данных огромен, скачивание может занять несколько суток. 
+          </p><br>
+             <div class="kartinka5"><img src="Bitcoin/purse1.png" alt="Биткоин"></div><br>
+          <p class="music1">Во время синхронизации необязательно держать ПК включенным всё время. Можно отключать его, но перед этим обязательно закрыть программу. В противном случае блоки могут сохраниться некорректно, это приведёт к проблемам в работе клиента. Уже на этапе синхронизации можно знакомиться с функционалом <strong class="strong">Bitcoin Core</strong>, а пользоваться им пока нельзя. Кроме того, можно параллельно пользоваться компьютером для других задач, однако скорость его работы будет заметно снижена, в частности, будет занят как минимум 1 Гб оперативной памяти и замедлится работа жёсткого диска.<br>
+             После завершения синхронизации <strong class="strong">Bitcoin Core</strong> кошелёк будет полностью готов к использованию.<br>
+             Перед перекидыванием средств на кошелёк необходимо сначала позаботиться о сохранности сбережений. Прежде всего, надо зашифровать бумажник, то есть, защитить его паролем.<br>
+             Заходим в раздел «Настройки».<br>
+             Выбираем пункт «Зашифровать кошелёк».<br>
+             В соответствующее поле вводим пароль и повторяем его. Можно зашифровать клиент набором случайных цифр и латинских букв, больше 10 символов или целой фразой, состоящей минимум из 8 слов.<br>
+             Записываем код доступа на отдельном листе бумаги или в отдельном файле, который затем надо перекинуть на флешку или другой сторонний носитель, желательно, отключенный от интернета.<br>
+             Следующим обязательным шагом является создание резервной копии кошелька <strong class="strong">Bitcoin Core</strong>.<br> 
+             Необходимо скопировать файл под названием <strong class="strong">wallet.dat</strong>. Он содержит приватный ключ бумажника. Иными словами, это персональный идентификатор, с помощью которого можно восстановить доступ к средствам в случае переустановки ОС или замены жёсткого диска.<br>
+             Копирование можно осуществить двумя способами:<br>
+             Скопировать его вручную.<br>
+             Второй способ, нажать на вкладку «Файл» и выбрать пункт «Создать резервную копию бумажника». В соответствующем поле прописать имя файла и выбрать место для копирования, после чего нажать на кнопку «Сохранить». Рекомендуется сделать сразу несколько дубликатов и закинуть их на разные носители.<br>
+             Первое действие, создание пароля, можно осуществлять уже при первом запуске клиента после синхронизации. А вот копировать <strong class="strong">wallet.dat</strong> необходимо только после генерации хотя бы одного публичного Биткоин - адреса, на который будут скидываться монеты. Если генерировать новые адреса в дальнейшем, потребуется каждый раз копировать <strong class="strong">wallet.dat</strong>. Это не совсем удобно, зато надёжно.<br>
+             В главном меню клиента <strong class="strong">Bitcoin Core</strong> доступно 4 вкладки:<br>
+             "Обзор", "Отправить","Получить", "Транзакции".<br>
+             Нажав на вкладку «Обзор», можно проверить состояние баланса, а также узнать, сколько <strong class="strong">Bitcoin</strong> отправлено и какие транзакции ждут подтверждения сети. Этот пункт меню носит ознакомительный характер.<br> 
+             Во вкладке «Отправить»  есть поле для вставки адреса получателя и для вписывания суммы, которая подлежит отправке. Также здесь можно завести адресную книгу, в которой будут храниться публичные ключи тех, кому ранее отправлялись монеты <strong class="strong">Bitcoin</strong>. Благодаря адресной книге, не придётся каждый раз прописывать кошельки получателей вручную.<br>
+             Однако, учитывая, что адреса могут меняться, поскольку не рекомендуется повторно пользоваться одним и тем же адресом дважды, отправленные монеты <strong class="strong">Bitcoin</strong> на адрес, который получатель больше не контролирует (не имеет к нему секретного ключа), можно просто потерять.<br>
+             Крайне важным пунктом является размер комиссии, управление которой осуществляется в нижней части меню. Данный сбор взимается в пользу майнеров, поддерживающих работу блокчейна. Чем больше комиссия, тем выше приоритет транзакции и тем быстрее она получит подтверждение. Сбор может вычитаться от суммы перевода или приплюсовываться к ней. По умолчанию комиссия выставляется поверх суммы сделки. Чтобы сбор вычитался из переводимых монет, необходимо поставить галочку напротив пункта «Вычесть комиссию из суммы», расположенного напротив поля, в которое вводится количество пересылаемых криптоденег.<br>
+             Сумма сбора не должна быть ниже рекомендованного значения, оно прописывается в нижней части вкладки «Отправить». Ещё лучше выставлять более высокую комиссию. В противном случае сеть может отменить транзакцию. Деньги не пропадут, а вернутся на ваш баланс, но повтор транзакции отнимет больше времени.<br>
+             Для расчета оптимальной суммы можно посетить <a class="special-link6 a link" href="https://bitcoinfees.21.co/">сервис</a>.<br>
+             Как получить Биткоины на кошелёк <strong class="strong">Bitcoin Core</strong>. Для этого нужна вкладка «Получить». Перейдя в неё, внизу будет кнопка «Запросить платёж». Нажатием данной кнопки генерируется свой публичный Биткоин-адрес и <strong class="strong">QR</strong>-код, который контрагент по сделке может быстро отсканировать для перевода. Для удобства можно указать сумму транзакции и оставить сообщение отправителю. Именно этот идентификатор будет отправляться людям, которые должны перекинуть вам <strong class="strong">Bitcoin</strong>.<br>
+             В работе можно применять только один адрес; для этого даже предусмотрен отдельный пункт - «Повторно использовать существующий адрес получения». Чтобы активировать данную функцию, достаточно просто поставить галочку напротив указанного пункта. Но лучше так не делать. Рекомендуется сгенерировать сразу несколько адресов, чтобы обеспечить себе стопроцентную анонимность в сети.<br>
+             Для большей анонимности желательно каждую сумму принимать на новый адрес.<br>
+             Последняя вкладка «Транзакции», нужна для просмотра всех совершённых операций. Сделки можно сортировать по величине переведённых или полученных сумм, по дате, по различным меткам. Этот раздел повысит удобство ведения общей статистики.<br>
+             Кошелёк <strong class="strong">Bitcoin Core</strong> позволяет создавать несколько публичных адресов. С помощью этих идентификаторов можно не только получать, но и отправлять монеты. Если первый пункт не вызывает вопросов, то со вторым могут возникнуть сложности. К счастью, рассматриваемый клиент имеет отдельную функцию, упрощающую работу с несколькими адресами.<br>
+             Чтобы активировать эту функцию, надо сделать следующее:<br>
+             Нажать на пункт «Настройки», находящийся в верхней части приложения.<br>
+             Выбрать вкладку «Бумажник».<br>
+             Поставить галочку напротив строки «Включить управление входами».<br>
+             Управление входами в <strong class="strong">Bitcoin Core</strong> работает сразу по двум направлениям:<br>
+             При каждой транзакции будет создаваться новый публичный идентификатор.<br>
+             Во вкладке «Отправить» появится кнопка «Входы». Нажав на неё, можно выбрать, с какого адреса отправлять <strong class="strong">Bitcoin</strong> другому человеку.<br>
+             Полезная функции - выставление домена обозревателя блоков. Она активируется так:<br>
+             Заходим в настройки.<br>
+             Выбираем вкладку «Отображение».<br>
+             Вписываем ссылку <strong class="strong">blockchain.info/tx/%s</strong> в поле сторонних <strong class="strong">URL</strong> транзакций.<br>
+             Теперь при перекидывании средств вместо значков «<strong class="strong">%s</strong>» будет прописываться хэш транзакции. Такая функция весьма полезна для опытных пользователей, которым может потребоваться скинуть кому-то ссылку перевода. Например, вы решите пополнить с кошелька <strong class="strong">Bitcoin Core</strong> баланс на бирже, но деньги долгое время не будут приходить. Отправив в службу поддержки ссылку на транзакцию, подтверждается перевод, а специалисты узнают причину задержки.<br>
+             При стандартном использовании клиента, когда ПК подключён к интернету, сбережения не находятся в полной безопасности, ведь кошелёк могут взломать хакеры. Чтобы доступ к средствам не имел никто, кроме вас, необходимо прибегать к так называемому «холодному» хранению, когда монеты находятся на носителе, отключенном от всемирной паутины. Такую возможность могут дать специализированные хранилища, аппаратные или бумажные, но при наличии <strong class="strong">Bitcoin Core</strong> пользоваться ими необязательно.<br>
+             Чтобы перевести бумажник в «холодный» режим, надо выполнить следующие действия:<br>
+             Создать несколько публичных адресов и записать их в отдельном файле.<br>
+             Сделать несколько дубликатов файла <strong class="strong">wallet.dat</strong>.<br>
+             Закинуть копии на отключенные от интернета носители, флешки, диски и т.д.<br>
+             Удалить оригинальный <strong class="strong">wallet.dat</strong> с компьютера.<br>
+             Таким способом обеспечивается «холодное» хранение монет на <strong class="strong">Bitcoin Core</strong>. Созданные адреса уже есть в сети, поэтому спокойно можно получать на них деньги. А вот главный ключ к бумажнику не имеет никакой связи с интернетом, а значит - его нельзя украсть и взломать.<br>
+             Указанный способ хранения имеет и свой изъян. Каждый раз, когда необходимо распорядиться своими накоплениями, например, закинуть их на биржу, придётся закидывать <strong class="strong">wallet.dat</strong> на ПК, совершать задуманное действие и опять удалять файл.<br>
+             Можно уменьшить место, занимаемое <strong class="strong">Bitcoin Core</strong> на компьютере.<br>
+             После этого объём бумажника сократится до нескольких гигабайт. Суть заключается в том, что удаляются все старые блоки транзакций, оставляя лишь самые новые. Это значительно повысит удобство использования <strong class="strong">Bitcoin Core</strong> и позволит заполнить жёсткий диск другими программами. Однако применить его получится только после полной синхронизации с блокчейном. Иными словами, вначале всё равно потребуется как минимум 203 Гб свободного места.<br>
+             При хорошем интернет-соединении, есть возможность поддержать сеть, оставляя ПК включенным с запущенным <strong class="strong">Bitcoin Core</strong> и настроенным брандмауэром для разрешения входящих подключений к порту 8333.<br>
+             Существует <strong class="strong">Bitcoin Knots</strong> - это полный клиент <strong class="strong">Bitcoin</strong> и создает основу сети. Он обеспечивает высокий уровень безопасности, конфиденциальности и стабильности. Включает в себя более комплексную функциональность, чем <strong class="strong">Bitcoin Core</strong>, но она не так хорошо протестирована.<br>
+             Не стоит забывать о комиссии с транзакций на вывод в кошелёк - чем чаще выводим криптовалюту с баланса пула, тем чаще оплачиваем эту комисcию.<br>
+             Существует множество кранов, которые начисляют <strong class="strong">Bitcoin</strong> совершенно бесплатно: 
+         </p>
+             <div class="kartinka2" style="margin:10px;"><img src="Bitcoin/Bestchange.png" alt="Best Change"></div>
+         <p class="music1"><a class="special-link7 a link" href="https://freebitco.in/?r=36588289/">Freebitco.in</a> - это не просто кран для сбора биткоина, но и полноценная игровая платформа, с помощью которой можно хорошо провести время.<br> 
+             <a class="special-link8 a link" href="https://www.bestchange.com/?p=1045614">Best Change</a> - это мониторинг обменных пунктов разработан для тех, кто хочет безопасно обменивать электронные деньги в интернете с минимальными комиссионными потерями.<br>
+             Чтобы получить <strong class="strong">Satoshi</strong>, необходимо опуститься в самый низ странички. Во вкладке с левой стороны заполнить <strong class="strong">Bitcoins address</strong>, разгадать капчу и щёлкнуть по кнопке "<strong class="strong">Claim free Bitcoins</strong>".<br>
+             Минимальное значение для вывода составляет <strong class="strong">0,00003000BTC</strong>. Перевод осуществляется в течении одного - двух дней и без комиссии. Имеется и <a class="special-link9 a link" href="https://www.bestchange.ru/?p=1045614">русскоязычный сайт</a>.<br>
+             <a class="special-link10 a link" href="http://cointiply.com/r/3yJo6">Cointiply</a>, где можно собирать бесплатные сатоши, зарабатывать на просмотре видео, на опросах и заданиях, а также на играх. Здесь же можно собирать и <strong class="strong">Dogecoin</strong>.<br> 
+             <a class="special-link11 a link" href="https://r.adbtc.top/1614520">adBTC</a> заработок сатоши за просмотр веб-страниц, в основном сайтов о заработке в интернете. Минимальная сумма для вывода на биткоин адрес - 35000 сатоши. Можно перечислить и на микрокошелёк <a class="special-link12 link a" href="https://expresscrypto.io/signup?referral=47053">EXPRESScrypto</a> Минимальная сумма для вывода - 3000 сатоши.<br>
+             Здесь же, можно заработать российские рубли, на коротких ссылках и сёрфинге сайтов Р.<br>
+             Вывод на кошелёк <strong class="strong">Payeer</strong> от 1 рубля.<br>
+             Вывод средств может занять до 3х рабочих дней (понедельник-пятница).<br> 
+             <b class="p3">Регистрируйтесь по ссылкам, оценивайте статьи, видео, просматривайте веб-страницы и получайте свои биткоины бесплатно!!!</b>
+         </p>
+         <h2 id="b3">Консольный <strong class="strong">Bitcoind</strong></h2>
+         <p class="music1">Устанавливаем пакет:<br><br>
+            <strong class="p11 blue">emerge --ask net-p2p/bitcoind</strong><br><br>
+            Сервер <strong class="strong">bitcoind</strong> невозможно запустить, пока запущен и работает <strong class="strong">bitcoin-qt</strong> и наоборот, если они оба используют один и тот же каталог с блокчейном или один и тот же сетевой порт.<br>
+            Для подключения консольного клиента к серверу, необходимо, чтобы в рабочем каталоге блокчейна находился файл <strong class="strong">bitcoin.conf</strong>. В нем необходимо прописать параметры, с которыми клиент будет присоединяться к серверу. По умолчанию этот файл пуст, и нужно вручную привести его к такому виду:<br><br>
+            <strong class="p11 blue">server=1<br>
+            <strong class="p11">daemon=1<br>
+            <strong class="p11">rpcuser=user<br>
+            <strong class="p11">rpcpassword=password</strong></strong></strong></strong><br>
+            # Более правильно использовать <strong class="strong">-rpcauth</strong><br>
+            <strong class="p11 blue">rpcbind=127.0.0.1<br>
+            <strong class="p11">rpcallowip=127.0.0.1/32</strong></strong><br><br>
+            где вместо <strong class="strong">user</strong> и <strong class="strong">password</strong> надо придумать и прописать логин и пароль пользователя. Эти данные будут использоваться при подключении к серверу.<br>
+            После внесения изменений в файл <strong class="strong">bitcoin.conf</strong>, расположенный в рабочем каталоге блокчейна, сервер <strong class="strong">bitcoind</strong> надо перезапустить.<br>
+            Следует иметь в виду, что и сервер и клиент, если не задана опция размещения рабочего каталога или опция размещения конфиг-файла, по-умолчанию ищут конфигурирующий файл по пути:<br><br>
+            <strong class="p11 blue">/home/&lt;USER>/.bitcoin/bitcoin.conf</strong><br><br>
+            Начало работы с клиентом командной строки - автоматически синхронизировать блокчейн и создать кошелек:<br><br>
+            <strong class="p11 strong">$</strong> <b class="blue">bitcoind</b><br><br>
+            Полный список <a class="special-link13 a link" href="https://en.bitcoin.it/wiki/Running_Bitcoin">параметров</a> можно получить запустив <strong class="strong">bitcoind</strong> с ключем <strong class="strong">--help</strong> или <strong class="strong">-?</strong>.<br>
+            Большую часть перечисленных параметров можно указывать в <strong class="strong">bitcoin.conf</strong>.<br>
+            Описание некоторых из них:<br>  
+            <strong class="strong">-addnode=</strong> - подключится к указанному узлу, полезно указать адреса пулов для ускорения транзакций, можно использовать несколько раз;<br>
+            <strong class="strong">-conf</strong> - позволяет задать файл конфигурации отличный от <strong class="strong">~/.bitcoin/bitcoin.conf</strong>;<br>
+            <strong class="strong">-connect=&lt;ip></strong> - подключится только к указанному узлу, полезно, если необходимо загрузить блоки с другого компьютера в локальной сети не загружая интернет-канал;<br>
+            <strong class="strong">-datadir=</strong> - использовать вместо <strong class="strong">~/.bitcoin/</strong> указанный путь;<br>
+            <strong class="strong">-daemon</strong> - запускаться в фоне;<br>
+            <strong class="strong">-debug &lt;category></strong> - выводить отладочную информацию (по умолчанию: 0, указание <strong class="strong">&lt;category></strong> необязательно). Если <strong class="strong">&lt;category></strong> не указан или если <strong class="strong">&lt;category>=1</strong>, выведите всю отладочную информацию. <strong class="strong">&lt;category></strong> может быть: <strong class="strong">addrman</strong>, <strong class="strong">alert</strong>, <strong class="strong">bench</strong>, <strong class="strong">cmpctblock</strong>, <strong class="strong">coindb</strong>, <strong class="strong">db</strong>, <strong class="strong">http</strong>, <strong class="strong">libevent</strong>, <strong class="strong">lock</strong>, <strong class="strong">mempool</strong>, <strong class="strong">mempoolrej</strong>, <strong class="strong">net</strong>, <strong class="strong">proxy</strong>, <strong class="strong">prune</strong>, <strong class="strong">rand</strong>, <strong class="strong">reindex</strong>, <strong class="strong">rpc</strong>, <strong class="strong">selectcoins</strong>, <strong class="strong">tor</strong>, <strong class="strong">zmq</strong>, <strong class="strong">qt</strong>;<br>
+            <strong class="strong">-gen=1</strong> - после старта начать майнить биткоины. Устанавливается в командной строке или в файле конфигурации. <strong class="strong">bitcoind</strong> будет использовать свой встроенный майнер для поиска блоков. Он не эффективен, не поддерживает пулы и не использует графические процессоры. Он оставлен только для справки и для тестирования, вероятно, скоро будет полностью удален.<br>
+            (Когда используется"<strong class="strong">setgenerate true</strong>" в окне консоли <strong class="strong">bitcoin-qt</strong>, а затем "<strong class="strong">gethashespersec</strong>" сообщает о хешировании, а "<strong class="strong">getgenerate</strong>" возвращает <strong class="strong">true</strong>, разве это не майнинг?)<br>
+            <strong class="strong">-gen=0</strong> - не майнить биткоины (если в файле конфигурации указано иное);<br>
+            <strong class="strong">-keypool=</strong> - сгенерировать указанное количество ключей при старте, по умолчанию - 100;<br>
+            <strong class="strong">-logtimestamps</strong> - предварительный отладочный вывод с отметкой времени (по умолчанию: 1);<br>
+            <strong class="strong">-maxconnections=</strong> - ограничить число одновременных соединений, по умолчанию 125;<br>
+            <strong class="strong">-noconnect</strong> или <strong class="strong">-connect=0</strong> отдельно, чтобы отключить автоматические соединения;<br>
+            <strong class="strong">-nodnsseed</strong> - не использовать <strong class="strong">DNS</strong> для поиска узлов;<br>
+            <strong class="strong">-noirc</strong> - не использовать <strong class="strong">irc</strong> для поиска узлов и анонса собственного адреса (например <strong class="strong">irc</strong> запрещен хостингом, что встречается довольно часто);<br>
+            <strong class="strong">-nolisten</strong> - не принимать входящие соединения;<br>
+            <strong class="strong">-paytxfee=</strong> - установить размер комиссию (в биткоинах), собственная логика клиента имеет приоритет над этим значением;<br>
+            <strong class="strong">-pid</strong> - указать файл, в который будет писаться <strong class="strong">pid</strong> процесса демона;<br>
+            <strong class="strong">-printtoconsole</strong> - отправить информацию <strong class="strong">trace/debug</strong> на консоль вместо файла <strong class="strong">debug.log</strong>;<br>
+            <strong class="strong">-proxy=&lt;ip:port></strong> - соединятся через указанный <strong class="strong">SOCKS5</strong> прокси-сервер, например через <strong class="strong">tor</strong>;<br>
+            <strong class="strong">-prune=&lt;n></strong> - обрезать историю транзакций когда её размер перерастает "<strong class="strong">n</strong>", единицы <strong class="strong">MiB</strong>. «<strong class="strong">prune=0</strong>» - отключает режим обрезки, «<strong class="strong">prune=1</strong>» - позволяет вручную обрезку через <strong class="strong">RPC</strong>, «<strong class="strong">prune=550</strong>» - и более, автоматически удаляет предыдущие файлы блоков, чтобы оставаться ниже этого целевого размера.<br>
+            Данный режим называется <strong class="strong">prune mode</strong>, он ни чем не отличается от <strong class="strong">full mode</strong>, в том числе в безопасности. <strong class="strong">Full mode</strong> нужен только для поддержки биткоин-сети и для изучения/анализа. <strong class="strong">Prune mode</strong> не даёт возможности использовать параметры <strong class="strong">-rescan</strong> и <strong class="strong">txindex</strong>. По умолчанию <strong class="strong">Bitcoin Core</strong> создает базу данных, содержащую только транзакции, связанные с кошельком пользователя. Если необходимо иметь доступ к любой транзакции с помощью таких команд, как <strong class="strong">gettransaction</strong>, нужно настроить <strong class="strong">Bitcoin Core</strong> для построения полного индекса транзакции, что может быть достигнуто с помощью опции <strong class="strong">txindex</strong>. Устанавливаем <strong class="strong">txindex=1</strong> в файле конфигурации <strong class="strong">Bitcoin Core</strong>;<br>
+            <strong class="strong">-port=</strong> - использовать указанный порт вместо 8333;<br>
+            <strong class="strong">-rescan</strong> - эта команда повторно сканирует файлы блокчейн на предмет отсутствующих транзакций кошелька: при восстановлении резервной копии кошелька, при импорте нового приватного ключа. <strong class="strong">Core wallet</strong> хранит все данные транзакций по адресам, которыми он управляет. Однако при восстановлении нового приватного ключа клиенту кошелька не известна транзакция, связанная с этим адресом. Используем команду <strong class="strong">-rescan</strong> только в том случае, если транзакция отсутствует в кошельке или если баланс не отображается должным образом.<br>
+            Повторное сканирование - это как пересчёт денег под матрасом. Когда запускается кошелек с помощью команды <strong class="strong">-rescan</strong>, кошелек сканирует все загруженные блоки. При сканировании всех блоков выполняется поиск всех отсутствующих транзакций. После того, как все транзакции будут восстановлены, правильный баланс также будет соответствующим образом отражен. Так же в 0.6 версии появилась полезная опция <strong class="strong">-blocknotify=</strong>, которая запускает указанную команду при получении нового блока, например для обработчика платежей.<br>
+            <strong class="strong">-reindex</strong> - переиндексация не загружает блокчейн с нуля. Вместо этого он перестраивает индекс блокчейна из данных, которые уже загружены (<strong class="strong">blk.dat</strong> файлы). Он воссоздает существующую базу данных <strong class="strong">blockchain</strong> и перепроверяет информацию в ней. Переиндексирование отбрасывает индекс цепи и блок-код. Таким образом, по сути блокчейн восстанавливается с нуля, и он по-прежнему потребляет пропускную способность интернет-провайдера.<br>
+            Нужно использовать <strong class="strong">-reindex</strong>, если: клиент кошелька не может прочитать блоки или говорит, что источник блока не найден (<strong class="strong">no block source found</strong>), когда кошелек находится в неправильной цепочке или если текущая база данных <strong class="strong">blockchain</strong> повреждена;<br>
+            <strong class="strong">-rpcallowip=&lt;ip></strong> - разрешить <strong class="strong">JSON-RPC</strong> - соединения из указанного источника. Для <strong class="strong">&lt;ip></strong> допустимы один <strong class="strong">IP</strong> (например, 1.2.3.4), сеть/маска сети (например, 1.2.3.4/255.255.255.0) или сеть/<strong class="strong">CIDR</strong> (например, 1.2.3.4/24). По умолчанию команды принимаются только с 127.0.0.1. Эта опция может быть указана несколько раз;<br>
+            <strong class="strong">-rpcauth=&lt;userpw></strong> - имя пользователя и хешированный пароль для соединений <strong class="strong">JSON-RPC</strong>. Поле <strong class="strong">&lt;userpw></strong> имеет формат:<br> 
+            <strong class="strong">&lt;ИМЯ ПОЛЬЗОВАТЕЛЯ>:&lt;SALT>$&lt;HASH></strong>. Канонический скрипт на <strong class="strong">python</strong> включен в <strong class="strong">share/rpcuser</strong>. Эта опция может быть указана несколько раз.<br>
+            На <a class="special-link14 a link" href="https://github.com/bitcoin/bitcoin/blob/master/share/rpcauth/rpcauth.py">github</a> есть скрипт <strong class="strong">Python</strong>, который позволяет создать такую комбинацию <strong class="strong">user/password</strong> (обратите внимание, что созданный пароль, нельзя заменить на другой).<br>
+            Запускаем этот скрипт на <strong class="strong">Python</strong>:<br><br>
+            <strong class="p11 strong">$</strong> <b class="blue">python ./rpcuser.py foo<br>
+            String to be appended to bitcoin.conf:<br>
+            rpcauth=foo:a14191e6892facf70686a397b126423$ddd6f7480817bd6f8083a2e07e24b93c4d74e667f3a001df26c5dd0ef5eafd0d<br>
+            Your password:<br>
+            VX3z87LBVc_X7NBLABLABLABLA=</b><br><br>
+            Заменяем <strong class="strong">rpcuser</strong> на <strong class="strong">foo</strong>, а <strong class="strong">rpcpassword</strong> на <strong class="strong">VX3z87LBVc_X7NBLABLABLABLA=</strong>, где бы ни подключались к <strong class="strong">RPC</strong> биткойна.<br>
+            <strong class="strong">-rpcconnect=</strong> - отправлять команды на указанный узел а не на 127.0.0.1;<br>
+            <strong class="strong">-rpcbind=&lt;addr></strong> - привязать к указанному адресу для прослушивания соединений <strong class="strong">JSON-RPC</strong>. Используйте <strong class="strong">[host]:port</strong> для <strong class="strong">IPv6</strong>. Эта опция может быть указана несколько раз (по умолчанию: привязка ко всем интерфейсам);<br>
+            <strong class="strong">-rpcpassword=</strong> - пароль для соединений <strong class="strong">JSON-RPC</strong>;<br>
+            <strong class="strong">-rpcport=</strong> - прослушивать <strong class="strong">JSON-RPC</strong> - соединения на &lt;порт> (по умолчанию: 8332 или <strong class="strong">testnet</strong>: 18332);<br>
+            <strong class="strong">-rpcuser=</strong> - имя пользователя для соединений <strong class="strong">JSON-RPC</strong>;<br>
+            <strong class="strong">-salvagewallet</strong> - попытаться восстановить приватные ключи из повреждённого бумажника при запуске клиента. Ключ пригодится, если файл <strong class="strong">wallet.dat</strong> повреждён, например, при неожиданном отключении электричества. <strong class="strong">-salvagewallet</strong> не всегда работает и иногда может привести к повреждению кошелька, если он еще не поврежден. Использовать только в крайнем случае. Перед запуском <strong class="strong">Bitcoin Core</strong> с <strong class="strong">-salvagewallet</strong> всегда необходимо сделать резервную копию файла кошелька;<br>
+            <strong class="strong">-testnet</strong> - использовать тестовую сеть;<br>
+            <strong class="strong">-timeout=</strong> - укажите время ожидания соединения в миллисекундах (минимум: 1, по умолчанию: 5000);<br>
+            <strong class="strong">-upnp</strong> - пытаться использовать <strong class="strong">UPnP</strong> для того чтобы пробросить порт. Полезно, если вы заначены роутером, использующим внешний <strong class="strong">ip</strong> и поддерживающим <strong class="strong">UPnP</strong>. Не нужно, если имеется внешний <strong class="strong">ip</strong> напрямую и не имеет смысла, если ваш роутер не имеет внешнего <strong class="strong">ip</strong>;<br>
+            <strong class="strong">-zapwallettxes=1</strong> - удаляет не подтверждённые транзакции из кошелька. Зависла транзакция? Этот ключ поможет. Сначала убеждаемся, что она ждёт подтверждения. Для этого копируем <strong class="strong">id</strong> транзакции, вставляем в строку поиска сервиса <a class="special-link15 a link" href="https://www.blockchain.com/explorer?view=btc_transactions">Blockchain.com</a> (или <a class="special-link16 a link" href=" https://bitaps.com/">bitaps.com</a>, <a class="special-link17 a link" href="https://blockchair.com/ru">Blockchair</a>). Далее ищем строку "неподтвержденная транзакция" ("<strong class="strong">unconfirmed transaction</strong>"). Нашли, значит транзакция ждет подтверждения. На "Приблизительное время подтверждения" ("<strong class="strong">Estimated Confirmation Time</strong>") на странице с транзакцией <strong class="strong">Blockchain.com</strong> не смотрим.<br>
+            Запускаем кошелёк из командной строки:<br><br> 
+            <strong class="p11 blue">bitcoind -zapwallettxes</strong><br><br> 
+            Когда кошелёк запустится, все неподтвержденные транзакции из него исчезнут (но они ещё есть в сети!). Для <strong class="strong">bitcoin core 0.14</strong> потребуется перед запуском ещё переименовать или перенести файл <strong class="strong">mempool.dat</strong> (мемпул в этой версии сохраняется в файл и старая транзакция остается там).<br>
+            Почему не с параметром <strong class="strong">-salvagewallet</strong>?<br> 
+            <strong class="strong">-zapwallettxes</strong> не затронет имена ключей, а <strong class="strong">-salvagewallet</strong> удалит их. Кроме того, <strong class="strong">bitcoin core</strong> иногда падает при запуске с <strong class="strong">-salvagewallet</strong> и тогда <strong class="strong">wallet.dat</strong> будет поврежден. Правда, рядом с ним заранее будет создана копия.<br>
+            Теперь можно создавать новую транзакцию, не забыв поставить адекватную комиссию. Но, поскольку старая транзакция ещё осталась в сети, она может когда ни будь неожиданно подтвердиться. Если это не устраивает, то у новой транзакции хотя бы один из входов должен будет совпадать с одним из входов старой. Для этого смотрим графу "<strong class="strong">inputs</strong>" на странице транзакции на сайте <strong class="strong">Blockchain.com</strong> или аналоге, запоминаем точный размер входа в битках. После этого при создании транзакции в кошельке нажимаем на кнопку "<strong class="strong">inputs...</strong>", находим в списке такое же точно число в битках и выбираем его (если их несколько, то выбирайте с тем же адресом получения и временем). После этого выбираем ещё какие ни будь входы, чтобы общая сумма была больше суммы транзакции с будущей комиссией; лучше выбирать с запасом. Далее заполняем все поля как обычно, (не забываем про комиссию!) и отправляем.<br>
+            Пишут, что всё это можно не делать, а просто подождать 2-3 суток, чтобы старая транзакция сама "канула в лету" но иногда это может привести к проблемам.<br>
+            Многие из логических параметров можно отключить, указав их с префиксом «нет»: например, <strong class="strong">-nodnseed</strong>.<br>
+            Консольная утилита <strong class="strong">bitcoin-cli</strong>, которая взаимодействет с демоном из командной строки.<br>
+            Устанавливаем <strong class="strong">bitcoin-cli</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask net-p2p/bitcoin-cli</strong><br><br>
+            Список <a class="special-link18 a link" href="https://chainquery.com/bitcoin-cli">команд, можно получить здесь</a>.<br>
+            <strong class="strong">backupwallet &lt;destination></strong> - создать бэкап кошелька в указанной директории;<br>
+            <strong class="strong">dumpprivkey &lt;публичный адрес></strong> - выводит на экран приватный ключ от соответствующего публичного ключа;<br>
+            <strong class="strong">dumpwallet &lt;filename></strong> - выгружает адреса и приватные ключи к ним в отдельный файл;<br>
+            <strong class="strong">encryptwallet &lt;passphrase></strong> - шифрует файл <strong class="strong">wallet.dat</strong>, <strong class="strong">passphrase</strong> - это пароль, который нужно задать;<br>
+            <strong class="strong">estimatesmartfee &lt;number of blocks></strong> - рассчитать размер комиссии, чтобы транзакция попала в блок через определённое количество блоков;<br>
+            <strong class="strong">generatetoaddress &lt;nblocks> &lt;address> [maxtries]</strong> - немедленно добывает блоки по указанному адресу. <strong class="strong">nblocks</strong> (числовой, обязательный) сколько блоков генерируется сразу; <strong class="strong">address</strong> (строка обязательна) адрес, на который отправляется вновь сгенерированный биткойн; <strong class="strong">maxtries</strong> (числовой, необязательный). сколько итераций нужно попробовать (по умолчанию = 1000000). Результат:<strong class="strong">[blockhashes] (массив)</strong> хэши сгенерированных блоков;<br>
+            <strong class="strong">getbalance</strong> - выдает сумму доступных средств в кошельке, просто в виде одной цифры;<br>
+            <strong class="strong">getblock &lt;hash></strong> - зная хеш блока, можно получить о нем информацию;<br>
+            <strong class="strong">getblockchaininfo</strong> - возвращает объект, содержащий различную информацию о состоянии обработки блокчейна.<br>
+            <strong class="strong">getblockcount</strong> - вывести текущее количество блоков. Результат - целое число;<br> 
+            <strong class="strong">getblockhash &lt;index></strong> - можно узнать хеш блока по номеру.<br>
+            <strong class="strong">getconnectioncount</strong> - вывести текущее количество соединений. Результат - целое число;<br>
+            <strong class="strong">getmininginfo</strong> - узнать текущую информацию о майнинге (текущий размер блока, сложность добычи и др.);<br>
+            <strong class="strong">getnetworkinfo</strong> - возвращает объект, содержащий различную информацию о состоянии сети <strong class="strong">P2P</strong>.<br>
+            <strong class="strong">getnewaddress &lt;account></strong> - создаёт новый адрес для приема платежей. Если указан <strong class="strong">account</strong>, платежи, полученные с адресом, будут зачислены на счет <strong class="strong">account</strong>;<br>
+            <strong class="strong">getrawmempool</strong> - получить все идентификаторы транзакций;<br>
+            <strong class="strong">getrawtransaction &lt;txid> [verbose=0]</strong> - выводит информацию о транзакции, где <strong class="strong">txid</strong> - идентификатор транзакции, <strong class="strong">verbose=0</strong> - вывести в <strong class="strong">RAW</strong>-формате, <strong class="strong">verbose=1</strong> - вывести в <strong class="strong">JSON</strong> - формате;<br>
+            <strong class="strong">getwalletinfo</strong> - возвращает объект, содержащий различную информацию о состоянии кошелька.<br>
+            <strong class="strong">importprivkey &lt;ваш приватный ключ></strong> - добавляет приватный ключ в кошелёк. Это может занять некоторое время, поскольку повторное сканирование выполняется для поиска существующих транзакций. Нет необходимости импортировать открытый ключ, так как в <strong class="strong">ECDSA</strong> (в отличие от <strong class="strong">RSA</strong>) это можно вычислить из закрытого ключа;<br>
+            <strong class="strong">importwallet &lt;filename></strong> - импортирует все данные из файла формата <strong class="strong">.dat</strong>;<br>
+            <strong class="strong">listaccounts</strong> - вывести список аккаунтов с балансом на них. Результат - <strong class="strong">JSON</strong> - массив;<br>
+            <strong class="strong">listaddressgroupings</strong> в стандартном кошельке Биткоина обычно находится несколько адресов. Команда показывает какая сумма лежит на каждом из адресов;<br>
+            <strong class="strong">listreceivedbyaccount</strong> - вывести <strong class="strong">JSON</strong> - массив с аккантами, общим количеством принятых на них средств без учета отправленных и количеством подтверждений;<br>
+            <strong class="strong">listreceivedbyaddress</strong> - тоже самое, но с детализацией по <strong class="strong">bitcoin</strong> - адресам;<br>
+            <strong class="strong">listtransactions</strong> - вывести список транзакций в <strong class="strong">JSON</strong> формате;<br>
+            Что бы узнать, скоро ли подтвердится транзакция, ищем на на сервисе Blockchain.com (или bitaps.com, Blockchair) строку "Плата за байт" ("Fee per byte") и запоминаем число, которое там стоит. Затем, пользуясь <a class="special-link19 a link" href="https://btc.com/stats/unconfirmed-tx">BTC.com</a> или <a class="special-link20 a link" href="https://bitcoinfees.earn.com/">Earn bitcoin</a>  сервисом, оцениваем свое место в очереди и делаем выводы.<br>
+            <strong class="strong">maxmempool=&lt;n></strong> - максимальный размер мемпула, где <strong class="strong">n</strong> - его размер в мегабайтах;<br>
+            <strong class="strong">move &lt;fromaccount> &lt;toaccount> &lt;amount> [minconf=1] [comment]</strong>  - перевести средства с одного аккаунта на другой без осуществления транзакции в сети;<br>
+            <strong class="strong">sendfrom &lt;fromaccount> &lt;tobitcoinaddress> &lt;amount> [minconf=1] [comment] [comment-to]</strong> - отправить сресдва с указанного аккаунта;<br>
+            <strong class="strong">sendmany &lt;fromaccount> {address:amount,...} [minconf=1] [comment]</strong> - отправить средства с указанного аккаунта на множество адресов;<br>
+            <strong class="strong">sendtoaddress &lt;bitcoinaddress> &lt;amount> [comment] [comment-to]</strong> - отправить средства с аккаунта по умолчанию. <strong class="strong">&lt;amount></strong> сумма является действительным и округляется до 8 десятичных знаков;<br>
+            <strong class="strong">setaccount &lt;bitcoinaddress> &lt;account></strong> - устанавливает учетную запись, связанную с данным адресом. Назначение адреса, который уже назначен той же учетной записи, создаст новый адрес, связанный с этой учётной записью;<br>
+            <strong class="strong">settxfee &lt;amount></strong> - установить комиссию. <strong class="strong">&lt;amount></strong> является действительным и округляется до ближайшего 0,00000001.<br>
+            Если выбрана очень маленькая комиссия и выплата застряла на 0, выполняем следующее:<br>
+            Получаем приватный ключ от соответствующего публичного ключа.<br><br>
+            <strong class="p11 blue">bitcoin-cli dumpprivkey &lt;публичный адрес></strong><br><br> 
+            Устанавливаем <a class="special-link21 a link" href="#b4">Electrum</a> и импортируем туда приватный ключ.<br>
+            Получаем доступ к кошельку, там можно колдовать с не подтверждёнными транзакциями, например увеличить комиссию и отправить ещё раз, либо другой вариант...<br>
+            Удаляем файл <strong class="strong">mempool.dat</strong> в каталоге данных биткоина и запускаем <strong class="strong">Bitcoin Core</strong> c ключом <strong class="strong">-zapwallettxes</strong>:<br><br>
+            <strong class="p11 blue">bitcoind -zapwallettxes</strong><br><br>  
+            все не подтверждённые транзакции исчезнут.<br>
+            <strong class="strong">signmessage &lt;bitcoinaddress> &lt;message></strong> - подписать сообщение, полезно для подтверждения принадлежности адреса;<br>
+            <strong class="strong">stop</strong> - остановить демон. До полной остановки должно пройти какое-то время;<br>
+            <strong class="strong">verifymessage &lt;bitcoinaddress></strong> - проверить подпись сообщения;<br>
+            <strong class="strong">validateaddress &lt;bitcoinaddress></strong>  указав в качестве аргумента нужный адрес покажет публичный ключ. Можно получить значение приватного ключа. Делается это в два этапа. Вначале надо "разблокировать" кошелек паролем (разблокировка действует строго ограниченное время). Делается это командой:<br>
+            <strong class="strong">walletlock</strong> - удаляет ключ шифрования кошелька из памяти, блокируя кошелёк. После вызова этого метода нужно будет снова вызвать <strong class="strong">walletpassphrase</strong>, прежде чем вызывать любые методы, требующие разблокировки кошелька.<br>
+            <strong class="strong">walletpassphrase &lt;passphrase> &lt;timeout></strong> где вместо <strong class="strong">passphrase</strong> указывается пароль на кошелек, а в качестве параметра <strong class="strong">timeout</strong> указывается время разблокировки бумажника в секундах;<br>
+            <strong class="strong">walletpassphrasechange &lt;oldpassphrase> &lt;newpassphrase></strong> - меняет старый пароль от <strong class="strong">wallet.dat</strong> на новый;<br>
+            Если нужно указать какой-то специфический файл настроек, используется опция <strong class="strong">-conf</strong>:<br><br>
+            <strong class="p11 blue">bitcoin-cli -conf=/путь/к/файлу/bitcoin.conf &lt;команда></strong><br><br>
+            Списка кодов ошибок и их значений смотри <a class="special-link22 a link" href="https://github.com/bitcoin/bitcoin/blob/62f2d769e45043c1f262ed45babb70fe237ad2bb/src/rpc/protocol.h#L30">rpcprotocol.h</a><br>
+            <b class="gray">Настроить <strong class="strong">systemd</strong> сервис для запуска ноды (в том числе после перезагрузки). Для этого можно просто скопировать юнит файл, размещенный <a class="special-link23 a link" href="https://github.com/bitcoin/bitcoin/blob/master/contrib/init/bitcoind.service">по адресу</a>, в директорию <strong class="strong">/etc/systemd/system/</strong>:</b><br><br>
+            <strong class="p11 darkgrey">wget <a class="special-link24 a link" href="https://raw.githubusercontent.com/bitcoin/bitcoin/master/contrib/init/bitcoind.service">https://raw.githubusercontent.com/bitcoin/bitcoin/master/contrib/init/bitcoind.service</a> -O /etc/systemd/system/bitcoind.service</strong>
+         </p>
+         <h2 id="b4" class="music1"><a class="special-link24 send-link2 a" href="https://electrum.org/#home">Electrum кошелёк
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p>Устанавливаем <strong class="strong">Electrum</strong> кошелек:<br><br>
+            <strong class="p11 blue">emerge --ask net-misc/electrum</strong><br><br>
+            После установки, перед созданием кошелька, для большей безопасности, отключаем интернет.<br>
+            Запускаем файл установки.<br>
+            Выбираем способ подключения к серверу и нажимаем "Дальше".
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum.png" alt="Electrum"></div><br>
+         <p>Выбираем сервер.</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum1.png" alt="Electrum"></div><br>
+         <p>Используем <strong class="strong">Tor</strong> прокси.</p><br>    
+            <div class="kartinka5"><img src="Bitcoin/Electrum2.png" alt="Electrum"></div><br>
+         <p>Нажимаем "Дальше".<br>
+            Открываем окно, в котором создаем <strong class="strong">Electrum</strong> кошелек.</p><br> 
+            <div class="kartinka5"><img src="Bitcoin/Electrum3.png" alt="Electrum"></div><br>
+         <p>Оставляем <strong class="strong">default_ wallet</strong>, нажимаем "Дальше".</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum4.png" alt="Electrum"></div><br>
+         <p><strong class="strong">Standard wallet</strong> - стандартный вариант;<br>
+            <strong class="strong">Multi-signature wallet</strong> - мультиподпись. Хорошо подходит для управления деньгами группой лиц.<br>
+            Устанавливаем <strong class="strong">Standard wallet</strong> и нажимаем "Дальше".
+         </p><br>
+            <div id="e" class="kartinka5"><img src="Bitcoin/Electrum5.png" alt="Electrum"></div><br>
+         <p>Здесь варианты:<br>
+            <strong class="strong">Сreate a new seed</strong> - создать новый сид;<br>
+            <strong class="strong">I already have a seed</strong> - использовать имеющейся;<br>
+            <strong class="strong">Use public or private keys</strong> -использовать публичный или приватный ключ;<br>
+            <strong class="strong">Use a hardwaredevice</strong> - использовать аппаратное устройство.<br>
+            Выбираем <strong class="strong">Сreate a new seed</strong>, нажимаем "Дальше".
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum6.png" alt="Electrum"></div><br> 
+         <p>Выбираем тип <strong class="strong">seed</strong>, нажимаем "Дальше".</p><br> 
+            <div class="kartinka5"><img src="Bitcoin/Electrum7.png" alt="Electrum"></div><br>
+         <p>Предложенные 12 слов и есть сид.<br>
+            Сид позволит на любом компьютере восстановить доступ к своим деньгам. Поэтому его нужно сохранить. Записываем на бумаге, храним в надёжном месте.<br>
+            При этом не обязательно иметь <strong class="strong">Electrum</strong>, можно восстановить доступ к монетам через любой другой кошелёк. Очень удобно и то, что в <strong class="strong">Electrum</strong> можно вставить <strong class="strong">seed</strong> фразу с другого клиента и пользоваться своими монетами.<br>
+            Можно выбрать предложенный, а можно расширить <strong class="strong">seed</strong> словами, нажав "опции".<br>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum8.png" alt="Electrum"></div><br>
+         <p><strong class="strong">seed</strong> расширение должно быть использовано вместе с вашим <strong class="strong">seed</strong>.<br>
+            Обратите внимание, что это не пароль шифрования.<br>
+            Если вы не знаете, что это, оставьте поле пустым.<br>
+            Нажимаем "Дальше".<br>
+            
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum9.png" alt="Electrum"></div><br>
+         <p>Расширение должно быть сохранено вместе с вашим <strong class="strong">seed</strong>.<br>
+            Пожалуйста, введите это здесь.<br>
+            Нажимаем "Дальше".<br>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum10.png" alt="Electrum"></div><br>
+         <p>Придумываем сложный пароль, в котором будут строчные, прописные буквы, цифры и спецсимволы. Этим паролем будет зашифрован файл кошелька. С помощью сида всегда можно восстановить кошелёк и придумать новый пароль. Вводим его и подтверждаем в соответствующем поле.</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Electrum11.png" alt="Electrum"></div><br>
+         <p>Для входа в кошелёк запускаем <strong class="strong">Electrum</strong> на компьютере.
+            Вводим пароль и жмем "Дальше".<br>
+            Чтобы узнать адрес кошелька, например, для обмена рублей на биткоины, используем вкладку «Получение» и смотрим адрес.<br>
+            Чтобы эта вкладка появилась в верхнем меню, выбираем "Вид" > "показать Получение".<br>
+            В кошельках криптовалют можно генерировать адреса получения. Т.е. адресов получения (открытых или публичных) может быть несколько в кошельке, но все они «закрываются» одним закрытым или приватным ключом (который держим в тайне и помним, кто знает секретный ключ, тот имеет доступ к кошельку).<br>
+            Заходим на вкладку «Получение».<br>
+            Видим открытый (публичный) ключ или биткоин - адрес. Его копируем и всем сообщаем, кто хочет пополнить наш кошелёк.
+         </p><br> 
+            <div class="kartinka5"><img src="Bitcoin/Electrum12.png" alt="Electrum"></div><br>
+         <p>Для изменения этого адреса выбираем "Вид" > "показать Адреса" и они отобразятся в верхнем меню. Заходим на вкладку «Адреса», выбираем любой, кликаем правой кнопкой мыши по выбранному и в контекстном меню жмём «<strong class="strong">Request paymant</strong>» (запрос платежа), откроется вкладка «Получение», где будет стоять выбранный адрес.
+         </p><br>   
+            <div class="kartinka5"><img src="Bitcoin/Electrum13.png" alt="Electrum"></div><br>
+         <p class="music1">Для перехода в консоль кошелька <strong class="strong">Electrum</strong> выбираем "Вид - Показать Консоль" и она отобразится в верхнем меню.<br>
+            Для просмотра всех команд вводим <strong class="strong">help()</strong> и нажимаем <strong class="strong">enter</strong>.<br>
+            <strong class="strong">createnewaddress()</strong> - генерирует новый биткоин адрес.<br>
+            <strong class="strong">getbalance()</strong> - показывает баланс.<br>
+            <strong class="strong">getconfig('dynamic_fees')</strong> - проверка динамической комиссии.<br>
+            <strong class="strong">getseed()</strong> - выводит seed фразу.<br>
+            <strong class="strong">history()</strong> - история транзакций.<br>
+            <strong class="strong">importprivkey(privkey)</strong> - импорт приватных ключей.<br>
+            <strong class="strong">is_synchronized()</strong> - статус синхронизации.<br>
+            <strong class="strong">listaddresses()</strong> - список адресов биткоин.<br>
+            <strong class="strong">listrequests()</strong> - запрос платежей.<br>
+            <strong class="strong">make_seed()</strong> - создает новый сид, прежний сохраняется.<br>
+            <strong class="strong">password(opt_old_password=None, opt_new_password=None)</strong> - создает новый пароль кошелька.<br>
+            <strong class="strong">getfeerate()</strong> - оптимальная комиссия, которая рассчитывается в реальном времени.<br>
+            Восстановление данного кошелька происходит на основе простой фразы из двенадцати слов на английском языке. Главным здесь является не сохранение самого файла, а сохранение этой фразы, которая называется сидом (<strong class="strong">seed</strong>).<br>
+            Для восстановления доступа к кошельку <strong class="strong">Electrum</strong>, на любом компьютере устанавливаем <strong class="strong">Electrum</strong>.<br>
+            В разделе "<a class="special-link24 a link" href="#e">Keystore", "Мастера установки"</a> выбираем пункт «<strong class="strong">I already have a seed</strong>» (у меня уже есть сид) и вводим ранее сохранённый сид (12 слов).<br>
+            Жмём "Дальше".<br>
+            Вводим пароль, его подтверждаем и "Дальше".
+         </p>
+         <h2 id="b5"><strong class="strong">Exodus</strong> кошелёк</h2>
+         <p><strong class="strong">Exodys</strong> загружаем с официального сайта <a class="special-link24 a link" href="https://www.exodus.io/download/#">exodus.io</a> <strong class="strong">Download Linux app (.Zip)</strong>.<br>
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Exodus/</strong>.<br>
+            Двойным щелчком по <strong class="strong">Exodus</strong> файлу запускаем кошелёк.
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus.png" alt="Exodus"></div><br>
+         <p>Раздел "<strong class="strong">Portfolio</strong>": имеются две кнопки: "<strong class="strong">Send Assets to Wallet</strong>" - перейти к пополнению кошелька криптовалютой и "<strong class="strong">Restore from Backup</strong>" - восстановить с помощью <strong class="strong">seed</strong> фразы. Под ними расположен список криптовалют и показан баланс каждой.<br>
+            Раздел "<strong class="strong">Wallet</strong>": служит для пополнения или вывода криптовалюты из кошелька и просмотра приватных ключей.<br>
+            При пополнении кошелька <strong class="strong">Exodus</strong> отсутствует лимит на минимальную и максимальную сумму.<br>
+            Для пополнения кошелька выбираем криптовалютный счёт который нужно пополнить. В примере - <strong class="strong">Ripple</strong>.
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus1.png" alt="Exodus"></div><br>
+         <p>Нажимаем "<strong class="strong">Receive</strong>" ("Получить").</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus2.png" alt="Exodus"></div><br>
+         <p>Скопируем его или отсканируем <strong class="strong">QR</strong> код. Если нажать на значок "Звено", то попадаем на сайт блокчейн обозревателя <strong class="strong">Blockstream</strong> (для <strong class="strong">Bitcoin</strong>) и сможем отследить все транзакции и узнать баланс указав адрес.<br> 
+            Для вывода из кошелька выбираем криптовалюту, которую нужно вывести, и нажимаем "<strong class="strong">Send</strong>" (Отправить).
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus3.png" alt="Exodus"></div><br>
+         <p>Вставляем адрес, указываем количество. Комиссия на вывод динамическая, не зависит от суммы и вычитается от выводимого количества. Нельзя в ручную выставить комиссию.<br>
+            Что такое <strong class="strong">Destination Tag</strong>? Это индивидуальный цифровой код (тег), который идёт как дополнительная информация для идентификации транзакций.<br>
+            Этот тег выдаётся, а затем и запрашивается получателем средств (например, биржей) у отправителей в том случае, если все транзакций от отправителей идут на один и тот же адрес получателя.<br>
+            Когда система требует ввести этот реквизит, но пользователь игнорирует, средства зачисляются на баланс биржевой площадки, а не на кошелёк клиента.<br>
+            Для продолжения нажимаем на кнопку "<strong class="strong">Send</strong>".<br>
+            Подтверждаем перевод "<strong class="strong">Send</strong>".<br>
+            В кошельке <strong class="strong">Exodus</strong> доступен просмотр приватных ключей (<strong class="strong">private key</strong>) для каждого адреса криптовалюты. Их можно импортировать в другие крипто кошельки или просто сохранить на случай восстановления доступа к средствам.<br>
+            В раздел "<strong class="strong">Wallet</strong>", выбираем криптовалюту и заходим в правое меню. Выбираем "<strong class="strong">View private keys</strong>". Появится окошко с предупреждением о том, что никто не должен видеть и знать ваши ключи. Нажимаем "<strong class="strong">Yes, I am sure</strong>" и переходим к их просмотру.
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus4.png" alt="Exodus"></div><br>
+         <p>В разделе "<strong class="strong">Exchange</strong>": осуществляется обмен криптовалют между собой.</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus5.png" alt="Exodus"></div><br>
+         <p>В разделе "<strong class="strong">Backup</strong>": чтобы сделать резервную копию нужно пополнить кошелёк <strong class="strong">Exodus</strong> криптовалютой на любую сумму. Около раздела "<strong class="strong">Backup</strong>" появится красный восклицательный значок.<br> 
+            Входим в раздел "<strong class="strong">Backup</strong>" и задаём пароль, нажимаем "<strong class="strong">Next</strong>" и повторяем пароль.<br>
+            Наводим мышку на номера и записываем <strong class="strong">seed</strong> строго в приведённом порядке, нажимаем "<strong class="strong">Next</strong>"
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus6.png" alt="Exodus"></div><br>
+         <p>На последуещем шаге указываем слово, которое присутствует в сид фразе, остальные три слова неверные. Нажмите "<strong class="strong">Finish</strong>".</p><br>
+            <div class="kartinka5"><img src="Bitcoin/Exodus7.png" alt="Exodus"></div><br>
+         <p class="music1">Создание бэкапа проводиться только один раз. Зная <strong class="strong">seed</strong> фразу можно восстановить доступ к криптовалютным активам. Из неё генерируются приватные ключи.<br>
+            Разделе "<strong class="strong">Setting</strong>": состоит из подразделов: "<strong class="strong">Assets</strong>" - можно добавлять или исключать криптовалюты, которые отображаются в разделе "<strong class="strong">Wallet</strong>"; "<strong class="strong">Localization</strong>" - выбор фиатной валюты, в которой будет отображаться баланс; "<strong class="strong">Themes</strong>" - персональные настройки интерфейса.<br>
+            Расширенные настройки: нажимаем <strong class="strong">CTRL+SHIFT+D</strong>. Откроется верхнее меню, в котором доступны изменение любых параметров работы криптокошелька; извлечение и импорт приватных ключей; экспорт всех транзакций; восстановление; включение уведомлений; выбор сервиса, с которого транслируются курс; просмотр папки приложения на компьютере и т.д.<br>
+            Криптовалютная платформа <strong class="strong">Ripple</strong> для платёжных систем, ориентированная на операциях с обменом валют без возвратных платежей.<br>
+            Следует отметить, что нет официального кошелька <strong class="strong">Ripple</strong>, разработчики в официальных каналах не дают рекомендаций касательно выбора того или иного стороннего сервиса и возлагают всю ответственность за безопасное хранение <strong class="strong">XRP</strong>-активов на пользователей.<br>
+            Но самым востребованным является <a class="special-link24 a link" href="https://toastwallet.com/">Toast Wallet</a>.<br>
+            Если по каким-либо причинам <strong class="strong">Toast Wallet</strong> не устраивает, можно воспользоваться кошельком <strong class="strong">Exodus</strong>.<br>
+            Существует множество кранов, которые начисляют <strong class="strong">Ripple</strong> совершенно бесплатно. Вот один из них: <a class="special-link24 a link" href="https://coinfaucet.io/?ref=596330">CoinFaucet</a>. <b class="p3">Зарегистрируйтесь, по этой ссылке и получайте свои <strong class="strong">Ripple</strong> бесплатно!!!</b><br>
+            Минимальное значение для вывода составляет <strong class="strong">1XRP</strong>.
+         </p>
+         <h2 id="b6"><strong class="strong">Monero</strong> кошелёк </h2>
+         <p class="music1"><strong class="strong">Monero Core</strong> - кошелёк для хранения <strong class="strong">Monero</strong> (<strong class="strong">XMR</strong>). Является кошельком полной ноды или «толстым» кошельком, что подразумевает скачивание всего блокчейна (~75 Гб) и загрузки на компьютер.<br>
+            <strong class="strong">Monero</strong> загружаем с официального сайта <a class="special-link24 a link" href="https://web.getmonero.org/downloads/">getmonero.org</a>  <strong class="strong">Linux, 64-bit</strong><br>
+            <!--Cоздаём отдельный каталог, например <strong class="strong">/usr/local/portage/Mining</strong>, сюда загрузим исходные коды и <strong class="strong">.bin</strong> файлы кошелька.<br>
+            Изменяем владельца и группу:<br><br>
+            <strong class="p11 blue">chown nikolay:nikolay /usr/local/portage/Mining/ -R</strong><br><br>
+            Добавляем в <strong class="strong">/etc/make.conf</strong> строчку:<br><br>
+            <strong class="p11 blue">PORTDIR_OVERLAY="/usr/local/portage"</strong><br><br>-->
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Monero/</strong>.<br>
+            <!--Создаём символьную ссылку:<br><br>
+            <strong class="p11 strong">$</strong> <b class="blue">ln -s /home/nikolay/Monero/monero-gui-v0.15.0.4/monero-wallet-gui /usr/local/portage/Mining/monero-wallet-gui</b><br><br>
+            Запускаем кошелёк:<br><br>
+            <strong class="p11 strong">$</strong> <strong class="blue">sudo /usr/local/portage/Mining/monero-wallet-gui</strong><br><br>--> 
+            Для установки кошелька из исходных кодов предварительно устанавливаем необходимы зависимости:<br><br>
+            <strong class="p11 blue">sudo emerge --ask app-arch/xz-utils app-doc/doxygen dev-cpp/gtest dev-libs/boost dev-libs/expat dev-libs/openssl dev-util/cmake media-gfx/graphviz net-dns/unbound net-libs/ldns net-libs/miniupnpc net-libs/zeromq sys-libs/libunwind dev-libs/libsodium dev-libs/hidapi dev-libs/libgcrypt</strong><br><br>
+            Если не установлен <strong class="strong">Qt</strong>, устанавливаем:<br><br>
+            <strong class="p11 blue">sudo emerge --ask dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 dev-qt/qtgraphicaleffects:5</strong><br><br>
+            Заходим в директорию, например <strong class="strong">/home/nikolay/Monero/</strong> и загружаем туда исходные коды:<br><br>
+            <strong class="p11 blue">git clone https://github.com/monero-project/monero-gui.git</strong><br><br>
+            Заходим в папку <strong class="strong">monero-gui</strong>:<br><br>
+            <strong class="p11 blue">cd monero-gui</strong><br><br>
+            И компилируем кошелёк:<br><br>
+            <strong class="p11 blue">QT_SELECT=5 ./build.sh</strong><br><br>
+            Исполняемый файл находится в папке <strong class="strong">build/release/bin</strong>.<br>
+            Двойным щелчком по <strong class="strong">monero-wallet-gui</strong> файлу запускаем кошелёк.<br>
+            Выбираем "Создать новый кошелёк". 
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Monero.png" alt="Monero"></div><br>
+         <p>Настройка <strong class="strong">Monero Core</strong> проста и интуетивно понятна.<br>
+            В случае необходимости, изменяем путь, куда закачивать блокчейн (файл <strong class="strong">/lmdb/data.mdb</strong>).<br>
+            "Настройки" > "Нода" > "Путь к блокчейну <b class="orange">(изменить)</b>".
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Monero1.png" alt="Monero"></div><br>
+         <p>Посмотреть мнемоническую фразу, приватный ключ просмотра, публичный ключ просмотра, приватный ключ траты, публичный ключ траты можно через пункт "Мнемоника & Ключи"  кошелька. Вводим пароль и далее "<strong class="strong">Continue</strong>".<br>
+            Можно запустить майнинг. Но, заработать что-то, практически, вряд ли удастся. Однако данный вариант очень хорошо защищает сеть и поддерживает децентрализацию <strong class="strong">Monero</strong>. Поэтому, если есть желание помочь сети, можно периодически запускать эту опцию.<br>
+            За расширенные функции отвечает вкладка «Дополнительно», которая включает в себя несколько разделов. Выбираем раздел "Майнинг".<br>
+            Потоки <strong class="strong">CPU</strong> - здесь выбираем количество потоков ядер процессора, которые готовы использовать, после чего нажимаем «Запустить».
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Monero2.png" alt="Monero"></div><br>
+         <p class="music1">Майнинг доступен, только при полном подключении к сети и загрузки всего блокчейна.<br>
+            Отключение кошелька: Останавливаем локальную ноду, затем "Дополнительно" > "Кошелёк" > "Закрыть кошелёк".<br>
+            "Открыть кошелёк из файла". После выбора этой опции нажимаем кнопку "<strong class="strong">Browse filesystem</strong>" появиться всплывающее окно. Выбираем файл кошелька с расширением <strong class="strong">.keys</strong>, вводим пароль кошелька, затем нажимаем на кнопку "<strong class="strong">Continue</strong>".<br>
+            В разделе "Восстановиться из ключей или мнемонической фразы" можно восстановить кошелёк.<br>
+            С помощью мнемонической фразы выбираем "Из мнемоники" и указываем следующую информацию:<br>
+            Имя кошелька. Придумываем имя для кошелька.<br>
+            Выбираем путь к кошельку.
+            Вставляем свою мнемоническую фразу из 25 слов.<br>
+            "Дата создания кошелька в формате '<strong class="strong">YYY-MM-DD</strong>' или высота восстановления" (если известны). Зная высоту блока для восстановления (<strong class="strong">Restore height</strong>), на которой был создан кошелёк, можно указать её, и кошелёк начнёт сканирование блокчейна для определение транзакций для адреса с указанного значения. Например, если первая транзакция была включена в блок 624094, то следует указать немного большее значение для высоты (например, 625000), тогда кошелёк начнёт сканирование с этого места, существенно сэкономив время по сравнению с полным сканированием блокчейна.<br>
+            Далее "Следующее".<br>
+            Для восстановления с помощью ключей, выбираем кнопку "Из ключей". Потребуется указать следующую информацию:<br>
+            Имя кошелька.<br>
+            Путь к кошельку.<br> 
+            Адрес кошелька (публичный).<br>
+            Ключ просмотра (приватный).<br>
+            Ключ траты (приватный).<br>
+            "Дата создания кошелька в формате '<strong class="strong">YYY-MM-DD</strong>' или высота восстановления" (если известны).<br>
+            Далее "Следующее".<br>
+            После восстановления кошелька, можно не скачивать новой блокчейн. Необходимо просто заменить новый файл <strong class="strong">/lmdb/data.mdb</strong> на старый.<br>
+            В <strong class="strong">iptables</strong> открываем порты:<br><br>
+            <strong class="p11 blue">iptables -A INPUT -p tcp --dport 18080 -j ACCEPT</strong> # для майнинга<br>
+            <strong class="p11 blue">iptables -t filter -A OUTPUT -p tcp --destination-port 18080:18082 -j ACCEPT</strong><br><br> 
+            <strong class="strong">Monero Core</strong> можно запустить в консоли:<br><br>
+            <strong class="p11 strong">$</strong> <b class="blue">/usr/local/portage/Mining/monero-gui-v0.14.0.0/monero-wallet-cli</b><br><br>
+            Закрывается кошелёк командой <strong class="strong">exit</strong>.<br>
+         </p>
+         <h2 id="b7"><strong class="strong">Ryo</strong> кошелёк</h2>
+         <p class="music1">По состоянию на 01.01.2020 года <strong class="strong">Ryo</strong> требует как минимум 15,9 Гб свободного пространства на диске.<br>
+         <strong class="strong">Ryo Wallet</strong> загружаем с официального сайта <a class="special-link24 a link" href="https://ryo-currency.com/wallet/">ryo-currency.com</a>  <strong class="strong">Linux: Archive (.tar)</strong><br>
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Ryo/</strong>.<br>
+            Двойным щелчком по <strong class="strong">ryo-wallet-atom</strong> файлу запускаем кошелёк.
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet.png" alt="Ryo Wallet"></div><br>
+         <p>Выбираем синхронизацию «<strong class="strong">Local + Remote Daemon</strong>», «<strong class="strong">Local Daemon Only</strong>» или «<strong class="strong">Remote Daemon Only</strong>».<br>
+            Выбираем путь хранения данных, нажатием кнопки «<strong class="strong">SELECT LOCATION</strong>».<br>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet1.png" alt="Ryo Wallet"></div><br>
+         <p>Создаём новый кошелек.</p><br> 
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet2.png" alt="Ryo Wallet"></div><br>
+         <p>Вводим название кошелька.<br> 
+            Вводим пароль и повторяем введённый пароль.
+         </p><br>   
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet3.png" alt="Ryo Wallet"></div><br>
+         <p>Сохраняем «<strong class="strong">Seed words</strong>» и вводим в правильном порядке первые семь слов.</p><br>
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet4.png" alt="Ryo Wallet"></div><br>
+         <p><strong class="strong">Ryo Wallet</strong> установлен.</p><br>   
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet5.png" alt="Ryo Wallet"></div><br>
+         <p>После завершения синхронизации переходим в меню «<strong class="strong">Solo Mining</strong>».<br>
+            Устанавливаем флажки «<strong class="strong">Enable Solo Mining</strong>» и «<strong class="strong">Privately Share Hashrate</strong>» (Частный обмен хэшрейтом), выбираем кошелек из выпадающего списка для приёма платежей «<strong class="strong">Mining Addres</strong>» и нажимаем «<strong class="strong">APPLY SETTINGS</strong>».
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/RyoWallet6.png" alt="Ryo Wallet"></div><br>
+         <p>В <strong class="strong">iptables</strong> открываем порты:<br><br>
+            <strong class="p11 blue">iptables -t filter -A OUTPUT -p tcp --dport 12210 -j ACCEPT<br> 
+            <strong class="p11">iptables -t filter -A OUTPUT -p tcp --dport 12211 -j ACCEPT<br> 
+            <strong class="p11">iptables -t filter -A OUTPUT -p tcp --dport 12212 -j ACCEPT<br> 
+            <strong class="p11">iptables -t filter -A OUTPUT -p tcp --dport 12214 -j ACCEPT<br></strong></strong></strong></strong><br><br>
+            Существует <strong class="strong">Ryo Wallet</strong> в виде <strong class="strong">cli binari Linux 64-bit</strong>. Можно загрузить с того же сайта.
+         </p>
+         <h2 id="b8" class="music1"><a class="special-link24 send-link a" href="https://dogecoin.com/">Dogecoin Core
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">Dogecoin Core</strong> - официальный кошелек <strong class="strong">Dogecoin</strong>. Требует он более 102 Гб при загрузке полной цепочки блоков. Начальная синхронизация займёт много время при загрузке данных. Хотя клиент не обладает богатыми возможностями, он обеспечивает высокий уровень безопасности, поскольку закрытые ключи будут создаваться и храниться на компьютере.<br>
+            <strong class="strong">Dogecoin Core Wallet</strong> загружаем с официального сайта.<br>
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Dogecoin/</strong>.<br>
+            Двойным щелчком по <strong class="strong">dogecoin-qt</strong> файлу запускаем кошелёк.<br>
+            Настройка и использование кошелька похожи на кошелёк <a class="special-link24 link a" href="#b1">Bitcoin Core</a>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Dogecoin.png" alt="Dogecoin"></div><br>
+         <p class="music1"><strong class="strong">Dogecoin</strong> отличается от других цифровых валют удивительным динамичным сообществом, состоящим из таких же дружелюбных людей, как и Вы.<br>
+            Существует множество кранов, которые начисляют <strong class="strong">Dogecoin</strong> совершенно бесплатно. Вот один из них: <a class="special-link24 link a" href="https://freedogeon.com/?r=271526203">Free-Dogecoin</a>. Минимальное значение для вывода составляет <strong class="strong">1000DOGE</strong>. <b class="p3">Зарегистрируйтесь, по этой ссылке и получайте свои <strong class="strong">Dogecoin</strong> бесплатно!!!</b><br>
+         </p>
+         <h2 id="b9" class="music1"><a class="special-link24 send-link a" href="https://litecoin.org/ru/">Litecoin Core
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">Litecoin Core</strong> - официальный кошелек <strong class="strong">Litecoin</strong>. Требует он более 102 Гб при загрузке полной цепочки блоков. Начальная синхронизация займёт много время при загрузке данных.
+            <strong class="strong">Litecoin Core Wallet</strong> загружаем с официального сайта.<br>
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Litecoin/</strong>.<br>
+            Двойным щелчком по <strong class="strong">litecoin-qt</strong> файлу запускаем кошелёк.<br>
+            Настройка и использование кошелька похожи на кошелёк <a class="special-link24 link a" href="#b1">Bitcoin Core</a><br>
+            <strong class="strong">Litecoin</strong> адреса бывают разных форматов - старого (когда адрес начинается с <strong class="strong">3</strong>) и нового (начинается с <strong class="strong">M</strong>).<br> 
+            В некоторых случаях необходимо их конвертировать один в другой.<br> 
+            Для этого существует конвертер <a class="special-link24 link a" href="https://litecoin-project.github.io/p2sh-convert/">Litecoin P2SH Converter</a>.<br>
+            Это инструмент с <a class="special-link24 link a" href="https://github.com/litecoin-project/p2sh-convert">открытым исходным кодом</a>. Для дополнительной безопасности его можно загрузить и запустить в автономном режиме. 
+         </p><br>
+             <div class="kartinka5"><img src="Bitcoin/Litecoin.png" alt="Litecoin"></div><br>
+         <p>Существует множество кранов, которые начисляют <strong class="strong">Litecoin</strong> совершенно бесплатно. Вот один из них: <a class="special-link24 a link" href="https://free-litecoin.com/login?referer=766833">Free-Litecoin</a>. <b class="p3">Зарегистрируйтесь, по этой ссылке и получайте свои <strong class="strong">Litecoin</strong> бесплатно!!!</b><br>
+            Минимальное значение для вывода составляет <strong class="strong">0,00200000LTC</strong>, а плата за перевод <strong class="strong">0.00100000LTC</strong>. Деньги поступают моментально.
+         </p>
+         <h2 id="b10" class="music1"><a class="special-link24 send-link a" href="https://www.dash.org/ru/">Dash Core
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">Dash Core</strong> - официальный кошелёк <strong class="strong">Dash</strong>. Требует он более 32 Гб при загрузке полной цепочки блоков. Начальная синхронизация займёт много время при загрузке данных.<br>
+            <strong class="strong">Dash Core Wallet</strong> загружаем с официального сайта.<br>
+            Распаковываем кошелёк в любую удобную папку, например: <strong class="strong">/home/nikolay/Dash/</strong>.<br>
+            Двойным щелчком по <strong class="strong">dash-qt</strong> файлу запускаем кошелёк.<br>
+            Настройка и использование кошелька похожи на кошелёк <a class="special-link24 link a" href="#b1">Bitcoin Core</a><br>
+         </p><br>
+             <div class="kartinka5"><img src="Bitcoin/Dash.png" alt="Litecoin"></div><br>
+         <h2 id="b11" class="music1">MyCrypto</h2>
+         <p class="music1">Это кошелёк дла хранения <a class="special-link24 a link" href="https://ethereum.org/ru/">Ethereum</a>.<br>
+             Загружаем кошелёк с сайта <a class="special-link24 a link" href="https://download.mycrypto.com/">MyCrypto</a>.<br>
+             Двойным щелчком по загруженному файлу запускаем кошелёк.<br>
+             Создаём кошелёк.<br>
+             Выбираем "<strong class="strong">Файл Kestore</strong>"<br>
+             Щёлкаем по кнопке "<strong class="strong">Generate a файл Keystore</strong>"<br>
+             Набираем "<strong class="strong">Password</strong>"<br>
+             "<strong class="strong">Confirm password</strong>"<br>
+             Щёлкаем "Создать кошелёк"<br>
+             "Сохраняем файл <strong class="strong">Keystore/JSON</strong> и закрытый ключ.<br>
+             Не забываем свой пароль!<br>
+             Щёлкаем "<strong class="strong">Download файл Keystore</strong>"<br>
+             Сохраняем ключ.<br> 
+             Щёлкаем "<strong class="strong">Continue</strong>"<br>
+             <strong class="strong">Save Your private Keystore</strong>.<br>
+             Щёлкаем "<strong class="strong">Save Paper Wallet</strong>"<br>
+             Щёлкаем "<strong class="strong">Информация о кошельке</strong>"<br>
+             Отпираем кошелёк.<br>
+             Щёлкаем "<strong class="strong">Go to Account</strong>"<br>
+         </p><br>
+             <div class="kartinka5"><img src="Bitcoin/Ethereum.png" alt="Ethereum"></div><br>
+         <p class="music1">Существует множество кранов, которые начисляют <strong class="strong">Ethereum</strong> совершенно бесплатно. Вот один из них: <a class="special-link24 a link" href="https://free-ethereum.io/?referer=485475">free-ethereum</a>. <b class="p3">Зарегистрируйтесь, по этой ссылке и получайте свои <strong class="strong">Ethereum</strong> бесплатно!!!</b><br>
+            Минимальное значение для вывода составляет <strong class="strong">0.001ETH</strong>, а плата за перевод <strong class="strong">0.001ETH</strong>.<br>
+         </p>
+         <h2 id="b12" class="music1"><a class="special-link24 send-link a" href="https://coinpot.co/">CoinPot
+            <span class="icon-wrapper">
+              <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1"><strong class="strong">CoinPot</strong> - микрокошелек, служащий для добычи и объединения выплат с разнообразных криптовалютных кранов, в числе которых вся линейка «лунных» ресурсов:<br> 
+            <a class="special-link24 link a" href="http://moonbit.co.in/?ref=eb7b02a7a892">moon bitcoin</a><br> 
+            <a class="special-link24 link a" href="http://moondoge.co.in/?ref=95128359390f">moon dogecoin</a><br> 
+            <a class="special-link24 link a" href="http://moonliteco.in/?ref=fc7ddd308d75">moon litecoin</a><br> 
+            <a class="special-link24 link a" href="http://moondash.co.in/?ref=BACF4D7B2349">moondash</a><br> 
+            <a class="special-link24 link a" href="http://moonbitcoin.cash/?ref=B3B185965D7A">mooncash</a><br> 
+            <a class="special-link24 link a" href="http://bonusbitcoin.co/?ref=D8454DB9E637">Bonus Bitcoin</a><br> 
+            <a class="special-link24 link a" href="http://bitfun.co/?ref=5504F783D514">BIT FUN</a>.<br>
+            Эти сайты очень похожи друг на друга и отличаются лишь тем, в какой валюте получать доход. Достаточно лишь однажды зарегистрироваться в этом проекте, и цифровые деньги будут постоянно начисляться на счёт, даже в том случае, если компьютер выключен. Выводить заработанное можно в любое время. Для этого необходимо нажать на кнопку "<strong class="strong">claim now</strong>" и разгадать появившуюся капчу. Сразу после этого счёт аккаунта пополнится суммой, выраженной в сатоши и будет автоматически переведён на кошелёк <strong class="strong">CoinPot</strong>.<br>
+            Число получаемых сатоши будет продолжать потихоньку расти, если Вы по каким-то причинам через пять минут не нажали на кнопку «<strong class="strong">claim now</strong>».<br>
+            Но чем чаще заходить на эти сайты в течении дня, чтобы жать на кнопку, тем быстрее будет расти количество начисляемых монет. Это своеобразный бонус за активность.<br>
+            Если заходить на эти краны каждый день, то бонус будет повышаться на один процент в сутки.<br>
+            Чтобы связать все эти семь кранов с кошельком <strong class="strong">CoinPot</strong>, нужно — указать при регистрации один и тот же E-майл. После этого привязка произойдёт автоматически. Т.е. сначала регистрируемся в <strong class="strong">CoinPot</strong>, а потом уже регистрируемся во всех криптовалютных кранах с использованием того же E-майла.<br>
+            <b class="p3">Зарегистрируйтесь, по выше приведённым ссылкам и получайте свою криптовалюту совершенно бесплатно!!!</b><br>
+            <strong class="strong">CoinPot</strong> имеет свою собственную криптовалюту, которая начисляется за активность на всех кранах подключённых к этом сервису.<br>
+            Эти внутренние токены можно тратить на покупку лотерейных билетов, менять их при желании на другие криптовалюты или просто копить в надежде, что <strong class="strong">Coin Pot Tokens</strong> со временем подорожают и станут торгующейся на биржах криптовалютой.<br>
+            На <strong class="strong">Coin Pot</strong> можно майнить. Таким образом можно заработать любую криптовалюту поддерживаемую в этом кошельке (даже их собственные токены). Что это даёт? Сервис через браузер начнёт использовать ресурсы вашего компьютера для майнинга, который необходим для полноценной работы криптовалютных систем.<br>
+            За это будет начисляться некоторое количество криптовалюты пропорционально тому, насколько долго и насколько мощное у вас компьютер.<br>
+            На странице майнинга можно будет тонко настроить, во сколько потоков и какую мощность компьютера разрешить использовать (по умолчанию стоят рекомендуемые настройки).<br>
+            Самые высокие настройки, скорее всего, не позволят одновременно майнить и  работать за компьютером, поэтому их имеет смысл использовать только, когда компьютер бездействует.<br>
+            Майнить можно прямо сейчас, пройдя по ссылкам:<br>
+            <a class="special-link24 link a" href="https://coinpot.co/mine/coinpottokens/?ref=2F12ABB13C80">CoinPot Tokens</a><br>     
+            <a class="special-link24 link a" href="https://coinpot.co/mine/bitcoincore/?ref=2F12ABB13C80">Bitcoin Core</a><br>
+            <a class="special-link24 link a" href="https://coinpot.co/mine/bitcoincash/?ref=2F12ABB13C80">Bitcoin Cash</a><br>
+            <a class="special-link24 link a" href="https://coinpot.co/mine/dogecoin/?ref=2F12ABB13C80">Dogecoin</a><br>
+            <a class="special-link24 link a" href="https://coinpot.co/mine/litecoin/?ref=2F12ABB13C80">Litecoin</a><br>
+            <a class="special-link24 link a" href="https://coinpot.co/mine/dash/?ref=2F12ABB13C80">Dash</a><br>
+            Заработанные на майнинге криптовалюты будут автоматически зачисляться на счёт каждые 5 минут.<br>
+            В самом <strong class="strong">CoinPot</strong> можно конвертировать все имеющиеся в сервисе криптомонеты между собой.
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/Coinpot.png" alt="CoinPot"></div><br>
+         <p>Из выпавшего списка необходимо выбрать <strong class="strong">Convert...</strong><br>
+            Там нет комиссии за конвертацию.<br>
+            Показатель конверсии, является текущим курсом - он может колебаться в течение дня.<br>
+            Преобразование будет сделано мгновенно. Указанная сумма будет списана с вашего банка, а конвертированная сумма будет сразу же зачислена на ваш другой банк.<br>
+            Преобразования не могут быть отменены после их завершения.<br>
+            Для вывода средств с <strong class="strong">CoinPot</strong> необходимо выбрать из выпавшего списка <strong class="strong">Withdrow...</strong> той валюты, которую хотим вывести.<br>
+            Запрос на вывод средств должен быть подтверждён, нажатием на ссылку, которую отправят Вам по электронной почте.<br>
+            Минимальная сумма снятия составляет <strong class="strong">to bitcoin core wallet 0,0001 btc</strong>, <strong class="strong">to bitcoin cash wallet 0,001 bch</strong>, <strong class="strong">to dogecoin wallet 100 doge</strong>, <strong class="strong">to litecoin wallet 0,002 ltc</strong>, <strong class="strong">to dash wallet 0,002 dash</strong>.<br>
+            Комиссия за вывод средств отсутствует.<br>
+            Заявки на вывод средств обрабатываются и оплачиваются непосредственно на Ваш кошелёк в течение 48 часов.<br>
+            Вот ещё краны на которых можно получать разную криптовалюту:<br> 
+            <a class="special-link24 a link" href="https://3btc.org/?referral=67719">3btc</a>. Выплаты <strong class="strong">3btc</strong> на прямые кошельки производятся 1 раз в неделю и могут занимать от 7 до 14 дней.<br>
+            Минимальное значение для вывода например <strong class="strong">Monero</strong> составляет <strong class="strong">0,0017XMR</strong>, а плата за перевод <strong class="strong">0.0001XMR</strong>. Все не активные аккаунты, которые не посещались более 60 дней будут удаляться в 00:00 по UTC.<br>
+            <a class="special-link24 a link" href="https://firefaucet.win/ref/257552">Fire Faucet</a> позволяет автоматически запрашивать различные криптовалюты сразу на одной вкладке без раздражающей рекламы или всплывающих окон и без каких-либо скрытых майнеров.<br>
+            <a class="special-link24 link a" href="https://autoclaim.in/r/gennadevich">AutoClaim</a> и <a class="special-link24 link a" href="https://autofaucet.org/r/gennadevich">AutoFaucet</a>. Выводить с которых можно как на свой кошелёк, так и на микро кошелёк <a class="special-link24 link a" href="https://expresscrypto.io/signup?referral=47053">EXPRESScrypto</a>.<br>
+            И краны  <a class="special-link24 link a" href="https://cryptonetos.ru/home.html?r=2394">Сryptonetos</a>, <a class="special-link24 link a" href="https://faucetofbob.xyz/?r=EC-UserId-47053">Bob Express Faucet</a>, <a class="special-link24 link a" href="https://express.dutchycorp.space/?r=EC-UserId-47053">Вutchy Сorp</a>, перечисления с которых производятся на микро кошелёк <a class="special-link24 link a" href="https://expresscrypto.io/signup?referral=47053">EXPRESScrypto</a>.<br>
+            <b class="p3">Регистрируйтесь, по выше приведённым ссылкам и получайте свою криптовалюту совершенно бесплатно!!!</b>
+         </p>
+         <h2 id="b13">Консольный клиент для майнинга <strong class="strong">CGMiner</strong></h2>
+         <p class="music1">Выбираем основные компоненты майнинг-фермы. Они почти те же, что и в устройстве обычного компьютера, за несколькими исключениями:<br>
+            Материнская плата. Должна быть не из дешёвых и иметь количество <strong class="strong">PCI</strong> слотов (под видеокарты) от 4.<br>
+            Процессор выбирается наиболее подходящий для материнской платы.<br>
+            Оперативная память <strong class="strong">DDR</strong>. Размер от 4 Гб.<br>
+            Жёсткий диск. Не играет никакой роли. Требуется для установки ОС и хранения кошельков.<br>
+            Блок питания. Главный тягач всей фермы, по этому к выбору нужно подходить тщательно и без поспешных выводов. Выбирать мощность БП необходимо с запасом в 150-200 Вт, не забывая про учёт потребляемой мощности другими компонентами, кроме видеокарт.<br>
+            Видеокарта. Основной и самый дорогостоящий компонент майнинг-фермы, производящий расчёт хеш-функций блоков.<br>
+            В данный момент на рынке имеется большое количество видеокарт, которые подходят для майнинга. Наибольший список этих видеокарт представлен на <a class="special-link24 a link" href="https://litecoin.info/index.php/Mining_hardware_comparison">портале</a>.<br>
+            Подбор оптимальных параметров частоты памяти и частоты графического ядра нужно делать для каждой видеокарты индивидуально. Эти параметры влияют как на скорость в майнинге, так и на стабильность системы в целом. Также разгон влияет на температуру и энерго-потребление видеокарт. Чем выше разгон <strong class="strong">GPU</strong>, тем более ферма требовательней к системе охлаждения. Существуют специальные инструкции от производителей как разогнать видеокарту. Данные документы будут применимы и для настройки видеокарты для майнинга.<br>
+            Если в системе присутствуют разные серии карт или даже карты одной серии, но разных производителей, то возможны конфликты при запуске и разгоне, что повлияет на максимальную скорость и стабильность фермы в целом.<br>
+            Выбор версии драйверов очень важен. Иногда некоторые версии драйверов снижают общую вычислительную мощность оборудования <strong class="strong">scrypt</strong> добычи. В то время как другие, наоборот, позволяют добиться высокого хэшрэйта.<br>
+            Система охлаждения (СО). Она должна быть хорошо продумана, чтобы отводить горячий воздух от видеокарт. Для этого расстояние между видеокартами должно быть не менее ~8 см. Так же можно собрать водяное охлаждение - оно лучше охлаждает видеокарты и выделяет не столько шума, как охлаждение вентиляторами, но более технически сложно. Из самых изощрённых вариантов СО можно выделить масляное охлаждение, когда всё оборудование полностью погружается в резервуар с техническим маслом.<br>
+            При самостоятельной сборке ферм, необходимо сделать несколько расчётов, для вычисления наиболее прибыльного варианта. Нужно посчитать общую стоимость компонентов фермы, при чём компоненты выбирать наиболее выгодные в плане доходность/энергопотребление. Узнать потребляемую мощность из электросети всей фермой и рассчитать затраты на электроэнергию в течении 24 часов. Из всех расчётов сделать вывод о сроках окупаемости. Для облегчения этой задачи существует множество <a class="special-link24 a link" href="https://bits.media/calculator/">майнинг-калькуляторов</a>: от простых - учитывающих только курс криптовалют и скорость фермы, до подробных - учитывающих курс, скорость, энергопотребление, стоимость 1 КВт/часа, изменение сложности и курса в течение времени.<br>
+            Майнинг в соло – это самостоятельный поиск решения. Вы сами собираете транзакции в блок, подписываете и получаете за это вознаграждение определенное алгоритмом, также получаете комиссии с переводов. Но следует помнить, что без найденного значения <strong class="strong">nonce</strong> блок не закроется и если это значение нашёл другой майнер, то награду за блок получит он.<br>
+            На сегодняшний день майнить в соло можно только новые криптовалюты и криптовалюты с низкой капитализацией, так как у таких криптовалют сложность сети не достигла запредельных значений. Шансы найти блок самостоятельно у таких монстров криптовалютного мира как биткоин или эфир практически равны нулю.<br>
+            В принципе многие майнят самостоятельно имея в наличии пару десятков видеокарт. Но из-за увеличения сложности сети им приходится постоянно обновлять оборудование или приобретать дополнительные мощности.
+            Существуют компании, предоставляющие мощности своего оборудования за определённую сумму в месяц. Этот способ актуален для криптовалют, у которых предусмотрен только <strong class="strong">CPU</strong> майнинг. Прибылен он в двух случаях: когда компания предоставляет пробный бесплатный период, либо когда сложность криптовалюты мала, а курс высок.<br>
+            Пулом для майнинга является сервер, с помощью которого распределяется задача расчета между участниками. При формировании блока, участники получают прибыль. Пул имеет более высокие шансы сформировать блок, нежели одиночный майнер. Но, стоит не забывать, что прибыль делится среди всех участников и вариант является более выгодным в сравнении с одиночным майнингом.<br>
+            На данный момент даже владельцы ферм с 50-100 видеокартами майнят в пуле.<br>
+            Программа <strong class="strong">CGMiner</strong> больше подходит для майнинг ферм, состоящих из видеокарт от производителя <strong class="strong">AMD</strong>. Для владельцев фермы из видеокарт <strong class="strong">NVIDIA</strong>, лучше воспользоваться программой <strong class="strong">Claumore’s Dual Mining</strong>.<br>
+            Устанавливаем <strong class="strong">cgminer</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask net-misc/cgminer</strong><br><br> 
+            Перед началом активной деятельности в сфере майнинга пользователю необходимо позаботиться о выходе на максимально возможную производительность. Для этого необходимо просто тщательно изучить технические возможности имеющегося в распоряжении оборудования и определить оптимальные значения для видеокарты. Ниже приведён один из распространённых вариантов настройки исполняющего файла. Этот базовый вариант может применяться для разных проектов:<br><br>
+            <strong class="blue p11">setx GPU_MAX_ALLOC_PERCENT 100 setx GPU_USE_SYNC_OBJECTS 1 cgminer –scrypt –worksize 256 –intensity 20 –auto fan –lookup-gap 2 –thread-concurrency 25614 –gpu-engine 1050 –gpu-memlock 1600 –gpu-powertune 20 –o (после чего следует точный адрес рабочего майнинг-пула): указывается порт –u worker -p (пароль) системы</strong><br><br>
+            Чтобы при каждом запуске или при смене криптовалюты не настраивать все параметры заново, проще создать скрипт и вписать настройки туда (для <b class="p3">Windows</b> создать <strong class="strong">.bat</strong> файл. Создаётся этот файл в папке с майнером как текстовый документ, с расширением <strong class="strong">.bat</strong>).<br> 
+            Основная настройка, для работы майнера выглядит так:<br><br> 
+            <strong class="strong p11 ">$</strong> <strong class="blue">cgminer --scrypt -o stratum+tcp://east1.us.stratum.dedicatedpool.com:3351 -u user.1 -p x</strong><br><br> 
+            <strong class="strong">cgminer</strong> - указывает на запускающий файл;<br> 
+            <strong class="strong">-scrypt</strong> - указывает майнеру алгоритм добываемой криптовалюты;<br> 
+            <strong class="strong">-o</strong> - после этого указывается адрес пула <strong class="strong">tratum+tcp://east1.us.stratum.dedicatedpool.com и порт 3351</strong>. Эти данные указаны на всех пулах, в разделе «<strong class="strong">Getting Started</strong>»;<br> 
+            <strong class="strong">-u</strong> userworker - указание логина на пуле и имя созданного там <strong class="strong">worker</strong>;<br> 
+            <strong class="strong">-p x</strong> - указание пароля для созданного <strong class="strong">worker</strong>.<br>
+            Расширенные настройки для улучшения производительности майнера:<br>
+            <strong class="strong">--auto-fan</strong> Автоматически регулирует скорость вентилятора <strong class="strong">GPU</strong> для поддержания заданной температуры (значение: нет);<br> 
+            <strong class="strong">--auto-gpu</strong> Автоматически регулирует тактовою частоту <strong class="strong">GPU</strong> для поддержания заданной температуры (значение: нет);<br> 
+            <strong class="strong">--device</strong> (<strong class="strong">-d</strong>) Позволяет выбрать нужное устройство для работы, по умолчанию работают все (пример: <strong class="strong">--device 0</strong>);<br> 
+            <strong class="strong">--disable-gpu</strong> (<strong class="strong">-G</strong>) Отключить <strong class="strong">GPU</strong> (значение: нет);<br> 
+            <strong class="strong">--gpu-threads</strong> (<strong class="strong">-g</strong>) Количество потоков на <strong class="strong">GPU</strong> (значения: 1 - 10, по умолчанию стоит 2, пример: <strong class="strong">--gpu-threads 2</strong>);<br> 
+            <strong class="strong">--gpu-dyninterval</strong> Установите интервал обновления в мс для графических процессоров, используя динамическую интенсивность (<strong class="strong">default: 7</strong>);<br> 
+            <strong class="strong">--gpu-engine</strong> Задает частоту для графического ядра, возможно установить диапазон (пример: <strong class="strong">--gpu-engine 900</strong> или 800-900);<br> 
+            <strong class="strong">--gpu-fan</strong> Задает скорость вращения вентилятора в процентах, фиксированную или диапазон (пример: <strong class="strong">--gpu-fan 25</strong> или 25-65);<br> 
+            <strong class="strong">--gpu-map</strong> Сопоставьте <strong class="strong">OpenCL</strong> с порядком устройства <strong class="strong">ADL</strong> вручную, в паре <strong class="strong">CSV</strong> (<strong class="strong">e.g. 1:0,2:1 maps OpenCL 1 to ADL 0, 2 to 1</strong>);<br> 
+            <strong class="strong">--gpu-memclock</strong> Задает частоту для памяти (для <strong class="strong">BTC</strong> частоту лучше опустить, для <strong class="strong">LTC</strong> поднять, пример: <strong class="strong">--gpu-memclock 1800</strong>);<br> 
+            <strong class="strong">--gpu-memdiff</strong> Установить фиксированную разницу в МГц между ядром и памятью (пример: <strong class="strong">--gpu-memdiff ???</strong>);<br> 
+            <strong class="strong">--gpu-powertune</strong> Установить <strong class="strong">GPU</strong> powertune в процентах;<br> 
+            <strong class="strong">--gpu-reorder</strong> Пересортировать видеокарты;<br> 
+            <strong class="strong">--gpu-vddc</strong> Изменить напряжение ядра, в вольтах (пример: <strong class="strong">--gpu-vddc 1.125</strong>);<br>
+            <strong class="strong">--intensity</strong> (<strong class="strong">-I</strong>) Агрессия (интенсивность) (значения: 10 - 14, <strong class="strong">d</strong> - динамичный, пример <strong class="strong">--intensity 13</strong> или <strong class="strong">d</strong>);<br> 
+            <strong class="strong">--kernel</strong> (<strong class="strong">-k</strong>) Указывает ядро для работы устройства (ядра: <strong class="strong">diablo</strong>, <strong class="strong">poclbm</strong>, <strong class="strong">phatk</strong>, <strong class="strong">diakgcn</strong>, пример: <strong class="strong">--kernel diakgcn</strong>) (нужна помощь в подборе ядер к семействам карт);<br> 
+            <strong class="strong">--ndevs</strong> (<strong class="strong">-n</strong>) Вывести список всех устройств с их номерами и выйти;<br> 
+            <strong class="strong">--temp-hysteresis</strong> На сколько может отличаться температура в градусах от целевой (по умолчанию: 3, пример: <strong class="strong">--temp-hysteresis 15</strong>);<br> 
+            <strong class="strong">--temp-overheat</strong> Температура в градусах сброса частот ядра и увеличение оборотов вентилятора (по умолчанию: 85, пример: <strong class="strong">--temp-overheat 90</strong>);<br> 
+            <strong class="strong">--temp-target</strong> Установка целевой температуры в градусах (по умолчанию: 75, пример: <strong class="strong">--temp-target 80</strong>); 
+            <strong class="strong">--vectors</strong> (<strong class="strong">-v</strong>) Установить ширину векторов, по умолчанию на авто (значения: 1, 2 и 4, пример: <strong class="strong">--vectors 2</strong>);<br> 
+            <strong class="strong">--worksize</strong> (<strong class="strong">-w</strong>) Установить размер памяти, на производительность практически не влияет (по умолчанию: авто, значение должно быть кратным - 64, 128, 256, 512, 1024, рекомендуется 256, пример: <strong class="strong">--worksize 256</strong>).<br>
+            Параметры для настройки <strong class="strong">CGMiner</strong>:<br> 
+            <strong class="strong">Intensity</strong> основной показатель, влияющий на скорость работы майнера, его значение устанавливаются от 0 до 20. Стоит учитывать, что слишком высокая интенсивность может негативно влиять на скорость майнинга, т.к. она МОЖЕТ исчерпать всю доступную память и фактически, будет уменьшать скорость майнинга в лучшем случае. В худшем - будет появляться большое количество неверных расчётов и HW ошибок. Учтите, что если интенсивность не будет задана, то <strong class="strong">CGMiner</strong> сам будет её регулировать динамически с учетом возможности комфортной работы на ПК;<br> 
+            <strong class="strong">Thread-concurrency</strong> управляет оптимальным объемом расчётов, которые сможет выполнить <strong class="strong">scrypt</strong>-алгоритм. Изначально настроено на максимальное использование нескольких потоков всех шейдерных блоков видеокарты, которые у неё есть. Значение должно быть кратно числу шейдерных блоков видеокарты. Соответственно, если указано «<strong class="strong">thread-concurrency</strong>», то «<strong class="strong">shaders</strong>» можно убрать. Рекомендуется потратить некоторое время для поиска наилучшего значения для своей видеокарты с целью получения наилучшей производительности.<br>
+            Майнинг соло на компьютере:<br><br>
+            <strong class="blue p11">cgminer -o stratum+tcp://localhost:8332 -u nikolay -p 12345xyZ --btc-address bc1qtu5az2dtnnqp485ayutaway26mtjvg5du38jku</strong>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/cgminer1.png" alt="cgminer"></div><br>
+         <p class="music1">Существует <a class="special-link24 a link" href="http://solo.ckpool.org/">сайт</a> для анонимного майнинга биткойнов с 1% комиссией.<br>
+            Никакой регистрации не требуется, нет никаких схем оплаты пула на кошельки.<br>
+            Просто указываем майнеру на адрес и один из портов:<br><br>
+            <strong class="p11 blue">solo.ckpool.org:3333<br>
+            <strong class="p11">solo.ckpool.org:443</strong></strong><br><br>
+            Устанавливаем имя пользователя на <strong class="strong">btc address</strong> с любым или даже без рабочего расширения и любым паролем. Например:<br><br> 
+            <strong class="strong p11 ">$</strong> <strong class="blue">cgminer -o stratum+tcp://solo.ckpool.org:3333 -u bc1qtu5az2dtnnqp485ayutaway26mtjvg5du38jku -p 12345xyZ</strong>
+         </p><br>
+            <div class="kartinka5"><img src="Bitcoin/cgminer.png" alt="cgminer"></div><br>
+         <p>Введение неверного адреса, приведёт к отказу.<br>
+            Остановить <strong class="strong">cgminer</strong> - "<strong class="strong">Q</strong>".<br>
+            При использовании несовместимой службы, которая отказывается работать через порт 3333, пробуем следующее (принимаются только имена пользователей без рабочих номеров):<br><br>
+            <strong class="p11 blue">solo.ckpool.org:4334</strong><br><br>
+            Если есть <strong class="strong">asic miner tube/prisma</strong>, можно использовать пользовательский порт 3335 (принимает только имена пользователей без рабочих расширений).
+         </p>
+         <h2 id="b14">Консольный клиент для майнинга <strong class="strong">Xmr-stak</strong></h2>
+         <p><strong class="strong">Xmr-stak</strong> поддерживает устройства: <strong class="strong">CPU x86</strong>, <strong class="strong">AMD-GPU</strong> и <strong class="strong">NVIDIA-GPU</strong>.<br>
+            Устанавливаем <strong class="strong">Xmr-stak</strong>:<br><br>
+            <strong class="blue p11">emerge --ask net-p2p/xmr-stak</strong><br><br>
+            Создаём скрипт:<br><br>
+            <strong class="blue p11">$ xmr-stak -o xmr-eu.dwarfpool.com:8050 -u ADDRESS.WORKER.rig1 -p x pause</strong><br><br>
+            где: <strong class="strong">ADDRESS</strong> адрес кошелька;<br>
+            <strong class="strong">.rig1</strong> указываем идентификатор фермы. Это необходимо для отслеживания статистик на пуле. Именно это название будет отображаться на пуле;<br>
+            <strong class="strong">pause</strong> ключ паузы необхим чтобы увидеть код ошибки, если что-то пойдет не так. В противном случае программа просто закроется ничего не отобразив.<br>
+            Общие настройки в командной строке:<br>
+            <strong class="strong">-c</strong>, <strong class="strong">--config FILE</strong> использовать общий файл конфигурации майнера;<br>
+            <strong class="strong">--noUAC</strong> отключить диалог контроля учётных записей;<br>
+            <strong class="strong">--noCPU</strong> отключить процессор в майнере;<br>
+            <strong class="strong">--cpu FILE</strong> использовать файл конфигурации процессора;<br>
+            Настройки пула:<br>
+            <strong class="strong">-C</strong>, <strong class="strong">--poolconf FILE</strong> использовать файл конфигурации пула;<br>
+            <strong class="strong">-o</strong>, <strong class="strong">--url URL</strong> адрес <strong class="strong">URL</strong> адрес, пул и порт, например <strong class="strong">xmr-eu.dwarfpool.com:8050</strong>;<br>
+            <strong class="strong">-O</strong>, <strong class="strong">--tls-url URL</strong> адрес <strong class="strong">TLS</strong> пула и порт, например <strong class="strong">xmr-eu.dwarfpool.com:8050</strong>;<br>
+            <strong class="strong">-u</strong>, <strong class="strong">--user USERNAME</strong> имя пользователя на пуле или или адрес кошелька;<br>
+            <strong class="strong">-r</strong>, <strong class="strong">--rigid RIGID</strong> идентификатор (воркер) для статистики на стороне пула (требуется поддержка пула);<br>
+            <strong class="strong">-p</strong>, <strong class="strong">--pass PASSWD</strong> пароль пула, в большинстве случаев <strong class="strong">x</strong> или пустой <strong class="strong">""</strong>;<br>
+            Настройки для <strong class="strong">AMD</strong>:<br>
+            <strong class="strong">--noAMD</strong> отключить <strong class="strong">AMD</strong> карты;<br>
+            <strong class="strong">--noAMDCache</strong> отключить кэш <strong class="strong">AMD</strong> (<strong class="strong">OpenCL</strong>) для предкомпилированных двоичных файлов;<br>
+            <strong class="strong">--openCLVendor VENDOR</strong> использовать <strong class="strong">OpenCL</strong> драйвер поставщика и устройств <strong class="strong">AMD</strong>, <strong class="strong">NVIDIA</strong>, по умолчанию <strong class="strong">AMD</strong>;<br>
+            <strong class="strong">--amd FILE</strong> загрузить конфигурационный файл <strong class="strong">AMD</strong>;<br>
+            Настройки для <strong class="strong">Nvidia</strong>:<br>
+            <strong class="strong">--noNVIDIA</strong> отключить <strong class="strong">Nvidia</strong> карты;<br>
+            <strong class="strong">--nvidia FILE</strong> загрузить файл конфигурации <strong class="strong">NVIDIA</strong>;<br>
+            Прочие настройки:<br>
+            <strong class="strong">-h</strong>, <strong class="strong">--help</strong> показать справку;<br>
+            <strong class="strong">-v</strong>, <strong class="strong">--version</strong> показать номер версии;<br>
+            <strong class="strong">-V</strong>, <strong class="strong">--version-long</strong> показать длинный номер версии;<br>
+            <strong class="strong">--benchmark BLOCKVERSION</strong> только сделать тест и выход;<br>
+            <strong class="strong">--benchwait WAIT_SEC</strong> время ожидания теста;<br>
+            <strong class="strong">--benchwork WORK_SEC</strong> контрольное время работы;<br>
+            <strong class="strong">-i --httpd HTTP_PORT</strong> использовать порт интерфейса <strong class="strong">HTTP</strong>;<br>
+            <strong class="strong">--use-nicehash</strong> использование <strong class="strong">nicehash</strong>, пул должен работать в режиме <strong class="strong">nicehash</strong>;<br>
+            <strong class="strong">--currency NAME</strong> название валюты для майнинга.<br>
+            Настройка через файл конфигурации.<br>
+            Создаём папку <strong class="strong">xmr-stak</strong>:<br><br>
+            <strong class="strong p11">$</strong> <strong class="blue">mkdir ~/xmr-stak</strong><br><br>
+            Заходим в эту папку:<br><br>
+            <strong class="strong p11">$</strong> <strong class="blue">cd ~/xmr-stak</strong><br><br>
+            Запускаем <strong class="strong">xmr-stak</strong>:<br><br> 
+            <strong class="strong p11">~/xmr-stak $</strong> <strong class="blue">xmr-stak</strong><br><br>
+         </p>
+            <div class="kartinka5"><img src="Bitcoin/xmr-stak.png" alt="xmr-stak"></div><br>
+         <p>Выбраем валюту, которую хотим добывать, например <strong class="strong">monero</strong> и нажимаем <strong class="strong">enter</strong>.<br>
+            Программа попросит адрес пула для выбранной валюты. Например <strong class="strong">monero.miner.rocks:5551</strong> и нажимаем <strong class="strong">enter</strong>.<br>
+            Вводим адрес кошелька и нажимаем <strong class="strong">enter</strong>.<br>
+            Вводим пароль и нажимаем <strong class="strong">enter</strong>.<br>
+            Использовать простой метод настройки? (<strong class="strong">Y/n</strong>), выбираем и нажимаем <strong class="strong">enter</strong>.<br>
+            Следующая опция поддержки порта пула (<strong class="strong">TLS/SSL</strong>), если не известно, вводим <strong class="strong">n</strong> и нажимаем <strong class="strong">enter</strong>.<br>
+            До момента первого запуска майнера <strong class="strong">xmr-stak</strong> - нет никаких конфигов. После первого запуска - эти конфиги генерируются автоматически и их необходимо отредактировать.<br>
+            Список этих конфигов может меняться, в зависимости от того, с поддержкой майнинга на каких устройствах был скомпилирован майнер:<br>
+            <strong class="strong">config.txt</strong> - содержит общие настройки майнера;<br>
+            <strong class="strong">pools.txt</strong> - содержит настройки пула, а также алгоритм, который используется;<br>
+            <strong class="strong">cpu.txt</strong> - содержит настройки для майнинга на процессоре (<strong class="strong">CPU</strong>);<br>
+            <strong class="strong">nvidia.txt</strong> - содержит настройки для мйнинга на видеокартах (<strong class="strong">GPU</strong>) <strong class="strong">Nvidia</strong>;<br>
+            <strong class="strong">amd.txt</strong> - содержит настройки для майнинга на видеокартах (<strong class="strong">GPU</strong>) <strong class="strong">AMD</strong>;<br>
+            Следует помнить, что если запущены несколько экземпляров майнера на один адрес кошелька с разделением по <strong class="strong">ADDRESS.WORKER</strong>, у них должны совпадать пароли. Если у <strong class="strong">ADDRESS.W_1</strong> будет стоять пароль "<strong class="strong">12345678</strong>", а у <strong class="strong">ADDRESS.W_2</strong> будет использован пароль "<strong class="strong">x</strong>", майнер в большинстве случаев перезапишет пароль от <strong class="strong">ADDRESS.W_1</strong>, и не будет возможности авторизоваться и изменить настройки в личном кабинете на пуле.
+         </p>
+            <div class="kartinka5"><img src="Bitcoin/mining.png" alt="mining"></div>
+      </div><!--
+      --><div class="section11">
+         <h2 class="p2 p3">Продаются<br>книги</h2>
+        <div class="kartinka5">
+        <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt="Утилита e2fsck"></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+         </div>
+         </div>
+                <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique white">Люди тратили уйму своего времени и труда, чтобы создать этот софт и дарят его Вам. Найдите, пожалуйста, немного времени, чтобы прочитать документацию и научиться это использовать!</b></p>
+				    </div>
+			    	<div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div>
+    </section>
+    <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas> 
+      <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a class="moneyY" target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Это ещё ничего, что в Европе за наш рубль дают полтинник. Будет хуже, если за наш рубль станут давать в морду." М.Е. Салтыков-Щедрин.'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="swap"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt=""></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title">Приму в добрые руки!<br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qxn3mp8c23cmxs7gv99cd9t392x3r9jmc95u8g8<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br> 
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt=""><span>home</span></a>
+          <ul class="dropdown-inside">
+           <li><a><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto CoinPot Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo4.html"><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+    </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="keepass"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="virtualbox"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="skype"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="pulseaudio"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="keepass"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="keepass русский"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt="swap"></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="Сжимаем .pdf"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img  src="Соцсети/Help.png" alt="virtualbox"></div></a>
+         </div>
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+        <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+		             <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+                     <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                         <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                           <!--Конец 2-->
+         <div class="top"><a href="#top">
+         <div class="photo" data-title="Top"><img src="naverh.png" alt="skype"></div></a>
+         </div>
+            <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <!--<a target="_blank" href="http://app3.jivosite.com/">-->
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="конвертер HEIK"><!--</a>-->
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+                            <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Bitcoin-->
+     <style>
+        :root{--px:0;--py:0;}
+        .fancy-hover{width:500px;height:338px;background:url(Bitcoin/bitcoin.png);cursor:pointer;position:relative;z-index:2;overflow:hidden;border-radius:170px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-moz-align-items:center;-o-align-items:center;-ms-flex-align:center;align-items:center;-webkit-transition:background-color 0.2s linear;-moz-transition:background-color 0.2s linear;-o-transition:background-color 0.2s linear;-ms-transition:background-color 0.2s linear;transition:background-color 0.2s linear;}
+        .fancy-hover:before,.fancy-hover:after{content:'';display:block;position:relative;top:0;left:0;z-index:-1;-webkit-transition:opacity 0.1s linear;-moz-transition:opacity 0.1s linear;-o-transition:opacity 0.1s linear;-ms-transition:opacity 0.1s linear;transition:opacity 0.1s linear;}
+        .fancy-hover:before{width:500px;height:338px;opacity:0;background:-webkit-radial-gradient(center circle,#FFF36C 0%,transparent 50%);background:-moz-radial-gradient(center circle,#FFF36C 0%,transparent 50%);background:radial-gradient(circle at center,#FFF36C 0%,transparent 50%);mix-blend-mode:screen;-webkit-transform:translate(calc(var(--px) * 1px),calc(var(--py) * 1px)) translate(-50%,-50%);-moz-transform:translate(calc(var(--px) * 1px),calc(var(--py) * 1px)) translate(-50%,-50%);-o-transform:translate(calc(var(--px) * 1px),calc(var(--py) * 1px)) translate(-50%,-50%);-ms-transform:translate(calc(var(--px) * 1px),calc(var(--py) * 1px)) translate(-50%,-50%);transform:translate(calc(var(--px) * 1px),calc(var(--py) * 1px)) translate(-50%,-50%);}
+        .fancy-hover:after{background:inherit;top:0;right:0;bottom:0;left:0;opacity:0;-webkit-transition-delay:0.05s;-moz-transition-delay:0.05s;-o-transition-delay:0.05s;-ms-transition-delay:0.05s;transition-delay:0.05s;}
+       .fancy-hover:hover img{background-color:rgba(204,50,255,0.9);}.fancy-hover:hover:before{opacity:1;}.fancy-hover:hover:after{opacity:0; -webkit-transition-delay:0s;-moz-transition-delay:0s;-o-transition-delay:0s;-ms-transition-delay:0s;transition-delay:0s;}
+     </style>                     
+        <script>
+               Array.from(document.querySelectorAll('.fancy-hover'),function(el){
+               el.addEventListener('mousemove',function(e){
+               el.style.setProperty('--px', e.clientX - el.offsetLeft);
+               el.style.setProperty('--py', e.clientY - el.offsetTop);
+               });
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE--> 
+        <script type='text/javascript'>
+              (function(){ var widget_id = '7czPg8B9Ch';var d=document;var w=window;function l(){
+              var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+              s.src = '//code.jivosite.com/script/widget/'+widget_id
+              ; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
+              if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}
+              else{w.addEventListener('load',l,false);}}})();
+        </script>
+     </footer>
+                             <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
+

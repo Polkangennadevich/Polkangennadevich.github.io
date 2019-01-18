@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Подключение оборудования gentoo</title>
+     <meta name="description" content="Sudo, Tor браузер, Wpa_supplicant на Gentoo Linux. Подключение оборудования: сканер Canon LIDE 110, принтер HP LaserJet Professional P1102w на Gentoo. Установка файловой системы NTFS на Gentoo. Non-Volatile Memory Express">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="keywords" content="hp,hp драйвер,hp laserjet,wpa_supplicant,ntfs,настройка wifi,тор браузер,tor,nvme-ssd,rsync,exFAT,fuse,HPLIP">
+     <?php include "LastModified.php";?>
+     <link rel="shortcut icon" href="dog.gif" type="image/gif">
+     <link rel="stylesheet" href="Сброс-Очистка.css">
+     <link rel="stylesheet" href="УстановкаОСиПОLinux.css">
+     <link rel="stylesheet" href="Выпадающее-меню.css">
+     <link rel="stylesheet" href="Stickers/stickers.css">
+     <link rel="stylesheet" href="Gentoo/swatchbook.css">
+     <link rel="stylesheet" href="Gentoo/font/all.css">
+     <link rel="stylesheet" href="Comments/owl.carousel.min.css">
+     <link rel="stylesheet" href="Comments/style.css">
+     <link rel="stylesheet" href="Соцсети/styleZfs.css">
+  </head>
+   <body id="top" class="shrift">
+       <div class="preloader">
+          <div class="fish"><img src="preloader.gif" alt="операционная система"></div>
+          <h2 class="white">Подождите немного, страница загружается.<br>
+          <b class="blue">Утром не хочется идти на работу? Откройте журнал "Форбс" и найдите там свою фамилию. Не нашли? Тогда собирайтесь на работу.</b>
+          </h2>
+       </div>
+    <header class="sandbox"><canvas id="canvas-basic"></canvas>
+     <nav class="navigation">
+      <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="настройка wifi"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css & js</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+     </nav>
+     <noscript><div class="noscript"><h2 class="socseti1"><b class="p3">NOTE:</b> У Вас отключены скрипты!!!</h2><img src="cars.gif" width="185" height="92" alt="тор браузер"></div>
+     </noscript>
+        <ul class="demos">
+			<li id="testclick" class="stickers-wrapper stickers-wrapperB music4">
+                <a href="#"><div class="fourB"></div>
+                <span>Запишите, чтобы не забыть!</span></a>
+            </li>
+			<li id="testmedium" class="stickers-wrapper stickers-wrapperP music4">
+                <a href="#"><div class="fourP"></div>
+                <span>Запишите ещё...</span></a>
+            </li>
+			<li id="testsmall" class="stickers-wrapper stickers-wrapperY music4">
+			    <a href="#"><div class="fourY"></div>
+                <span>и ещё...</span></a>
+            </li>		
+		  </ul>
+		<div id="content" class="content"><p class="proverbs">"Меня иногда спрашивают, как я справляюсь с бременем славы? Честно говоря, нет тут никакого «бремени»." Линус Торвальдс</p></div>
+    </header>
+    <section class="section3">
+        <div class="section11">
+        <div class="soderganie">
+           <span class="white">Join Us</span>
+           <div class="Auth login socseti1">    
+               <a class="a" href="Auth/registration.html" target="_blank"><span>Регистрация на сайте</span></a>
+           </div>
+           <h2 class="p2 p3">Содержание:</h2>
+           <ul id="runner">
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg1">Установка Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg2">Разбивка диска</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg3">Монтирование</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg4">Изменение корневого каталога chroot</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg5">Настройка Portage</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo.html#sg6">Настройка переменной USE</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo1.html#sg7">Установка исходных кодов ядра</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg8">Создание fstab</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg9">Параметры сети</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg10">Установка Grub 2</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg11">Окончание установки Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg12">Руссификация Gentoo</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg13">Подключение к интернету PPP</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo2.html#sg14">Iptables</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg15">Установка рабочего стола Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg16">Установка с Wayland</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg17">X server для старой видео карты nvidia</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg18">Установка Plasma 5</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg19">Systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg20">Установка рабочего стола Gnome с systemd</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg21">Xorg — сервер</a></li>
+            <li class="p1"><a class="blue aS" href="Gentoo3.html#sg22">Установка Gnome с systemd</a></li>
+            <li class="p1"><a class="white aS" href="#sg23">Sudo</a></li>
+            <li class="p1"><a class="white aS" href="#sg24">Тор браузер</a></li>
+            <li class="p1"><a class="white aS" href="#sg25">Загрузка Gentoo без загрузчика</a></li>
+            <li class="p1"><a class="white aS" href="#sg26">Broadcom Corporation и Intel Corporation WiMAX/WiFi Link 5150, настройка wi-fi</a></li>
+            <li class="p1"><a class="white aS" href="#sg27">Установка wpa_supplicant</a></li>
+            <li class="p1"><a class="white aS" href="#sg28">Установка сканера LIDE110</a></li>
+            <li class="p1"><a class="white aS" href="#sg29">Подключение беспроводного принтера HP</a></li>
+            <li class="p1"><a class="white aS" href="#sg30">NTFS в Gentoo</a></li>
+            <li class="p1"><a class="white aS" href="#sg31">Файловая система exFAT</a></li>
+            <li class="p1"><a class="white aS" href="#sg32">Non-Volatile Memory Express</a></li>
+            <li class="p1"><a class="white aS" href="#sg33">Полный перенос операционной системы на другой жёсткий диск</a></li>
+            <li class="p1"><a class="white aS" href="#sb-container">Полезные ссылки</a></li>
+          </ul>
+          <img src="razz.png" alt="">
+        </div>
+        </div><!-- 
+   --><div class="group section1">
+         <div>
+            <div class="stage mb-style">
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <div class="layer"></div>
+             <blockquote></blockquote>
+            </div>
+         <div class="kartinka2-3">
+         <div class="kartinka3 wrapper">
+           <div class="kartinka3-1" id="promotion"></div>
+           <a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><div>
+           <div class="overlay">
+             <div class="arrow-left"></div>
+             <div class="rectangle"></div>
+           </div>
+           <div class="description email">
+             <h2 class="h2Adv">Обратите внимание!!!</h2>
+             <p class="macos">Здесь Вы можете разместить свою рекламу.</p><p class="blue">mail@linuxtosha.ru</p>
+           </div>
+          </div></a>
+         </div> 
+         </div>
+        </div>
+         <h2 id="sg23" class="music1"><a class="send-link special-link a" href="https://wiki.gentoo.org/wiki/Sudo/ru">Sudo
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p>Устанавливаем <strong class="strong">sudo</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask app-admin/sudo</strong><br><br>
+            Для установки <strong class="strong">vim</strong> редактором <strong class="strong">visudo</strong> в течение текущего сеанса:<br><br>
+            <strong class="p11 blue">EDITOR=vim visudo</strong><br><br>
+            Файл настроек <strong class="strong">/etc/sudoers</strong> всегда следует редактировать с помощью команды:<br><br> 
+            <strong class="p11 blue">visudo</strong><br><br>
+            Чтобы суперпользователь имел все привелегии, добавляем следующую строку:<br><br>
+            <strong class="p11 blue">root  ALL=(ALL) ALL</strong><br><br>
+            Чтобы <strong class="strong">nikolay</strong> получил права суперпользователа при вводе <strong class="strong">sudo</strong> добавляем следующее:<br><br>
+            <strong class="p11 blue">Defaults rootpw<br>
+            nikolay ALL=(root) ALL</strong><br><br>
+            Делаем <strong class="strong">vim</strong> редактором по умолчанию при редактировании <strong class="strong">visudo</strong>:<br><br>
+            <strong class="p11 blue">Defaults editor=/usr/bin/vim, !env_editor</strong><br><br>
+            Командой можно узнать какими привилегиями обладает конкретный пользователь:<br><br>
+            <strong class="p11 blue">$ sudo -lU имя_пользователя</strong><br><br>
+         </p>
+         <h1 id="sg24" class="music1"><a class="send-link2 special-link1 a" href="https://ru.wikipedia.org/wiki/Tor">Тор браузер
+         <span class="icon-wrapper2">
+            <span class="icon-1"></span><span class="icon-2"></span>
+         </span></a>
+         </h1>
+         <p class="music1">Если установлен, то удаляем <strong class="strong">USE</strong>-флаг <strong class="strong">bindist</strong>.<br>
+         "<a class="special-link2 a link1" href="https://wiki.gentoo.org/wiki/Tor">Устанавливаем <strong class="strong">Tor</strong></a>":<br><br> 
+            <strong class="p11 blue">emerge --ask net-vpn/tor</strong><br><br>
+            Создаём минимальную конфигурацию <strong class="strong">Tor</strong>:<br><br>
+            <strong class="p11 blue">vim /etc/tor/torrc</strong><br>
+            <strong class="p11 blue">User tor</strong><br>
+            <strong class="p11 blue">PIDFile /var/run/tor/tor.pid</strong><br>
+            <strong class="p11 blue">Log notice syslog</strong><br>
+            <strong class="p11 blue">DataDirectory /var/lib/tor/data<br></strong><br>
+            Запускаем <strong class="strong">Tor</strong>:<br><br>
+            <strong class="p11 blue">rc-service tor start</strong><br><br>
+            Добавляем в уровень запуска:<br><br>
+            <strong class="p11 blue">rc-update add tor default</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:<br><br>
+            <strong class="p11 darkgrey">systemctl start tor.service</strong><br>
+            <strong class="p11 darkgrey">systemctl enable tor.service</strong></strong><br><br>
+            Добавляем пользователя в группу «<strong class="strong">tor</strong>».<br><br>
+             <strong class="p11 blue">usermod -a -G tor user</strong><br><br>
+            Для любого браузера можно использовать <strong class="strong">pac</strong>-файл для направления запросов браузера к различным прокси. Создаём файл <strong class="strong">/usr/local/proxy.pac</strong>.<br>
+            Здесь подключения к <strong class="strong">localhost</strong> обрабатываются напрямую (без прокси). <strong class="strong">Eepsites</strong> обрабатываются прокси i2p</strong> на порту 4444. Остальной трафик проходит через прокси <strong class="strong">Tor SOCKS</strong> при работе на порту 9050.<br><br> 
+            <strong class="p11 blue">function FindProxyForURL(url, host)<br>
+            <strong class="p11">{<br>
+            <strong class="p11">if(host.match(/^(localhost|127[.]0[.]0[.]1|192[.]168[.]1[.]1)$/))<br>
+            <strong class="p11">return 'DIRECT';<br>
+            <strong class="p11">if(host.match(/[.]i2p$/))<br>
+            <strong class="p11">return 'PROXY 127.0.0.1:4444';<br>
+            <strong class="p11">return 'SOCKS 127.0.0.1:9050';<br>
+            <strong class="p11">}</strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+            Сохраняем этот файл и указываем его в браузере.(Например в браузере <strong class="strong">Firefox</strong> "Правка>Настройки>Параметры сети>Настроить...>URL автоматической настройки прокси") Большинство браузеров принимают <strong class="strong">URL</strong>-адрес конфигурации прокси, где можно указать <strong class="strong">file:///usr/local/proxy.pac</strong>.<br>  
+            В браузере <strong class="strong">Firefox</strong> устанавливаем галочку:<br>
+            "Правка>Настройки>Параметры сети>Настроить...>Ручная настройка прокси" и заполняем:<br><br>
+            <strong class="p11 blue">HTTP proxy port: 0</strong><br>
+            <strong class="p11 blue">SSL proxy  port: 0</strong><br>
+            <strong class="p11 blue">FTP proxy  port: 0</strong><br>
+            <strong class="p11 blue">Узел SOCKS: 127.0.0.1  port: 9050</strong><br>
+            <strong class="p11 blue">SOCKS 4</strong> или <strong class="blue">SOCKS 5</strong><br>
+            <strong class="p11 blue">No Proxy for: localhost, 127.0.0.1</strong><br><br>
+            В новой вкладке, в адресной строке браузера набираем:<br><br> 
+            <strong class="p11 blue">about:config<br></strong><br>
+            Получаем предупреждение: "Будте осторожны, а то лешитесь гарантии!"<br>
+            Нажимаем "Я обещаю, что буду осторожен!" и переключаем на следующие параметры:<br><br>
+            <strong class="p11 blue">network.dns.disableIPv6 true</strong><br>
+            <strong class="p11 blue">network.dns.disablePrefetch true</strong><br>
+            <strong class="p11 blue">network.proxy.socks_remote_dns true</strong><br><br>
+            <strong class="strong">Firefox</strong> будет разрешать имена узлов через <strong class="strong">tor</strong>, что предотвращает утечку <strong class="strong">DNS</strong><br><br>
+            <strong class="p11 blue">media.peerconnection.enabled false</strong><br><br>
+            Это предотвращает утечку <strong class="strong">IP</strong>-адреса системы через запросы <strong class="strong">WebRTC</strong>.<br> 
+            Если необходимо разрешить <strong class="strong">Tor</strong> использовать только пространственные адреса , можно указать их. Например  брандмауэр позволяет исходящее соединение только через <strong class="strong">https (443)</strong>:<br><br> 
+            <strong class="p11 blue">vim /etc/tor/torrc</strong><br>
+            <strong class="p11 blue"># If 1, Tor will only create outgoing connections to ORs running on ports that your firewall allows</strong><br>
+            <strong class="p11 blue">FascistFirewall 1</strong><br>
+            <strong class="p11 blue"># A comma-separated list of IP addresses and ports that your firewall allows you to connect to.</strong><br>
+            <strong class="p11 blue">ReachableAddresses accept *:443, reject *:*</strong><br>
+            <strong class="p11 blue">ReachableORAddresses *:443</strong><br><br>
+            Для увеличения анонимности иногда необходимо иметь несколько различных режимов.<br> 
+            Изоляция потока обеспечивает простой способ отделить разные схемы <strong class="strong">Tor</strong> и сделать чтобы различные приложения использовали отдельные потоки.<br> 
+            Для этого, добавляем столько портов, сколько необходимо:<br><br>
+            <strong class="p11 blue"># web browser</strong><br>
+            <strong class="p11 blue">SocksPort 127.0.0.1:9050 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort IsolateDestAddr</strong><br>
+            <strong class="p11 blue"># gpg client</strong><br>
+            <strong class="p11 blue">SocksPort 127.0.0.1:9100</strong><br>
+            <strong class="p11 blue"># instant messenger</strong><br>
+            <strong class="p11 blue">SocksPort 127.0.0.1:9150</strong><br>
+            <strong class="p11 blue"># etc...</strong><br><br>
+            <strong class="strong">Tor</strong> может работать как прозрачный прокси.<br>
+            Чтобы включить встроенный прозрачный прокси, добавляем:<br><br>
+            <strong class="p11 blue">## Transparent proxy</strong><br>
+            <strong class="p11 blue">TransPort 127.0.0.1:9040</strong><br><br>
+            Перенаправляем все исходящие трафики на прозрачный прокси <strong class="strong">Tor</strong>:<br><br>
+            <strong class="p11 blue">iptables -t nat -A OUTPUT -p TCP -m owner ! --uid-owner tor -j DNAT --to-destination 127.0.0.1:9040</strong><br><br> 
+            Для выхода от <a class="special-link3 a link1" href="https://en.wikipedia.org/wiki/ECHELON">ECHELON</a>, можно подумать о следующем:<br><br>
+            <strong class="p11 blue">StrictNodes 1</strong><br>
+            <strong class="p11 blue">GeoIPExcludeUnknown 1</strong><br>
+            <strong class="p11 blue"># ExcludeSingleHopRelays 1</strong><br>
+            <strong class="p11 blue"># ExcludeNodes {au}, {ca}, {gb}, {nz}, {us}</strong><br>
+            <strong class="p11 blue">ExcludeExitNodes {au}, {ca}, {gb}, {nz}, {us}</strong><br>
+            <strong class="p11 blue">NodeFamily {au}, {ca}, {gb}, {nz}, {us}</strong><br>
+            <strong class="p11 blue"># UseEntryGuardsAsDirGuards 1</strong><br>
+            <strong class="p11 blue"># FastFirstHopPK 0</strong><br>
+            <strong class="p11 blue"># AllowSingleHopCircuits 0</strong><br>
+            <strong class="p11 blue"># UseNTorHandshake 1</strong><br>
+            <strong class="p11 blue">PathsNeededToBuildCircuits 0.95</strong><br><br>
+            <strong class="strong">Tor</strong>  имеет собственные песочницы, фьючерсы. Песочница может дать более высокий уровень защиты системы. Для включения её необходимо добавить:<br><br>
+            <strong class="p11 blue">Sandbox 1</strong><br><br>
+            Только для <strong class="strong">TORDNS</strong>:<br>
+            Для включения встроенный в систему <strong class="strong">DNS</strong> форвардер необходимо добавить следующие строки в файл <strong class="strong">/etc/tor/torrc</strong> и перезапустить демон:<br><br>
+            <strong class="p11 blue">...</strong><br>
+            <strong class="p11 blue">## Torified DNS</strong><br>
+            <strong class="p11 blue">DNSPort 127.0.0.1:9053 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort IsolateDestAddr</strong><br>
+            <strong class="p11 blue">AutomapHostsOnResolve 1</strong><br>
+            <strong class="p11 blue">AutomapHostsSuffixes .exit, .onion</strong><br>
+            <strong class="p11 blue">ClientDNSRejectInternalAddresses 1</strong><br>
+            <strong class="p11 blue">ClientRejectInternalAddresses 1</strong><br><br>
+            <strong class="p11 blue">rc-service tor restart</strong><br>
+            <strong class="p11 darkgrey">systemctl restart tor.service</strong><br><br>
+            Затем в файле <strong class="strong">/etc/resolv.conf</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">nameserver 127.0.0.1</strong><br><br>
+            Если используется <strong class="strong">dhcpcd</strong> в файле <strong class="strong">/etc/dhcpcd.conf</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">nohook resolv.conf</strong><br><br>
+            Если используется <strong class="strong">pppoe</strong> в файле <strong class="strong">/etc/ppp/pppoe.conf</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">DNSTYPE=NOCHANGE</strong><br><br>
+            Перенаправляем все <strong class="strong">DNS</strong>-запросы в системе с порта <strong class="strong">53</strong> на <strong class="strong">127.0.0.1:9053</strong>, где <strong class="strong">Tor DNS</strong> прослушивает запросы.<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># iptables -t nat -A OUTPUT -p TCP --dport 53 -j DNAT --to-destination 127.0.0.1:9053</strong><br>
+            <b class="p11 p3">root</b> <strong class="blue"># iptables -t nat -A OUTPUT -p UDP --dport 53 -j DNAT --to-destination 127.0.0.1:9053</strong><br><br>
+            Переключая режимы в <strong class="strong">Firefox</strong> между "Ручная настройка сервиса прокси" и "Автоматически определять настройки прокси для этой сети" переходим из защищённого режима в не защищённый.
+          </p>  
+            <a target="_blank" href="https://check.torproject.org/?lang=ru"><div class="kartinka5"><img src="Gentoo/Чиполлино.png" alt="tor"></div></a>
+          <p class="p2">Работоспособность <strong class="strong">Tor</strong> можно проверить щёлкнув по картинке.
+          </p>
+         <h2 id="sg25" class="music1"><a class="send-link special-link4 a" href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_%28%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%29">Загрузка Gentoo без загрузчика
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p class="music1">Работа проводится на уже установленной <a class="special-link5 a link1" href="Gentoo.html#sg1">"Gentoo"</a> c <strong class="strong">EFI</strong>,<br>
+            материнская плата должна поддерживать <strong class="strong">UEFI BIOS</strong>.<br>
+            В ядре должно быть подключено:<br><br>
+            <strong class="p11 blue">CONFIG_EFI=y</strong><br>
+            <strong class="p11 blue">CONFIG_EFI_STUB=y</strong><br>
+            <strong class="p11 blue">CONFIG_RELOCATABLE=y</strong><br>
+            <strong class="p11 blue">CONFIG_FB_EFI=y</strong><br>
+            <strong class="p11 blue">CONFIG_FRAMEBUFFER_CONSOLE=y</strong><br><br>
+            На системах с UEFI создаём каталог <strong class="strong">/boot/efi/boot/</strong>:<br><br>
+            <strong class="p11 blue">mkdir -p /boot/efi/boot</strong><br><br>
+            и копируем в него ядро, назвав его <strong class="strong">bootx64.efi</strong>:<br><br>
+            <strong class="p11 blue">cp /boot/vmlinuz-X.X.X-gentoo /boot/efi/boot/bootx64.efi</strong>:<br><br>
+            копируем после каждой компиляции ядра.<br>
+            Пакет "<strong class="strong">sys-boot/efibootmgr</strong>" должен быть загружен.<br>
+            Настраиваем загрузку командой:<br><br>
+            <strong class="p11 blue">efibootmgr --create --gpt --disk /dev/sda --part 2  --label "Gentoo" --loader '\boot\efi\boot\bootx64.efi'</strong><br><br> 
+            где:<br>
+            <strong class="strong">--create</strong> -создаём загрузчик<br>
+            <strong class="strong">--disk /dev/sda --part 2</strong> -загрузочный диск и загрузочная партиция <strong class="strong">/boot/efi<br>
+            --label "Gentoo"</strong> -название загружаемой <strong class="strong">Gentoo<br>
+            --loader '\boot\efi\boot\bootx64.efi</strong> -путь к загрузчику<br>
+            Перезагружаемся.<br>
+            После удачной загрузки, можнно удалить установленный ранее загрузчик.
+         </p>
+         <h2 id="sg26" class="music1"><a class="send-link special-link6 a" href="https://wiki.gentoo.org/wiki/Wifi/ru">Broadcom Corporation и Intel Corporation WiMAX/WiFi Link 5150, настройка wi-fi
+            <span class="icon-wrapper">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p>При отсутствии интерфейса <strong class="strong">wlan0</strong> делаем следующее:<br>
+            Определяем <strong class="strong">wi-fi</strong> карту:<br><br>
+            <strong class="p11 blue">lspci -v</strong> # или <strong class="strong">lspci -k</strong><br><br>
+            Вывод для <strong class="strong">Broadcom Corporation</strong>:<br><br>
+            <strong class="p11 blue">Network controller:</strong><br>
+            <strong class="p11 blue">Broadcom Corporation BCM4313 802.11b/g/n Wireless LAN Controller (rev 01)</strong><br>
+            <strong class="p11 blue">Kernel driver in use: bcma-pci-bridge</strong><br><br>
+            Вывод для <strong class="strong">Intel Corporation</strong>:<br><br>
+            <strong class="p11 blue">Network controller: Intel Corporation WiMAX/WiFi Link 5150<br>
+            <strong class="p11">Subsystem: Intel Corporation WiMAX/WiFi Link 5150 ABG</strong></strong><br><br>
+            Под них настраиваем ядро:<br><br>
+            <strong class="p11 blue">[*] Networking support ---></strong><br>                                                                                                       
+            <strong class="p11 blue">[*] Wireless ---></strong><br>                                                                                                                        
+            <strong class="p11 blue">&lt;*> cfg80211 - wireless configuration API</strong><br>                                                                                   
+            <strong class="p11 blue">&lt;*> Generic IEEE 802.11 Networking Stack (mac80211)</strong><br><br>
+            Для <strong class="strong">Broadcom Corporation BCM4313</strong>:<br><br>
+            <strong class="p11 blue">Device Drivers ---></strong><br>                                                                                                                  
+            <strong class="p11 blue">[*] Network device support ---></strong><br>                                                                                                                   
+            <strong class="p11 blue">[*] Wireless LAN ---></strong><br>                                                                                                                  
+            <strong class="p11 blue">Select the driver for your Wifi network device, e.g.:</strong><br>                                                                             
+            <strong class="p11 blue">&lt;M> Broadcom 43xx wireless support (mac80211 stack) (b43)</strong><br>                                                        
+            <strong class="p11 blue">[*]  Support for low-power (LP-PHY) devices</strong><br>                                                                                   
+            <strong class="p11 blue">&lt;*> Ralink driver support ---></strong><br>                                                                                                                           
+            <strong class="p11 blue">&lt;*>   Ralink rt27xx/rt28xx/rt30xx (USB) support (rt2800usb)</strong><br><br>
+            Для <strong class="strong">Intel Corporation WiMAX/WiFi Link 5150</strong>:<br><br>
+            <strong class="p11 blue">Device Drivers ---><br>
+            <strong class="p11">[*] Network device support ---><br>
+            <strong class="p11">[*] Wireless LAN ---><br>
+            <strong class="p11">[*] Intel devices<br>
+            <strong class="p11">&lt; > Intel PRO/Wireless 2100 Network Connection<br>
+            <strong class="p11">&lt; > Intel PRO/Wireless 2200BG and 2915ABG Network Connection<br>
+            <strong class="p11">&lt; > Intel Wireless WiFi 4965AGN (iwl4965)<br>
+            <strong class="p11">&lt; > Intel PRO/Wireless 3945ABG/BG Network Connection (iwl3945)<br>
+            <strong class="p11">&lt;M> Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimate-N (iwlwifi)<br>
+            <strong class="p11">&lt;M> Intel Wireless WiFi DVM Firmware support<br>
+            <strong class="p11">&lt;M> Intel Wireless WiFi MVM Firmware support</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+            Чтобы включить беспроводные расширения, собрать ядро cо следующими опциями<br>
+            (это будет поддерживать старые <strong class="strong">wireless-tools & iwconfig</strong>):<br><br>
+            <strong class="p11 blue">[*] Networking support ---></strong><br>                                                                                                                                 
+            <strong class="p11 blue">[*] Wireless ---></strong><br>                                                                                                                                                    
+            <strong class="p11 blue">[*]  cfg80211 wireless extensions compatibility</strong><br><br>                       
+            Чтобы включить <strong class="strong">LED</strong> триггеры для различных пакета приема / передачи события,<br>
+            собрать ядро со следующими опциями:<br><br>                                                                                                                                                                                                   
+            <strong class="p11 blue">Device Drivers ---></strong><br>                                                                                                                                                     
+            <strong class="p11 blue">[*] LED Support ---></strong><br>                                                                                                                                        
+            <strong class="p11 blue">&lt;*>   LED Class Support</strong><br>                                                                                                                                  
+            <strong class="p11 blue">[*] Networking support ---></strong><br>                                                                                                                         
+            <strong class="p11 blue">[*] Wireless ---></strong><br>                                                                                                                                                
+            <strong class="p11 blue">[*] Enable LED triggers</strong><br><br>
+            Прошивка.<br>
+            Для <strong class="strong">Broadcom Corporation</strong>, драйвер ядра <strong class="strong">b43</strong> устанавливаем необходимый пакет <strong class="strong">sys-firmware/b43-firmware</strong>:<br><br>
+            <strong class="p11 blue"><b class="p3">root</b> # echo "sys-firmware/b43-firmware" >> /etc/portage/package.accept_keywords</strong><br>
+            <b class="p11 p3">root</b> <strong class="blue"># echo "sys-firmware/b43-firmware Broadcom" >> /etc/portage/package.license</strong><br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge --ask b43-firmware</strong><br><br>
+            Для <strong class="strong">Intel Corporation WiMAX/WiFi Link 5150</strong> устанавливаем необходимый пакет <strong class="strong">sys-kernel/linux-firmware</strong>:<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># echo "=sys-kernel/linux-firmware-20191108 linux-fw-redistributable no-source-cod" >> /etc/portage/package.license<br><br>
+            <b class="p11 p3">root</b> <strong class="blue"># emerge --ask sys-kernel/linux-firmware</strong></strong>
+         </p>
+         <h2 id="sg27" class="music1"><a class="send-link2 special-link7 a" href="https://wiki.gentoo.org/wiki/Wpa_supplicant">Установка wpa_supplicant
+            <span class="icon-wrapper2">
+               <span class="icon-1"></span><span class="icon-2"></span>
+            </span></a>
+         </h2>
+         <p><strong class="strong">Wpa_supplicant</strong> и <strong class="strong">Network Manager</strong> обычно не работают вместе.<br>   
+         Необходимо убедитесь, что только одна из этих служб запущена.<br>
+            Для деактивации <strong class="strong">Network Manager</strong>, в файле <strong class="strong">/etc/conf.d/NetworkManager</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">INACTIVE_TIMEOUT=0</strong><br><br>
+            Кроме того, проверяем, если <strong class="strong">Network Manager</strong> установлен в ато загрузку убираем его оттуда:<br><br>
+            <strong class="p11 blue">rc-update del NetworkManager</strong><br><br>
+            Устанавливаем <strong class="strong">Wpa_supplicant</strong>:<br><br> 
+            <strong class="p11 blue">emerge --ask wpa_supplicant</strong><br><br>
+            Настраиваем конфигурационный файл:<br><br>
+            <strong class="p11 blue">vim /etc/wpa_supplicant/wpa_supplicant.conf</strong><br><br>
+            <strong class="p11 blue">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel</strong><br>
+            <strong class="p11 blue">ap_scan=1</strong><br>
+            <strong class="p11 blue">fast_reauth=1</strong><br>
+            <strong class="p11 blue">update_config=1</strong><br><br>
+            <strong class="p11 blue">network={</strong><br>
+            <strong class="p11 blue">ssid="YourSSID"</strong><br>
+            <strong class="p11 blue">psk="Your-secret-key"</strong><br>
+            <strong class="p11 blue">scan_ssid=1</strong><br>
+            <strong class="p11 blue">proto=RSN</strong><br>
+            <strong class="p11 blue">key_mgmt=WPA-PSK</strong><br>
+            <strong class="p11 blue">pairwise=CCMP</strong><br> 
+            <strong class="p11 blue">auth_alg=OPEN</strong><br>
+            <strong class="p11 blue">}</strong><br>
+            <strong class="p11 blue">#</strong> Подключение к любой не защищённой сети<br>
+            <strong class="p11 blue">network={</strong><br>
+            <strong class="p11 blue">key_mgmt=NONE</strong><br>
+            <strong class="p11 blue">priority=-999</strong><br>
+            <strong class="p11 blue">}</strong><br><br>
+            В файле <strong class="strong">/etc/conf.d/wpa_supplicant</strong> устанавливаем:<br><br>
+            <strong class="p11 blue">vim /etc/conf.d/wpa_supplicant<br>
+            <strong class="p11">wpa_supplicant_args="-B -M -c/etc/wpa_supplicant/wpa_supplicant.conf"</strong></strong><br><br>
+            В файле <strong class="strong">/etc/conf.d/net</strong> добавляем:<br><br>
+            <strong class="p11 blue">modules_wlan0="wpa_supplicant"</strong><br>
+            <strong class="p11 blue">config_wlan0="dhcp"</strong><br><br>
+            Запускаем беспроводной сетевой адаптер:<br><br>
+            <strong class="p11 blue">ifconfig wlan0 up</strong><br><br>
+            Запускаем  <strong class="strong">wpa_supplicant</strong> на установку соединения:<br><br>
+            <strong class="p11 blue">wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf</strong><br><br> 
+            здесь:<br>
+            <strong class="strong">B</strong> - запускать команду <strong class="strong">wpa_supplicant</strong> в фоновом режиме;<br>
+            <strong class="strong">Dwext</strong> - говорим утилите <strong class="strong">wpa_supplicant</strong> использовать драйвер 
+            <strong class="strong">wext</strong> для интерфейса <strong class="strong">wlan0</strong>;<br>
+            <strong class="strong">i</strong> - задаем настраиваемый сетевой интерфейс (<strong class="strong">wlan0</strong> в нашем случае);<br>
+            <strong class="strong">c</strong> - указываем путь к конфигурационному файлу <strong class="strong">wpa_supplicant.conf</strong>.<br>
+            Получение <strong class="strong">IP</strong> адреса:<br><br>
+            <strong class="p11 blue">dhcpcd wlan0</strong><br><br>
+            Добавляем в уровень запуска:<br><br>
+            <strong class="p11 blue">rc-update add wpa_supplicant default</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systend</strong>
+            создаём <strong class="strong">Unit wpa_supplicant.service</strong>:<br><br>
+            <strong class="p11 darkgrey">vim /etc/systemd/system/wpa_supplicant.service</strong><br><br>
+            следующего содержания:<br><br>
+            <strong class="p11 darkgrey">[Unit]</strong><br>
+            <strong class="p11 darkgrey">Description=WPA Supplicant daemon</strong><br>
+            <strong class="p11 darkgrey">After=syslog.target network.target</strong><br>
+            <strong class="p11 darkgrey">Before=network.service</strong><br><br>
+            <strong class="p11 darkgrey">[Service]</strong><br>
+            <strong class="p11 darkgrey">Type=forking</strong><br>
+            <strong class="p11 darkgrey">ExecStart=/usr/sbin/wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf</strong><br><br>
+            <strong class="p11 darkgrey">[Install]</strong><br>
+            <strong class="p11 darkgrey">WantedBy=multi-user.target</strong><br><br>
+            Включаем <strong class="strong">Unit</strong> в автозапуск:<br><br>
+            <strong class="p11 darkgrey">systemctl enable wpa_supplicant.service</strong><br><br>
+            Запускаем <strong class="strong">Unit wpa_supplicant.service</strong><br><br>
+            <strong class="p11 darkgrey">systemctl start wpa_supplicant.service</strong></strong><br><br>
+         </p>
+         <h2 id="sg28">Установка сканера <strong class="strong">Canon LIDE 110</strong> на <strong class="strong">Gentoo</strong></h2> 
+         <p>В ядре устанавливаем поддержку <strong class="strong">USB</strong>:<br><br>                                                             
+            <strong class="p11 blue">Device Drivers ---></strong><br>                                                                                                                                  
+            <strong class="p11 blue">USB support ---></strong><br>                                                                                                                                 
+            <strong class="p11 blue">&lt; > OHCI HCD support</strong><br>                                                                                                                   
+            <strong class="p11 blue">&lt;*> UHCI HCD (most Intel and VIA) support</strong><br><br>
+            Подсоединяем сканер к компьютеру и проверяем его подключение<br><br>                         
+            <strong class="p11 blue">lsusb</strong><br><br>                                                                                                                
+            <strong class="p11 blue">Bus 002 Device 005: ID 04a9:1909 Canon, Inc. CanoScan LiDE 110</strong><br><br> 
+            В названии сканера видим два 4-х значных пароля: <strong class="strong">Vendor</strong> (в данном случае, <strong class="strong">04a9</strong>) и<br>
+            <strong class="strong">ProdID</strong> (в данном случае, <strong class="strong">1909</strong>) Сохраняем их. Они могут понадобиться в процессе настройки.<br>                                                                                                                                                                                    
+            Загружаем<br><br>                                                                                             
+            <strong class="p11 blue">emerge --ask sane-backends  xsane</strong><br><br>                                                                        
+            Проверяем<br><br>                                                                                                                
+            <strong class="p11 blue">sane-find-scanner -q</strong><br><br>                                                                                             
+            <strong class="p11 blue">found USB scanner</strong><br>
+            <strong class="p11 blue">(vendor=0x04a9 [Canon], product=0x1909 [CanoScan], chip=GL124) at libusb:002:005</strong><br>
+            <strong class="p11 blue">could not fetch string descriptor: Pipe error</strong><br>                                                                  
+            <strong class="p11 blue">could not fetch string descriptor: Pipe error</strong><br><br>                                                                
+            Добавляем пользователя <strong class="strong">username</strong> в группу <strong class="strong">scanner</strong><br><br>                                                      
+            <strong class="p11 blue">gpasswd -a username scanner</strong><br><br>
+            <strong class="p11 blue">reboot</strong><br><br>
+            Запускаем<br><br>                                                                                           
+            <strong class="p11 blue">Scanner Tool</strong><br><br>
+            Если сканер не запускается, создаём директорию <strong class="strong">70-libsane.rules</strong><br><br>                                                          
+            <strong class="p11 blue">vim /etc/udev/rules.d/70-libsane.rules</strong><br><br>                                        
+            Устанавливаем<br><br>                                                                          
+            <strong class="p11 blue">ATTRS{idVendor}=="04a9", ATTRS{idProduct}=="1909",</strong><br>
+            <strong class="p11 blue">MODE="0664", GROUP="scanner", ENV{libsane_matched}="yes"</strong><br><br> 
+            и опять запускаем<br><br>  
+            <strong class="p11 blue">Scanner Tool</strong>
+         </p>
+         <h2 id="sg29">Подключение беспроводного принтера "<strong class="strong">HP LaserJet Professional P1102w</strong>" в <strong class="strong">Gentoo</strong></h2>
+         <div class="kartinka3">
+          <div class="ih-item square effect3 bottom_to_top">
+          <a href="http://www8.hp.com/ru/ru/home.html">
+           <div class="img"><img src="Gentoo/Принтер.png" alt="hp laserjet"></div>
+           <div class="info3">
+            <h2>Принтер<br><strong class="strong">HP LaserJet Pro P1102w</strong>!</h2>
+           </div>
+          </a>
+          </div>
+         </div>
+         <p class="music1">Принтер должен быть подключён к беспроводной сети.<br>
+            В верхней части устройства, индикатор должен гореть синим цветом.<br>
+            Проще это сделать через ОС "<b class="p3">Windows...</b>"<br>
+            Заходим на сайт <a class="special-link8 a link1" target="_blank" href="http://www8.hp.com/ru/ru/home.html">"Продукты <strong class="strong">HP</strong>"</a>, поддержка, Программы и драйверы.<br>
+            Определяем ваш продукт, чтобы начать работу.<br>
+            Выбираем "Принтер".<br>
+            В ячейке "Введите название продукта" набираем<br> "<strong class="strong">HP LaserJet Pro P1102w</strong>" щёлкаем, Отправить.<br>
+            Щёлкаем "Принтер <strong class="strong">HP LaserJet Pro P1102w</strong>", выбираем операционную систему, Далее.<br>
+            Выбираем: "Драйвер- ПО для установки устройств" щёлкаем Загрузить.<br>
+            Соединяем компьютер и принтер кабелем.<br>
+            Запускаем загуженую программу.<br>
+            В окне "Способ подключения принтера", выбираем "Настройка на печать через беспроводную сеть"<br>
+            В окне "Беспроводной способ обнаружения" выбираем "Автоматически".<br>
+            В окне "Учётные данные беспроводной сети" будет найден наш <strong class="strong">SSID</strong>, щёлкаем Далее.<br>
+            После окончания работы программы, щёлкаем Готово.<br>
+            Для печати страницы конфигурации, на панели управления принтера нажимаем и удерживаем кнопку <strong class="strong">X</strong> в течение 5 секунд, а затем отпускаем её.<br>
+            На этой странице отображаются адрес <strong class="strong">IP</strong>, в разделе "Информация о сети".<br>
+            Вытаскиваем кабель и переходим в  
+            <a class="special-link9 a link1" href="https://wiki.gentoo.org/wiki/Printing/ru">ОС Linux.</a><br>
+            В <strong class="strong">/etc/portage/make.conf</strong> должен быть установлен <strong class="strong">Use</strong> флаг <strong class="strong">...cups...</strong><br>
+            Соответственно <strong class="strong">CUPS</strong> будет загружен автоматически.<br>
+            Для подсоединения к удаленно подключенному принтеру через протокол межсетевой печати (<strong class="strong">IPP</strong>),<br>
+            ядро должно быть скофигурировано с поддержкой сети.<br>
+            Для подключения принтера через <strong class="strong">USB</strong>, в ядре необходимо включить следующее:<br><br>
+            <strong class="p11 blue">Device Drivers --></strong><br> 
+            <strong class="p11 blue">USB Support --></strong><br>   
+            <strong class="p11 blue">&lt;*> Support for Host-side USB</strong><br>   
+            <strong class="p11 blue">(...)</strong><br>   
+            <strong class="p11 blue">--- USB Host Controller Drivers</strong><br>   
+            <strong class="p11 blue">(Select the HCD that your system uses. If you do not know which one</strong><br>    
+            <strong class="p11 blue">to select, run "lspci -v | grep HCI" from another terminal)</strong><br>   
+            <strong class="p11 blue">&lt;*> EHCI HCD (USB 2.0) support</strong><br>   
+            <strong class="p11 blue">&lt; > OHCI HCD support</strong><br>   
+            <strong class="p11 blue">&lt;*> UHCI HCD (most Intel and VIA) support</strong><br><br>
+            Устройства, подключённые через <strong class="strong">USB</strong>, требуют базовой поддержки <strong class="strong">USB</strong>:<br><br>
+            <strong class="p11 blue">Device Drivers ---><br>
+            <strong class="p11">[*] USB support ---><br>
+            <strong class="p11">&lt;*> USB Printer support</strong></strong></strong><br><br>
+            Локально подключенный принтер (<strong class="strong">LPT</strong>). <strong class="strong">LPT</strong> порт обычно используется для идентификации параллельного порта принтера.<br><br>
+            <strong class="p11 blue">Device Drivers --><br>
+            <strong class="p11">&lt;*> Parallel port support<br>
+            <strong class="p11">&lt;*> PC-style hardware<br>
+            <strong class="p11">[*] IEEE 1284 transfer modes<br>
+            <strong class="p11">Character Devices --><br>
+            <strong class="p11">&lt;*> Parallel printer support</strong></strong></strong></strong></strong></strong><br><br>
+            <strong class="strong">CUPS</strong> может поддерживать печать через <strong class="strong">USB</strong>, если включен <strong class="strong">usb</strong> флаг.<br>
+            Проверяем текущие настройки <strong class="strong">USE</strong>-флагов:<br><br>
+            <strong class="p11 blue">emerge -pv net-print/cups</strong><br><br>
+            Для изменения текущих настроек <strong class="strong">USE</strong>-флагов для <strong class="strong">CUPS</strong>, добавляем подходящие <strong class="strong">USE</strong>-флаги в файл <strong class="strong">/etc/portage/package.use</strong>.<br>
+            Удалённо подключенный принтер (<strong class="strong">CIFS</strong>)<br><br>
+            <strong class="p11 blue">File systems --><br>
+            <strong class="p11">Network File Systems --><br>
+            <strong class="p11">&lt;*> CIFS support (advanced network filesystem, SMBFS successor)</strong></strong></strong><br><br> 
+            Собираем ядро.<br> 
+            Все действия для беспроводного подключения, также относятся и к подключению принтера через <strong class="strong">USB</strong>.<br>
+            Устанавливаем драйвер "<a class="special-link10 a link1" target="_blank" href="http://foo2zjs.rkkda.com">foo2zjs</a>".<br>
+            Заходим в папку <strong class="strong">opt</strong>:<br><br>
+            <strong class="p11 blue">cd /opt</strong><br><br>
+            Загружаем драйвер <strong class="strong">foo2zjs</strong>:<br><br>
+            <strong class="p11 blue">wget -O foo2zjs.tar.gz http://foo2zjs.rkkda.com/foo2zjs.tar.gz</strong><br><br>
+            Распаковываем файл <strong class="strong">foo2zjs.tar.gz</strong>:<br><br>
+            <strong class="p11 blue">tar xvfz /opt/foo2zjs/foo2zjs.tar.gz</strong><br><br>
+            Заходим в папку <strong class="strong">/foo2zjs</strong>:<br><br>
+            <strong class="p11 blue">cd ./foo2zjs</strong><br><br>
+            Устанавливаем драйвер <strong class="strong">foo2zjs</strong>:<br><br>
+            <strong class="p11 blue">make install</strong><br><br>
+            Вариант <strong class="strong">emerge --ask net-print/foo2zjs</strong> пока не работает.<br>
+            Все пользователи, которым требуется печатать документы, должны быть добавлены в группу <strong class="strong">lp</strong>:<br><br>
+            <strong class="p11 blue">gpasswd -a username lp</strong><br><br>
+            Все пользователи, которым требуется добавлять или редактировать принтеры через веб-интерфейс CUPS, должны быть добавлены в группу <strong class="strong">lpadmin</strong>:<br><br>
+            <strong class="p11 blue">gpasswd -a username lpadmin</strong><br><br>          
+            Устанавливаем автоматический запуск <strong class="strong">CUPS</strong>:<br><br>
+            <strong class="p11 blue">/etc/init.d/cupsd start</strong><br>
+            <strong class="p11 blue">rc-update add cupsd default</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl start cups.service<br>
+            <strong class="p11 ">systemctl enable cups.service</strong></strong><br><br>
+            Запускаем <strong class="strong">CUPS</strong> по адресу <a class="special-link11 a link1" href="http://localhost:631">http://localhost:631/</a><br>
+            Заходим в "Администрирование"<br>
+            Устанавливаем галочки:<br>
+            "Разрешить совместный доступ к принтерам, подключенным к этой системе" и<br>
+            "Разрешить печать из Интернета"<br>
+            Нажимаем "Сохранить"<br>
+            Нажимаем "Добавить принтер"<br>
+            После обнаружения нашего принтера появится страница: "Установленные принтеры".<br>
+            Найденные сетевые принтеры.<br>
+            Выбираум наш принтер "<strong class="strong">HP LaserJet Pro P1102w</strong>"<br>
+            Продолжить.
+            Расположение: непример <strong class="strong">"Home"</strong>
+            Устанавливаем галочку:<br>
+            "Разрешить совместный доступ к принтерам"<br>
+            Продолжить.<br>   
+            Выбираем модуль: <strong class="strong">HP LaserJet Pro P1102w Foomatic/foo2zjs-z2(en)</strong><br> 
+            Нажимаем "Добавить принтер"<br>
+            Настраиваем необходимые параметры для печати.<br>   
+            Сохранить параметры.<br>
+            Перезапускаем <strong class="strong">CUPS</strong>:<br><br> 
+            <strong class="p11 blue">/etc/init.d/cupsd restart</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong> перезапускаем юнит:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl restart cups.service</strong><br><br>
+            Всё, можно печатать!<br>
+            Вариант настройки с использованием <a id="hplip" class="special-link12 a link1" href="https://wiki.gentoo.org/wiki/HPLIP/ru"/>HPLIP</a>.<br>
+            <strong class="strong">HPLIP</strong> рекомендуется для большинства принтеров <strong class="strong">HP inkjet</strong> и <strong class="strong">laserjet</strong>.<br>
+            Проверяем наличие <strong class="strong">USE</strong> - флага <strong class="strong">hpcups</strong>, если флаг отсутствует, устанавливаем и загружаем <strong class="strong">hplip</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask hplip</strong><br><br>
+            В терминале набираем:<br><br>
+            <strong class="p11 blue">hp-plugin</strong><br><br>
+            Дойдя до установки плагина, набираем <strong class="strong">d</strong>:<br><br> 
+            <strong class="p11 blue">------------------------------------------<br>
+            <strong class="p11">| PLUG-IN INSTALLATION FOR HPLIP 3.18.12 |<br>
+            <strong class="p11">------------------------------------------<br>
+            <strong class="p11">Option Description<br>                                       
+            <strong class="p11">----------  --------------------------------------------------<br>
+            <strong class="p11">d Download plug-in from HP (recommended)<br>            
+            <strong class="p11">p Specify a path to the plug-in (advanced)<br>          
+            <strong class="p11">q Quit hp-plugin (skip installation)<br><br>                
+            <strong class="p11">Enter option (d=download*, p=specify path, q=quit) ? d</strong></strong></strong></strong></strong></strong></strong></strong></strong><br><br>
+            Настраиваем <strong class="strong">CUPS</strong>.<br>
+            Выбираем модуль: <strong class="strong">HP Laserjet Professional p 1102w, hpcups 3.18.12, requires proprietary plugin(en)</strong>.<br>
+            Перезапускаем <strong class="strong">CUPS</strong>:<br><br>
+            <strong class="p11 blue">rc-service cupsd restart</strong><br><br>
+            <strong class="gray">Для <strong class="strong">systemd</strong>:</strong><br><br>
+            <strong class="p11 darkgrey">systemctl restart cups.service</strong><br><br>
+            Каждый раз после обновления <strong class="strong">HPLIP</strong> рекомендуется выполнить <strong class="strong">hp-setup -r</strong>, чтобы удалить все принтеры и настроить их заново. 
+         </p>
+         <h2 id="sg30"><strong class="strong">NTFS</strong> в <strong class="strong">Gentoo</strong></h2>
+         <p>Для использования файловой системы <strong class="strong">NTFS</strong> в <strong class="strong">Gentoo</strong>:
+            нужно установить  <strong class="strong">ntfs3g</strong>, а в ядре файловую систему <strong class="strong">fuse</strong>.
+            Поддержку <strong class="strong">Ntfs</strong> в ядре отключить
+         </p>
+         <h2 id="sg31">Файловая система <strong class="strong">exFAT</strong></h2>
+         <p><strong class="strong">exFAT</strong> (<strong class="strong">Extended File Allocation Table</strong>), файловая система от <strong class="strong">Microsoft</strong>, оптимизированная для устройств хранения данных, основанных на памяти <strong class="strong">flash</strong>, таких, как <strong class="strong">USB</strong>, <strong class="strong">Micro SDXC</strong> - накопители.<br>
+            Проверяем, что поддержка для <strong class="strong">Filesystem in Userspace</strong> (<strong class="strong">FUSE</strong>) включена в ядре:<br><br>
+            <strong class="p11 blue">File systems ---><br>
+            <strong class="p11">&lt;*> FUSE (Filesystem in Userspace) support</strong></strong><br><br>
+            Устанавливаем пакет <strong class="strong">FUSE exfat:</strong><br><br>
+            <strong class="p11 blue">emerge --ask sys-fs/fuse-exfat</strong><br><br>
+            Для реализации функций создания и работы с файловой системой, устанавливаем пакет <strong class="strong">sys-fs/exfat-utils</strong>:<br><br>
+            <strong class="p11 blue">emerge --ask sys-fs/exfat-utils</strong><br><br> 
+            Создаём файловую систему на сменном носителе, например, <strong class="strong">/dev/sde1</strong> с использованием "<strong class="strong">Flash</strong>" в качестве метки:<br><br>
+            <strong class="p11 blue">mkfs.exfat -n Flash /dev/sde1</strong><br><br>
+            Файловую систему можно смонтировать с помощью команды <strong class="strong">mount.exfat-fuse</strong>:<br><br>
+            <strong class="p11 blue">mount.exfat-fuse /dev/sde1 /mnt/flash</strong><br><br>
+            Размонтирование:<br><br>
+            <strong class="p11 blue">umount /mnt/flash</strong><br><br>
+            Проверяем целостность данных файловой системы <strong class="strong">exFAT</strong>:<br><br>
+            <strong class="p11 blue">fsck.exfat /dev/sde1</strong>
+         </p>
+         <h2 id="sg32" class="strong">Non-Volatile Memory Express</h2>
+         <p><strong class="strong">NVMe</strong> это спецификация для доступа к дискам через <strong class="strong">PCI Express</strong>, специально разработанная для энергонезависимой памяти. Подключение через <strong class="strong">PCIe Gen3 x4</strong> не только обеспечивает скорость обмена данными (до четырех раз быстрее скорости доступа через интерфейс <strong class="strong">SATA</strong>), но и обеспечивает меньшие задержки, чем традиционные интерфейсы <strong class="strong">SATA</strong>. Высокий уровень параллелизма и низкое энергопотребление обеспечивает текущие и будущие потребности в хранении информации. 
+            Способ именования <strong class="strong">NVMe-SSD</strong> отличается от <strong class="strong">SATA</strong>-дисков. Первый <strong class="strong">NVMe-SSD</strong> имеет имя <strong class="strong">/dev/nvme0n1</strong>, а не <strong class="strong">/dev/sda</strong>. Здесь <strong class="strong">n</strong> после <strong class="strong">nvme0</strong> означает пространство имён (<strong class="strong">namespace</strong>). Первый раздел на таких дисках имеет имя <strong class="strong">/dev/nvme0n1p1</strong> вместо <strong class="strong">/dev/sda1</strong>.<br>
+            Общая схема имеет вид: <strong class="strong">/dev/nvme</strong>(номер контроллера)<strong class="strong">n</strong>(пространство имён)<strong class="strong">p</strong>(раздел).<br>
+            Для управления <strong class="strong">NVMe-SSD</strong> под <strong class="strong">Gentoo</strong> можно использовать <strong class="strong">nvme-cli</strong>.<br><br> 
+            <strong class="p11 blue">echo "=sys-apps/nvme-cli-1.5 ~amd64" >> /etc/portage/package.accept_keywords<br>
+            <strong class="p11">emerge --ask sys-apps/nvme-cli</strong></strong>
+         </p>
+         <h2 id="sg33">Полный перенос операционной системы на другой жёсткий диск</h2>
+         <p>К компьютеру, с которого хотим перенести данные подключаем диск на который переносим данные.<br>
+            <a class="special-link13 a link1" href="Gentoo.html#sg2">Разбиваем его.</a><br>
+            <a class="special-link14 a link1" href="Gentoo.html#fs">Создаём файловые системы на разделах.</a><br>
+            Монтируем раздел <strong class="strong">rootfs</strong> в <strong class="strong">/mnt</strong>:<br><br>
+            <strong class="p11 blue">mount /dev/sdb4 /mnt</strong><br><br>
+            Копируем все разделы из "<strong class="strong">/</strong>" в <strong class="strong">/mnt</strong>, кроме <strong class="strong">/home</strong>, <strong class="strong">/mnt</strong>, <strong class="strong">/proc</strong>, <strong class="strong">/sys</strong>, <strong class="strong">/dev</strong>, <strong class="strong">/tmp</strong>, <strong class="strong">/lost+found</strong>:<br><br>
+            <strong class="p11 blue">rsync -auvcP --include-from=/bin /--cmd /etc /lib /lib64 /media /opt /root /sbin /usr /ZFS-gentoo /boot /lib32 /run /srv /var /mnt</strong><br><br>
+            Создаём новые директории:<br><br>
+            <strong class="p11 blue">mkdir /mnt/home /mnt/mnt /mnt/proc /mnt/sys /mnt/dev</strong><br><br>
+            Монтируем раздел <strong class="strong">boot</strong>:<br><br>
+            <strong class="p11 blue">mount /dev/sdb2 /mnt/boot/efi/</strong><br><br>
+            Монтируем <strong class="strong">proc</strong>, <strong class="strong">sys</strong> и <strong class="strong">dev</strong>:<br><br>
+            <strong class="p11 blue">mount --types=proc /proc /mnt/proc<br>
+            <strong class="p11">mount --rbind /sys /mnt/sys<br>
+            <strong class="p11">mount --rbind /dev /mnt/dev<br>
+            <strong class="p11">mount --make-rslave /mnt/sys<br>
+            <strong class="p11">mount --make-rslave /mnt/dev</strong></strong></strong></strong></strong><br><br>
+            Изменяем корневой каталог для перехода в новую среду <strong class="strong">chroot</strong>:<br><br>
+            <strong class="p11 blue">chroot /mnt /bin/bash<br>
+            <strong class="p11">source /etc/profile<br>
+            <strong class="p11">export PS1="(chroot) $PS1"</strong></strong></strong><br><br>
+            Определяем <strong class="strong">UUID</strong> разделов:<br><br>
+            <strong class="p11 blue">blkid<br>
+            <strong class="p11">/dev/sdb2: UUID="..."<br>
+            <strong class="p11">/dev/sdb3: UUID="..."<br>
+            <strong class="p11">/dev/sdb4: UUID="..."<br>
+            <strong class="p11">/dev/sdb5: UUID="..."</strong></strong></strong></strong></strong><br><br>
+            В <strong class="strong">fstab</strong> заменяем <strong class="strong">/dev/sdbX</strong> на полученые <strong class="strong">UUID="..."</strong><br><br>
+            <strong class="p11 blue">vim /etc/fstab</strong><br><br>
+            Удаляем директорию <strong class="strong">/grub</strong>:<br><br>
+            <strong class="p11 blue">rm -r /boot/grub/</strong><br><br>
+            <a class="special-link15 a link1" href="Gentoo2.html#sg10">Переустанавливаем загрузчик <strong class="strong">Grub</strong></a>.<br>
+            Перезагружаемся:<br><br>
+            <strong class="p11 blue">exit<br>
+            <strong class="p11">reboot</strong></strong><br><br>
+            Проверяем возможность загрузки с нового диска:<br>
+            Для входа в режиме редактирования, в момент загрузки нажимаем клавишу "<strong class="strong">e</strong>", увидим список команд, которые выполняет <strong class="strong">Grub2</strong> во время загрузки, при необходимости редактируем. После загрузки проверяем файл <strong class="strong">/etc/default/grub</strong>, при необходимости редактируем.<br>  
+            Если всё нормально, перезагружаемся и загружаемся со старого диска.<br>
+            Монтируем раздел <strong class="strong">home</strong> нового диска:<br><br>
+            <strong class="p11 blue">mount /dev/sdb5 /mnt</strong><br><br>
+            Синхронизируем разделы <strong class="strong">/home</strong> старого диска с <strong class="strong">/mnt</strong>:<br><br>
+            <strong class="p11 blue">rsync -auvcP --delete-during /home /mnt</strong><br><br>
+            При этом обновится приемник, если он был уже чем то заполнен - удалится то, чего нет в источнике, но не затронет файлы которые новее, выведет статистику и состояние по каждому файлу, проверит контрольные суммы.<br>
+            Перезагружаемся.<br>
+            <strong class="strong">Rsync</strong> программа, которая выполняет синхронизацию файлов и каталогов.<br>
+            Позволяет передавать только изменения в файлах, кроме того, <strong class="strong">rsync</strong> производит сжатие на лету, перед обработкой информации, записывает ее во временный файл, чтобы ничего не случилось с оригиналом, поддерживает специальный режим безопасной отладки команд.Она поддерживает <a class="special-link16 a link1" href="Ssh.html#rsync">ssh</a><br>
+            Синтаксис утилиты:<br><br>
+            <strong class="p11 blue">rsync [опции] [источник] [приемник]</strong><br><br>
+            <strong class="strong">-n</strong>, <strong class="strong">--dry-run</strong> - выполнить пробный запуск без внесенных изменений;<br>
+            <strong class="strong">-P</strong> - с этим ключем <strong class="strong">rsync</strong> покажет процесс копирования отдельных файлов и продолжит копирование если оно было прервано;<br>
+            Ключ <strong class="strong">-P</strong> нужно указывать каждый раз, иначе <strong class="strong">rsync</strong> удалит файлы которые не успели полностью закачаться.<br>
+            <strong class="strong">-v</strong>, <strong class="strong">--verbose</strong> - для вывода информации о работе утилиты;<br> 
+            Чем больше опций <strong class="strong">-v</strong>, тем боле информативным будет вывод утилиты. Максимальная информативность достигается при четырех опциях <strong class="strong">-v</strong>.<br>
+            <strong class="strong">-u</strong>, <strong class="strong">--update</strong> - применяем, если на приемнике есть более свежие файлы, и мы не хотим что бы они были перезаписаны старыми из источника;<br>
+            Не стоит пугаться если изменились даты директорий, т.к. сами файлы небыли перезаписаны.<br>
+            <strong class="strong">-c</strong>, <strong class="strong">--checksum</strong> - можно использовать проверку контрольной суммы;<br>
+            <strong class="strong">-a</strong> - опция задает архивный режим работы утилиты, и является эквивалентом набора опций:<br>
+            <strong class="strong">-r</strong>, <strong class="strong">--recursive</strong> — рекурсивный режим;<br>
+            <strong class="strong">-l</strong>, <strong class="strong">--links</strong> — пересоздание <strong class="strong">symlinks</strong>, это значит, что символические ссылки будут так же переноситься;<br>
+            <strong class="strong">-p</strong>, <strong class="strong">--perms</strong> — перенос прав;<br>
+            <strong class="strong">-t</strong>, <strong class="strong">--times</strong> — передача времени модификации и его обновление на удаленной системе. Этот ключ должен быть установлен для точной синхронизации;<br>
+            <strong class="strong">-g</strong>, <strong class="strong">--group</strong> — установить группу конечного файла таким же, как и у исходного;<br>
+            <strong class="strong">-o</strong>, <strong class="strong">--owner</strong> — установить владельца конечного файла таким же, как и у исходного;<br>
+            <strong class="strong">-D</strong>, <strong class="strong">- same as --devices --specials</strong> — установить тип файла устройства и файла специального типа таким же, как у исходного.<br>
+            Если в директории источника содержится актуальная информация, то чтобы не засорять приемник информацией, которая в процессе работы была удалена или перемещена в источнике, нужно старые файлы и директории удалить. Для этого есть несколько опций удаления, каждая из которых предоставляет свой алгоритм удаления:<br>
+            <strong class="strong">--delete</strong> — просто удалить посторонние файлы из приемника;<br>
+            <strong class="strong">--delete-before</strong> — приемник удаляет перед передачей;<br>
+            <strong class="strong">--delete-during</strong> — приемник удаляет в процессе передачи, но не перед;<br>
+            <strong class="strong">--delete-delay</strong> — отложенное удаление/найти файлы для удаления в процессе передачи, но удалить после передачи;<br>
+            <strong class="strong">--delete-after</strong> — приемник удаляет после передачи, но не перед ней;<br>
+            <strong class="strong">--delete-excluded</strong> — так же удалить исключенные файлы в приемнике, для этого задается шаблон (<strong class="strong">--exclude=PATTERN</strong>);<br>
+            <strong class="strong">--exclude=PATTERN</strong> - позволяет выборочно исключать определенные файлы из процесса передачи;<br> 
+            <strong class="strong">--exclude-file=FILE</strong> - позволяет исключать фалы, перечисленные в файле <strong class="strong">FILE</strong>;<br> 
+            Пустые строки вместе со строками, начинающимися с '<strong class="strong">;</strong>' или '<strong class="strong">#</strong>', игнорируются. Если <strong class="strong">FILE</strong> указан как <strong class="strong">-</strong>, то список шаблонов читается со стандартного ввода.<br> 
+            <strong class="strong">--include=PATTERN</strong> - указывает шаблоны для имен тех файлов, которые нельзя исключать из процесса;<br> 
+            Полезен тем, что позволяет строить довольно сложные правила включения/исключения.<br> 
+            <strong class="strong">--include-from=FILE</strong> - указывает список обязательно включаемых в передачу файлов из файла <strong class="strong">FILE</strong>;<br> 
+            Если <strong class="strong">FILE</strong> указан как <strong class="strong">-</strong>, то список шаблонов читается со стандартного ввода.<br> 
+            Параметры <strong class="strong">--include</strong> и <strong class="strong">--exclude</strong> допускают только по одному шаблону каждый. Для добавления множества шаблонов используйте параметры <strong class="strong">--include-from</strong> и <strong class="strong">--exclude-from</strong> или множество параметров <strong class="strong">--include</strong> и <strong class="strong">--exclude</strong> соответственно.<br> 
+            Если шаблон начинается на "<strong class="strong">+</strong> " (плюс с последующим пробелом), то это всегда рассматривается как включающий шаблон, даже если указан как часть параметра исключения. Сама часть "<strong class="strong">+</strong> " не учитывается при проверке на соответствие.<br> 
+            Если шаблон начинается на "<strong class="strong">-</strong> " (минус с последующим пробелом), то это всегда рассматривается как исключающий шаблон, даже если он фигурирует как часть параметра включения. Сама часть "<strong class="strong">-</strong> " не учитывается при проверке на соответствие.<br>
+            Завершающий исходный путь слэш "<strong class="strong">/</strong>" означает "копировать содержимое этого каталога". Без завершающего слэша - "копировать каталог".
+         </p>
+                <div id="sb-container" class="sb-container music1">
+                    <div>
+						<h2><strong class="strong">Gentoo Linux x86 Handbook</strong>: Работа с <strong class="strong">Gentoo</strong></h2>
+					    <a class="a" href="https://wiki.gentoo.org/wiki/Handbook:X86/Full/Working/ru#.D0.94.D0.BE.D0.B1.D1.80.D0.BE_.D0.BF.D0.BE.D0.B6.D0.B0.D0.BB.D0.BE.D0.B2.D0.B0.D1.82.D1.8C_.D0.B2_Portage"><span class="hero-icon lavendar brush-strokes"><i class="main fa fa-paint-brush"></i></span></a>
+					</div>	
+					<div>
+						<h2 class="h2">Документация <strong class="strong">Calculate Linux</strong></h2>
+					    <a class="a" href="http://www.calculate-linux.ru/main/ru/documentation"><span class="hero-icon teal"><i class="main fa fa-dollar-sign"></i></span></a>
+					</div>	
+					<div>
+						<h2>Настройка тачпада</h2>
+					    <a class="a" href="http://wiki.gentoo.org/wiki/Synaptics"><span class="hero-icon melon spin-forever"><i class="main fa fa-spin fa-cog "></i></span></a>
+					</div>	
+					<div>
+						<h2 class="h2">Централизованная аутентификации с помощью <strong class="strong">OpenLDAP</strong></h2>
+					    <a class="a" href="https://wiki.gentoo.org/wiki/Centralized_authentication_using_OpenLDAP"><span class="hero-icon skyblue gavel-strike"><i class="main fa fa-gavel"></i></span></a>
+					</div>	
+					<div>
+						<h2 class="h2">Руководство администратора <strong class="strong">OpenLDAP 2.4</strong></h2>											
+					    <a class="a" href="http://pro-ldap.ru/tr/admin24/"><span class="hero-icon tan coffee-cup"><i class="main fa fa-coffee"></i>
+					    <span class="cup-steam"><i class="steam fa fa-fire"></i></span></span></a>
+					</div>	
+					<div>
+						<h2>Установка <strong class="strong">SELinux</strong></h2><a class="a" href="https://wiki.gentoo.org/wiki/SELinux/Installation"><span class="hero-icon pink rocket-flight"><i class="main fa fa-rocket"></i></span></a>
+					</div>	
+					<div>
+						<h2><strong class="strong">Hardened Gentoo</strong></h2> 											
+					    <a class="a" href="https://wiki.gentoo.org/wiki/Hardened_Gentoo/ru"><span class="hero-icon green punch"><i class="main fa fa-camera-retro"></i></span></a>
+					</div>	
+					<div>
+						<h2>Создание <strong class="strong">Gentoo LiveUSB</strong></h2><a class="a" href="https://wiki.gentoo.org/wiki/LiveUSB/Guide#Windows"><span class="hero-icon deeppurple bomb-boom"><i class="main fa fa-bomb"></i></span></a>
+					</div>
+					<div>
+						<h2><strong class="strong">Initramfs</strong> Руководство</h2><a class="a" href="https://wiki.gentoo.org/wiki/Initramfs/Guide/ru"><span class="hero-icon red bolt-strike"><i class="main fa fa-feather-alt"></i></span></a>
+                    </div>
+				    <div>
+						<h5>Полезные<br>ссылки &hearts;</h5>  
+						<h4>Click to open/close</h4>							
+                    </div>
+				</div><br>
+				<div class="kartinka5"><a class="a steps cursorG1" href="Gentoo3.html#sg15"><img src="Gentoo/steps.png" alt="настройка wifi"></a></div>
+       </div><!--
+       --><div class="section11">
+           <h2 class="p2 p3">Продаются<br>книги</h2>
+           <div class="kartinka5">
+           <figure class='book'>
+              <!-- Front -->
+                <ul class='paperback_front front_black'>
+					<li><img src="book/images/Access2000.jpg" alt=""></li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnA">2000г.Москва, Издательский дом, Вильямс,1148c.,ISBN 5-8459-0043-3, 0-7897-1606-2 Данная книга предназначена для тех, кто намерен овладеть всей мощью 32 - разрядной системы разработки базы данных Access 2000. Специальное издание. </p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back black'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 <div class='book2'></div>
+		 <div class="kartinka5">
+		 <figure class='book'>
+                <!-- Front --> 
+                <ul class='paperback_front front_purple'>
+					<li><img src="book/images/Fhotoshop.jpg" alt="Утилита e2fsck">
+					</li>
+					<li></li>
+				</ul>
+                <!-- Pages -->
+                <ul class='ruled_paper'>
+					<li></li>
+					<li class='ruledpaper'><div><a class="a" href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!"><p class="btnF">Книга предназначена для фотографов,дизайнеров, художников, оформителей и всех тех,кто причастен к миру компьютерной графики.Отличительной чертой книги является подход к обучению.В качестве примеров в этой книге,предлагается пройти все стадии решения задач,с которыми приходится сталкиваться при компьютерной обработке и усовершенствовании фотоизображений.</p></a></div></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+                <!-- Back -->
+                <ul class='paperback_back purple'>
+					<li></li>
+					<li></li>
+				</ul>
+		 </figure>
+		 </div>
+		 </div>
+                <div  id="php" class="kartinka5 music4">
+                      <a class="a" target="_blank" href="//www.linuxtosha.ru/comments.php"> 
+                      <span class="four arrow">Оставить отзыв</span>
+                     </a>
+                    </div>
+                <div class="owl-carousel">
+                    <div class="inner-testimonial">
+				    	    <img src="Comments/microphone.png" class="full-opacity"  alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+							<img src="Comments/gramophone.png" alt="операционная система">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+				    <div class="inner-testimonial">
+				    		<img src="Comments/camera.png" alt="дистрибутивы linux">
+				    		<h2 class="name gray">Здесь будет Ваше имя и город!</h2>
+				    		<p class="text-testimonial gray">Николай: <b class="Romantique">Я знаю, у Вас уйма вопросов! На многие из них можете получить ответы прямо сейчас.</b></p>
+				    </div>
+                </div> 
+    </section>
+     <section class="group section2 sandbox"><canvas id="canvas-radial"></canvas>
+       <div class="kartinka2"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-1">
+        <h2 class="desL">Установи и<br>БУДЕШЬ СЧАСТЛИВ!</h2>
+       </div></a>
+      </div>
+      <div class="kartinka3"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+       <div class="sticker example-sticker1 example-2">
+        <h2 class="desR">Спасибо, Господи, что взял деньгами...</h2>
+       </div></a>
+      </div>
+      <div class="kartinka5 money">   
+       <div class="music2"><a target="_blank" href="https://paypal.me/InstullingLinux">
+       <div class="photoDollar" data-title='"Экономия - способ тратить деньги без удовольствия." Арман Салакру'>
+       <div class="thankyou"><img src="Соцсети/ДваДоллара.png" alt="тор браузер"></div></div></a></div>
+       <div class="music2"><a class="moneyY" target="_blank" href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056">
+           <div class="kartinka12"><img src="Соцсети/Yandex_money.png" alt="Yandex money"></div>
+           <span class="kartinka5"><iframe class="moneyY1" src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%D1%83&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&comment=on&hint=%D0%95%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%2C%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9!&successURL=http%3A%2F%2Fnikolay.interviewonline.ru&quickpay=shop&account=410014564150056" width="268" height="320" frameborder="0" allowtransparency="true" scrolling="no"></iframe></span></a>
+        </div>
+        <div class="music2 payeerthumbs kartinka5"><a href="https://payeer.com/014974131" target="_blank"><div class="payeer"></div></a>
+               <div class="payeercaption">
+               <span class="payeertitle">Помощь сайту!<br>
+               Номер счёта: P1033771335
+               </span>
+               </div>
+        </div>
+        <div class="music2 thumbs kartinka5"><a target="_blank" href="Bitcoin.html#"><div class="bitcoin"></div></a>
+           <div class="caption">
+              <span class="title"><b class="thumbsb">Приму в добрые руки!</b><br>
+                 <b class="thumbsb">Bitcoin</b> 3LN3XUH45XvnRWCgYr4ZcB4P51zfPzKXYe<br>
+                 <b class="thumbsb">Dash</b> XhaN3NWmxSXKK8dMpzotWSBk5As6KvFxog<br>
+                 <b class="thumbsb">Dogecoin</b> DL1LyCQkKEUrgBBuWBbgvzb2RR5yeW5RQ9<br>
+                 <b class="thumbsb">Litecoin</b> ltc1qr5ntqxafw9jcmq5jfgdhrm0uq306mqntntmhwf<br>
+                 <b class="thumbsb">Ethereum</b> 0x0A476b0Fa1DF5a97c911AF4271897153800D23Db<br>
+                 <b class="thumbsb">Cardano</b><br>addr1q8q2ratx2fj3gnfj7y8vmggaj0wmyxs0r2lh6v5sfvkqeuwfwcteneggk0dhkv42u75ykq0f2vlgac5738urscf0ef6sr65rsw<br>
+                 <b class="thumbsb">Ryo</b><br> RYoLsdrYL7sTGXUrtvC9BLLTqTq3YfHdLga33GyhBy4sJ9zV7P8N49RKZmZpU563QsbBLC1UobmCTcwp1QnD6pAXStEtyxVerqn<br>
+                 <b class="thumbsb">Monero</b><br> 4B8tc66Y136YHHEGSioVnpSAW7H5qU5W5MSaXH9RX2QSW6Uy6fFba2S7SndPsJqCXaH7Q4mLduGgZ1UXDx1FAgpoK4Rzvow
+              </span>
+           </div>
+        </div>
+        <div class="music2"><a target="_blank" href="https://www.blockchain.com/"><div class="scrooge photoB" data-title="Приму всё, что не пожелаете!!!"><img src="Соцсети/Scrooge.png" alt="Scrooge"><div class="scroogeroller"><div class="roller"><img src="Соцсети/dollar.png" alt="Dollar"><div class="rollerR1"><img src="Соцсети/ruble1.png" alt="Ruble"><div class="rollerR"><img src="Соцсети/ruble.png" alt="Ruble"><div class="rollerG"><img src="Соцсети/gold.png" alt="Gold"></div></div></div></div></div></div></a>
+        </div>
+      </div>
+      <nav class="navigation1">
+       <ul class="dropdown">
+       <li class="dropdown-top radiusF music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right home" href="index.html"><img src="Будка.gif" alt="настройка wifi"><span>home</span></a>
+          <ul class="dropdown-inside">
+            <li class="music"><a class="hvr-curl-bottom-right" href="Bitcoin.html"><span>Bitcoin Electrum Exodus Monero Ryo Dogecoin Litecoin Dash MyCrypto Daedalus Peps Cgminer Xmr-stak</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Полезные-советы.html"><span>advices</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Qemu.html"><span>qemu</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="virtualbox.html"><span>virtualbox</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Wine.html"><span>wine on gentoo</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Gentoo.html"><span>gentoo</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo1.html"><span>gentoo 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo2.html"><span>gentoo 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Gentoo3.html"><span>gentoo 3</span></a></li>
+           <li class="hvr-curl music"><a><span>gentoo 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Lfs.html"><span>Linux с нуля</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs1.html"><span>Linux с нуля 1</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs2.html"><span>Linux с нуля 2</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs3.html"><span>Linux с нуля 3</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="Lfs4.html"><span>Linux с нуля 4</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Zfs.html"><span>zfs</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Centos.html"><span>centos & red hat</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Samba.html"><span>samba</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="Samba1.html"><span>samba 1</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Ssh.html"><span>SSH, OpenVPN & NFS</span></a>
+       </li>
+       <li class="dropdown-top music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Html-Css.html"><span>html, css, js & git</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="СлайдШоупоЩелчку.html"><span>слайд шоу по щелчку</span></a></li>
+          </ul>
+       </li>
+       <li class="dropdown-top radiusL music Dog">
+         <a class="dropdown1 hvr-curl-bottom-right" href="Apache.html"><span>Apache & MySql</span></a>
+          <ul class="dropdown-inside">
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP.html"><span>PHP</span></a></li>
+           <li class="music"><a class="hvr-curl-bottom-right" href="PHP1.html"><span>PHP 1</span></a></li>
+          </ul>
+       </li>
+       <div class="dog"></div>
+      </ul>
+      </nav>
+      </section>
+    <footer class="group">
+       <div class="kartinka5 kartinka7">
+         <div class="socseti1"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Пишите! Будем рады: mail@linuxtosha.ru"><img src="Соцсети/ПочтовыйЯщик.png" alt="hp"></div></a>
+         </div>
+         <div class="socseti"><a href="https://www.facebook.com/">
+          <div class="photo" data-title="facebook"><img src="Соцсети/facebook.png" alt="hp драйвер"></div></a>
+         </div>
+         <div class="socseti"><a href="https://vk.com/">
+          <div class="photo" data-title="Вконтакте"><img src="Соцсети/Вконтакте.png" alt="hp laserjet"></div></a>
+         </div>
+         <div class="socseti"><a href="https://twitter.com/">
+          <div class="photo" data-title="twitter"><img src="Соцсети/twitter.png" alt="wpa_supplicant"></div></a>
+         </div>
+         <div class="socseti"><a href="https://ok.ru/">
+          <div class="photo" data-title="Однокласники"><img src="Соцсети/однокласники.png" alt="ntfs"></div></a>
+         </div>
+         <div class="socseti"><a href="https://my.mail.ru/">
+          <div class="photo" data-title="Мой Мир"><img src="Соцсети/МойМир.png" alt="настройка wifi"></div></a>
+         </div>
+         <div class="socseti"><a href="https://github.com/github">
+          <div class="photo" data-title="GitHub"><img src="Соцсети/github.png" alt=""></div></a>
+         </div>
+         <div class="socseti"><a  href="https://www.instagram.com/">
+          <div class="photo" data-title="instagram"><img src="Соцсети/instagram.png" alt="hp laserjet"></div></a>
+         </div>
+          <div class="socseti"><a href="mailto:mail@linuxtosha.ru?subject=Установка%20Linux&body=Спасибо%20за%20письмо!">
+          <div class="photo" data-title="Окажу помощь в установке операционных систем и программного обеспечения Linux."><img src="Соцсети/Help.png" alt="настройка wifi"></div></a>
+         </div>         
+       </div>
+         <p class="white p31 p11">&copy; 2014 - 
+         <script type="text/javascript">
+          function makeArray() { for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; } 
+          var months = new makeArray('Января','Февраля','Матрта','Апреля','Мая', 'Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря');
+          var date = new Date(); var day = date.getDate(); var month = date.getMonth() + 1; var yy = date.getYear(); var year = (yy < 1000) ? yy + 1900 : yy; document.write( " " + year + "г," + " " + day + " " + months[month] ); 
+         </script>.<br>
+         <a class="white p11 a music3" target="_blank" href="https://polkangennadevich.github.io/PrivacyPolicy.html">Privacy policy</a>
+         </p>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script src="ScriptHtml.js"></script>
+                     <!--Gradient-->
+        <script src="granim.min.js"></script>
+        <script type="text/javascript">var pageId = 'examples';</script>
+        <script src="gradient.js"></script>
+                     <!--Содержание-->
+        <script src="turboTicker.js" type="text/javascript"></script>
+        <script language="JavaScript">
+	     $("#runner").ticker(10, true, true);
+        </script>
+                     <!--Полезные ссылки-->
+        <script type="text/javascript" src="Curtain/modernizr.custom.79639.js"></script>
+        <script type="text/javascript" src="Gentoo/jquery.swatchbook.js"></script>
+        <script type="text/javascript">
+			$(function() {
+			    $( '#sb-container' ).swatchbook( {
+					// number of degrees that is between each item
+					angleInc : 15,
+					neighbor : 15,
+					// if it should be closed by default
+					initclosed : true,
+					// index of the element that when clicked, triggers the open/close function
+					// by default there is no such element
+					closeIdx : 9
+				} );
+			});
+		</script>
+                     <!--Stickers-->
+        <script type="text/javascript" src="Stickers/stickynote.js"></script>
+        <script type="text/javascript" src="Соцсети/jquery-ui-1.7.2.js"></script>
+        <script type="text/javascript" src="Stickers/ui.draggable.js"></script>
+	    <script type="text/javascript">
+		$(function() {
+			$("#testclick").stickynote({
+				size 			 : 'large'
+			});
+			$("#testmedium").stickynote();
+			$("#testsmall").stickynote({
+				size 			 : 'small'
+			});
+          });
+		</script>
+                     <!--Ссылка-->
+        <script src="mo.min.js"></script>
+		<script src="link.js"></script>
+		<script  src="link2.js"></script>
+		            <!--Google Analytics-->
+   <script> 
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74368123-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+                       <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(70910983, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70910983" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                      <!-- Rating Mail.ru counter -->
+   <script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3203799", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+   </script><noscript><div>
+              <img src="https://top-fwz1.mail.ru/counter?id=3203799;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+   </div></noscript>
+                      <!--Google Analytics; Yandex.Metrika counter; Rating@Mail.ru counter 2
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74368123-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-74368123-3');
+</script>
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(51939986, "init", {
+        id:51939986,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/51939986" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3077816", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "topmailru-code");
+</script><noscript><div>
+<img src="https://top-fwz1.mail.ru/counter?id=3077816;js=na" style="border:0;position:absolute;left:-9999px;" alt="Top.Mail.Ru">
+</div></noscript>
+                      <!--Конец 2-->
+         <div class="top"><a href="#top">
+          <div class="photo" data-title="Top"><img  src="naverh.png" alt="hp laserjet"></div></a>           
+         </div>
+         <div class="switchS music4"><input type="checkbox" id="switchS" class="chk" name="chk"></div>
+            <div class="kartinka5"><div id="light-bulb" class="ui-draggable off photoS" data-title="Перетащи меня" style="left:650px;top:0;"><div id="light-bulb2" style="opacity:0;"></div></div>
+            <div id="logo" class="ui-draggable photoS" data-title="Перетащи меня" style="left:-80px;top:-100px;"></div>
+            <div id="logosh" style="opacity:0;top:-100px;"></div>
+            </div>
+            <img class="DogJivosite" src="Соцсети/Dog.gif" alt="">
+                            <!--Comments-->
+        <script src="Comments/owl.carousel.min.js"></script>
+	    <script src="Comments/custom.js"></script>
+                            <!--Email-->
+        <script type="text/javascript" src="Соцсети/index.js"></script>
+		<script type="text/javascript" src="Соцсети/script.js"></script>
+		                    <!--Bells-->
+        <audio id="sound-link" preload="auto">
+          <source src="bells/DogYap.mp3" type="audio/mpeg">
+          <source src="bells/DogYap.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link1" preload="auto">
+          <source src="bells/chpok.mp3" type="audio/mpeg">
+          <source src="bells/chpok.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link2" preload="auto">
+          <source src="bells/перелив.mp3" type="audio/mpeg">
+          <source src="bells/перелив.ogg" type="audio/ogg">
+        </audio>
+        <audio id="sound-link3" preload="auto">
+          <source src="bells/switch.mp3" type="audio/mpeg">
+          <source src="bells/switch.ogg" type="audio/ogg">
+        </audio>
+        <script>
+               var soundLink = $("#sound-link")[0];
+               $(".music a").mousedown(function() {
+                   soundLink.play();
+               });
+        </script>
+        <script>
+               var soundLink1 = $("#sound-link1")[0];
+               $(".music1 a").mousedown(function() {
+                   soundLink1.play();
+               });
+        </script>
+        <script>
+               var soundLink2 = $("#sound-link2")[0];
+               $(".music2 a").mouseenter(function() {
+                   soundLink2.play();
+               });
+        </script>
+        <script>
+               var soundLink4 = $("#sound-link3")[0];
+               $(".music4").mousedown(function() {
+                   soundLink4.play();
+               });
+        </script>
+                             <!--Promotion-->
+        <script src="promotion.js"></script>
+        <script>
+          var stage = new swiffy.Stage(document.getElementById('promotion'),
+          swiffyob, {});
+          stage.start();
+        </script>
+                             <!--JIVOSITE CODE
+        <script src="//code-ya.jivosite.com/widget/7czPg8B9Ch" async></script>-->
+    </footer>
+                           <!--Stickers2; Preloader-->
+        <script src="Stickers/sticker.js"></script>
+        <script>
+              window.onload = function () {
+              // Preloader
+              document.body.classList.add('loaded_hiding');
+              window.setTimeout(function () {
+              document.body.classList.add('loaded');
+              document.body.classList.remove('loaded_hiding');
+              }, 500);
+              // Stickers2
+              Sticker.init('.sticker');
+              }
+        </script>
+   </body>
+</html>
